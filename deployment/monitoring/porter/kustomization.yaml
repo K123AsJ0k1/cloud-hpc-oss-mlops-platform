@@ -1,4 +1,4 @@
 resources:
-- deployment.yaml
-- service.yaml
-- permissions.yaml
+- porter-permissions.yaml
+- porter-deployment.yaml
+- porter-service.yaml
