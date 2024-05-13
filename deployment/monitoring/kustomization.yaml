@@ -3,6 +3,5 @@ namespace: monitoring
 resources:
   - monitoring-namespace.yaml
   - prometheus/
-  - prometheus-pushgateway/
-  - alert-manager/
   - grafana/
+  - porter/

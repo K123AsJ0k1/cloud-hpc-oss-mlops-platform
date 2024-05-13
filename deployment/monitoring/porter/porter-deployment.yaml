@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: porter-server
+  labels:
+    app: porter-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: porter-server
+  template:
+    metadata:
+      labels:
+        app: porter-server
+    spec:
+      serviceAccountName: porter-sa
+      containers:
+        - name: porter-server
+          image: t9k4b5ndjok1/cloud-hpc-integration:porter_v0.95.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5555
+      

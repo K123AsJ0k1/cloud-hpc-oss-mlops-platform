@@ -20,7 +20,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: postgres
-          image: postgres:13
+          image: postgres:16.3
           envFrom:
             - configMapRef:
                 name: postgres-config
