@@ -1,0 +1,542 @@
+{
+    "bridge": {
+        "1": {
+            "name": "check-job-enviroment",
+            "total-seconds": 7.16955
+        },
+        "2": {
+            "name": "setup-job-enviroment",
+            "total-seconds": 25.16261
+        },
+        "3": {
+            "name": "check-remote-file",
+            "total-seconds": 4.13194
+        },
+        "4": {
+            "name": "send-job-key",
+            "total-seconds": 6.86244
+        },
+        "5": {
+            "name": "send-job-file",
+            "total-seconds": 5.06437
+        }
+    },
+    "cancel": {
+        "1": {
+            "name": "complete-job",
+            "total-seconds": 0.2759
+        },
+        "2": {
+            "name": "complete-job",
+            "total-seconds": 2.0338
+        },
+        "3": {
+            "name": "complete-job",
+            "total-seconds": 2.03326
+        },
+        "4": {
+            "name": "complete-job",
+            "total-seconds": 0.08727
+        },
+        "5": {
+            "name": "complete-job",
+            "total-seconds": 2.06852
+        },
+        "6": {
+            "name": "complete-job",
+            "total-seconds": 2.03427
+        },
+        "7": {
+            "name": "complete-job",
+            "total-seconds": 2.03638
+        },
+        "8": {
+            "name": "complete-job",
+            "total-seconds": 0.20302
+        },
+        "9": {
+            "name": "complete-job",
+            "total-seconds": 0.33878
+        },
+        "10": {
+            "name": "complete-job",
+            "total-seconds": 1.79196
+        },
+        "11": {
+            "name": "complete-job",
+            "total-seconds": 4.23823
+        },
+        "12": {
+            "name": "complete-job",
+            "total-seconds": 6.89545
+        },
+        "13": {
+            "name": "complete-job",
+            "total-seconds": 7.01777
+        },
+        "14": {
+            "name": "complete-job",
+            "total-seconds": 7.29328
+        },
+        "15": {
+            "name": "complete-job",
+            "total-seconds": 4.22935
+        },
+        "16": {
+            "name": "complete-job",
+            "total-seconds": 8.13099
+        },
+        "17": {
+            "name": "complete-job",
+            "total-seconds": 8.14161
+        },
+        "18": {
+            "name": "complete-job",
+            "total-seconds": 6.02151
+        },
+        "19": {
+            "name": "complete-job",
+            "total-seconds": 8.39097
+        },
+        "20": {
+            "name": "halt-job",
+            "total-seconds": 3.97348
+        },
+        "21": {
+            "name": "complete-job",
+            "total-seconds": 17.03068
+        },
+        "22": {
+            "name": "complete-job",
+            "total-seconds": 1.20442
+        },
+        "23": {
+            "name": "complete-job",
+            "total-seconds": 0.24267
+        },
+        "24": {
+            "name": "complete-job",
+            "total-seconds": 4.21605
+        },
+        "25": {
+            "name": "complete-job",
+            "total-seconds": 0.24399
+        },
+        "26": {
+            "name": "complete-job",
+            "total-seconds": 1.12675
+        },
+        "27": {
+            "name": "complete-job",
+            "total-seconds": 1.0503
+        },
+        "28": {
+            "name": "complete-job",
+            "total-seconds": 2.07713
+        },
+        "29": {
+            "name": "complete-job",
+            "total-seconds": 4.20775
+        },
+        "30": {
+            "name": "complete-job",
+            "total-seconds": 0.0954
+        }
+    },
+    "monitor": {
+        "1": {
+            "name": "gather-metrics",
+            "total-seconds": 0.07788
+        },
+        "2": {
+            "name": "gather-metrics",
+            "total-seconds": 0.03563
+        },
+        "3": {
+            "name": "gather-metrics",
+            "total-seconds": 0.07889
+        },
+        "4": {
+            "name": "gather-metrics",
+            "total-seconds": 0.03566
+        },
+        "5": {
+            "name": "gather-metrics",
+            "total-seconds": 0.03514
+        },
+        "6": {
+            "name": "gather-metrics",
+            "total-seconds": 0.08032
+        },
+        "7": {
+            "name": "gather-metrics",
+            "total-seconds": 0.0784
+        },
+        "8": {
+            "name": "gather-metrics",
+            "total-seconds": 0.05942
+        },
+        "9": {
+            "name": "gather-metrics",
+            "total-seconds": 0.07951
+        },
+        "10": {
+            "name": "gather-metrics",
+            "total-seconds": 0.0376
+        },
+        "11": {
+            "name": "gather-metrics",
+            "total-seconds": 0.03436
+        },
+        "12": {
+            "name": "gather-metrics",
+            "total-seconds": 0.0401
+        },
+        "13": {
+            "name": "gather-metrics",
+            "total-seconds": 0.03447
+        },
+        "14": {
+            "name": "gather-metrics",
+            "total-seconds": 0.08158
+        },
+        "15": {
+            "name": "gather-metrics",
+            "total-seconds": 0.03473
+        },
+        "16": {
+            "name": "gather-metrics",
+            "total-seconds": 0.08391
+        },
+        "17": {
+            "name": "gather-metrics",
+            "total-seconds": 0.03548
+        },
+        "18": {
+            "name": "gather-metrics",
+            "total-seconds": 0.07693
+        },
+        "19": {
+            "name": "gather-metrics",
+            "total-seconds": 0.0353
+        },
+        "20": {
+            "name": "gather-metrics",
+            "total-seconds": 0.1174
+        },
+        "21": {
+            "name": "gather-metrics",
+            "total-seconds": 0.16527
+        },
+        "22": {
+            "name": "gather-metrics",
+            "total-seconds": 0.11732
+        },
+        "23": {
+            "name": "gather-metrics",
+            "total-seconds": 0.11057
+        },
+        "24": {
+            "name": "store-seff",
+            "total-seconds": 7.83777
+        },
+        "25": {
+            "name": "store-logs",
+            "total-seconds": 3.90311
+        },
+        "26": {
+            "name": "store-sacct",
+            "total-seconds": 4.25679
+        },
+        "27": {
+            "name": "store-metrics",
+            "total-seconds": 31.63055
+        },
+        "28": {
+            "name": "gather-metrics",
+            "total-seconds": 32.36986
+        },
+        "29": {
+            "name": "gather-metrics",
+            "total-seconds": 0.0449
+        },
+        "30": {
+            "name": "gather-metrics",
+            "total-seconds": 0.07689
+        },
+        "31": {
+            "name": "gather-metrics",
+            "total-seconds": 0.07936
+        },
+        "32": {
+            "name": "gather-metrics",
+            "total-seconds": 0.08725
+        },
+        "33": {
+            "name": "gather-metrics",
+            "total-seconds": 0.07982
+        }
+    },
+    "setup": {
+        "1": {
+            "name": "configure-remote-enviroment",
+            "total-seconds": 58.8297
+        },
+        "2": {
+            "name": "check-and-setup",
+            "total-seconds": 61.1655
+        }
+    },
+    "submit": {
+        "1": {
+            "name": "run-job",
+            "total-seconds": 7.80152
+        },
+        "2": {
+            "name": "check-job",
+            "total-seconds": 3.56926
+        },
+        "3": {
+            "name": "check-job",
+            "total-seconds": 3.82877
+        },
+        "4": {
+            "name": "check-job",
+            "total-seconds": 3.78514
+        },
+        "5": {
+            "name": "check-job",
+            "total-seconds": 3.60821
+        },
+        "6": {
+            "name": "check-job",
+            "total-seconds": 3.53172
+        },
+        "7": {
+            "name": "check-job",
+            "total-seconds": 3.85472
+        },
+        "8": {
+            "name": "check-job",
+            "total-seconds": 3.7872
+        },
+        "9": {
+            "name": "check-job",
+            "total-seconds": 3.61587
+        },
+        "10": {
+            "name": "check-job",
+            "total-seconds": 4.02074
+        },
+        "11": {
+            "name": "check-job",
+            "total-seconds": 4.20649
+        }
+    },
+    "task": {
+        "1": {
+            "name": "monitor",
+            "total-seconds": 0.84733
+        },
+        "2": {
+            "name": "submitter",
+            "total-seconds": 0.03701
+        },
+        "3": {
+            "name": "monitor",
+            "total-seconds": 2.50116
+        },
+        "4": {
+            "name": "submitter",
+            "total-seconds": 0.30677
+        },
+        "5": {
+            "name": "monitor",
+            "total-seconds": 2.62755
+        },
+        "6": {
+            "name": "submitter",
+            "total-seconds": 0.22896
+        },
+        "7": {
+            "name": "monitor",
+            "total-seconds": 0.60645
+        },
+        "8": {
+            "name": "submitter",
+            "total-seconds": 2.03414
+        },
+        "9": {
+            "name": "monitor",
+            "total-seconds": 2.84083
+        },
+        "10": {
+            "name": "monitor",
+            "total-seconds": 2.69466
+        },
+        "11": {
+            "name": "submitter",
+            "total-seconds": 0.0398
+        },
+        "12": {
+            "name": "monitor",
+            "total-seconds": 2.772
+        },
+        "13": {
+            "name": "submitter",
+            "total-seconds": 0.30718
+        },
+        "14": {
+            "name": "monitor",
+            "total-seconds": 0.71071
+        },
+        "15": {
+            "name": "monitor",
+            "total-seconds": 0.84836
+        },
+        "16": {
+            "name": "monitor",
+            "total-seconds": 2.52348
+        },
+        "17": {
+            "name": "submitter",
+            "total-seconds": 69.29438
+        },
+        "18": {
+            "name": "monitor",
+            "total-seconds": 4.65426
+        },
+        "19": {
+            "name": "submitter",
+            "total-seconds": 2.00344
+        },
+        "20": {
+            "name": "monitor",
+            "total-seconds": 7.37074
+        },
+        "21": {
+            "name": "submitter",
+            "total-seconds": 2.65911
+        },
+        "22": {
+            "name": "monitor",
+            "total-seconds": 7.47184
+        },
+        "23": {
+            "name": "submitter",
+            "total-seconds": 0.95137
+        },
+        "24": {
+            "name": "monitor",
+            "total-seconds": 7.81477
+        },
+        "25": {
+            "name": "submitter",
+            "total-seconds": 0.33454
+        },
+        "26": {
+            "name": "monitor",
+            "total-seconds": 4.60116
+        },
+        "27": {
+            "name": "monitor",
+            "total-seconds": 8.69163
+        },
+        "28": {
+            "name": "submitter",
+            "total-seconds": 0.05796
+        },
+        "29": {
+            "name": "monitor",
+            "total-seconds": 8.53384
+        },
+        "30": {
+            "name": "submitter",
+            "total-seconds": 3.82583
+        },
+        "31": {
+            "name": "monitor",
+            "total-seconds": 6.588
+        },
+        "32": {
+            "name": "submitter",
+            "total-seconds": 1.82735
+        },
+        "33": {
+            "name": "monitor",
+            "total-seconds": 8.88218
+        },
+        "34": {
+            "name": "submitter",
+            "total-seconds": 0.20736
+        },
+        "35": {
+            "name": "monitor",
+            "total-seconds": 17.53613
+        },
+        "36": {
+            "name": "monitor",
+            "total-seconds": 1.87076
+        },
+        "37": {
+            "name": "submitter",
+            "total-seconds": 0.07951
+        },
+        "38": {
+            "name": "monitor",
+            "total-seconds": 0.8737
+        },
+        "39": {
+            "name": "submitter",
+            "total-seconds": 0.21935
+        },
+        "40": {
+            "name": "monitor",
+            "total-seconds": 4.72492
+        },
+        "41": {
+            "name": "submitter",
+            "total-seconds": 2.24282
+        },
+        "42": {
+            "name": "monitor",
+            "total-seconds": 33.01562
+        },
+        "43": {
+            "name": "submitter",
+            "total-seconds": 1.05358
+        },
+        "44": {
+            "name": "monitor",
+            "total-seconds": 1.81858
+        },
+        "45": {
+            "name": "monitor",
+            "total-seconds": 1.7358
+        },
+        "46": {
+            "name": "submitter",
+            "total-seconds": 0.07968
+        },
+        "47": {
+            "name": "monitor",
+            "total-seconds": 2.56289
+        },
+        "48": {
+            "name": "submitter",
+            "total-seconds": 0.21101
+        },
+        "49": {
+            "name": "monitor",
+            "total-seconds": 4.69788
+        },
+        "50": {
+            "name": "submitter",
+            "total-seconds": 0.24333
+        },
+        "51": {
+            "name": "monitor",
+            "total-seconds": 0.64854
+        }
+    }
+}

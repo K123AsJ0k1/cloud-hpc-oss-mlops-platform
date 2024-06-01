@@ -1,0 +1,58 @@
+{
+    "components": {
+        "1": {
+            "name": "integration-preprocessing",
+            "total-seconds": 3.51415
+        },
+        "2": {
+            "name": "integration-train",
+            "total-seconds": 722.39365
+        },
+        "3": {
+            "name": "integration-evaluation",
+            "total-seconds": 0.09836
+        },
+        "4": {
+            "name": "integration-clear",
+            "total-seconds": 0.0308
+        }
+    },
+    "gather": {
+        "1": {
+            "name": "bridge-gather",
+            "total-seconds": 143.835
+        }
+    },
+    "job": {
+        "1": {
+            "name": "bridge-job",
+            "total-seconds": 405.18148493766785
+        }
+    },
+    "pipeline": {
+        "1": {
+            "name": "bridge-pipeline",
+            "total-seconds": 683.9799818992615
+        }
+    },
+    "ray-job": {
+        "1": {
+            "name": "remote-model-training",
+            "total-seconds": 313.11707
+        },
+        "2": {
+            "name": "exp-train",
+            "total-seconds": 320.12048
+        }
+    },
+    "workflow": {
+        "1": {
+            "name": "integration-pipeline",
+            "total-seconds": 1058.83078
+        },
+        "2": {
+            "name": "kubeflow-pipeline",
+            "total-seconds": 1176.24495
+        }
+    }
+}

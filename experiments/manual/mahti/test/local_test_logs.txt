@@ -1,0 +1,62 @@
+Starting batch job
+Swiftclient version is:4.5.0
+Torch version is:2.3.0+cu121
+Torchmetrics version is:1.4.0
+Setting Allas client
+Allas client setup
+Getting data
+Data loaded
+Training
+Defining model
+Defining metrics
+Starting model training
+Epoch: 1/5, Batch 2000, Loss: 1.479656490302179, Accuracy: 0.468, Precision: 0.51, Recall: 0.468
+Epoch: 1/5, Batch 4000, Loss: 0.7224705411517062, Accuracy: 0.721, Precision: 0.713, Recall: 0.721
+Epoch: 1/5, Batch 6000, Loss: 0.6109513497052249, Accuracy: 0.765, Precision: 0.759, Recall: 0.765
+Epoch: 1/5, Batch 8000, Loss: 0.5599310955705586, Accuracy: 0.787, Precision: 0.781, Recall: 0.787
+Epoch: 1/5, Batch 10000, Loss: 0.5098107552874717, Accuracy: 0.812, Precision: 0.807, Recall: 0.812
+Epoch: 1/5, Batch 12000, Loss: 0.4676041106015618, Accuracy: 0.827, Precision: 0.824, Recall: 0.827
+Epoch: 1/5, Batch 14000, Loss: 0.4437285172127777, Accuracy: 0.833, Precision: 0.831, Recall: 0.833
+Epoch: 2/5, Batch 2000, Loss: 0.40576349742061574, Accuracy: 0.847, Precision: 0.845, Recall: 0.847
+Epoch: 2/5, Batch 4000, Loss: 0.3860126864603226, Accuracy: 0.852, Precision: 0.85, Recall: 0.852
+Epoch: 2/5, Batch 6000, Loss: 0.3877169476982963, Accuracy: 0.859, Precision: 0.858, Recall: 0.859
+Epoch: 2/5, Batch 8000, Loss: 0.3962149489763869, Accuracy: 0.854, Precision: 0.852, Recall: 0.854
+Epoch: 2/5, Batch 10000, Loss: 0.3769722596926731, Accuracy: 0.858, Precision: 0.856, Recall: 0.858
+Epoch: 2/5, Batch 12000, Loss: 0.3629986380313203, Accuracy: 0.867, Precision: 0.866, Recall: 0.867
+Epoch: 2/5, Batch 14000, Loss: 0.36585198128303453, Accuracy: 0.871, Precision: 0.87, Recall: 0.871
+Epoch: 3/5, Batch 2000, Loss: 0.34218833622998135, Accuracy: 0.872, Precision: 0.871, Recall: 0.872
+Epoch: 3/5, Batch 4000, Loss: 0.33300145705085743, Accuracy: 0.88, Precision: 0.879, Recall: 0.88
+Epoch: 3/5, Batch 6000, Loss: 0.33499559072557167, Accuracy: 0.871, Precision: 0.871, Recall: 0.871
+Epoch: 3/5, Batch 8000, Loss: 0.3212084898048852, Accuracy: 0.879, Precision: 0.878, Recall: 0.879
+Epoch: 3/5, Batch 10000, Loss: 0.3223497112498144, Accuracy: 0.884, Precision: 0.883, Recall: 0.884
+Epoch: 3/5, Batch 12000, Loss: 0.32999090824643373, Accuracy: 0.878, Precision: 0.877, Recall: 0.878
+Epoch: 3/5, Batch 14000, Loss: 0.32440925793426867, Accuracy: 0.878, Precision: 0.877, Recall: 0.878
+Epoch: 4/5, Batch 2000, Loss: 0.3078009313973598, Accuracy: 0.882, Precision: 0.881, Recall: 0.882
+Epoch: 4/5, Batch 4000, Loss: 0.3020083583482919, Accuracy: 0.887, Precision: 0.887, Recall: 0.887
+Epoch: 4/5, Batch 6000, Loss: 0.30545593324263065, Accuracy: 0.89, Precision: 0.889, Recall: 0.89
+Epoch: 4/5, Batch 8000, Loss: 0.3039410204235842, Accuracy: 0.893, Precision: 0.892, Recall: 0.893
+Epoch: 4/5, Batch 10000, Loss: 0.29423592360899237, Accuracy: 0.891, Precision: 0.89, Recall: 0.891
+Epoch: 4/5, Batch 12000, Loss: 0.2951396309066913, Accuracy: 0.892, Precision: 0.892, Recall: 0.892
+Epoch: 4/5, Batch 14000, Loss: 0.30373575210839043, Accuracy: 0.884, Precision: 0.883, Recall: 0.884
+Epoch: 5/5, Batch 2000, Loss: 0.2941046224021502, Accuracy: 0.89, Precision: 0.89, Recall: 0.89
+Epoch: 5/5, Batch 4000, Loss: 0.29211688624073756, Accuracy: 0.896, Precision: 0.895, Recall: 0.896
+Epoch: 5/5, Batch 6000, Loss: 0.29433419465721455, Accuracy: 0.89, Precision: 0.889, Recall: 0.89
+Epoch: 5/5, Batch 8000, Loss: 0.26668751820406034, Accuracy: 0.903, Precision: 0.902, Recall: 0.903
+Epoch: 5/5, Batch 10000, Loss: 0.2711083452451167, Accuracy: 0.899, Precision: 0.898, Recall: 0.899
+Epoch: 5/5, Batch 12000, Loss: 0.2863493288474729, Accuracy: 0.891, Precision: 0.891, Recall: 0.891
+Epoch: 5/5, Batch 14000, Loss: 0.28093871833223827, Accuracy: 0.896, Precision: 0.896, Recall: 0.896
+Training complete
+Starting model testing
+Testing complete
+Storing created artifacts
+Predictions object path:EXPERIMENT/ARTIFACTS/local-predictions
+Prediction storing status:True
+Formatting model parameters
+Predictions object path:EXPERIMENT/ARTIFACTS/local-parameters
+Parameters storing status:True
+Formatting model metrics
+Formatting used time
+Predictions object path:EXPERIMENT/ARTIFACTS/local-metrics
+Metrics storing status:True
+Training done
+Batch job Complete

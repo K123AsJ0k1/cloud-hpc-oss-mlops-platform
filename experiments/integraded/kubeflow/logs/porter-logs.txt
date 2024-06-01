@@ -1,0 +1,181 @@
+2024-05-27 12:14:02,762 - WARNING - porter-logger - Kube config error
+2024-05-27 12:14:02,762 - WARNING - porter-logger - Invalid kube-config file. No configuration found.
+2024-05-27 12:14:02,763 - INFO - porter-logger - Choosen kubernetes client config is incluster config
+2024-05-27 12:14:02,763 - INFO - porter-logger - Choosen enviroment is production
+2024-05-27 12:14:02,763 - INFO - porter-logger - Kubernetes client regular, custom and delete options ready
+2024-05-27 12:14:02,794 - INFO - porter-logger - Routes imported
+2024-05-27 12:14:02,799 - INFO - porter-logger - Routes registered
+2024-05-27 12:14:02,799 - INFO - porter-logger - Porter ready
+2024-05-27 12:32:45,713 - INFO - porter-logger - Scheduler running
+2024-05-27 12:32:46,141 - INFO - porter-logger - Job sent by user@example.com has been started
+2024-05-27 12:33:25,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:33:25,806 - INFO - porter-logger - The keys of jobs checked in range 0-1
+2024-05-27 12:33:26,182 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 0-8
+2024-05-27 12:33:26,182 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 0-8
+2024-05-27 12:33:26,182 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 0-14
+2024-05-27 12:33:26,689 - INFO - porter-logger - The keys of user@example.com-submitter-BRIDGE-components checked in range 0-1
+2024-05-27 12:33:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:33:47,477 - INFO - porter-logger - Bridge creation result:
+namespace/bridge-user-example-com created
+endpoints/ray-dashboard created
+service/ray-dashboard created
+
+2024-05-27 12:33:48,085 - INFO - porter-logger - Bridges for user@example.com have been properly created
+2024-05-27 12:34:05,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:34:05,936 - INFO - porter-logger - The keys of bridges checked in range 0-6
+2024-05-27 12:34:05,936 - INFO - porter-logger - The keys of task checked in range 0-2
+2024-05-27 12:34:06,285 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-bridge checked in range 0-2
+2024-05-27 12:34:06,285 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 8-9
+2024-05-27 12:34:06,285 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 8-9
+2024-05-27 12:34:06,285 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 14-15
+2024-05-27 12:34:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:34:45,703 - INFO - porter-logger - Running monitor
+2024-05-27 12:34:46,761 - INFO - porter-logger - The keys of bridges checked in range 6-9
+2024-05-27 12:34:46,761 - INFO - porter-logger - The keys of task checked in range 2-3
+2024-05-27 12:34:47,091 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-bridge checked in range 2-5
+2024-05-27 12:34:47,092 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 9-10
+2024-05-27 12:34:47,092 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 9-10
+2024-05-27 12:34:47,092 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-setup checked in range 0-2
+2024-05-27 12:34:47,092 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-submit checked in range 0-1
+2024-05-27 12:34:47,092 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 15-17
+2024-05-27 12:35:25,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:35:26,054 - INFO - porter-logger - The keys of task checked in range 3-5
+2024-05-27 12:35:26,493 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 10-11
+2024-05-27 12:35:26,493 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 10-11
+2024-05-27 12:35:26,493 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-submit checked in range 1-2
+2024-05-27 12:35:26,493 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 17-19
+2024-05-27 12:35:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:36:05,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:36:05,908 - INFO - porter-logger - The keys of bridges checked in range 9-12
+2024-05-27 12:36:05,908 - INFO - porter-logger - The keys of task checked in range 5-7
+2024-05-27 12:36:06,362 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 11-12
+2024-05-27 12:36:06,362 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 11-12
+2024-05-27 12:36:06,362 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-submit checked in range 2-3
+2024-05-27 12:36:06,362 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 19-21
+2024-05-27 12:36:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:36:45,705 - INFO - porter-logger - Running monitor
+2024-05-27 12:36:46,057 - INFO - porter-logger - The keys of task checked in range 7-8
+2024-05-27 12:36:46,977 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 12-13
+2024-05-27 12:36:46,978 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 12-13
+2024-05-27 12:36:46,978 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-submit checked in range 3-4
+2024-05-27 12:36:46,978 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 21-22
+2024-05-27 12:37:25,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:37:25,958 - INFO - porter-logger - The keys of bridges checked in range 12-15
+2024-05-27 12:37:25,958 - INFO - porter-logger - The keys of task checked in range 8-10
+2024-05-27 12:37:26,345 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 13-14
+2024-05-27 12:37:26,345 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 13-14
+2024-05-27 12:37:26,346 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-submit checked in range 4-5
+2024-05-27 12:37:26,346 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 22-24
+2024-05-27 12:37:45,702 - INFO - porter-logger - Running scaler
+2024-05-27 12:38:05,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:38:05,990 - INFO - porter-logger - The keys of bridges checked in range 15-18
+2024-05-27 12:38:05,991 - INFO - porter-logger - The keys of task checked in range 10-12
+2024-05-27 12:38:06,404 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 14-15
+2024-05-27 12:38:06,404 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 14-15
+2024-05-27 12:38:06,404 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-submit checked in range 5-6
+2024-05-27 12:38:06,404 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 24-26
+2024-05-27 12:38:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:38:45,703 - INFO - porter-logger - Running monitor
+2024-05-27 12:38:46,458 - INFO - porter-logger - The keys of bridges checked in range 18-21
+2024-05-27 12:38:46,458 - INFO - porter-logger - The keys of task checked in range 12-14
+2024-05-27 12:38:46,774 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 15-16
+2024-05-27 12:38:46,775 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 15-16
+2024-05-27 12:38:46,775 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-submit checked in range 6-7
+2024-05-27 12:38:46,775 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 26-28
+2024-05-27 12:39:25,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:39:25,902 - INFO - porter-logger - The keys of task checked in range 14-15
+2024-05-27 12:39:26,296 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 16-17
+2024-05-27 12:39:26,297 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 16-17
+2024-05-27 12:39:26,297 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-submit checked in range 7-8
+2024-05-27 12:39:26,297 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 28-30
+2024-05-27 12:39:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:40:05,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:40:05,942 - INFO - porter-logger - The keys of bridges checked in range 21-24
+2024-05-27 12:40:05,943 - INFO - porter-logger - The keys of task checked in range 15-17
+2024-05-27 12:40:06,282 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 17-18
+2024-05-27 12:40:06,282 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 17-18
+2024-05-27 12:40:06,282 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-submit checked in range 8-9
+2024-05-27 12:40:06,282 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 30-31
+2024-05-27 12:40:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:40:45,705 - INFO - porter-logger - Running monitor
+2024-05-27 12:40:46,306 - INFO - porter-logger - The keys of bridges checked in range 24-27
+2024-05-27 12:40:46,306 - INFO - porter-logger - The keys of task checked in range 17-19
+2024-05-27 12:40:46,776 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 18-19
+2024-05-27 12:40:46,776 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 18-19
+2024-05-27 12:40:46,776 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-submit checked in range 9-10
+2024-05-27 12:40:46,776 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 31-33
+2024-05-27 12:40:47,120 - INFO - porter-logger - The keys of user@example.com-submitter-BRIDGE-ray-job checked in range 0-2
+2024-05-27 12:40:52,588 - INFO - porter-logger - Job started by user@example.com has been cancelled
+2024-05-27 12:41:25,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:41:25,903 - INFO - porter-logger - The keys of jobs checked in range 1-2
+2024-05-27 12:41:25,903 - INFO - porter-logger - The keys of task checked in range 19-20
+2024-05-27 12:41:26,112 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 19-21
+2024-05-27 12:41:26,112 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 19-20
+2024-05-27 12:41:26,112 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-submit checked in range 10-11
+2024-05-27 12:41:26,113 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 33-35
+2024-05-27 12:41:26,491 - INFO - porter-logger - The keys of user@example.com-submitter-BRIDGE-job checked in range 0-1
+2024-05-27 12:41:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:41:51,581 - INFO - porter-logger - Bridge deletion result:
+namespace "bridge-user-example-com" deleted
+endpoints "ray-dashboard" deleted
+service "ray-dashboard" deleted
+
+2024-05-27 12:41:51,880 - INFO - porter-logger - Bridges of user@example.com have been properly deleted
+2024-05-27 12:42:05,703 - INFO - porter-logger - Running monitor
+2024-05-27 12:42:05,868 - INFO - porter-logger - The keys of bridges checked in range 27-32
+2024-05-27 12:42:05,869 - INFO - porter-logger - The keys of task checked in range 20-22
+2024-05-27 12:42:06,271 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 21-22
+2024-05-27 12:42:06,271 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 20-21
+2024-05-27 12:42:06,271 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 35-37
+2024-05-27 12:42:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:42:45,704 - INFO - porter-logger - Running monitor
+2024-05-27 12:42:45,930 - INFO - porter-logger - The keys of task checked in range 22-23
+2024-05-27 12:42:46,534 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 22-23
+2024-05-27 12:42:46,535 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 21-22
+2024-05-27 12:42:46,535 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 37-39
+2024-05-27 12:43:25,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:43:25,867 - INFO - porter-logger - The keys of bridges checked in range 32-35
+2024-05-27 12:43:25,867 - INFO - porter-logger - The keys of task checked in range 23-25
+2024-05-27 12:43:26,209 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 23-24
+2024-05-27 12:43:26,209 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 22-23
+2024-05-27 12:43:26,209 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 39-40
+2024-05-27 12:43:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:44:05,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:44:05,872 - INFO - porter-logger - The keys of bridges checked in range 35-38
+2024-05-27 12:44:05,872 - INFO - porter-logger - The keys of task checked in range 25-27
+2024-05-27 12:44:06,384 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 24-25
+2024-05-27 12:44:06,384 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 23-25
+2024-05-27 12:44:06,384 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 40-41
+2024-05-27 12:44:07,102 - INFO - porter-logger - The keys of seff-user@example.com checked in range 0-1
+2024-05-27 12:44:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:44:45,703 - INFO - porter-logger - Running monitor
+2024-05-27 12:44:45,975 - INFO - porter-logger - The keys of bridges checked in range 38-39
+2024-05-27 12:44:45,976 - INFO - porter-logger - The keys of task checked in range 27-28
+2024-05-27 12:44:46,538 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 25-26
+2024-05-27 12:44:46,539 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 25-29
+2024-05-27 12:44:46,540 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 41-44
+2024-05-27 12:44:47,043 - INFO - porter-logger - The keys of user@example.com-submitter-BRIDGE-gather checked in range 0-1
+2024-05-27 12:44:47,043 - INFO - porter-logger - The keys of user@example.com-submitter-BRIDGE-pipeline checked in range 0-1
+2024-05-27 12:44:47,432 - INFO - porter-logger - The keys of sacct-user@example.com checked in range 0-1
+2024-05-27 12:45:25,708 - INFO - porter-logger - Running monitor
+2024-05-27 12:45:26,015 - INFO - porter-logger - The keys of bridges checked in range 39-41
+2024-05-27 12:45:26,016 - INFO - porter-logger - The keys of task checked in range 28-30
+2024-05-27 12:45:26,472 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 26-27
+2024-05-27 12:45:26,472 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 29-30
+2024-05-27 12:45:26,472 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 44-46
+2024-05-27 12:45:26,889 - INFO - porter-logger - The keys of user@example.com-submitter-BRIDGE-components checked in range 1-2
+2024-05-27 12:45:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:46:05,702 - INFO - porter-logger - Running monitor
+2024-05-27 12:46:05,939 - INFO - porter-logger - The keys of bridges checked in range 41-44
+2024-05-27 12:46:05,939 - INFO - porter-logger - The keys of task checked in range 30-32
+2024-05-27 12:46:06,213 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 27-28
+2024-05-27 12:46:06,213 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 30-31
+2024-05-27 12:46:06,213 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 46-48
+2024-05-27 12:46:45,701 - INFO - porter-logger - Running scaler
+2024-05-27 12:46:45,706 - INFO - porter-logger - Running monitor
+2024-05-27 12:46:45,982 - INFO - porter-logger - The keys of task checked in range 32-33
+2024-05-27 12:46:46,344 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-cancel checked in range 28-29
+2024-05-27 12:46:46,344 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-monitor checked in range 31-32
+2024-05-27 12:46:46,344 - INFO - porter-logger - The keys of user@example.com-submitter-SUBMITTER-task checked in range 48-49
+2024-05-27 12:46:46,722 - INFO - porter-logger - The keys of user@example.com-submitter-BRIDGE-components checked in range 2-3
+2024-05-27 12:46:58,836 - INFO - porter-logger - Scheduler paused

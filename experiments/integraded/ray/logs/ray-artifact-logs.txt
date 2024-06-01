@@ -1,0 +1,55 @@
+INFO:__main__:Training hyperparameters:
+INFO:__main__:hp-train-batch-size=4
+INFO:__main__:hp-test-batch-size=4
+INFO:__main__:hp-seed=42
+INFO:__main__:hp-epochs=5
+INFO:__main__:hp-learning-rate=0.001
+INFO:__main__:hp-momentum=0.9
+INFO:__main__:
+INFO:__main__:Used parameters path: EXPERIMENT/ARTIFACTS/integration-parameters
+INFO:__main__:Used predictions path: EXPERIMENT/ARTIFACTS/integration-predictions
+INFO:__main__:Used metrics path: EXPERIMENT/ARTIFACTS/integration-metrics
+INFO:__main__:
+INFO:__main__:Training metrics:
+INFO:__main__:accuracy=0.90565
+INFO:__main__:precision=0.90544
+INFO:__main__:recall=0.90565
+INFO:__main__:
+INFO:__main__:top-accuracy=0.89483
+INFO:__main__:trouser-accuracy=0.9835
+INFO:__main__:pullover-accuracy=0.85367
+INFO:__main__:dress-accuracy=0.92383
+INFO:__main__:coat-accuracy=0.87417
+INFO:__main__:sandal-accuracy=0.95583
+INFO:__main__:shirt-accuracy=0.64867
+INFO:__main__:sneaker-accuracy=0.97467
+INFO:__main__:bag-accuracy=0.97833
+INFO:__main__:ankle-boot-accuracy=0.969
+INFO:__main__:
+INFO:__main__:top-precision=0.82095
+INFO:__main__:trouser-precision=0.98105
+INFO:__main__:pullover-precision=0.85552
+INFO:__main__:dress-precision=0.90115
+INFO:__main__:coat-precision=0.81004
+INFO:__main__:sandal-precision=0.99393
+INFO:__main__:shirt-precision=0.80646
+INFO:__main__:sneaker-precision=0.93598
+INFO:__main__:bag-precision=0.98193
+INFO:__main__:ankle-boot-precision=0.96739
+INFO:__main__:
+INFO:__main__:top-recall=0.89483
+INFO:__main__:trouser-recall=0.9835
+INFO:__main__:pullover-recall=0.85367
+INFO:__main__:dress-recall=0.92383
+INFO:__main__:coat-recall=0.87417
+INFO:__main__:sandal-recall=0.95583
+INFO:__main__:shirt-recall=0.64867
+INFO:__main__:sneaker-recall=0.97467
+INFO:__main__:bag-recall=0.97833
+INFO:__main__:ankle-boot-recall=0.969
+INFO:__main__:
+INFO:__main__:Used time path: BRIDGE/TIMES/ray-job
+INFO:__main__:
+INFO:__main__:Training times:
+INFO:__main__:exp-train-total-seconds=321.60335
+INFO:__main__:remote-model-training-total-seconds=314.71099

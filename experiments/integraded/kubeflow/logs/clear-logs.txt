@@ -1,0 +1,23 @@
+time="2024-05-27T12:46:33.361Z" level=info msg="capturing logs" argo=true
+I0527 12:46:33.403489      28 env.go:30] cannot find launcher configmap: name="kfp-launcher" namespace="kubeflow-user-example-com"
+I0527 12:46:33.403579      28 launcher.go:144] PipelineRoot defaults to "minio://mlpipeline/v2/artifacts".
+I0527 12:46:33.403824      28 cache.go:143] Cannot detect ml-pipeline in the same namespace, default to ml-pipeline.kubeflow:8887 as KFP endpoint.
+I0527 12:46:33.403834      28 cache.go:120] Connecting to cache endpoint ml-pipeline.kubeflow:8887
+I0527 12:46:33.543489      28 launcher.go:193] enable caching
+I0527 12:46:33.676851      28 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: 
+https://pip.pypa.io/warnings/venv
+[KFP Executor 2024-05-27 12:46:58,794 INFO]: Looking for component `clear` in --component_module_path `/tmp/tmp.1XErrNxths/ephemeral_component.py`
+[KFP Executor 2024-05-27 12:46:58,795 INFO]: Loading KFP component "clear" from /tmp/tmp.1XErrNxths/ephemeral_component.py (directory "/tmp/tmp.1XErrNxths" and module name "ephemeral_component")
+[KFP Executor 2024-05-27 12:46:58,807 INFO]: Allas client setup
+[KFP Executor 2024-05-27 12:46:58,838 INFO]: Porter stopped:True
+I0527 12:46:59.306431      28 launcher.go:860] ExecutorOutput: {
+  "parameters": {
+    "Output": {
+      "stringValue": "true"
+    }
+  }
+}
+I0527 12:46:59.318600      28 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+time="2024-05-27T12:46:59.396Z" level=info msg="/tmp/outputs/Output/data -> /var/run/argo/outputs/artifacts/tmp/outputs/Output/data.tgz" argo=true
+time="2024-05-27T12:46:59.397Z" level=info msg="Taring /tmp/outputs/Output/data"

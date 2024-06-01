@@ -1,0 +1,14 @@
+Job ID: 3459879
+Cluster: mahti
+User/Group: ()/pepr_()
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 256
+CPU Utilized: 00:04:56
+CPU Efficiency: 0.37% of 21:58:24 core-walltime
+Job Wall-clock time: 00:05:09
+Memory Utilized: 374.88 MB
+Memory Efficiency: 36.61% of 1.00 GB
+Job consumed 8.58 CSC billing units based on following used resources
+Billed project: project_()
+Non-Interactive BUs: 8.58

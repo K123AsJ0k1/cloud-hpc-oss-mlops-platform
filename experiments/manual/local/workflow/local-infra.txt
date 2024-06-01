@@ -1,0 +1,12 @@
+Packages:
+- Torch version is:2.3.0+cu121
+- Torchvision version is: 0.18.0+cu121
+- Torchmetrics version is:1.4.0
+
+Hardware:
+- Personal computer:
+    - Type = Laptop
+    - CPU = Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz x 8 cores
+    - RAM = 16 GB
+    - DISK = 500 GB
+    - OS = 64 bit Ubuntu 22.04.4 LTS

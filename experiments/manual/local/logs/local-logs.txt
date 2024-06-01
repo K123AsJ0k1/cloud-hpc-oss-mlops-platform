@@ -1,0 +1,45 @@
+Defining model
+Defining metrics
+Starting model training
+Epoch: 1/5, Batch 2000, Loss: 1.3181659148409963, Accuracy: 0.497, Precision: 0.553, Recall: 0.497
+Epoch: 1/5, Batch 4000, Loss: 0.6649432783056982, Accuracy: 0.741, Precision: 0.733, Recall: 0.741
+Epoch: 1/5, Batch 6000, Loss: 0.5859008461342892, Accuracy: 0.781, Precision: 0.774, Recall: 0.781
+Epoch: 1/5, Batch 8000, Loss: 0.54145246994833, Accuracy: 0.797, Precision: 0.792, Recall: 0.797
+Epoch: 1/5, Batch 10000, Loss: 0.49004828376253134, Accuracy: 0.815, Precision: 0.811, Recall: 0.815
+Epoch: 1/5, Batch 12000, Loss: 0.4591333289391187, Accuracy: 0.834, Precision: 0.832, Recall: 0.834
+Epoch: 1/5, Batch 14000, Loss: 0.4384693484171876, Accuracy: 0.838, Precision: 0.836, Recall: 0.838
+Epoch: 2/5, Batch 2000, Loss: 0.3912954871333204, Accuracy: 0.852, Precision: 0.851, Recall: 0.852
+Epoch: 2/5, Batch 4000, Loss: 0.37567128432048774, Accuracy: 0.858, Precision: 0.857, Recall: 0.858
+Epoch: 2/5, Batch 6000, Loss: 0.3829988238654332, Accuracy: 0.861, Precision: 0.86, Recall: 0.861
+Epoch: 2/5, Batch 8000, Loss: 0.38601481561183026, Accuracy: 0.857, Precision: 0.855, Recall: 0.857
+Epoch: 2/5, Batch 10000, Loss: 0.3702205190179593, Accuracy: 0.861, Precision: 0.86, Recall: 0.861
+Epoch: 2/5, Batch 12000, Loss: 0.35915415640199355, Accuracy: 0.872, Precision: 0.872, Recall: 0.872
+Epoch: 2/5, Batch 14000, Loss: 0.35937538769745153, Accuracy: 0.874, Precision: 0.873, Recall: 0.874
+Epoch: 3/5, Batch 2000, Loss: 0.3449761319544632, Accuracy: 0.871, Precision: 0.87, Recall: 0.871
+Epoch: 3/5, Batch 4000, Loss: 0.32020815111204864, Accuracy: 0.881, Precision: 0.88, Recall: 0.881
+Epoch: 3/5, Batch 6000, Loss: 0.32650219669989383, Accuracy: 0.878, Precision: 0.877, Recall: 0.878
+Epoch: 3/5, Batch 8000, Loss: 0.31233317505171, Accuracy: 0.884, Precision: 0.883, Recall: 0.884
+Epoch: 3/5, Batch 10000, Loss: 0.3183452811429588, Accuracy: 0.879, Precision: 0.878, Recall: 0.879
+Epoch: 3/5, Batch 12000, Loss: 0.3302377875193306, Accuracy: 0.879, Precision: 0.878, Recall: 0.879
+Epoch: 3/5, Batch 14000, Loss: 0.32558073190963843, Accuracy: 0.88, Precision: 0.88, Recall: 0.88
+Epoch: 4/5, Batch 2000, Loss: 0.303604588627968, Accuracy: 0.885, Precision: 0.884, Recall: 0.885
+Epoch: 4/5, Batch 4000, Loss: 0.30248196466462834, Accuracy: 0.891, Precision: 0.891, Recall: 0.891
+Epoch: 4/5, Batch 6000, Loss: 0.3042279552883847, Accuracy: 0.887, Precision: 0.887, Recall: 0.887
+Epoch: 4/5, Batch 8000, Loss: 0.3039156142265365, Accuracy: 0.89, Precision: 0.889, Recall: 0.89
+Epoch: 4/5, Batch 10000, Loss: 0.3016726069659035, Accuracy: 0.886, Precision: 0.885, Recall: 0.886
+Epoch: 4/5, Batch 12000, Loss: 0.29269572316714765, Accuracy: 0.895, Precision: 0.894, Recall: 0.895
+Epoch: 4/5, Batch 14000, Loss: 0.29987150839910465, Accuracy: 0.888, Precision: 0.887, Recall: 0.888
+Epoch: 5/5, Batch 2000, Loss: 0.2914909295349407, Accuracy: 0.889, Precision: 0.889, Recall: 0.889
+Epoch: 5/5, Batch 4000, Loss: 0.29156889245057027, Accuracy: 0.895, Precision: 0.894, Recall: 0.895
+Epoch: 5/5, Batch 6000, Loss: 0.28808847182600583, Accuracy: 0.893, Precision: 0.892, Recall: 0.893
+Epoch: 5/5, Batch 8000, Loss: 0.27738431197307, Accuracy: 0.899, Precision: 0.898, Recall: 0.899
+Epoch: 5/5, Batch 10000, Loss: 0.2702103742969339, Accuracy: 0.898, Precision: 0.898, Recall: 0.898
+Epoch: 5/5, Batch 12000, Loss: 0.28824358154079527, Accuracy: 0.888, Precision: 0.887, Recall: 0.888
+Epoch: 5/5, Batch 14000, Loss: 0.28945110485625264, Accuracy: 0.893, Precision: 0.893, Recall: 0.893
+Training complete
+Starting model testing
+Testing complete
+Formatting created model
+Formatting model metrics
+Formatting used time
+Complete

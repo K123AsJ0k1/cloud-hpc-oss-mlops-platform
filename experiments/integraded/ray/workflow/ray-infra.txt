@@ -1,0 +1,66 @@
+Packages:
+- Ray version is:2.9.3
+- Swiftclient version is:4.4.0
+- PyTorch version is:2.2.1+cu121
+- Torchmetrics version is:1.3.1
+
+Hardware:
+- CPouta:
+    - Image = Ubuntu 22.04
+    - Flavor = standard.xxlarge
+        - CPU Cores = 8
+        - RAM = 31 GiB
+        - DISK = 80 GB
+        - Memory/core = 3.8 GiB
+        - Redundancy = P,R,N
+        - BU/h = 8
+    - Floating IP
+        - BU/h = 0.2
+    - Security groups:
+        - Laptop SSH
+        - Mahti-node-1 SSH
+        - Mahti-node-2 SSH 
+- Allas (format is pickle):
+    - BRIDGE/TIMES:
+        - gather = 234 bytes
+        - job = 228 bytes
+        - pipeline = 238 bytes
+        - ray-job = 438 bytes
+        - workflow = 139 bytes
+
+    - BRIDGE/DATA/user@example.com:
+        - fmnist-train = 45.32 MB
+        - fmnist-test = 7.56 MB
+    - BRIDGE/JOBS/user@example.com:
+        - RAY
+            - ray-train = 16.35 KB
+        - SLURM
+            - ray-cluster = 1.84 KB
+ 
+    - BRIDGE/SUBMITTERS
+        - status = 669 bytes
+    - LOGS/user@example.com
+        - 3461753 = 17.97 KB
+    - MONITOR/user@example.com
+        - sacct = 1.89 KB
+        - seff = 413 bytes
+        - TIMES:
+            - bridge = 523 bytes
+            - cancel = 1.73 KB
+            - jobs = 203 bytes
+            - monitor = 2.05 KB
+            - setup = 228 bytes
+            - submit = 1.03 KB
+            - task = 2.76 KB
+    - EXPERIMENT/ARTIFACTS
+        - ray-metrics = 576 bytes
+        - ray-parameters = 353.43 KB
+        - ray-predictions = 117.33 KB
+
+- Mahti:
+    - Type = SLURM Cluster Node
+    - Partition = Medium
+    - Nodes = 2
+    - Node CPU = AMD Zen 2 Rome 7H12 x 64 core
+    - Node RAM = 10GB
+    - OS = Linux

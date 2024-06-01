@@ -1,0 +1,85 @@
+Packages:
+- Ray version is:2.9.3
+- Swiftclient version is:4.4.0
+- PyTorch version is:2.2.1+cu121
+- Torchmetrics version is:1.3.1
+
+Hardware:
+
+- OSS:
+    - Resource request:
+        ```
+        Allocated resources:
+          (Total limits may be over 100 percent, i.e., overcommitted.)
+          Resource           Requests           Limits
+          --------           --------           ------
+          cpu                6570m (82%)        61800m (772%)
+          memory             11732346112 (35%)  36710Mi (117%)
+          ephemeral-storage  0 (0%)             0 (0%)
+          hugepages-1Gi      0 (0%)             0 (0%)
+          hugepages-2Mi      0 (0%)             0 (0%)
+        ```
+- CPouta:
+    - Image = Ubuntu 22.04
+    - Flavor = standard.xxlarge
+        - CPU Cores = 8
+        - RAM = 31 GiB
+        - DISK = 80 GB
+        - Memory/core = 3.8 GiB
+        - Redundancy = P,R,N
+        - BU/h = 8
+    - Floating IP
+        - BU/h = 0.2
+    - Security groups:
+        - Laptop SSH
+        - Mahti-node-1 SSH
+        - Mahti-node-2 SSH 
+- Allas (format is pickle):
+    - BRIDGE/TIMES:
+        - components = 459 bytes
+        - gather = 135 bytes
+        - job = 132 bytes
+        - pipeline = 137 bytes
+        - ray-job = 238 bytes
+        - workflow = 245 bytes
+- BRIDGE/DATA/user@example.com:
+    - fmnist-train = 45.32 MB
+    - fmnist-test = 7.56 MB
+- BRIDGE/JOBS/user@example.com:
+    - RAY
+        - ray-train = 16.35 KB
+    - SLURM
+        - ray-cluster = 1.84 KB
+- BRIDGE/PORTER
+    - status = 271 bytes
+    - MONITOR
+        - status = 453 bytes
+        - TIMES
+            - bridges = 5.12 KB
+            - jobs = 203 bytes
+            - task = 3.17 KB
+- BRIDGE/SUBMITTERS
+    - status = 529 bytes
+    - LOGS/user@example.com
+        - 3472769 = 17.97 KB
+    - MONITOR/user@example.com
+        - sacct = 1.90 KB
+        - seff = 413 bytes
+        - TIMES:
+            - bridge = 523 bytes
+            - cancel = 2.87 KB
+            - monitor = 3.22 KB
+            - setup = 228 bytes
+            - submit = 1.03 KB
+            - task = 4.68 KB
+- EXPERIMENT/ARTIFACTS
+    - kubeflow-metrics = 576 bytes
+    - kubeflow-parameters = 353.43 KB
+    - kubeflow-predictions = 117.33 KB
+- Mahti:
+    - Type = SLURM Cluster Node
+    - Partition = Medium
+    - Nodes = 2
+    - Node CPU = AMD Zen 2 Rome 7H12 x 64 core
+    - Node RAM = 10GB
+    - OS = Linux

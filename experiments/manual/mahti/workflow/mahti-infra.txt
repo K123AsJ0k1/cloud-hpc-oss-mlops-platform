@@ -1,0 +1,21 @@
+Packages:
+- Swiftclient version is:4.4.0
+- Torch version is:2.2.1+cu121
+- Torchmetrics version is:1.3.1
+
+Hardware:
+- Allas (format is pickle):
+    - EXPERIMENT/DATA:
+        - train = 45.32 MB
+        - test = 7.56 MB
+    - EXPERIMENT/ARTIFACTS:
+        - mahti-metrics = 577 bytes
+        - mahti-parameters = 353.43 KB
+        - mahti-predictions = 117.33KB
+- Mahti:
+    - Type = SLURM Cluster Node
+    - Partition = Medium
+    - Nodes = 1
+    - CPU = AMD Zen 2 Rome 7H12 x 64 core
+    - RAM = 1GB
+    - OS = Linux

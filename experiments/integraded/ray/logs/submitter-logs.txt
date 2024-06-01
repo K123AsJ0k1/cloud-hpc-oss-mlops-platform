@@ -1,0 +1,124 @@
+2024-05-25 09:41:25,811 - INFO - submitter-logger - Routes registered
+2024-05-25 09:41:25,811 - INFO - submitter-logger - Submitter ready
+2024-05-25 09:43:13,899 - INFO - submitter-logger - Scheduler running
+2024-05-25 09:43:14,683 - INFO - submitter-logger - Job sent by user@example.com has been started
+2024-05-25 09:43:53,881 - INFO - submitter-logger - Running monitor
+2024-05-25 09:44:03,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:44:03,918 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:44:07,902 - INFO - submitter-logger - Remote enviroment has python 3.6.8
+2024-05-25 09:44:07,903 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:44:11,907 - INFO - submitter-logger - exp_venv does not exists
+2024-05-25 09:44:11,907 - INFO - submitter-logger - Enviroment was setup: False
+2024-05-25 09:44:12,970 - INFO - submitter-logger - Configuring enviroment
+2024-05-25 09:44:12,970 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:44:16,537 - INFO - submitter-logger - Creating exp_venv
+2024-05-25 09:44:16,538 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:44:19,791 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:44:33,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:44:45,432 - INFO - submitter-logger - Enviroment configuration success
+2024-05-25 09:44:45,432 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:44:49,424 - INFO - submitter-logger - bridge_key.pem was not found in remote enviroment
+2024-05-25 09:44:53,436 - INFO - submitter-logger - Sending key
+2024-05-25 09:44:53,437 - INFO - submitter-logger - bridge_key.pem exists in the designated folder
+2024-05-25 09:44:53,437 - INFO - submitter-logger - Uploading a file bridge_key.pem to mahti
+2024-05-25 09:44:57,176 - INFO - submitter-logger - bridge_key.pem sending to remote target succeeded
+2024-05-25 09:44:57,177 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:45:00,600 - INFO - submitter-logger - bridge_key.pem in remote enviroment was given chmod 600
+2024-05-25 09:45:01,432 - INFO - submitter-logger - Key sending success
+2024-05-25 09:45:01,432 - INFO - submitter-logger - Sending job
+2024-05-25 09:45:01,500 - INFO - submitter-logger - Uploading a file ray-cluster.sh to mahti
+2024-05-25 09:45:04,922 - INFO - submitter-logger - ray-cluster.sh was sent to remote enviroment
+2024-05-25 09:45:09,432 - INFO - submitter-logger - Job sending success
+2024-05-25 09:45:09,606 - INFO - submitter-logger - Remote enviroment is configured
+2024-05-25 09:45:10,055 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:45:13,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:45:14,070 - INFO - submitter-logger - Job 3461753 is now submitted
+2024-05-25 09:45:18,160 - INFO - submitter-logger - Job was made to run: True
+2024-05-25 09:45:43,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:45:43,959 - INFO - submitter-logger - Job was already checked
+2024-05-25 09:45:53,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:45:53,927 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:45:57,403 - INFO - submitter-logger - Current mahti squeue:
+2024-05-25 09:45:57,403 - INFO - submitter-logger - () 3461753 medium RUNNING 0:42
+2024-05-25 09:46:33,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:46:33,882 - INFO - submitter-logger - Running monitor
+2024-05-25 09:46:34,092 - INFO - submitter-logger - Job was already checked
+2024-05-25 09:46:34,172 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:46:37,811 - INFO - submitter-logger - Current mahti squeue:
+2024-05-25 09:46:37,811 - INFO - submitter-logger - () 3461753 medium RUNNING 1:22
+2024-05-25 09:47:13,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:47:14,144 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:47:17,629 - INFO - submitter-logger - Current mahti squeue:
+2024-05-25 09:47:17,630 - INFO - submitter-logger - () 3461753 medium RUNNING 2:02
+2024-05-25 09:47:23,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:47:27,708 - INFO - submitter-logger - Job was already checked
+2024-05-25 09:47:53,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:47:57,865 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:48:01,400 - INFO - submitter-logger - Current mahti squeue:
+2024-05-25 09:48:01,400 - INFO - submitter-logger - () 3461753 medium RUNNING 2:46
+2024-05-25 09:48:13,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:48:15,708 - INFO - submitter-logger - Job was already checked
+2024-05-25 09:48:33,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:48:34,077 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:48:37,785 - INFO - submitter-logger - Current mahti squeue:
+2024-05-25 09:48:37,785 - INFO - submitter-logger - () 3461753 medium RUNNING 3:22
+2024-05-25 09:49:03,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:49:04,118 - INFO - submitter-logger - Job was already checked
+2024-05-25 09:49:13,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:49:13,916 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:49:17,271 - INFO - submitter-logger - Current mahti squeue:
+2024-05-25 09:49:17,272 - INFO - submitter-logger - () 3461753 medium RUNNING 4:02
+2024-05-25 09:49:53,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:49:53,883 - INFO - submitter-logger - Running monitor
+2024-05-25 09:49:54,107 - INFO - submitter-logger - Job was already checked
+2024-05-25 09:49:54,146 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:49:57,729 - INFO - submitter-logger - Current mahti squeue:
+2024-05-25 09:49:57,729 - INFO - submitter-logger - () 3461753 medium RUNNING 4:42
+2024-05-25 09:50:33,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:50:34,116 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:50:37,791 - INFO - submitter-logger - Current mahti squeue:
+2024-05-25 09:50:37,791 - INFO - submitter-logger - () 3461753 medium RUNNING 5:22
+2024-05-25 09:50:43,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:50:43,918 - INFO - submitter-logger - Job was already checked
+2024-05-25 09:51:13,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:51:17,848 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:51:21,651 - INFO - submitter-logger - Current mahti squeue:
+2024-05-25 09:51:21,651 - INFO - submitter-logger - () 3461753 medium RUNNING 6:06
+2024-05-25 09:51:33,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:51:34,150 - INFO - submitter-logger - Job was already checked
+2024-05-25 09:51:42,327 - INFO - submitter-logger - Job started by user@example.com has been cancelled
+2024-05-25 09:51:53,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:51:53,919 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:51:57,558 - INFO - submitter-logger - Current mahti squeue:
+2024-05-25 09:51:57,559 - INFO - submitter-logger - () 3461753 medium RUNNING 6:42
+2024-05-25 09:52:01,212 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:52:05,118 - INFO - submitter-logger - Job ray-cluster of 3461753 was stopped
+2024-05-25 09:52:06,004 - INFO - submitter-logger - Gathering job ray-cluster of 3461753 metrics with wait time of 0.553
+2024-05-25 09:52:23,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:52:23,961 - WARNING - submitter-logger - Job was not initilized
+2024-05-25 09:52:33,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:52:34,189 - INFO - submitter-logger - Gathering job ray-cluster of 3461753 metrics with wait time of 28.738
+2024-05-25 09:53:13,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:53:13,882 - INFO - submitter-logger - Running monitor
+2024-05-25 09:53:16,884 - WARNING - submitter-logger - Job was not initilized
+2024-05-25 09:53:17,526 - INFO - submitter-logger - Gathering job ray-cluster of 3461753 metrics with wait time of 72.075
+2024-05-25 09:53:53,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:53:57,272 - INFO - submitter-logger - Gathering job ray-cluster of 3461753 metrics with wait time of 111.821
+2024-05-25 09:54:03,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:54:05,220 - WARNING - submitter-logger - Job was not initilized
+2024-05-25 09:54:33,880 - INFO - submitter-logger - Running monitor
+2024-05-25 09:54:35,716 - INFO - submitter-logger - Gathering job ray-cluster of 3461753 metrics with wait time of 150.265
+2024-05-25 09:54:35,733 - INFO - submitter-logger - Getting job 3461753 seff
+2024-05-25 09:54:35,733 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:54:43,636 - INFO - submitter-logger - Job 3461753 seff stored
+2024-05-25 09:54:53,879 - INFO - submitter-logger - Running submitter
+2024-05-25 09:54:55,616 - WARNING - submitter-logger - Job was not initilized
+2024-05-25 09:54:56,602 - INFO - submitter-logger - Getting job 3461753 logs
+2024-05-25 09:54:56,603 - INFO - submitter-logger - Downloading a file slurm-3461753.out from mahti
+2024-05-25 09:55:07,630 - INFO - submitter-logger - Job 3461753 logs stored
+2024-05-25 09:55:25,621 - INFO - submitter-logger - Getting job 3461753 sacct
+2024-05-25 09:55:25,621 - INFO - submitter-logger - Running remote commands in mahti
+2024-05-25 09:55:31,608 - INFO - submitter-logger - Job 3461753 sacct stored
+2024-05-25 09:55:32,040 - INFO - submitter-logger - Job 3461753 metrics stored
+2024-05-25 09:55:32,457 - INFO - submitter-logger - Job ray-cluster of 3461753 metrics gathered
+2024-05-25 09:55:41,800 - INFO - submitter-logger - Scheduler stopped

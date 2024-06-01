@@ -1,0 +1,208 @@
+INFO:__main__:Allas client setup
+INFO:__main__:Proxy url: http://127.0.0.1:5556
+INFO:__main__:Proxy exists:True
+INFO:__main__:Proxy setup:True
+INFO:__main__:Proxy started:True
+INFO:__main__:Job submitted:True
+INFO:__main__:Waiting SLURM job running
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: False
+INFO:__main__:SLURM job running: True
+INFO:__main__:SLURM job id: 3461753
+INFO:__main__:Setting up ray client
+INFO:__main__:Testing ray client url: http://127.0.0.1:8280
+INFO:__main__:Ray client exists: True
+INFO:__main__:Ray setup
+INFO:__main__:Ray client setup
+INFO:__main__:Setting up ray job
+INFO:__main__:Ray job path:BRIDGE/JOBS/user@example.com/RAY/ray-train
+INFO:__main__:Job writing path:/jobs/ray-train.py
+INFO:__main__:Submitting a ray job
+INFO:__main__:Submitting ray job ray-train.py using directory /jobs
+2024-05-25 12:46:02,737	INFO dashboard_sdk.py:338 -- Uploading package gcs://_ray_pkg_3b39a1db21c78ba0.zip.
+2024-05-25 12:46:02,744	INFO packaging.py:530 -- Creating a file package for local directory '/jobs'.
+INFO:__main__:Ray batch job id: raysubmit_XgLmXYasMEi14DnU
+INFO:__main__:Waiting ray job raysubmit_XgLmXYasMEi14DnU
+INFO:__main__:status: PENDING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: RUNNING
+INFO:__main__:status: SUCCEEDED
+INFO:__main__:Ray batch job ended:
+INFO:__main__:RAY batch job succeeded
+INFO:__main__:Starting ray job
+Ray version is:2.9.3
+Swiftclient version is:4.4.0
+Torch version is:2.2.1+cu121
+Torchmetrics version is:1.3.1
+Setting Allas client
+Allas client setup
+Getting data
+Train loader path: BRIDGE/DATA/user@example.com/fmnist-train
+Test loader path: BRIDGE/DATA/user@example.com/fmnist-test
+Data loaded
+Training
+2024-05-25 12:46:14,414	INFO worker.py:1405 -- Using address 10.141.1.94:8265 set in the environment variable RAY_ADDRESS
+2024-05-25 12:46:14,415	INFO worker.py:1540 -- Connecting to existing Ray cluster at address: 10.141.1.94:8265...
+2024-05-25 12:46:14,420	INFO worker.py:1715 -- Connected to Ray cluster. View the dashboard at 10.141.1.94:8280 
+(remote_model_training pid=1255694) Defining model
+(remote_model_training pid=1255694) Defining metrics
+(remote_model_training pid=1255694) Starting model training
+(remote_model_training pid=1255694) Epoch: 1/5, Batch 2000, Loss: 1.3477566235009582, Accuracy: 0.513, Precision: 0.55, Recall: 0.513
+(remote_model_training pid=1255694) Epoch: 1/5, Batch 4000, Loss: 0.6440928805503063, Accuracy: 0.75, Precision: 0.741, Recall: 0.75
+(remote_model_training pid=1255694) Epoch: 1/5, Batch 6000, Loss: 0.5634786011442193, Accuracy: 0.783, Precision: 0.774, Recall: 0.783
+(remote_model_training pid=1255694) Epoch: 1/5, Batch 8000, Loss: 0.531584423406748, Accuracy: 0.797, Precision: 0.791, Recall: 0.797
+(remote_model_training pid=1255694) Epoch: 1/5, Batch 10000, Loss: 0.48149644454011287, Accuracy: 0.821, Precision: 0.817, Recall: 0.821
+(remote_model_training pid=1255694) Epoch: 1/5, Batch 12000, Loss: 0.448846519583225, Accuracy: 0.839, Precision: 0.836, Recall: 0.839
+(remote_model_training pid=1255694) Epoch: 1/5, Batch 14000, Loss: 0.43164240279120714, Accuracy: 0.84, Precision: 0.838, Recall: 0.84
+(remote_model_training pid=1255694) Epoch: 2/5, Batch 2000, Loss: 0.39071108101622665, Accuracy: 0.855, Precision: 0.853, Recall: 0.855
+(remote_model_training pid=1255694) Epoch: 2/5, Batch 4000, Loss: 0.3787131234063418, Accuracy: 0.857, Precision: 0.856, Recall: 0.857
+(remote_model_training pid=1255694) Epoch: 2/5, Batch 6000, Loss: 0.37251355558339855, Accuracy: 0.863, Precision: 0.862, Recall: 0.863
+(remote_model_training pid=1255694) Epoch: 2/5, Batch 8000, Loss: 0.38001034665526096, Accuracy: 0.86, Precision: 0.859, Recall: 0.86
+(remote_model_training pid=1255694) Epoch: 2/5, Batch 10000, Loss: 0.3678932584823706, Accuracy: 0.863, Precision: 0.862, Recall: 0.863
+(remote_model_training pid=1255694) Epoch: 2/5, Batch 12000, Loss: 0.3516097096517624, Accuracy: 0.871, Precision: 0.871, Recall: 0.871
+(remote_model_training pid=1255694) Epoch: 2/5, Batch 14000, Loss: 0.3560675291508378, Accuracy: 0.876, Precision: 0.875, Recall: 0.876
+(remote_model_training pid=1255694) Epoch: 3/5, Batch 2000, Loss: 0.32965829111589845, Accuracy: 0.875, Precision: 0.874, Recall: 0.875
+(remote_model_training pid=1255694) Epoch: 3/5, Batch 4000, Loss: 0.3243142639926627, Accuracy: 0.88, Precision: 0.879, Recall: 0.88
+(remote_model_training pid=1255694) Epoch: 3/5, Batch 6000, Loss: 0.322242327806307, Accuracy: 0.882, Precision: 0.882, Recall: 0.882
+(remote_model_training pid=1255694) Epoch: 3/5, Batch 8000, Loss: 0.3106194965636314, Accuracy: 0.887, Precision: 0.887, Recall: 0.887
+(remote_model_training pid=1255694) Epoch: 3/5, Batch 10000, Loss: 0.31778889560133755, Accuracy: 0.883, Precision: 0.883, Recall: 0.883
+(remote_model_training pid=1255694) Epoch: 3/5, Batch 12000, Loss: 0.3185336130895857, Accuracy: 0.881, Precision: 0.88, Recall: 0.881
+(remote_model_training pid=1255694) Epoch: 3/5, Batch 14000, Loss: 0.3192186318521408, Accuracy: 0.884, Precision: 0.883, Recall: 0.884
+(remote_model_training pid=1255694) Epoch: 4/5, Batch 2000, Loss: 0.2965060619502456, Accuracy: 0.887, Precision: 0.886, Recall: 0.887
+(remote_model_training pid=1255694) Epoch: 4/5, Batch 4000, Loss: 0.29015340369810294, Accuracy: 0.891, Precision: 0.891, Recall: 0.891
+(remote_model_training pid=1255694) Epoch: 4/5, Batch 6000, Loss: 0.29724516105917065, Accuracy: 0.89, Precision: 0.89, Recall: 0.89
+(remote_model_training pid=1255694) Epoch: 4/5, Batch 8000, Loss: 0.2982140834278362, Accuracy: 0.891, Precision: 0.89, Recall: 0.891
+(remote_model_training pid=1255694) Epoch: 4/5, Batch 10000, Loss: 0.2932830138914969, Accuracy: 0.892, Precision: 0.891, Recall: 0.892
+(remote_model_training pid=1255694) Epoch: 4/5, Batch 12000, Loss: 0.281041179830223, Accuracy: 0.894, Precision: 0.893, Recall: 0.894
+(remote_model_training pid=1255694) Epoch: 4/5, Batch 14000, Loss: 0.294250449166213, Accuracy: 0.89, Precision: 0.89, Recall: 0.89
+(remote_model_training pid=1255694) Epoch: 5/5, Batch 2000, Loss: 0.28406424210139264, Accuracy: 0.891, Precision: 0.891, Recall: 0.891
+(remote_model_training pid=1255694) Epoch: 5/5, Batch 4000, Loss: 0.28164714513787975, Accuracy: 0.902, Precision: 0.901, Recall: 0.902
+(remote_model_training pid=1255694) Epoch: 5/5, Batch 6000, Loss: 0.2868003807333089, Accuracy: 0.892, Precision: 0.891, Recall: 0.892
+(remote_model_training pid=1255694) Epoch: 5/5, Batch 8000, Loss: 0.261261647727777, Accuracy: 0.9, Precision: 0.9, Recall: 0.9
+(remote_model_training pid=1255694) Epoch: 5/5, Batch 10000, Loss: 0.26394928516406685, Accuracy: 0.904, Precision: 0.904, Recall: 0.904
+(remote_model_training pid=1255694) Epoch: 5/5, Batch 12000, Loss: 0.2795111710512065, Accuracy: 0.891, Precision: 0.89, Recall: 0.891
+(remote_model_training pid=1255694) Epoch: 5/5, Batch 14000, Loss: 0.2790785989373253, Accuracy: 0.894, Precision: 0.894, Recall: 0.894
+(remote_model_training pid=1255694) Training complete
+(remote_model_training pid=1255694) Starting model testing
+(remote_model_training pid=1255694) Testing complete
+(remote_model_training pid=1255694) Storing created artifacts
+(remote_model_training pid=1255694) Predictions object path:EXPERIMENT/ARTIFACTS/ray-predictions
+(remote_model_training pid=1255694) Prediction storing status:True
+(remote_model_training pid=1255694) Formatting model parameters
+(remote_model_training pid=1255694) Parameters object path:EXPERIMENT/ARTIFACTS/ray-parameters
+(remote_model_training pid=1255694) Parameters storing status:True
+(remote_model_training pid=1255694) Formatting model metrics
+(remote_model_training pid=1255694) Predictions object path:EXPERIMENT/ARTIFACTS/ray-metrics
+(remote_model_training pid=1255694) Metrics storing status:True
+(remote_model_training pid=1255694) Metrics object path:EXPERIMENT/ARTIFACTS/ray-metrics
+(remote_model_training pid=1255694) Metrics storing status:True
+(remote_model_training pid=1255694) Time object path:BRIDGE/TIMES/ray-job
+Time object path:BRIDGE/TIMES/ray-job
+Training success:True
+Ray job Complete
+
+INFO:__main__:Ray job ran: True
+INFO:__main__:SLURM batch job cancelled: True
+INFO:__main__:Waiting SLURM job storing
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: False
+INFO:__main__:SLURM job stored: True
+INFO:__main__:Slurm artifacts gathered: True
+INFO:__main__:Notebook pipeline complete

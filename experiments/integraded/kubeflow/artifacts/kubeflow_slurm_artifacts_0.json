@@ -1,0 +1,23 @@
+{
+    "billed-project": "project_()",
+    "cluster": "mahti",
+    "status": "CANCELLED",
+    "1-job-name": "ray-clust+",
+    "1-state": "CANCELLED+",
+    "1-submit-date": "2024-05-27-18:34:33",
+    "2-job-name": "batch",
+    "2-state": "CANCELLED",
+    "2-submit-date": "2024-05-27-18:34:33",
+    "3-job-name": "extern",
+    "3-state": "COMPLETED",
+    "3-submit-date": "2024-05-27-18:34:33",
+    "4-job-name": "hostname",
+    "4-state": "COMPLETED",
+    "4-submit-date": "2024-05-27-18:34:42",
+    "5-job-name": "singulari+",
+    "5-state": "CANCELLED",
+    "5-submit-date": "2024-05-27-18:34:42",
+    "6-job-name": "singulari+",
+    "6-state": "CANCELLED",
+    "6-submit-date": "2024-05-27-18:34:48"
+}

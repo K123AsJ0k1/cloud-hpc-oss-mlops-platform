@@ -1,0 +1,78 @@
+Collecting SLURM artifacts
+
+Seff:
+billed-project=project_()
+cluster=mahti
+status=CANCELLED
+billing-units=22.00
+cpu-efficiency-percentage=0.17
+cpu-efficiency-seconds=749952.0
+cpu-utilized-seconds=353.0
+job-wall-clock-time-seconds=396.0
+memory-efficiency-percentage=10.93
+
+Sacct:
+Row 1
+job-name=ray-clust+
+state=CANCELLED+
+cpu-time-seconds=202752.0
+elapsed-seconds=396.0
+total-cpu-seconds=353.308
+submit-date=2024-05-27-18:34:33
+total-submit-start-seconds=-1
+total-start-end-seconds=397
+
+Row 2
+job-name=batch
+state=CANCELLED
+ave-cpu-seconds=2.0
+cpu-time-seconds=101632.0
+elapsed-seconds=397.0
+total-cpu-seconds=2.18
+submit-date=2024-05-27-18:34:33
+total-submit-start-seconds=0
+total-start-end-seconds=397
+
+Row 3
+job-name=extern
+state=COMPLETED
+ave-cpu-seconds=0.0
+cpu-time-seconds=202752.0
+elapsed-seconds=396.0
+total-cpu-seconds=0.002
+submit-date=2024-05-27-18:34:33
+total-submit-start-seconds=0
+total-start-end-seconds=396
+
+Row 4
+job-name=hostname
+state=COMPLETED
+ave-cpu-seconds=0.0
+cpu-time-seconds=0.0
+elapsed-seconds=0.0
+total-cpu-seconds=0.04
+submit-date=2024-05-27-18:34:42
+total-submit-start-seconds=0
+total-start-end-seconds=0
+
+Row 5
+job-name=singulari+
+state=CANCELLED
+ave-cpu-seconds=333.0
+cpu-time-seconds=782.0
+elapsed-seconds=391.0
+total-cpu-seconds=333.041
+submit-date=2024-05-27-18:34:42
+total-submit-start-seconds=0
+total-start-end-seconds=391
+
+Row 6
+job-name=singulari+
+state=CANCELLED
+ave-cpu-seconds=18.0
+cpu-time-seconds=770.0
+elapsed-seconds=385.0
+total-cpu-seconds=18.042
+submit-date=2024-05-27-18:34:48
+total-submit-start-seconds=0
+total-start-end-seconds=385

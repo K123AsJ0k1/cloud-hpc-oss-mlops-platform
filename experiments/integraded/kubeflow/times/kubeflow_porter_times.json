@@ -1,0 +1,344 @@
+{
+    "bridges": {
+        "1": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.12443
+        },
+        "2": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.10303
+        },
+        "3": {
+            "name": "define-user-bridges",
+            "total-seconds": 0.01816
+        },
+        "4": {
+            "name": "create-or-delete-bridges",
+            "total-seconds": 1.2916
+        },
+        "5": {
+            "name": "store-bridge-yamls",
+            "total-seconds": 0.44483
+        },
+        "6": {
+            "name": "bridge-scaler",
+            "total-seconds": 2.43397
+        },
+        "7": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.10384
+        },
+        "8": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.10422
+        },
+        "9": {
+            "name": "bridge-scaler",
+            "total-seconds": 0.59599
+        },
+        "10": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.12845
+        },
+        "11": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.01761
+        },
+        "12": {
+            "name": "bridge-scaler",
+            "total-seconds": 0.39738
+        },
+        "13": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.18502
+        },
+        "14": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.06122
+        },
+        "15": {
+            "name": "bridge-scaler",
+            "total-seconds": 0.58802
+        },
+        "16": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.20114
+        },
+        "17": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.10009
+        },
+        "18": {
+            "name": "bridge-scaler",
+            "total-seconds": 0.42833
+        },
+        "19": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.13371
+        },
+        "20": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.10281
+        },
+        "21": {
+            "name": "bridge-scaler",
+            "total-seconds": 0.38274
+        },
+        "22": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.11647
+        },
+        "23": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.06054
+        },
+        "24": {
+            "name": "bridge-scaler",
+            "total-seconds": 0.31908
+        },
+        "25": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.12462
+        },
+        "26": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.05959
+        },
+        "27": {
+            "name": "bridge-scaler",
+            "total-seconds": 0.34461
+        },
+        "28": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.10223
+        },
+        "29": {
+            "name": "create-or-delete-bridges",
+            "total-seconds": 5.6444
+        },
+        "30": {
+            "name": "delete-bridge-yamls",
+            "total-seconds": 0.14965
+        },
+        "31": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.02103
+        },
+        "32": {
+            "name": "bridge-scaler",
+            "total-seconds": 6.33044
+        },
+        "33": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.08111
+        },
+        "34": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.61727
+        },
+        "35": {
+            "name": "bridge-scaler",
+            "total-seconds": 1.11619
+        },
+        "36": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.13135
+        },
+        "37": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.10191
+        },
+        "38": {
+            "name": "bridge-scaler",
+            "total-seconds": 0.39741
+        },
+        "39": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.04984
+        },
+        "40": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.24099
+        },
+        "41": {
+            "name": "bridge-scaler",
+            "total-seconds": 0.43022
+        },
+        "42": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.09339
+        },
+        "43": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.05802
+        },
+        "44": {
+            "name": "bridge-scaler",
+            "total-seconds": 0.29372
+        },
+        "45": {
+            "name": "get-users-with-removable-bridges",
+            "total-seconds": 0.36412
+        },
+        "46": {
+            "name": "get-users-with-deployable-bridges",
+            "total-seconds": 0.65413
+        },
+        "47": {
+            "name": "bridge-scaler",
+            "total-seconds": 1.31208
+        }
+    },
+    "jobs": {
+        "1": {
+            "name": "start-job",
+            "total-seconds": 0.4207
+        },
+        "2": {
+            "name": "stop-job",
+            "total-seconds": 0.07838
+        }
+    },
+    "task": {
+        "1": {
+            "name": "monitor",
+            "total-seconds": 1.24554
+        },
+        "2": {
+            "name": "scaler",
+            "total-seconds": 2.52896
+        },
+        "3": {
+            "name": "monitor",
+            "total-seconds": 1.23281
+        },
+        "4": {
+            "name": "scaler",
+            "total-seconds": 0.78755
+        },
+        "5": {
+            "name": "monitor",
+            "total-seconds": 2.11228
+        },
+        "6": {
+            "name": "monitor",
+            "total-seconds": 1.4467
+        },
+        "7": {
+            "name": "scaler",
+            "total-seconds": 0.45173
+        },
+        "8": {
+            "name": "monitor",
+            "total-seconds": 1.35404
+        },
+        "9": {
+            "name": "scaler",
+            "total-seconds": 1.33731
+        },
+        "10": {
+            "name": "monitor",
+            "total-seconds": 1.98991
+        },
+        "11": {
+            "name": "monitor",
+            "total-seconds": 1.3352
+        },
+        "12": {
+            "name": "scaler",
+            "total-seconds": 0.49368
+        },
+        "13": {
+            "name": "monitor",
+            "total-seconds": 1.34715
+        },
+        "14": {
+            "name": "scaler",
+            "total-seconds": 0.45527
+        },
+        "15": {
+            "name": "monitor",
+            "total-seconds": 1.78159
+        },
+        "16": {
+            "name": "monitor",
+            "total-seconds": 1.15688
+        },
+        "17": {
+            "name": "scaler",
+            "total-seconds": 0.4495
+        },
+        "18": {
+            "name": "monitor",
+            "total-seconds": 1.16228
+        },
+        "19": {
+            "name": "scaler",
+            "total-seconds": 0.4075
+        },
+        "20": {
+            "name": "monitor",
+            "total-seconds": 1.59441
+        },
+        "21": {
+            "name": "monitor",
+            "total-seconds": 1.01822
+        },
+        "22": {
+            "name": "scaler",
+            "total-seconds": 6.40659
+        },
+        "23": {
+            "name": "monitor",
+            "total-seconds": 1.3308
+        },
+        "24": {
+            "name": "scaler",
+            "total-seconds": 1.39023
+        },
+        "25": {
+            "name": "monitor",
+            "total-seconds": 1.72853
+        },
+        "26": {
+            "name": "monitor",
+            "total-seconds": 1.33062
+        },
+        "27": {
+            "name": "scaler",
+            "total-seconds": 0.55999
+        },
+        "28": {
+            "name": "monitor",
+            "total-seconds": 1.54832
+        },
+        "29": {
+            "name": "scaler",
+            "total-seconds": 0.5418
+        },
+        "30": {
+            "name": "monitor",
+            "total-seconds": 1.79893
+        },
+        "31": {
+            "name": "monitor",
+            "total-seconds": 1.61473
+        },
+        "32": {
+            "name": "scaler",
+            "total-seconds": 0.36893
+        },
+        "33": {
+            "name": "monitor",
+            "total-seconds": 1.31138
+        },
+        "34": {
+            "name": "scaler",
+            "total-seconds": 1.43261
+        },
+        "35": {
+            "name": "monitor",
+            "total-seconds": 1.9568
+        }
+    }
+}

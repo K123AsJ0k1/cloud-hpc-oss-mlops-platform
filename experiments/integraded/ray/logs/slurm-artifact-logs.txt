@@ -1,0 +1,79 @@
+INFO:__main__:Collecting SLURM artifacts
+INFO:__main__:
+INFO:__main__:Seff:
+INFO:__main__:billed-project=project_()
+INFO:__main__:cluster=mahti
+INFO:__main__:status=CANCELLED
+INFO:__main__:billing-units=22.72
+INFO:__main__:cpu-efficiency-percentage=0.17
+INFO:__main__:cpu-efficiency-seconds=756608.0
+INFO:__main__:cpu-utilized-seconds=356.0
+INFO:__main__:job-wall-clock-time-seconds=409.0
+INFO:__main__:memory-efficiency-percentage=11.38
+INFO:__main__:
+INFO:__main__:Sacct:
+INFO:__main__:Row 1
+INFO:__main__:job-name=ray-clust+
+INFO:__main__:state=CANCELLED+
+INFO:__main__:cpu-time-seconds=209408.0
+INFO:__main__:elapsed-seconds=409.0
+INFO:__main__:total-cpu-seconds=356.287
+INFO:__main__:submit-date=2024-05-25-15:45:15
+INFO:__main__:total-submit-start-seconds=-1
+INFO:__main__:total-start-end-seconds=410
+INFO:__main__:
+INFO:__main__:Row 2
+INFO:__main__:job-name=batch
+INFO:__main__:state=CANCELLED
+INFO:__main__:ave-cpu-seconds=2.0
+INFO:__main__:cpu-time-seconds=104960.0
+INFO:__main__:elapsed-seconds=410.0
+INFO:__main__:total-cpu-seconds=2.152
+INFO:__main__:submit-date=2024-05-25-15:45:15
+INFO:__main__:total-submit-start-seconds=0
+INFO:__main__:total-start-end-seconds=410
+INFO:__main__:
+INFO:__main__:Row 3
+INFO:__main__:job-name=extern
+INFO:__main__:state=COMPLETED
+INFO:__main__:ave-cpu-seconds=0.0
+INFO:__main__:cpu-time-seconds=209408.0
+INFO:__main__:elapsed-seconds=409.0
+INFO:__main__:total-cpu-seconds=0.002
+INFO:__main__:submit-date=2024-05-25-15:45:15
+INFO:__main__:total-submit-start-seconds=0
+INFO:__main__:total-start-end-seconds=409
+INFO:__main__:
+INFO:__main__:Row 4
+INFO:__main__:job-name=hostname
+INFO:__main__:state=COMPLETED
+INFO:__main__:ave-cpu-seconds=0.0
+INFO:__main__:cpu-time-seconds=0.0
+INFO:__main__:elapsed-seconds=0.0
+INFO:__main__:total-cpu-seconds=0.043
+INFO:__main__:submit-date=2024-05-25-15:45:23
+INFO:__main__:total-submit-start-seconds=0
+INFO:__main__:total-start-end-seconds=0
+INFO:__main__:
+INFO:__main__:Row 5
+INFO:__main__:job-name=singulari+
+INFO:__main__:state=CANCELLED
+INFO:__main__:ave-cpu-seconds=337.0
+INFO:__main__:cpu-time-seconds=810.0
+INFO:__main__:elapsed-seconds=405.0
+INFO:__main__:total-cpu-seconds=336.044
+INFO:__main__:submit-date=2024-05-25-15:45:23
+INFO:__main__:total-submit-start-seconds=0
+INFO:__main__:total-start-end-seconds=405
+INFO:__main__:
+INFO:__main__:Row 6
+INFO:__main__:job-name=singulari+
+INFO:__main__:state=CANCELLED
+INFO:__main__:ave-cpu-seconds=18.0
+INFO:__main__:cpu-time-seconds=798.0
+INFO:__main__:elapsed-seconds=399.0
+INFO:__main__:total-cpu-seconds=18.045
+INFO:__main__:submit-date=2024-05-25-15:45:29
+INFO:__main__:total-submit-start-seconds=0
+INFO:__main__:total-start-end-seconds=399
+INFO:__main__:

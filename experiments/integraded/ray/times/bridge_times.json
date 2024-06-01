@@ -1,0 +1,36 @@
+{
+    "gather": {
+        "1": {
+            "name": "bridge-gather",
+            "total-seconds": 150.265
+        }
+    },
+    "job": {
+        "1": {
+            "name": "bridge-job",
+            "total-seconds": 415.19905829429626
+        }
+    },
+    "pipeline": {
+        "1": {
+            "name": "bridge-pipeline",
+            "total-seconds": 738.1015999317169
+        }
+    },
+    "ray-job": {
+        "1": {
+            "name": "remote-model-training",
+            "total-seconds": 315.66677
+        },
+        "2": {
+            "name": "exp-train",
+            "total-seconds": 322.43927
+        }
+    },
+    "workflow": {
+        "1": {
+            "name": "notebook-pipeline",
+            "total-seconds": 748.69029
+        }
+    }
+}
