@@ -61,7 +61,7 @@ Headless services:
 
 ### OSS Setup
 
-When you have managed to get a CSC user with a project with a access to atleast CPouta, you are now able to create virtual machine instances for running OSS. Please check the following offical documentation:
+When you have managed to get a CSC user with a project with a access to CPouta, you are now able to create virtual machine instances for running OSS. Please check the following offical documentation:
 
 - [VM Creation](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/)
 - [VM Flavors](https://docs.csc.fi/cloud/pouta/vm-flavors-and-billing/#standard-flavors)
@@ -137,7 +137,7 @@ http://localhost:5555
 
 ### Ray Setup
 
-In order to use Mahti Ray in CPouta, we need to configure security groups and SSH. Set the VM security group to have the following:
+When you have access to Allas and Mahti, in order to use Mahti Ray in CPouta, we need to configure security groups and SSH. Set the VM security group to have the following:
 
 - Mahti-nat-1.csc.fi
    - SSH
