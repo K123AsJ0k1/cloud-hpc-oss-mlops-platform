@@ -29,7 +29,6 @@ def store_job_time(
         created_time_data = {}
         created_time_metadata = {}
         if not time_object_path in submitter_bucket_objects:
-            print('New time')
             job_time_object = get_object(
                 storage_client = storage_client,
                 bucket_name = storage_name,
@@ -46,7 +45,6 @@ def store_job_time(
             
             created_time_metadata = job_time_object['custom-meta']
         else:
-            print('Existing time')
             job_time_object = get_object(
                 storage_client = storage_client,
                 bucket_name = storage_name,

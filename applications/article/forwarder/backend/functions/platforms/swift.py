@@ -111,7 +111,6 @@ def swift_get_object(
     bucket_name: str,
     object_path: str
 ) -> any:
-    # This should handle metadata
     try:
         response = swift_client.get_object(
             container = bucket_name,

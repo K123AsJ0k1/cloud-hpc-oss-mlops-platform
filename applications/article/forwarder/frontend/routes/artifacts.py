@@ -29,7 +29,7 @@ async def get_job_artifact(
         'seff',
         'files'
     ]
-    #job_artifact = {}
+    
     if type in suitable_types:
         task_prefix = 'tasks.fetch-job-'
         task_name = task_prefix + type

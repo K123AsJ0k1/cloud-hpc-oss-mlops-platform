@@ -30,7 +30,6 @@ def get_flower_tasks(
 def format_flower_tasks(
     tasks: any
 ) -> any:
-    print('format')
     relevant_keys = [
         'worker',
         'children',
