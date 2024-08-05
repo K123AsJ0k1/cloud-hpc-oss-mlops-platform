@@ -1,4 +1,0 @@
-resources:
-- porter-permissions.yaml
-- porter-deployment.yaml
-- porter-service.yaml

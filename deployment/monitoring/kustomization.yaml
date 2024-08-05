@@ -4,4 +4,3 @@ resources:
   - monitoring-namespace.yaml
   - prometheus/
   - grafana/
-  - porter/
