@@ -1,7 +1,6 @@
 # 7 4 1
 import subprocess
 
-# created
 def start_compose(
     file_path: str
 ) -> bool:
@@ -14,11 +13,17 @@ def start_compose(
         stdout = subprocess.PIPE,
         stderr = subprocess.PIPE
     )
-
+    
     print_split = resulted_print.stderr.decode('utf-8').split('\n')
+
     deployed = False
-    if 'started' in print_split:
-        deployed = True
+    for row in print_split:
+        empty_split = row.split(' ')
+        for word in empty_split:
+            if 0 == len(word):
+                continue
+            if word.lower() == 'started':
+                deployed = True
     return deployed
 # created
 def stop_compose(
@@ -35,7 +40,13 @@ def stop_compose(
     )
 
     print_split = resulted_print.stderr.decode('utf-8').split('\n')
+
     removed = False
-    if 'started' in print_split:
-        removed = True
+    for row in print_split:
+        empty_split = row.split(' ')
+        for word in empty_split:
+            if 0 == len(word):
+                continue
+            if word.lower() == 'removed':
+                removed = True
     return removed

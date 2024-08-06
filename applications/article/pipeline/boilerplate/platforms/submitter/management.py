@@ -2,7 +2,7 @@
 
 from ..compose.utility import start_compose, stop_compose
 from ...utility.requests.utility import request_route
-
+# Created
 def start_submitter(
     file_paths: any,
     address: str,
@@ -15,7 +15,7 @@ def start_submitter(
     )
 
     if deployed:
-        configured = request_route(
+        route_code, route_text  = request_route(
             address = address,
             port = port,
             route_type = '',
@@ -26,7 +26,7 @@ def start_submitter(
             timeout = 120
         )
 
-        if configured:
+        if route_code == 200 and route_text:
             deployed = start_compose(
                 file_path = file_paths[1]
             )

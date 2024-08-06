@@ -3,7 +3,7 @@
 import requests
 import json
 import time
-
+# Created and works
 def set_route(
     route_type: str,
     route_name: str,
@@ -48,7 +48,7 @@ def set_route(
         route = '/'.join(route)
     print('Used route: ' + str(route))
     return route
-
+# Created and works
 def get_response(
     route_type: str,
     route_url: str,
@@ -69,7 +69,7 @@ def get_response(
             url = route_url
         )
     return route_response
-
+# Created and works
 def set_full_url(
     address: str,
     port: str,
@@ -81,7 +81,7 @@ def set_full_url(
     used_path = route_split[1]
     full_url = url_prefix + used_path
     return url_type, full_url
-
+# Created and works
 def request_route(
     address: str,
     port: str,
@@ -111,19 +111,19 @@ def request_route(
         route_input = route_input
     )
 
-    status_code = None
-    returned_response = {}
+    route_status_code = None
+    route_returned_text = {}
     if not route_response is None:
-        status_code = route_response.status_code
-        if status_code == 200:
-            response = json.load(route_response.text)
+        route_status_code = route_response.status_code
+        if route_status_code == 200:
+            route_text = json.loads(route_response.text)
 
-            if 'id' in response: 
+            if 'id' in route_text: 
                 task_result_route = set_route(
                     route_type = '',
                     route_name = 'task-result',
                     path_replacers = {
-                        'id': response['id']
+                        'id': route_text['id']
                     },
                     path_names = []
                 )
@@ -136,24 +136,26 @@ def request_route(
 
                 start = time.time()
                 while time.time() - start <= timeout:
-                    route_response = get_response(
+                    task_route_response = get_response(
                         route_type = task_url_type,
                         route_url = task_full_url,
                         route_input = {}
                     )
-
-                    if route_response['status'] == 'FAILED':
-                        break
                     
-                    if route_response['status'] == 'SUCCESS':
-                        returned_response = route_response['result']
+                    task_status_code = route_response.status_code
+                        
+                    if task_status_code == 200:
+                        task_text = json.loads(task_route_response.text)
+    
+                        if task_text['status'] == 'FAILED':
+                            break
+                        
+                        if task_text['status'] == 'SUCCESS':
+                            route_returned_text = task_text['result']
+                            break
+                    else:
                         break
             else:
-                returned_response = response
-    return status_code, returned_response
-                        
+                route_returned_text = route_text
+    return route_status_code, route_returned_text
                     
-                    
-
-
-

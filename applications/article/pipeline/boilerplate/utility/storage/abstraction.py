@@ -66,6 +66,19 @@ def set_bucket_names(
     storage_names.append(bucket_prefix + '-submitter-' + ice_id + '-' + set_formatted_user(user = user))
     storage_names.append(bucket_prefix + '-pipeline-' + ice_id + '-' + set_formatted_user(user = user))
     return storage_names
+# created and works
+def setup_storage(
+    storage_parameters: any
+) -> any:
+    storage_client = setup_storage_client(
+        storage_parameters = storage_parameters
+    ) 
+    
+    storage_name = set_bucket_names(
+       storage_parameters = storage_parameters
+    )
+    
+    return storage_client, storage_name
 # Refactored and works
 def setup_storage_client(
     storage_parameters: any
