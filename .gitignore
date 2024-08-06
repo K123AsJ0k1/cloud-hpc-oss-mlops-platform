@@ -64,3 +64,5 @@ old/
 istio*
 temp/
 .platform/
+*_venv/
+venv/
