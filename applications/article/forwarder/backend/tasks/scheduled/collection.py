@@ -12,7 +12,7 @@ tasks_celery = get_celery_instance()
     rate_limit = '1/m',
     name = 'tasks.collection-manager'
 )
-def collection_manager( 
+def collection_manager(  
     configuration: any
 ) -> any:
     # Can cause concurrency issues with other threads

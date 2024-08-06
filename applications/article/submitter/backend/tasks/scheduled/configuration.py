@@ -1,31 +1,27 @@
-from functions.utility.storage.objects import get_clients
+from functions.utility.setup.configuration import configure_enviroment 
 from functions.platforms.celery import get_celery_instance
-from functions.utility.forwarding.management import deploy_forwards
 from functions.platforms.redis import get_redis_instance, get_redis_lock, check_redis_lock, release_redis_lock
 import time
-
-tasks_celery = get_celery_instance()
+tasks_celery = get_celery_instance() 
 
 # Created and works
-@tasks_celery.task(
+@tasks_celery.task(   
     bind = False, 
-    max_retries = 0,
+    max_retries = 0, 
     soft_time_limit = 480,
     time_limit = 960,
     rate_limit = '1/m',
-    name = 'tasks.forwarding-manager'
+    name = 'tasks.configuration-manager'
 )
-def forwarding_manager( 
+def configuration_manager(  
     configuration: any
-) -> any:
-    # 1 threads
-    # Can cause concurrency issues with other threads
-    try:
-        print('Forwarding per scheduler request')
+) -> bool:
+    try:   
+        print('Managing configuration per scheduler request') 
 
         redis_client = get_redis_instance()
 
-        lock_name = 'forwarding-manager-lock'
+        lock_name = 'configuration-manager-lock'
 
         lock_exists = check_redis_lock(
             redis_client = redis_client,
@@ -41,19 +37,18 @@ def forwarding_manager(
             print('Redis lock aquired: ' + str(lock_active))
             if lock_active:
                 status = False
-                try:
-                    storage_clients = get_clients(
-                        configuration = configuration
-                    )
-                    storage_names = configuration['storage-names']
-                    
-                    deploy_forwards(  
-                        storage_client = storage_clients[0],
-                        storage_name = storage_names[0]
-                    )
+
+                try: 
+                    print('Running configure enviroment')
+                    configure_enviroment(     
+                        configuration = configuration,
+                        celery_client = tasks_celery
+                    )  
+                    #time.sleep(140)
+
                     status = True
                 except Exception as e:
-                    print('Deploy forwards error: ' + str(e))
+                    print('Configuration enviroment error: ' + str(e))
                 
                 lock_released = release_redis_lock(
                     redis_lock = redis_lock
@@ -66,5 +61,5 @@ def forwarding_manager(
                 return False
         return False
     except Exception as e:
-        print('Forwarding manager error:' + str(e))
-        return False
+        print('Configuration handler error: ' + str(e))
+        return False    

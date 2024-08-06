@@ -1,8 +1,6 @@
-from functions.utility.storage.objects import get_clients
 from functions.platforms.celery import get_celery_instance
-from functions.utility.forwarding.management import deploy_forwards
+from functions.utility.scheduling.strategy import setup_pessimistic_strategy
 from functions.platforms.redis import get_redis_instance, get_redis_lock, check_redis_lock, release_redis_lock
-import time
 
 tasks_celery = get_celery_instance()
 
@@ -10,27 +8,28 @@ tasks_celery = get_celery_instance()
 @tasks_celery.task(
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 480,
-    time_limit = 960,
+    soft_time_limit = 120,
+    time_limit = 240,
     rate_limit = '1/m',
-    name = 'tasks.forwarding-manager'
+    name = 'tasks.setup-handler'
 )
-def forwarding_manager( 
+def setup_handler(
     configuration: any
-) -> any:
-    # 1 threads
-    # Can cause concurrency issues with other threads
+):
+    # 1 + 2 threads for optimistic
+    # 1 + 1 threads for pessimistic
     try:
-        print('Forwarding per scheduler request')
+        print('Handling setup per frontend request')
 
         redis_client = get_redis_instance()
 
-        lock_name = 'forwarding-manager-lock'
-
+        lock_name = 'setup-handler-lock' 
+ 
         lock_exists = check_redis_lock(
             redis_client = redis_client,
             lock_name = lock_name
         )
+
         print('Redis lock exists: ' + str(lock_exists))
         if not lock_exists:
             lock_active, redis_lock = get_redis_lock(
@@ -41,19 +40,15 @@ def forwarding_manager(
             print('Redis lock aquired: ' + str(lock_active))
             if lock_active:
                 status = False
-                try:
-                    storage_clients = get_clients(
+
+                try: 
+                    print('Running setup strategy')
+                    status = setup_pessimistic_strategy( 
+                        celery_client = tasks_celery,
                         configuration = configuration
-                    )
-                    storage_names = configuration['storage-names']
-                    
-                    deploy_forwards(  
-                        storage_client = storage_clients[0],
-                        storage_name = storage_names[0]
-                    )
-                    status = True
+                    ) 
                 except Exception as e:
-                    print('Deploy forwards error: ' + str(e))
+                    print('Setup strategy error: ' + str(e))
                 
                 lock_released = release_redis_lock(
                     redis_lock = redis_lock
@@ -66,5 +61,5 @@ def forwarding_manager(
                 return False
         return False
     except Exception as e:
-        print('Forwarding manager error:' + str(e))
+        print('Setup handler error:' + str(e))
         return False

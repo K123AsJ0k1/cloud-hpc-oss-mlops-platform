@@ -1,6 +1,6 @@
 from functions.utility.storage.objects import get_clients
 from functions.platforms.celery import get_celery_instance
-from functions.utility.forwarding.management import deploy_forwards
+from functions.utility.logging.management import collect_logs
 from functions.platforms.redis import get_redis_instance, get_redis_lock, check_redis_lock, release_redis_lock
 import time
 
@@ -12,20 +12,19 @@ tasks_celery = get_celery_instance()
     max_retries = 0,
     soft_time_limit = 480,
     time_limit = 960,
-    rate_limit = '1/m',
-    name = 'tasks.forwarding-manager'
+    rate_limit = '1/m', 
+    name = 'tasks.logging-manager'
 )
-def forwarding_manager( 
+def logging_manager(
     configuration: any
 ) -> any:
-    # 1 threads
     # Can cause concurrency issues with other threads
     try:
-        print('Forwarding per scheduler request')
+        print('Managing logging per scheduler request') 
 
         redis_client = get_redis_instance()
 
-        lock_name = 'forwarding-manager-lock'
+        lock_name = 'logging-manager-lock'
 
         lock_exists = check_redis_lock(
             redis_client = redis_client,
@@ -42,19 +41,23 @@ def forwarding_manager(
             if lock_active:
                 status = False
                 try:
+                    print('Running collect logs')
                     storage_clients = get_clients(
                         configuration = configuration
                     )
                     storage_names = configuration['storage-names']
-                    
-                    deploy_forwards(  
+
+                    collect_logs(
                         storage_client = storage_clients[0],
                         storage_name = storage_names[0]
                     )
+
+                    #time.sleep(400)
+
                     status = True
                 except Exception as e:
-                    print('Deploy forwards error: ' + str(e))
-                
+                    print('Collect logs error: ' + str(e))
+          
                 lock_released = release_redis_lock(
                     redis_lock = redis_lock
                 ) 
@@ -66,5 +69,5 @@ def forwarding_manager(
                 return False
         return False
     except Exception as e:
-        print('Forwarding manager error:' + str(e))
+        print('Logging manager error:' + str(e))
         return False

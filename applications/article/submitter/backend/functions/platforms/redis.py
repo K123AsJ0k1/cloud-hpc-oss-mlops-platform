@@ -1,7 +1,6 @@
 import os
 import redis
 import pickle
-
 # created and works
 def get_redis_instance():
     redis_endpoint = os.environ.get('REDIS_ENDPOINT')
