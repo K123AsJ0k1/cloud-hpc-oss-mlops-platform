@@ -3,7 +3,7 @@ from functions.utility.storage.artifacts import get_job_status, get_job_sacct, g
 from functions.utility.storage.objects import get_clients
 from functions.platforms.celery import get_celery_instance
 
-tasks_celery = get_celery_instance()
+tasks_celery = get_celery_instance() 
 
 # Refactored and works
 @tasks_celery.task( 
@@ -42,7 +42,7 @@ def fetch_job_status(
         )
     except Exception as e: 
         print('Fetch job status error: ' + str(e))
-        return {'job-status': {}} 
+        return {'job-status': {}}  
 # Refactored and works
 @tasks_celery.task( 
     bind = False, 

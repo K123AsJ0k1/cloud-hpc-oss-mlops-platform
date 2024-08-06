@@ -49,5 +49,5 @@ def get_cluster_structure(
             continue
         '''
         cluster[namespace_name] = {'pods': pod_names, 'services': service_names}
-    structure = {'structure': structure}
+    structure = {'structure': cluster}
     return structure

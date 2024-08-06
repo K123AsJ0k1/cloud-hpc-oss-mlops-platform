@@ -18,7 +18,7 @@ def setup_celery_logging():
         pass
 
     return log_path
-# created and works
+# created and works 
 def get_celery_logs(): 
     log_path = os.path.abspath('logs/backend.log')
     listed_logs = {'logs':[]}

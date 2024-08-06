@@ -19,7 +19,7 @@ def get_logs() -> any:
         return get_celery_logs()
     except Exception as e:
         print('Get logs error: ' + str(e))
-        return {'logs':[]}
+        return {'logs':[]} 
 # Refactored and works
 @tasks_celery.task( 
     bind = False, 

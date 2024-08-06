@@ -33,7 +33,7 @@ def create_job(
             'user': job_request['user']
         }
 
-        del job_request['user']
+        del job_request['user'] 
         
         return store_created_job( 
             storage_client = storage_clients[0],
@@ -130,7 +130,7 @@ def stop_job(
     rate_limit = '2/m',
     name = 'tasks.create-forwarding'
 )
-def create_forwarding(
+def create_forwarding( 
     configuration: any,
     forwarding_request: any
 ) -> any:
