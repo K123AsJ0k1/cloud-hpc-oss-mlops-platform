@@ -1,3 +1,5 @@
+# 6-3-1
+
 import requests
 import json
 import time
@@ -87,7 +89,7 @@ def request_route(
     route_name: str,
     path_replacers: any,
     path_names: any,
-    input: any,
+    route_input: any,
     timeout: any
 ) -> any:
     used_route = set_route(
@@ -106,7 +108,7 @@ def request_route(
     route_response = get_response(
         route_type = url_type,
         route_url = full_url,
-        route_input = input
+        route_input = route_input
     )
 
     status_code = None
