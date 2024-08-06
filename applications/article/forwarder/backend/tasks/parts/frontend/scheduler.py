@@ -1,5 +1,4 @@
-from functions.platforms.celery import get_celery_instance, get_celery_logs
-from functions.platforms.kubernetes import get_kubernetes_clients, get_cluster_structure
+from functions.platforms.celery import get_celery_instance
 from functions.utility.scheduling.management import modify_scheduling
 
 tasks_celery = get_celery_instance()
@@ -15,7 +14,7 @@ tasks_celery = get_celery_instance()
 ) 
 def start_scheduler(
     scheduler_request: any
-) -> any:
+) -> any: 
     # atleast 1 thread needs to be ready any moment
     try:
         print('Starting scheduler per frontend request')
@@ -23,10 +22,10 @@ def start_scheduler(
         return modify_scheduling(
             scheduler_request = scheduler_request,
             action = 'start'
-        )
+        ) 
     except Exception as e:
-        print('Start scheduler error: ' + str(e))
-        return {'status': 'fail'}
+        print('Start scheduler error: ' + str(e)) 
+        return False
 # Refactored and works
 @tasks_celery.task( 
     bind = False, 
@@ -47,4 +46,4 @@ def stop_scheduler() -> any:
         )
     except Exception as e:
         print('Stop scheduler error: ' + str(e))
-        return {'status': 'fail'}
+        return False

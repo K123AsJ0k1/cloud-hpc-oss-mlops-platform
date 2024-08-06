@@ -78,7 +78,7 @@ def store_started_job(
     storage_client: any,
     bucket_parameters: any,
     job_start: any
-):
+) -> any:
     begin_job_starting_time = time.time()
 
     submitter_bucket_name = get_user_bucket_name(

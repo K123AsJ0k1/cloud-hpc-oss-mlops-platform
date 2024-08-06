@@ -26,7 +26,7 @@ def get_cluster_structure(
     # Here we get the current cluster name of current context
     # This does not work with in cluster config
     #current_cluster = config.list_kube_config_contexts()[1]['context']['cluster']
-    structure = {}
+    cluster = {}
     namespaces = regular.list_namespace().items
     for namespace in namespaces:
         namespace_name = namespace.metadata.name
@@ -48,5 +48,6 @@ def get_cluster_structure(
             structure['argo-rollouts'] = {'pods': pod_names, 'services': service_names, 'rollouts': rollout_names}
             continue
         '''
-        structure[namespace_name] = {'pods': pod_names, 'services': service_names}
+        cluster[namespace_name] = {'pods': pod_names, 'services': service_names}
+    structure = {'structure': structure}
     return structure

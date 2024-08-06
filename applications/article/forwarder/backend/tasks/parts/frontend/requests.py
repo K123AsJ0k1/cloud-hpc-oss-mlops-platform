@@ -40,9 +40,9 @@ def create_job(
             bucket_parameters = bucket_parameters,
             job_request = job_request
         )
-    except Exception as e:
+    except Exception as e: 
         print('Create job error: ' + str(e))
-        return {'key': 'none'}
+        return {'key': '0'} 
 # Refactored and works
 @tasks_celery.task(
     bind = False, 
@@ -78,7 +78,7 @@ def start_job(
             storage_client = storage_clients[0],
             bucket_parameters = bucket_parameters,
             job_start = job_start
-        )
+        ) 
     except Exception as e:
         print('Start job error: ' + str(e))
         return {'status': 'fail'}
@@ -164,7 +164,7 @@ def create_forwarding(
         )
     except Exception as e:
         print('Create forwarding error: ' + str(e))
-        return {'keys': 'none'}
+        return {'keys': '0,0'} 
 # Created and works
 @tasks_celery.task(
     bind = False, 

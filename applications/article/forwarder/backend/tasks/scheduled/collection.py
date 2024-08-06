@@ -1,5 +1,7 @@
 from functions.platforms.celery import get_celery_instance
 from functions.utility.scheduling.strategy import pessimistic_strategy
+from functions.platforms.redis import get_redis_instance, get_redis_lock, check_redis_lock, release_redis_lock
+import time
 
 tasks_celery = get_celery_instance()
 
@@ -19,12 +21,44 @@ def collection_manager(
     # 1 + 5 threads with optimistic
     # 1 + 1 threads with pessimistic
     try:
-        print('Collecting per scheduler request')
-        
-        return pessimistic_strategy(
-            celery_client = tasks_celery,
-            configuration = configuration
+        print('Collecting per scheduler request') 
+
+        redis_client = get_redis_instance()
+
+        lock_name = 'collection-manager-lock'
+
+        lock_exists = check_redis_lock(
+            redis_client = redis_client,
+            lock_name = lock_name
         )
+        print('Redis lock exists: ' + str(lock_exists))
+        if not lock_exists:
+            lock_active, redis_lock = get_redis_lock(
+                redis_client = redis_client,
+                lock_name = lock_name,
+                timeout = 500
+            )
+            print('Redis lock aquired: ' + str(lock_active))
+            if lock_active:
+                status = False
+                try:
+                    status = pessimistic_strategy(
+                        celery_client = tasks_celery,
+                        configuration = configuration
+                    )
+                except Exception as e:
+                    print('Deploy forwards error: ' + str(e))
+
+                lock_released = release_redis_lock(
+                    redis_lock = redis_lock
+                ) 
+
+                print('Redis lock released: ' + str(lock_released))
+
+                return status
+            else:
+                return False
+        return False
     except Exception as e:
         print('Collection manager error:' + str(e))
         return False

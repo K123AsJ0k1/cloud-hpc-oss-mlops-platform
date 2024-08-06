@@ -64,7 +64,7 @@ def template_handler(
                         storage_parameters = storage_parameters
                     )
 
-                    status = True
+                    status = True 
                 except Exception as e:
                     print('Store templates error: ' + str(e))
           

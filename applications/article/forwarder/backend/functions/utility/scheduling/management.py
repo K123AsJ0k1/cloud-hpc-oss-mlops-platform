@@ -10,29 +10,19 @@ def modify_scheduling(
         scheduler_request = scheduler_request
     ) 
     
-    deployment_status = 'no deployment'
+    deployment_status = False
     
     if action == 'start':
-        created = kustomize_create_deployment(
+        deployment_status = kustomize_create_deployment(
             kustomize_folder = deployment_folder
         )
 
-        if created:
-            deployment_status = 'creation success'
-        else: 
-            deployment_status = 'creation failure'
     if action == 'stop':
         removed = kustomize_delete_deployment(
             kustomize_folder = deployment_folder
         )
 
-        if removed:
-            definition_removed = remove_scheduler_deployment()
-            if definition_removed:
-                deployment_status = 'deletion success'
-            else:
-                deployment_status = 'deletion failure'
-        else:
-            deployment_status = 'deletion failure'
-
-    return {'status': deployment_status}
+        if removed: 
+            deployment_status = remove_scheduler_deployment()
+            
+    return deployment_status

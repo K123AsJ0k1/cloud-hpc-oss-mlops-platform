@@ -40,9 +40,9 @@ def fetch_job_status(
             bucket_parameters = bucket_parameters,
             request = request
         )
-    except Exception as e:
+    except Exception as e: 
         print('Fetch job status error: ' + str(e))
-        return {'status': 'fail'}
+        return {'job-status': {}} 
 # Refactored and works
 @tasks_celery.task( 
     bind = False, 
@@ -80,7 +80,7 @@ def fetch_job_sacct(
         )
     except Exception as e:
         print('Fetch job sacct error: ' + str(e))
-        return {'status': 'fail'}
+        return {'job-sacct': {}}
 # Refactored and works
 @tasks_celery.task( 
     bind = False, 
@@ -118,7 +118,7 @@ def fetch_job_seff(
         )
     except Exception as e:
         print('Fetch job seff error: ' + str(e))
-        return {'status': 'fail'}
+        return {'job-seff': {}}
 # Refactored and works
 @tasks_celery.task( 
     bind = False, 
@@ -156,7 +156,7 @@ def fetch_job_files(
         )
     except Exception as e:
         print('Fetch job file error: ' + str(e))
-        return {'status': 'fail'}
+        return {'job-files': {}}
 # Refactored and works
 @tasks_celery.task( 
     bind = False, 
@@ -188,7 +188,7 @@ def fetch_forwarding_status(
         }
         
         del request['user']
- 
+  
         return get_forwarding_status(
             storage_client = storage_clients[0],
             storage_name = storage_names[0],
@@ -197,4 +197,4 @@ def fetch_forwarding_status(
         )
     except Exception as e:
         print('Fetch job file error: ' + str(e))
-        return {'status': 'fail'}
+        return {'forwarding-status':{}}
