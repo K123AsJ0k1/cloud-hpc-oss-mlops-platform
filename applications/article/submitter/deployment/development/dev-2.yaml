@@ -22,7 +22,7 @@ services:
     ports:
       - '127.0.0.1:6601:6601'
     environment:
-      - REDIS_ENDPOINT=redis
+      - REDIS_ENDPOINT=dev-redis
       - REDIS_PORT=6379
       - REDIS_DB=0
       - FLOWER_USERNAME=flower123
