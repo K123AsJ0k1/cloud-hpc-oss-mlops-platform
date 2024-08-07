@@ -11,6 +11,6 @@ def collect_objects(
         task_kwargs ={ 
             'configuration': configuration
         },
-        timeout = 980
+        timeout = 500
     ) 
     return task_data['result'] 

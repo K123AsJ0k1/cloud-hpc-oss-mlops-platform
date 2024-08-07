@@ -132,7 +132,7 @@ def configure_enviroment(
                     task_data = await_task(
                         celery_client = celery_client,
                         task_id = enviroment_manager_id,
-                        timeout = 480
+                        timeout = 500
                     )
                     
                     updated_enviroment = False

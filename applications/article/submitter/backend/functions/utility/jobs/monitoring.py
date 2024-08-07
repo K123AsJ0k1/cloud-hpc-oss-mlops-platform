@@ -35,7 +35,7 @@ def monitor_jobs(
         task_kwargs = {
             'configuration': configuration
         },
-        timeout = 480
+        timeout = 500
     )  
     
     if 0 < len(task_data):
