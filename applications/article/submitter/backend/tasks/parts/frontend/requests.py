@@ -153,7 +153,7 @@ def stop_job(
 
         redis_client = get_redis_instance()
 
-        lock_name = 'start-job-lock'
+        lock_name = 'stop-job-lock'
 
         lock_exists = check_redis_lock(
             redis_client = redis_client,
