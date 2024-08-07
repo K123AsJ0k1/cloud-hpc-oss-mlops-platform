@@ -17,4 +17,4 @@ def get_logs() -> any:
         return get_celery_logs()
     except Exception as e:
         print('Get logs error: ' + str(e))
-        return []
+        return {'logs':[]} 

@@ -45,8 +45,6 @@ def monitoring_manager(
                         celery_client = tasks_celery
                     ) 
 
-                    #time.sleep(110)
-
                     status = True
                 except Exception as e:
                     print('Monitor jobs error: ' + str(e))

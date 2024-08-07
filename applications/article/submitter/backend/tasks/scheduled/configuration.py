@@ -44,8 +44,7 @@ def configuration_manager(
                         configuration = configuration,
                         celery_client = tasks_celery
                     )  
-                    #time.sleep(140)
-
+                    
                     status = True
                 except Exception as e:
                     print('Configuration enviroment error: ' + str(e))

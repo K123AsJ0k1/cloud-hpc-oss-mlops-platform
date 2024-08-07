@@ -33,13 +33,13 @@ def fetch_job_status(
         )
     except Exception as e:
         print('Fetch job status error: ' + str(e))
-        return {'status': 'fail'}
+        return {'job-status': {}} 
 # Refactored and works
 @tasks_celery.task( 
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 60,
-    time_limit = 120,
+    soft_time_limit = 120,
+    time_limit = 240,
     rate_limit = '2/m',
     name = 'tasks.fetch-job-sacct'
 )
@@ -62,13 +62,13 @@ def fetch_job_sacct(
         )
     except Exception as e:
         print('Fetch job sacct error: ' + str(e))
-        return {'status': 'fail'}
+        return {'job-sacct': {}}
 # Refactored and works
 @tasks_celery.task( 
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 60,
-    time_limit = 120,
+    soft_time_limit = 120,
+    time_limit = 240,
     rate_limit = '1/m',
     name = 'tasks.fetch-job-seff'
 )
@@ -91,13 +91,13 @@ def fetch_job_seff(
         )
     except Exception as e:
         print('Fetch job seff error: ' + str(e))
-        return {'status': 'fail'}
+        return {'job-seff': {}}
 # Refactored and works
 @tasks_celery.task( 
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 60,
-    time_limit = 120,
+    soft_time_limit = 120,
+    time_limit = 240,
     rate_limit = '1/m',
     name = 'tasks.fetch-job-files'
 )
@@ -119,5 +119,5 @@ def fetch_job_files(
             request = request
         )
     except Exception as e:
-        print('Fetch job file error: ' + str(e))
-        return {'status': 'fail'}
+        print('Fetch job files error: ' + str(e))
+        return {'job-files': {}}

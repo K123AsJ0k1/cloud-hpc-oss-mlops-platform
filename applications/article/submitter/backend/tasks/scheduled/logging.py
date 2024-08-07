@@ -52,8 +52,6 @@ def logging_manager(
                         storage_name = storage_names[0]
                     )
 
-                    #time.sleep(400)
-
                     status = True
                 except Exception as e:
                     print('Collect logs error: ' + str(e))

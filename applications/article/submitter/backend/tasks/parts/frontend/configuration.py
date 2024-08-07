@@ -8,8 +8,8 @@ tasks_celery = get_celery_instance()
 @tasks_celery.task(
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 120,
-    time_limit = 240,
+    soft_time_limit = 240,
+    time_limit = 480,
     rate_limit = '1/m',
     name = 'tasks.setup-handler'
 )

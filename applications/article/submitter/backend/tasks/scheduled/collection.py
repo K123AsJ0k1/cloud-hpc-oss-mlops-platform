@@ -44,8 +44,6 @@ def collection_manager(
                         configuration = configuration 
                     )  
 
-                    #time.sleep(150)
-
                     status = True
                 except Exception as e:
                     print('Collect objects error: ' + str(e))
