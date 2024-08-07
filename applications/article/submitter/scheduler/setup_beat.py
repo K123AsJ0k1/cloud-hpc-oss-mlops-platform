@@ -66,8 +66,10 @@ def setup_beat_scheduling(
 
     task_times = os.environ.get('SCHEDULER_TIMES').split('|')
     schedule = []
+    expires_seconds = []
     for time in task_times:
         schedule.append(timedelta(seconds = int(time)))
+        expires_seconds.append(int(time))
     
     beat_app.conf.beat_schedule = {
         'configuration-manager': {
@@ -78,7 +80,7 @@ def setup_beat_scheduling(
             },
             'relative': True,
             'options': {
-                'expire_seconds': 480
+                'expire_seconds': expires_seconds[0]
             }
         },
         'monitoring-manager': {
@@ -89,7 +91,7 @@ def setup_beat_scheduling(
             },
             'relative': True,
             'options': {
-                'expire_seconds': 480
+                'expire_seconds': expires_seconds[1]
             }
         },
         'collection-manager': {
@@ -100,7 +102,7 @@ def setup_beat_scheduling(
             },
             'relative': True,
             'options': {
-                'expire_seconds': 480
+                'expire_seconds': expires_seconds[2]
             }
         },
         'logging-manager': {
@@ -111,7 +113,7 @@ def setup_beat_scheduling(
             },
             'relative': True,
             'options': {
-                'expire_seconds': 480
+                'expire_seconds': expires_seconds[3]
             }
         }
     }
