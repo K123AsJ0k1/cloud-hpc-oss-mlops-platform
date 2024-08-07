@@ -8,9 +8,9 @@ tasks_celery = get_celery_instance()
 @tasks_celery.task(
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 240,
-    time_limit = 480,
-    rate_limit = '1/m',
+    soft_time_limit = 480,
+    time_limit = 960,
+    rate_limit = '1/m', 
     name = 'tasks.setup-handler'
 )
 def setup_handler(
@@ -44,7 +44,7 @@ def setup_handler(
 
                 try: 
                     print('Running setup strategy')
-                    status = setup_pessimistic_strategy( 
+                    status = setup_pessimistic_strategy(  
                         celery_client = tasks_celery,
                         configuration = configuration
                     ) 

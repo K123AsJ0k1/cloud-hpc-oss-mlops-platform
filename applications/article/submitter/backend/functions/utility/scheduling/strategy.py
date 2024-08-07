@@ -12,7 +12,7 @@ def setup_pessimistic_strategy(
         task_kwargs ={ 
             'configuration': configuration
         },
-        timeout = 240 
+        timeout = 300 
     )
 
     if not task_data['result']: 
@@ -24,7 +24,7 @@ def setup_pessimistic_strategy(
         task_kwargs ={ 
             'configuration': configuration
         },
-        timeout = 480
+        timeout = 500
     )
     
     return task_data['result'] 
