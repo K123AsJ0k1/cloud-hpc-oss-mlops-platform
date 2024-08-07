@@ -40,4 +40,4 @@ async def configure(
         )
         
         request.app.state.logger.info('Setup handler requested')
-    return  {'status': 'configuration success', 'ids': task_id}
+    return  {'id': task_id}
