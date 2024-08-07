@@ -1,12 +1,16 @@
-from functions.platforms.celery import get_signature_id
+from functions.platforms.celery import get_signature_id, await_signature
 
 # Created and works
 def collect_objects(    
+    celery_client: any,
     configuration: any 
 ): 
-    get_signature_id(
-        task_name = 'tasks.artifact-handler',
-        task_kwargs = {
-            'configuration': configuration 
-        }
-    )  
+    task_data = await_signature(
+        celery_client = celery_client,
+        task_name = 'tasks.monitoring-handler',
+        task_kwargs ={ 
+            'configuration': configuration
+        },
+        timeout = 980
+    ) 
+    return task_data['result'] 

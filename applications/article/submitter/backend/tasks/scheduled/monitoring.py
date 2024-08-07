@@ -1,7 +1,7 @@
 from functions.utility.jobs.monitoring import monitor_jobs
 from functions.platforms.celery import get_celery_instance
 from functions.platforms.redis import get_redis_instance, get_redis_lock, check_redis_lock, release_redis_lock
-import time
+import time 
 
 tasks_celery = get_celery_instance() 
 

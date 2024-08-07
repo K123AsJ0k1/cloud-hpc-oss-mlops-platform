@@ -9,12 +9,11 @@ from functions.utility.storage.time import store_job_time
 from functions.platforms.celery import await_signature
 from functions.utility.storage.objects import get_clients
  
-# Created 
+# Created and works
 def stop_job(
     platform_secrets: any,
     job_id: str
 ) -> bool:
-    print('Stop job')
     return halt_job(
         platform_secrets = platform_secrets,
         job_id = job_id
@@ -36,7 +35,7 @@ def monitor_jobs(
         task_kwargs = {
             'configuration': configuration
         },
-        timeout = 200
+        timeout = 480
     )  
     
     if 0 < len(task_data):

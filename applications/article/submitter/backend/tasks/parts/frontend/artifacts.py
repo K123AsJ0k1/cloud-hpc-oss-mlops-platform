@@ -14,7 +14,7 @@ tasks_celery = get_celery_instance()
     rate_limit = '2/m',
     name = 'tasks.fetch-job-status'
 )
-def fetch_job_status( 
+def fetch_job_status(  
     configuration,
     request 
 ):

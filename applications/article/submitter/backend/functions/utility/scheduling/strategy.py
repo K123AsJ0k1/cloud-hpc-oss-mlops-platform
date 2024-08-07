@@ -69,3 +69,18 @@ def submitting_pessimistic_strategy(
     )
     
     return task_data['result']
+# created
+def collection_pessimistic_strategy(
+    celery_client: any,
+    configuration: any
+) -> bool:
+    task_data = await_signature(
+        celery_client = celery_client,
+        task_name = 'tasks.collections-handler',
+        task_kwargs ={ 
+            'configuration': configuration
+        },
+        timeout = 480
+    )
+    
+    return task_data['result']

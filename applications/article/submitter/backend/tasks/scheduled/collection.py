@@ -40,9 +40,10 @@ def collection_manager(
 
                 try:  
                     print('Running collect objects')
-                    collect_objects( 
-                        configuration = configuration 
-                    )  
+                    collect_objects(
+                        celery_client = tasks_celery,
+                        configuration = configuration
+                    )
 
                     status = True
                 except Exception as e:
@@ -56,7 +57,7 @@ def collection_manager(
 
                 return status
             else:
-                return False
+                return False 
         return False
     except Exception as e:
         print('Collections manager error: ' + str(e))

@@ -43,7 +43,7 @@ def configuration_manager(
                     configure_enviroment(     
                         configuration = configuration,
                         celery_client = tasks_celery
-                    )  
+                    )   
                     
                     status = True
                 except Exception as e:
