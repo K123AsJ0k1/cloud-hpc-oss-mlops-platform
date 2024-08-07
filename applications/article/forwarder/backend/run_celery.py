@@ -3,19 +3,19 @@ import warnings
 # Make run with Python3 run_celery.py
 warnings.filterwarnings("ignore")
 if __name__ == '__main__':
-    os.environ['REDIS_ENDPOINT'] = '127.0.0.1'
-    os.environ['REDIS_PORT'] = '6379'
-    os.environ['REDIS_DB'] = '0'
+    #os.environ['REDIS_ENDPOINT'] = '127.0.0.1'
+    #os.environ['REDIS_PORT'] = '6379'
+    #os.environ['REDIS_DB'] = '0'
 
-    os.environ['CELERY_CONCURRENCY'] = '8'
-    os.environ['CELERY_LOGLEVEL'] = 'warning'
+    #os.environ['CELERY_CONCURRENCY'] = '8'
+    #os.environ['CELERY_LOGLEVEL'] = 'warning'
     
-    os.environ['FLOWER_ENDPOINT'] = '127.0.0.1'
-    os.environ['FLOWER_PORT'] = '6501'
-    os.environ['FLOWER_USERNAME'] = 'flower123'
-    os.environ['FLOWER_PASSWORD'] = 'flower456' 
+    #os.environ['FLOWER_ENDPOINT'] = '127.0.0.1'
+    #os.environ['FLOWER_PORT'] = '6501'
+    #os.environ['FLOWER_USERNAME'] = 'flower123'
+    #os.environ['FLOWER_PASSWORD'] = 'flower456' 
 
-    os.environ['PROMETHEUS_PORT'] = '6502'
+    #os.environ['PROMETHEUS_PORT'] = '6502'
 
     # This is necessery to enable worker progapation
     prometheus_directory = os.path.abspath('prometheus')
