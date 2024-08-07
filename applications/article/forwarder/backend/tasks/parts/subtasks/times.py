@@ -52,6 +52,8 @@ def job_time_collector(
                         storage_name = storage_names[0],
                         type = 'job-time'
                     )
+
+                    status = True
                 except Exception as e:
                     print('Utilize time run error: ' + str(e))
 
@@ -114,6 +116,8 @@ def pipeline_time_collector(
                         storage_name = storage_names[0],
                         type = 'pipeline-time'
                     )
+
+                    status = True
                 except Exception as e:
                     print('Utilize time run error: ' + str(e))
 
@@ -176,6 +180,8 @@ def task_time_collector(
                         storage_name = storage_names[0],
                         type = 'task-time'
                     )
+
+                    status = True
                 except Exception as e:
                     print('Utilize time run error: ' + str(e))
 

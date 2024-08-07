@@ -116,6 +116,8 @@ def seff_collector(
                         storage_name = storage_names[0],
                         type = 'seff'
                     )
+
+                    status = True
                 except Exception as e:
                     print('Utilize artifacts run error: ' + str(e))
 

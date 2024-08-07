@@ -32,7 +32,7 @@ def collection_manager(
         lock_exists = check_redis_lock(
             redis_client = redis_client,
             lock_name = lock_name
-        )
+        ) 
         print('Redis lock exists: ' + str(lock_exists))
         if not lock_exists:
             lock_active, redis_lock = get_redis_lock(
