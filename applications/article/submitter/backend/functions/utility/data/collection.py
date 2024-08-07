@@ -7,7 +7,7 @@ def collect_objects(
 ): 
     task_data = await_signature(
         celery_client = celery_client,
-        task_name = 'tasks.monitoring-handler',
+        task_name = 'tasks.artifact-handler',
         task_kwargs ={ 
             'configuration': configuration
         },

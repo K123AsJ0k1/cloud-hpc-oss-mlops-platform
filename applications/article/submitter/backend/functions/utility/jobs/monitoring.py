@@ -19,7 +19,7 @@ def stop_job(
         job_id = job_id
     )
 # Created and works
-def monitor_jobs( 
+def monitor_jobs(  
     configuration: any, 
     celery_client: any
 ):
