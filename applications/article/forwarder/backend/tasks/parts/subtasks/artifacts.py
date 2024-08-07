@@ -9,8 +9,8 @@ tasks_celery = get_celery_instance()
 @tasks_celery.task(   
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 120, 
-    time_limit = 240,
+    soft_time_limit = 480, 
+    time_limit = 960,
     rate_limit = '2/m',
     name = 'tasks.sacct-collector'
 )
@@ -38,8 +38,8 @@ def sacct_collector(
 @tasks_celery.task( 
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 120,
-    time_limit = 240,
+    soft_time_limit = 480,
+    time_limit = 960,
     rate_limit = '2/m',
     name = 'tasks.seff-collector'
 )

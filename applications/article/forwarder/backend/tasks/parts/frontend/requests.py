@@ -9,8 +9,8 @@ tasks_celery = get_celery_instance()
 @tasks_celery.task( 
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 60,
-    time_limit = 120,
+    soft_time_limit = 120,
+    time_limit = 240,
     rate_limit = '2/m',
     name = 'tasks.create-job' 
 )
@@ -47,8 +47,8 @@ def create_job(
 @tasks_celery.task(
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 60,
-    time_limit = 120,
+    soft_time_limit = 120,
+    time_limit = 240,
     rate_limit = '2/m',
     name = 'tasks.start-job'
 )
@@ -86,8 +86,8 @@ def start_job(
 @tasks_celery.task(
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 60,
-    time_limit = 120,
+    soft_time_limit = 120,
+    time_limit = 240,
     rate_limit = '2/m',
     name = 'tasks.stop-job'
 )

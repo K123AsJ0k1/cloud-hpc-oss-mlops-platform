@@ -9,8 +9,8 @@ tasks_celery = get_celery_instance()
 @tasks_celery.task( 
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 120,
-    time_limit = 240,
+    soft_time_limit = 480,
+    time_limit = 960,
     rate_limit = '2/m',
     name = 'tasks.job-time-collector'
 )
@@ -39,8 +39,8 @@ def job_time_collector(
 @tasks_celery.task( 
     bind = False,  
     max_retries = 0,
-    soft_time_limit = 120,
-    time_limit = 240,
+    soft_time_limit = 480,
+    time_limit = 960,
     rate_limit = '2/m',
     name = 'tasks.pipeline-time-collector'
 )
@@ -69,8 +69,8 @@ def pipeline_time_collector(
 @tasks_celery.task( 
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 120,
-    time_limit = 240,
+    soft_time_limit = 480,
+    time_limit = 960,
     rate_limit = '2/m',
     name = 'tasks.task-time-collector'
 )

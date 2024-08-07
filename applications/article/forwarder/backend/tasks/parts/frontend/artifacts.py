@@ -9,8 +9,8 @@ tasks_celery = get_celery_instance()
 @tasks_celery.task( 
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 60,
-    time_limit = 120,
+    soft_time_limit = 120,
+    time_limit = 240,
     rate_limit = '2/m',
     name = 'tasks.fetch-job-status'
 )
@@ -47,8 +47,8 @@ def fetch_job_status(
 @tasks_celery.task( 
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 60,
-    time_limit = 120,
+    soft_time_limit = 120,
+    time_limit = 240,
     rate_limit = '2/m',
     name = 'tasks.fetch-job-sacct'
 )
@@ -85,8 +85,8 @@ def fetch_job_sacct(
 @tasks_celery.task( 
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 60,
-    time_limit = 120,
+    soft_time_limit = 120,
+    time_limit = 240,
     rate_limit = '2/m',
     name = 'tasks.fetch-job-seff'
 )
@@ -123,8 +123,8 @@ def fetch_job_seff(
 @tasks_celery.task( 
     bind = False, 
     max_retries = 0,
-    soft_time_limit = 60,
-    time_limit = 120,
+    soft_time_limit = 120,
+    time_limit = 240,
     rate_limit = '2/m',
     name = 'tasks.fetch-job-files'
 )
@@ -155,7 +155,7 @@ def fetch_job_files(
             request = request
         )
     except Exception as e:
-        print('Fetch job file error: ' + str(e))
+        print('Fetch job files error: ' + str(e))
         return {'job-files': {}}
 # Refactored and works
 @tasks_celery.task( 

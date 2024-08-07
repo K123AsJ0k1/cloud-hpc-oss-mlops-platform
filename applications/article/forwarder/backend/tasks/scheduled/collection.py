@@ -42,6 +42,7 @@ def collection_manager(
             if lock_active:
                 status = False
                 try:
+                    print('Running collection strategy')
                     status = pessimistic_strategy(
                         celery_client = tasks_celery,
                         configuration = configuration

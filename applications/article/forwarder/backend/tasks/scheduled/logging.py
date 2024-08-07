@@ -41,6 +41,7 @@ def logging_manager(
             if lock_active:
                 status = False
                 try:
+                    print('Running collect logs')
                     storage_clients = get_clients(
                         configuration = configuration
                     )

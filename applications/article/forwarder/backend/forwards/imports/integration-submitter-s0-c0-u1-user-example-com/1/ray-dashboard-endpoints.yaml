@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: integration-submitter-s0-c0-u1-user-example-com-1-ray-dashboard
+subsets:
+- addresses:
+  - ip: 192.168.1.13
+  ports:
+  - port: 8280

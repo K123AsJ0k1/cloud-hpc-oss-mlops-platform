@@ -42,6 +42,7 @@ def forwarding_manager(
             if lock_active:
                 status = False
                 try:
+                    print('Running deploy forwards')
                     storage_clients = get_clients(
                         configuration = configuration
                     )
