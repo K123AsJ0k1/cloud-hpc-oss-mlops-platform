@@ -12,6 +12,7 @@ tasks_celery = get_celery_instance()
     name = 'tasks.get-logs'
 )
 def get_logs() -> any:
+    # Doesn't need lock, since fetching data
     try:
         print('Sending logs to frontend')
         return get_celery_logs()

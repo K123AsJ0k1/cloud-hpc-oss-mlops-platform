@@ -16,6 +16,7 @@ tasks_celery = get_celery_instance()
 def setup_handler(
     configuration: any
 ):
+    # needs a lock, since creating data
     # 1 + 2 threads for optimistic
     # 1 + 1 threads for pessimistic
     try:

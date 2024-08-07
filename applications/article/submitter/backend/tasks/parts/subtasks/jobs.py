@@ -19,7 +19,6 @@ def job_handler(
     configuration: any
 ) -> bool:
     try:
-        # Needs locks
         print('Handling jobs for backend')
 
         redis_client = get_redis_instance()
@@ -53,10 +52,10 @@ def job_handler(
                         storage_names = storage_names,
                         secrets_path = secrets_path
                     )
-                    
+
                     status = True
                 except Exception as e:
-                    print('Submit jobs error: ' + str(e))
+                    print('Submit jobs run error: ' + str(e))
 
                 lock_released = release_redis_lock(
                     redis_lock = redis_lock

@@ -55,7 +55,7 @@ def artifact_handler(
 
                     status = True
                 except Exception as e:
-                    print('Collect artifacts error: ' + str(e))
+                    print('Collect artifacts run error: ' + str(e))
 
                 lock_released = release_redis_lock(
                     redis_lock = redis_lock

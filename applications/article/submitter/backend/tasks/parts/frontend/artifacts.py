@@ -18,6 +18,7 @@ def fetch_job_status(
     configuration,
     request 
 ):
+    # Doesn't need lock, since fetching data
     try:
         print('Fetching job status per frontend request')
         storage_clients = get_clients(
@@ -47,6 +48,7 @@ def fetch_job_sacct(
     configuration,
     request
 ):
+    # Doesn't need lock, since fetching data
     try:
         print('Fetching job sacct per frontend request')
         storage_clients = get_clients(
@@ -76,6 +78,7 @@ def fetch_job_seff(
     configuration,
     request
 ):
+    # Doesn't need lock, since fetching data
     try:
         print('Fetching job seff per frontend request')
         storage_clients = get_clients(
@@ -105,6 +108,7 @@ def fetch_job_files(
     configuration,
     request
 ):
+    # Doesn't need lock, since fetching data
     try:
         print('Fetching job files per frontend request')
         storage_clients = get_clients(
