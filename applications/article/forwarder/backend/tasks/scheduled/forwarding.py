@@ -15,9 +15,11 @@ tasks_celery = get_celery_instance()
     rate_limit = '1/m',
     name = 'tasks.forwarding-manager'
 )
-def forwarding_manager( 
+def forwarding_manager(  
     configuration: any
 ) -> any:
+    # Does need a lock since chancing data
+
     # 1 threads
     # Can cause concurrency issues with other threads
     try:

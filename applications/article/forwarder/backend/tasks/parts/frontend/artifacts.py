@@ -18,6 +18,7 @@ def fetch_job_status(
     configuration,
     request
 ):
+    # Fetching data so no locks needed
     # atleast 1 thread needs to be ready any moment
     try:
         print('Fetching job status per frontend request')
@@ -56,6 +57,7 @@ def fetch_job_sacct(
     configuration,
     request
 ):
+    # Fetching data so no locks needed
     # atleast 1 thread needs to be ready any moment
     try:
         print('Fetching job sacct per frontend request')
@@ -94,6 +96,7 @@ def fetch_job_seff(
     configuration,
     request
 ):
+    # Fetching data so no locks needed
     # atleast 1 thread needs to be ready any moment
     try:
         print('Fetching job seff per frontend request')
@@ -132,6 +135,7 @@ def fetch_job_files(
     configuration,
     request
 ):
+    # Fetching data so no locks needed
     # atleast 1 thread needs to be ready any moment
     try:
         print('Fetching job files per frontend request')
@@ -170,6 +174,7 @@ def fetch_forwarding_status(
     configuration,
     request
 ):
+    # Fetching data so no locks needed
     # atleast 1 thread needs to be ready any moment
     try:
         print('Fetching job files per frontend request')

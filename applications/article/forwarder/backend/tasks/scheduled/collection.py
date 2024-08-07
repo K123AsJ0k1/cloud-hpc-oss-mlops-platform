@@ -17,6 +17,8 @@ tasks_celery = get_celery_instance()
 def collection_manager(  
     configuration: any
 ) -> any:
+    # Does need a lock since chancing data
+
     # Can cause concurrency issues with other threads
     # 1 + 5 threads with optimistic
     # 1 + 1 threads with pessimistic

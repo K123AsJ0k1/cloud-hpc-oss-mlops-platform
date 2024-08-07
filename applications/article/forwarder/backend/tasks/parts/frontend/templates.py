@@ -18,6 +18,8 @@ tasks_celery = get_celery_instance()
 def template_handler(
     configuration 
 ):
+    # Does need a lock since chancing data
+
     # Since we want to have multiple jobs
     # this needs to create a template for porter
     # This also enables us to create code that can handle eventual consistency

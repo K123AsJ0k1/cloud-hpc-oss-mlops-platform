@@ -18,6 +18,8 @@ tasks_celery = get_celery_instance()
 def logging_manager(
     configuration: any
 ) -> any:
+    # Does need a lock since chancing data
+
     # Can cause concurrency issues with other threads
     try:
         print('Logging per scheduler request')

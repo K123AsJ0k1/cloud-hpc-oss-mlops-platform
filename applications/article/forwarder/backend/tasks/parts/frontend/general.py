@@ -13,6 +13,7 @@ tasks_celery = get_celery_instance()
     name = 'tasks.get-logs'
 ) 
 def get_logs() -> any:
+    # Fetching data so no locks needed
     # atleast 1 thread needs to be ready any moment
     try:
         print('Getting logs per frontend request')
@@ -30,6 +31,7 @@ def get_logs() -> any:
     name = 'tasks.get-structure'
 ) 
 def get_structure() -> any:
+    # Fetching data so no locks needed
     # atleast 1 thread needs to be ready any moment
     try:
         print('Getting cluster structure per frontend request')
