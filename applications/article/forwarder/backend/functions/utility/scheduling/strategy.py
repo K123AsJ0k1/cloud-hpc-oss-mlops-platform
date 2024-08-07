@@ -42,7 +42,9 @@ def optimistic_strategy(
 def pessimistic_strategy(
     celery_client: any,
     configuration: any
-) -> bool:
+) -> bool: 
+    successes = []
+
     # 1 thread required
     task_data = await_signature(
         celery_client = celery_client,
@@ -53,8 +55,10 @@ def pessimistic_strategy(
         timeout = 500
     ) 
 
-    if not task_data['result']: 
-        return False
+    successes.append(task_data['result'])
+
+    #if not task_data['result']: 
+    #    return False
 
     task_data = await_signature(
         celery_client = celery_client,
@@ -65,8 +69,10 @@ def pessimistic_strategy(
         timeout = 500
     )
 
-    if not task_data['result']: 
-        return False
+    successes.append(task_data['result'])
+
+    #if not task_data['result']: 
+    #    return False
 
     task_data = await_signature(
         celery_client = celery_client,
@@ -76,8 +82,11 @@ def pessimistic_strategy(
         },
         timeout = 500
     )
-    if not task_data['result']: 
-        return False
+
+    successes.append(task_data['result'])
+
+    #if not task_data['result']: 
+    #    return False
     
     task_data = await_signature(
         celery_client = celery_client,
@@ -87,9 +96,11 @@ def pessimistic_strategy(
         },
         timeout = 500
     )
+
+    successes.append(task_data['result'])
     
-    if not task_data['result']: 
-        return False 
+    #if not task_data['result']: 
+    #    return False 
 
     task_data = await_signature(
         celery_client = celery_client,
@@ -99,5 +110,7 @@ def pessimistic_strategy(
         },
         timeout = 500
     )
+
+    successes.append(task_data['result'])
     
-    return task_data['result']
+    return successes

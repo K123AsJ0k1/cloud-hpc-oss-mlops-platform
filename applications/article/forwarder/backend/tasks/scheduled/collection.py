@@ -42,10 +42,10 @@ def collection_manager(
             )
             print('Redis lock aquired: ' + str(lock_active))
             if lock_active:
-                status = False
+                output = []
                 try:
                     print('Running collection strategy')
-                    status = pessimistic_strategy(
+                    output = pessimistic_strategy(
                         celery_client = tasks_celery,
                         configuration = configuration
                     )
@@ -58,10 +58,10 @@ def collection_manager(
 
                 print('Redis lock released: ' + str(lock_released))
 
-                return status
+                return output
             else:
-                return False
-        return False
+                return []
+        return []
     except Exception as e:
         print('Collection manager error:' + str(e))
-        return False
+        return []
