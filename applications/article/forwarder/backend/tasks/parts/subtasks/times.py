@@ -80,7 +80,7 @@ def task_time_collector(
     try:   
         print('Collecting task times per backend request')
         
-        storage_clients = get_clients(
+        storage_clients = get_clients( 
             configuration = configuration
         )
         storage_names = configuration['storage-names']

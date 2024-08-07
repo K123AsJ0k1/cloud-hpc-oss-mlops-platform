@@ -51,7 +51,7 @@ def pessimistic_strategy(
             'configuration': configuration
         },
         timeout = 240 
-    )
+    ) 
 
     if not task_data['result']: 
         return False
@@ -89,7 +89,7 @@ def pessimistic_strategy(
     )
     
     if not task_data['result']: 
-        return False
+        return False 
 
     task_data = await_signature(
         celery_client = celery_client,

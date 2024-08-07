@@ -127,4 +127,4 @@ def get_job_time(
                 'data': job_time_object['data'],
                 'metadata': job_time_object['custom-meta']
             }
-    return job_time
+    return job_time 

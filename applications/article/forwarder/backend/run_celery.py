@@ -13,9 +13,15 @@ if __name__ == '__main__':
     os.environ['FLOWER_ENDPOINT'] = '127.0.0.1'
     os.environ['FLOWER_PORT'] = '6501'
     os.environ['FLOWER_USERNAME'] = 'flower123'
-    os.environ['FLOWER_PASSWORD'] = 'flower456'
+    os.environ['FLOWER_PASSWORD'] = 'flower456' 
 
     os.environ['PROMETHEUS_PORT'] = '6502'
+
+    # This is necessery to enable worker progapation
+    prometheus_directory = os.path.abspath('prometheus')
+    os.environ['PROMETHEUS_MULTIPROC_DIR'] = prometheus_directory
+    
+    #print(prometheus_directory)
     
     from setup_celery import setup_celery_app
     

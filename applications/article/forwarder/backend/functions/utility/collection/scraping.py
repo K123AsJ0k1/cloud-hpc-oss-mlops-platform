@@ -117,10 +117,10 @@ def scrape_task_time(
 ):
     for task_id, time_info in data.items():
         for key, value in time_info.items():
-            if 'total' in key:
+            if 'total' in key: 
                 metric_name = metric_names[key]
                 prometheus_gauge.labels(
-                    collector = collector,
+                    collector = collector, 
                     sampleid = task_id,
                     group = time_group,
                     metric = metric_name

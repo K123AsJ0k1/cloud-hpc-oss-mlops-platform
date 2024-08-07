@@ -1,8 +1,38 @@
-from functions.platforms.prometheus import get_prometheus_registry, set_prometheus_gauge
+from prometheus_client import CollectorRegistry, multiprocess
+
+from functions.platforms.prometheus import set_prometheus_gauge
 from functions.utility.storage.gauges import get_sacct_gauge_structure, get_seff_gauge_structure, get_job_time_gauge_structure, get_pipeline_time_gauge_structure, get_task_time_gauge_structure
 from functions.utility.collection.artifacts import gather_artifacts
 from functions.utility.collection.times import gather_times
 from functions.utility.collection.scraping import scrape_sacct,scrape_seff, scrape_job_time, scrape_pipeline_time, scrape_task_time
+
+global_registry = CollectorRegistry()
+multiprocess.MultiProcessCollector(global_registry)
+
+sacct_gauge = set_prometheus_gauge(
+    prometheus_registry = global_registry,
+    gauge_structure = get_sacct_gauge_structure()
+)
+
+seff_gauge = set_prometheus_gauge(
+    prometheus_registry = global_registry,
+    gauge_structure = get_seff_gauge_structure()
+)
+
+job_time_gauge = set_prometheus_gauge(
+    prometheus_registry = global_registry,
+    gauge_structure = get_job_time_gauge_structure()
+)
+
+pipeline_time_gauge = set_prometheus_gauge(
+    prometheus_registry = global_registry,
+    gauge_structure = get_pipeline_time_gauge_structure()
+)
+
+task_time_gauge = set_prometheus_gauge(
+    prometheus_registry = global_registry,
+    gauge_structure = get_task_time_gauge_structure()
+)
 
 # Refactored and works
 def utilize_artifacts(
@@ -16,25 +46,34 @@ def utilize_artifacts(
         type = type
     )
 
-    prometheus_registry = get_prometheus_registry() 
+    #prometheus_registry = get_prometheus_registry() 
     gauge_structure = {}
     prometheus_gauge = None
     if type == 'sacct':
+        '''
         gauge_structure = get_sacct_gauge_structure()
         prometheus_gauge = set_prometheus_gauge(
             prometheus_registry = prometheus_registry,
             gauge_structure = gauge_structure
         )
+        '''
+        gauge_structure = get_sacct_gauge_structure()
+        prometheus_gauge = sacct_gauge
     if type == 'seff':
+        '''
         gauge_structure = get_seff_gauge_structure()
         prometheus_gauge = set_prometheus_gauge(
             prometheus_registry = prometheus_registry,
             gauge_structure = gauge_structure
         )
+        '''
+        gauge_structure = get_seff_gauge_structure()
+        prometheus_gauge = seff_gauge
     if 0 < len(submitters_artifacts):
         if 0 < len(gauge_structure):
             for submitter_name, artifacts in submitters_artifacts.items():
                 for artifact_key, artifact in artifacts.items():
+                    #print('Scraping ' + str(type) + ' from ' + str(submitter_name))
                     submitter_name_split = submitter_name.split('-')
                     submitter_user = '-'.join(submitter_name_split[5:])
                     if type == 'sacct':
@@ -65,31 +104,44 @@ def utilize_time(
         type = type
     )
     
-    prometheus_registry = get_prometheus_registry() 
+    #prometheus_registry = get_prometheus_registry() 
     gauge_structure = {}
     prometheus_gauge = None
     if type == 'job-time':
+        '''
         gauge_structure = get_job_time_gauge_structure()
         prometheus_gauge = set_prometheus_gauge(
             prometheus_registry = prometheus_registry,
             gauge_structure = gauge_structure
         )
+        '''
+        gauge_structure = get_job_time_gauge_structure()
+        prometheus_gauge = job_time_gauge
     if type == 'pipeline-time':
+        '''
         gauge_structure = get_pipeline_time_gauge_structure()
         prometheus_gauge = set_prometheus_gauge(
             prometheus_registry = prometheus_registry,
             gauge_structure = gauge_structure
         )
+        '''
+        gauge_structure = get_pipeline_time_gauge_structure()
+        prometheus_gauge = pipeline_time_gauge
     if type == 'task-time':
+        '''
         gauge_structure = get_task_time_gauge_structure()
         prometheus_gauge = set_prometheus_gauge(
             prometheus_registry = prometheus_registry,
             gauge_structure = gauge_structure
         )
+        '''
+        gauge_structure = get_task_time_gauge_structure()
+        prometheus_gauge = task_time_gauge
     if 0 < len(time_artifacts):
         if 0 < len(gauge_structure):
             for collector_name, artifacts in time_artifacts.items():
                 for artifact_name, artifact in artifacts.items():
+                    #print('Scraping ' + str(type) + ' from ' + str(collector_name))
                     if type == 'job-time':
                         scrape_job_time(
                             prometheus_gauge = prometheus_gauge,
@@ -106,7 +158,7 @@ def utilize_time(
                             metric_names = gauge_structure['names'],
                             data = artifact
                         )
-                    if type == 'task-time':
+                    if type == 'task-time': 
                         scrape_task_time(
                             prometheus_gauge = prometheus_gauge,
                             collector = collector_name,

@@ -261,6 +261,7 @@ def gather_times(
     storage_name: str,
     type: str
 ):
+    #print('Gather times')
     container_buckets = check_buckets(
         storage_client = storage_client
     )
@@ -285,7 +286,7 @@ def gather_times(
                             target_bucket = bucket_name
                         )
                         unseen_times[bucket_name] = gathered_unseen_times
-                    if type == 'task-time' and (bucket_name_split[1] == 'submitter' or bucket_name_split[1] == 'forwader'):
+                    if type == 'task-time' and (bucket_name_split[1] == 'submitter' or bucket_name_split[1] == 'forwarder'):
                         print('Checking the ' + str(type) + ' of bucket ' + str(bucket_name))
                         gathered_unseen_times = gather_bucket_task_times(
                             storage_client = storage_client,

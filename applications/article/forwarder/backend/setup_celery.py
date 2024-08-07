@@ -5,6 +5,10 @@ def setup_celery_app():
         
     celery_app = get_celery_instance()
 
+    from functions.platforms.prometheus import create_prometheus_server
+
+    create_prometheus_server() 
+
     from tasks.parts.frontend.general import get_logs, get_structure
     celery_app.task(get_logs)
     celery_app.task(get_structure)
@@ -46,9 +50,5 @@ def setup_celery_app():
 
     from tasks.scheduled.logging import logging_manager
     celery_app.task(logging_manager)
-
-    from functions.platforms.prometheus import create_prometheus_server
-
-    create_prometheus_server() 
 
     return celery_app, celery_logs
