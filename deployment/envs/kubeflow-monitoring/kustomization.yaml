@@ -7,3 +7,4 @@ resources:
 - ../../custom/kserve-custom/env/kubeflow
 - ../../mlflow/env/local
 - ../../monitoring
+- ../../forwarder
