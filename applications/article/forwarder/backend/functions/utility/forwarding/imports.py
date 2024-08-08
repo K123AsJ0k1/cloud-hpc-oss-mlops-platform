@@ -152,6 +152,7 @@ def define_import_deployment(
 
         service_yaml_path = kustomize_folder + '/' + name + '-service.yaml'
         # Example http://remote-ray-bridge.default.svc.cluster.local:8280
+        # Unknown dot
         services[name] = service_endpoints_name + '.' + namespace + '.svc.cluster.local:' + str(port)
         if not os.path.exists(service_yaml_path):
             service_data['metadata']['name'] = service_endpoints_name
