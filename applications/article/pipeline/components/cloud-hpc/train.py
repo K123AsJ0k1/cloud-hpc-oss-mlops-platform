@@ -1219,6 +1219,99 @@ def train(
             logger.info('RAY batch job succeeded')
         logger.info(ray_job_logs)
         return success
+
+    def parse_job_sacct(
+        logger: any,
+        sacct: any
+    ) -> any:
+        collected_parameters = {}
+        collected_metrics = {}
+        logger.info('')
+        logger.info('Sacct:')
+        for row in sacct.keys():
+            logger.info('Row ' + str(row))
+            row_metadata = sacct[row]['metadata']
+            row_metrics = sacct[row]['metrics']
+        
+            relevant_metadata = [
+                'job-name',
+                'state'
+            ]
+            
+            for key, value in row_metadata.items():
+                if key in relevant_metadata:
+                    logger.info(str(key) + '=' + str(value))
+                    collected_parameters[str(row) + '-' + key] = value
+        
+            relevant_metrics = [
+                'ave-cpu-seconds',
+                'cpu-time-seconds',
+                'elapsed-seconds',
+                'total-cpu-seconds',
+            ]
+            
+            for key, value in row_metrics.items():
+                if key in relevant_metrics:
+                    logger.info(str(key) + '=' + str(value))
+                    collected_metrics[str(row) + '-' + key] = value
+        
+            start_time = row_metrics['start-time']
+            submit_time = row_metrics['submit-time']
+            end_time = row_metrics['end-time']
+        
+            submit_date = datetime.fromtimestamp(start_time).strftime('%Y-%m-%d-%H:%M:%S')
+            total_start_seconds = (submit_time-start_time)
+            total_end_seconds = (end_time-submit_time)
+        
+            logger.info('submit-date=' + str(submit_date))
+            collected_parameters[str(row) + '-submit-date'] = submit_date
+            
+            logger.info('total-submit-start-seconds=' + str(total_start_seconds))
+            collected_metrics[str(row) + '-total-submit-start-seconds'] = total_start_seconds
+            
+            logger.info('total-start-end-seconds=' + str(total_end_seconds))
+            collected_metrics[str(row) + '-total-start-end-seconds'] = total_end_seconds
+            
+            logger.info('')
+        return collected_parameters, collected_metrics
+
+    def parse_job_seff(
+        logger: any,
+        seff: any
+    ) -> any:
+        collected_parameters = {}
+        collected_metrics = {}
+        relevant_metadata = [
+            'billed-project',
+            'cluster',
+            'status'
+        ]
+
+        logger.info('')
+        logger.info('Seff:')
+        seff_metadata = seff['metadata']
+        for key,value in seff_metadata.items():
+            if key in relevant_metadata:
+                logger.info(str(key) + '=' + str(value))
+                collected_parameters[key] = value
+        
+        relevant_metrics = [
+            'billing-units',
+            'cpu-efficiency-percentage',
+            'cpu-efficiency-seconds',
+            'cpu-utilized-seconds',
+            'job-wall-clock-time-seconds',
+            'memory-efficiency-percentage'
+        ]
+
+
+        seff_metrics = seff['metrics']
+        for key,value in seff_metrics.items():
+            if key in relevant_metrics:
+                logger.info(str(key) + '=' + str(value))
+                collected_metrics[key] = value
+
+        return collected_parameters, collected_metrics
     
     # BOILERPLATE END
     
@@ -1431,75 +1524,145 @@ def train(
         collected_parameters = {}
         collected_metrics = {}
 
-        ray_artifacts = gather_ray_artifacts(
-            logger = logger,
-            allas_client = allas_client,
-            allas_bucket = allas_bucket,
-            kubeflow_user = kubeflow_user,
-            ray_parameters = ray_parameters
+        for key,value in job_parameters.items():
+            if 'hp-' in key:
+                formatted_key = key.replace('hp-', '')
+                logger.info(str(key) + '=' + str(value))
+                collected_parameters[formatted_key] = value
+
+        parameters_object = get_object(
+            storage_client = storage_client,
+            bucket_name = storage_names[-2],
+            object_name = 'artifacts',
+            path_replacers = {
+                'name': ()
+            },
+            path_names = [
+                'parameters'
+            ]
+        )
+        parameters_object_data = parameters_object['data']
+
+        trained_model = CNNClassifier()
+        trained_model.load_state_dict(parameters_object_data['parameters']['model'])
+        trained_model.eval()
+        
+        model_name = mlflow_parameters['model-name']
+        registered_name = mlflow_parameters['registered-name']
+        mlflow.pytorch.log_model(
+            trained_model,
+            model_name,
+            registered_model_name = registered_name
+        )
+
+        predictions_object = get_object(
+            storage_client = storage_client,
+            bucket_name = storage_names[-2],
+            object_name = 'artifacts',
+            path_replacers = {
+                'name': ()
+            },
+            path_names = [
+                'predictions'
+            ]
+        )
+        predictions_object_data = predictions_object['data']
+
+        logger.info("Logging predictions")
+        np.save("predictions.npy", predictions_object_data)
+        mlflow.log_artifact(
+            local_path = "predictions.npy",
+            artifact_path = "predicted_qualities/"
         )
         
-        if 0 < len(ray_artifacts[0]):
-            for key,value in ray_artifacts[0].items():
-                collected_parameters[key] = value
-        if 0 < len(ray_artifacts[1]):
-            for key,value in ray_artifacts[1].items():
-                collected_metrics[key] = value
+        #gathered = gather_slurm_job(
+        #    logger = logger,
+        #    proxy_url = proxy_url,
+        #    kubeflow_user = kubeflow_user,
+        #    timeout = slurm_gather_timeout,
+        #    target = proxy_target,
+        #    slurm_job_key = slurm_job_key
+        #)
 
-        model_available = False
-        if 0 < len(ray_artifacts[2]):
-            if 'parameters' in ray_artifacts[2]:
-                logger.info("Logging model")
-                trained_model = CNNClassifier()
-                trained_model.load_state_dict(ray_artifacts[2]['parameters']['model'])
-                trained_model.eval()
-                
-                model_name = mlflow_parameters['model-name']
-                registered_name = mlflow_parameters['registered-name']
-                mlflow.pytorch.log_model(
-                    trained_model,
-                    model_name,
-                    registered_model_name = registered_name
-                )
-
-                #logging.info(f"Saving model to: {saved_model.path}")
-                #torch.save(trained_model,saved_model.path)
-                #with open(saved_model.path, 'wb') as fp:
-                #    pickle.dump(trained_model, fp, pickle.HIGHEST_PROTOCOL)
-                model_available = True
-
-            if 'predictions' in ray_artifacts[2]:
-                logger.info("Logging predictions")
-                np.save("predictions.npy", ray_artifacts[2]['predictions'])
-                mlflow.log_artifact(
-                    local_path = "predictions.npy",
-                    artifact_path = "predicted_qualities/"
-                )
-
-        gathered = gather_slurm_job(
-            logger = logger,
-            proxy_url = proxy_url,
-            kubeflow_user = kubeflow_user,
-            timeout = slurm_gather_timeout,
-            target = proxy_target,
-            slurm_job_key = slurm_job_key
-        )
-
-        if gathered:
-            slurm_artifacts = gather_slurm_artifacts(
-                logger = logger,
-                proxy_target = proxy_target,
-                proxy_url = proxy_url,
-                kubeflow_user = kubeflow_user,
-                slurm_job_id = slurm_job_id
+        store_timeout = 600
+        start = t.time()
+        stored = False
+        while t.time() - start <= store_timeout
+            status_code, job_status = request_route(
+                address = '127.0.0.1',
+                port = '6500',
+                route_type = '',
+                route_name = 'job-artifact',
+                path_replacers = {
+                    'type': 'status',
+                    'name': 'user@example.com'
+                },
+                path_names = [
+                    current_job_key
+                ],
+                route_input = {},
+                timeout = 240
             )
 
-            if 0 < len(slurm_artifacts[0]):
-                for key,value in slurm_artifacts[0].items():
+            if job_status['stored']:
+                stored = True
+                break
+
+        if stored:
+            status_code, job_sacct = request_route(
+                address = '127.0.0.1',
+                port = '6500',
+                route_type = '',
+                route_name = 'job-artifact',
+                path_replacers = {
+                    'type': 'sacct',
+                    'name': 'user@example.com'
+                },
+                path_names = [
+                    current_job_key
+                ],
+                route_input = {},
+                timeout = 300
+            )
+
+            if status_code == 200:
+                params, metrics = parse_job_sacct(
+                    logger = logger,
+                    sacct = job_sacct['job-sacct']
+                )
+
+                for key,value in params.items():
                     collected_parameters[key] = value
 
-            if 0 < len(slurm_artifacts[1]):
-                for key,value in slurm_artifacts[1].items():
+                for key,value in metrics.items():
+                    collected_metrics[key] = value
+
+            status_code, job_seff = request_route(
+                address = '127.0.0.1',
+                port = '6500',
+                route_type = '',
+                route_name = 'job-artifact',
+                path_replacers = {
+                    'type': 'seff',
+                    'name': 'user@example.com'
+                },
+                path_names = [
+                    current_job_key
+                ],
+                route_input = {},
+                timeout = 240
+            )
+
+            if status_code == 200:
+                params, metrics = parse_job_seff(
+                    logger = logger,
+                    sacct = job_seff['job-seff']
+                )
+
+                for key,value in params.items():
+                    collected_parameters[key] = value
+
+                for key,value in metrics.items():
                     collected_metrics[key] = value
 
         logger.info("Logging parameters and metrics")
@@ -1512,22 +1675,20 @@ def train(
             mlflow.log_metric(key, value)
         logger.info("Metrics logged")
         
-        time_end = t.time()
+        component_time_end = t.time()
         
-        gather_time(
-            logger = logger,
-            allas_client = allas_client,
-            allas_bucket =  allas_bucket,
-            kubeflow_user = kubeflow_user,
-            time_folder_path = time_folder_path,
-            object_name = 'components',
-            action_name = 'integration-train',
-            start_time = time_start,
-            end_time = time_end
-        ) 
+        logger.info("Storing time")
+        gather_time( 
+            storage_client = storage_client,
+            storage_name = storage_names[-2],
+            time_group = 'component',
+            time_name = 'train',
+            start_time = component_time_start,
+            end_time = component_time_end
+        )
 
-        if not model_available:
-            return output('none', 'none')
+        #if not model_available:
+        #    return output('none', 'none')
 
         # return str(mlflow.get_artifact_uri())
         return output(mlflow.get_artifact_uri(), run_id)
