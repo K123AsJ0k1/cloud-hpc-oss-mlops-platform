@@ -1578,7 +1578,7 @@ def train(
             route_input = {},
             timeout = 240
         )
-
+        # Fails here
         logger.info('SLURM job cancel: ' + str(cancel_data))
         if not ray_job_success:
             return output('none', 'none')

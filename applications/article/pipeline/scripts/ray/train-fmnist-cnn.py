@@ -801,7 +801,7 @@ def get_class_metrics():
 def remote_model_training(
     storage_client: any,
     storage_name: any,
-    artifact_folder: str,
+    folder_name: str,
     seed: int,
     train_print_rate: int,
     epochs: int,
@@ -886,13 +886,13 @@ def remote_model_training(
         class_metrics.reset()
         
         print('Storing predictions')
-        #prediction_name = artifact_prefix + '-predictions'
+        
         set_object(
             storage_client = storage_client,
             storage_name = storage_name,
             object_name = 'artifacts',
             path_replacers = {
-                'name': artifact_folder
+                'name': folder_name
             },
             path_names = [
                 'predictions'
@@ -913,13 +913,13 @@ def remote_model_training(
         }
 
         print('Storing parameters')
-        #parameter_name = artifact_prefix + '-parameters'
+        
         set_object(
             storage_client = storage_client,
             storage_name = storage_name,
             object_name = 'artifacts',
             path_replacers = {
-                'name': artifact_folder
+                'name': folder_name
             },
             path_names = [
                 'parameters'
@@ -949,13 +949,13 @@ def remote_model_training(
         }
 
         print('Storing metrics')
-        #metrics_name = artifact_prefix + '-parameters'
+        
         set_object(
             storage_client = storage_client,
             storage_name = storage_name,
             object_name = 'artifacts',
             path_replacers = {
-                'name': artifact_folder
+                'name': folder_name
             },
             path_names = [
                 'metrics'
@@ -1001,11 +1001,11 @@ if __name__ == "__main__":
     
     pipeline_storage = storage_names[-2]
 
+    print('Used bucket:' + str(pipeline_storage))
+
     job_parameters = input['job-parameters']
 
-
-    data_folder = job_parameters['data-folder']
-    artifact_folder = job_parameters['artifact-folder']
+    folder_name = job_parameters['folder-name']
     train_print_rate = job_parameters['train-print-rate']
     seed = job_parameters['hp-seed']
     epochs = job_parameters['hp-epochs']
@@ -1019,7 +1019,7 @@ if __name__ == "__main__":
         bucket_name = pipeline_storage,
         object_name = 'data',
         path_replacers = {
-            'name': data_folder
+            'name': folder_name
         },
         path_names = [
             'train'
@@ -1033,7 +1033,7 @@ if __name__ == "__main__":
         bucket_name = pipeline_storage,
         object_name = 'data',
         path_replacers = {
-            'name': data_folder
+            'name': folder_name
         },
         path_names = [
             'test'
@@ -1046,7 +1046,7 @@ if __name__ == "__main__":
     training_status = ray.get(remote_model_training.remote(
         storage_client = storage_client,
         storage_name = pipeline_storage,
-        artifact_folder = artifact_folder,
+        folder_name = folder_name,
         seed = seed,
         train_print_rate = train_print_rate,
         epochs = epochs,
