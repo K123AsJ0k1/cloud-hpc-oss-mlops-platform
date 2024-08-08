@@ -1,0 +1,32 @@
+{
+    "1": {
+        "name": "remote-model-training",
+        "start-time": 1723141450.9219997,
+        "end-time": 1723141504.0603359,
+        "total-seconds": 53.13834
+    },
+    "2": {
+        "name": "remote-model-training",
+        "start-time": 1723143927.1195083,
+        "end-time": 1723143980.3211503,
+        "total-seconds": 53.20164
+    },
+    "3": {
+        "name": "train-fmnist-cnn",
+        "start-time": 1723143920.6405838,
+        "end-time": 1723143980.3838623,
+        "total-seconds": 59.74328
+    },
+    "4": {
+        "name": "remote-model-training",
+        "start-time": 1723145698.6951256,
+        "end-time": 1723145752.5673132,
+        "total-seconds": 53.87219
+    },
+    "5": {
+        "name": "train-fmnist-cnn",
+        "start-time": 1723145692.2808237,
+        "end-time": 1723145752.669101,
+        "total-seconds": 60.38828
+    }
+}

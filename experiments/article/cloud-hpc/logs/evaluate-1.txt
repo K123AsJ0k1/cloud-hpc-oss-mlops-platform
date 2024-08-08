@@ -1,0 +1,30 @@
+time="2024-08-08T19:42:28.914Z" level=info msg="capturing logs" argo=true
+I0808 19:42:28.960839      26 env.go:30] cannot find launcher configmap: name="kfp-launcher" namespace="kubeflow-user-example-com"
+I0808 19:42:28.961650      26 launcher.go:144] PipelineRoot defaults to "minio://mlpipeline/v2/artifacts".
+I0808 19:42:28.962014      26 cache.go:143] Cannot detect ml-pipeline in the same namespace, default to ml-pipeline.kubeflow:8887 as KFP endpoint.
+I0808 19:42:28.962077      26 cache.go:120] Connecting to cache endpoint ml-pipeline.kubeflow:8887
+I0808 19:42:29.067030      26 launcher.go:193] enable caching
+I0808 19:42:29.273704      26 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: 
+https://pip.pypa.io/warnings/venv
+[KFP Executor 2024-08-08 19:43:51,241 INFO]: Looking for component `evaluate` in --component_module_path `/tmp/tmp.jpmXQklkzh/ephemeral_component.py`
+[KFP Executor 2024-08-08 19:43:51,241 INFO]: Loading KFP component "evaluate" from /tmp/tmp.jpmXQklkzh/ephemeral_component.py (directory "/tmp/tmp.jpmXQklkzh" and module name "ephemeral_component")
+[KFP Executor 2024-08-08 19:43:52,303 INFO]: Storage setup
+[KFP Executor 2024-08-08 19:43:52,303 INFO]: Used bucket: integration-pipeline-s0-c0-u1-user-example-com
+[KFP Executor 2024-08-08 19:43:52,303 INFO]: Setting up MLflow
+[KFP Executor 2024-08-08 19:43:52,384 INFO]: Training metrics: {'5-ave-cpu-seconds': 80.0, '5-elapsed-seconds': 240.0, '5-cpu-time-seconds': 480.0, '5-total-cpu-seconds': 80.038, '5-total-submit-start-seconds': 0.0, '6-total-cpu-seconds': 10.044, '6-total-submit-start-seconds': 0.0, '6-total-start-end-seconds': 236.0, 'cpu-utilized-seconds': 92.0, 'cpu-efficiency-percentage': 0.07, 'cpu-efficiency-seconds': 400576.0, 'job-wall-clock-time-seconds': 248.0, 'memory-efficiency-percentage': 11.29, 'billing-units': 13.78, '1-elapsed-seconds': 248.0, '1-cpu-time-seconds': 126976.0, '1-total-cpu-seconds': 91.982, '1-total-submit-start-seconds': -1.0, '1-total-start-end-seconds': 249.0, '2-ave-cpu-seconds': 1.0, '2-elapsed-seconds': 249.0, '2-cpu-time-seconds': 63744.0, '2-total-cpu-seconds': 1.859, '2-total-submit-start-seconds': 0.0, '2-total-start-end-seconds': 249.0, '3-ave-cpu-seconds': 0.0, '3-elapsed-seconds': 248.0, '3-cpu-time-seconds': 126976.0, '3-total-cpu-seconds': 0.002, '3-total-submit-start-seconds': 0.0, '3-total-start-end-seconds': 248.0, '4-ave-cpu-seconds': 0.0, '4-elapsed-seconds': 1.0, '4-cpu-time-seconds': 2.0, '4-total-cpu-seconds': 0.038, '4-total-submit-start-seconds': 0.0, '4-total-start-end-seconds': 1.0, '5-total-start-end-seconds': 240.0, '6-ave-cpu-seconds': 11.0, '6-elapsed-seconds': 236.0, '6-cpu-time-seconds': 472.0}
+[KFP Executor 2024-08-08 19:43:52,385 INFO]: Checked metric accuracy with threshold 0.8
+[KFP Executor 2024-08-08 19:43:52,385 INFO]: Checked metric precision with threshold 0.8
+[KFP Executor 2024-08-08 19:43:52,385 INFO]: Checked metric recall with threshold 0.8
+[KFP Executor 2024-08-08 19:43:52,385 INFO]: Stopping forwarder scheduler
+[KFP Executor 2024-08-08 19:43:52,650 INFO]: Forwarder scheduler stopped: (200, True)
+I0808 19:43:53.308173      26 launcher.go:860] ExecutorOutput: {
+  "parameters": {
+    "Output": {
+      "stringValue": "true"
+    }
+  }
+}
+I0808 19:43:53.319236      26 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+time="2024-08-08T19:43:54.682Z" level=info msg="/tmp/outputs/Output/data -> /var/run/argo/outputs/artifacts/tmp/outputs/Output/data.tgz" argo=true
+time="2024-08-08T19:43:54.684Z" level=info msg="Taring /tmp/outputs/Output/data"
