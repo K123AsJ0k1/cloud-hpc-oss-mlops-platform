@@ -13,7 +13,7 @@ def set_object_path(
         'ray': 'CODE/RAY/name',
         'data': 'DATA/name',
         'artifacts': 'ARTIFACTS/name',
-        'time': 'TIME/name'
+        'time': 'TIMES/name'
     }
 
     i = 0
@@ -39,7 +39,7 @@ def setup_storage(
         storage_parameters = storage_parameters
     ) 
     
-    storage_name = set_bucket_name(
+    storage_name = set_bucket_names(
        storage_parameters = storage_parameters
     )
     
