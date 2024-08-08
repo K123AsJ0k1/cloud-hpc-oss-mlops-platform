@@ -1690,7 +1690,7 @@ def train(
                     continue
         
         logger.info("Waiting sacct and seff")
-        store_timeout = 400
+        store_timeout = 600
         start = t.time()
         stored = False
         while t.time() - start <= store_timeout:
@@ -1823,7 +1823,7 @@ def train(
         gather_time( 
             storage_client = storage_client,
             storage_name = pipeline_bucket,
-            time_group = 'component',
+            time_group = 'components',
             time_name = 'cloud-hpc-train',
             start_time = component_time_start,
             end_time = component_time_end
