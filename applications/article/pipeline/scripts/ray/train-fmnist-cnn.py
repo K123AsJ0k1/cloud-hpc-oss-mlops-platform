@@ -889,7 +889,7 @@ def remote_model_training(
         
         set_object(
             storage_client = storage_client,
-            storage_name = storage_name,
+            bucket_name = storage_name,
             object_name = 'artifacts',
             path_replacers = {
                 'name': folder_name
@@ -916,7 +916,7 @@ def remote_model_training(
         
         set_object(
             storage_client = storage_client,
-            storage_name = storage_name,
+            bucket_name = storage_name,
             object_name = 'artifacts',
             path_replacers = {
                 'name': folder_name
@@ -952,7 +952,7 @@ def remote_model_training(
         
         set_object(
             storage_client = storage_client,
-            storage_name = storage_name,
+            bucket_name = storage_name,
             object_name = 'artifacts',
             path_replacers = {
                 'name': folder_name
@@ -1014,7 +1014,7 @@ if __name__ == "__main__":
 
     print('Getting training data')
 
-    train_loader = get_object(
+    train_loader_object = get_object(
         storage_client = storage_client,
         bucket_name = pipeline_storage,
         object_name = 'data',
@@ -1025,10 +1025,12 @@ if __name__ == "__main__":
             'train'
         ]
     )
+
+    train_loader = train_loader_object['data']
     
     print('Getting testing data')
 
-    test_loader = get_object(
+    test_loader_object = get_object(
         storage_client = storage_client,
         bucket_name = pipeline_storage,
         object_name = 'data',
@@ -1039,6 +1041,9 @@ if __name__ == "__main__":
             'test'
         ]
     )
+
+    train_loader = test_loader_object['data']
+
     print('Data loaded')
 
     print('Starting training')

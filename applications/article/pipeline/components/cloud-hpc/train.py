@@ -1417,7 +1417,7 @@ def train(
 
         if not 'forwarding-status' in forwarding_data:
             return output('none', 'none')
-        
+        # Fails for some reason
         forwarding_status = forwarding_data['forwarding-status']    
         if forwarding_status['cancel'] or forwarding_status['deleted']:
             break
@@ -1507,8 +1507,8 @@ def train(
         if not 'job-status' in job_data:
             return output('none', 'none')
 
-        # failed here
         job_status = job_data['job-status']
+        #logger.info(job_status)
         if job_status['cancel'] or job_status['stopped']:
             break
 
@@ -1578,7 +1578,7 @@ def train(
             route_input = {},
             timeout = 240
         )
-        # Fails here
+        
         logger.info('SLURM job cancel: ' + str(cancel_data))
         if not ray_job_success:
             return output('none', 'none')
@@ -1609,21 +1609,23 @@ def train(
                 'parameters'
             ]
         )
-        parameters_object_data = parameters_object['data']
 
-        logger.info('Logging model')
+        if not parameters_object is None:
+            parameters_object_data = parameters_object['data']
 
-        trained_model = CNNClassifier()
-        trained_model.load_state_dict(parameters_object_data['model'])
-        trained_model.eval()
-        
-        model_name = mlflow_parameters['model-name']
-        registered_name = mlflow_parameters['registered-name']
-        mlflow.pytorch.log_model(
-            trained_model, 
-            model_name,
-            registered_model_name = registered_name
-        )
+            logger.info('Logging model')
+
+            trained_model = CNNClassifier()
+            trained_model.load_state_dict(parameters_object_data['model'])
+            trained_model.eval()
+            
+            model_name = mlflow_parameters['model-name']
+            registered_name = mlflow_parameters['registered-name']
+            mlflow.pytorch.log_model(
+                trained_model, 
+                model_name,
+                registered_model_name = registered_name
+            )
 
         logger.info('Getting model predictions')
 
@@ -1638,14 +1640,16 @@ def train(
                 'predictions'
             ]
         ) 
-        predictions_object_data = predictions_object['data']
 
-        logger.info("Logging predictions")
-        np.save("predictions.npy", predictions_object_data)
-        mlflow.log_artifact(
-            local_path = "predictions.npy",
-            artifact_path = "predicted_qualities/"
-        )
+        if not predictions_object is None:
+            predictions_object_data = predictions_object['data']
+
+            logger.info("Logging predictions")
+            np.save("predictions.npy", predictions_object_data)
+            mlflow.log_artifact(
+                local_path = "predictions.npy",
+                artifact_path = "predicted_qualities/"
+            )
         
         logger.info("Logging metrics")
         metrics_object = get_object(
@@ -1659,30 +1663,32 @@ def train(
                 'metrics'
             ]
         ) 
-        metrics_object_data = metrics_object['data']
 
-        performance = metrics_object_data['performance']
-        
-        parsed_performance = parse_torchmetrics(
-            metrics = performance,
-            labels = {
-                0: 'top',
-                1: 'trouser',
-                2: 'pullover',
-                3: 'dress',
-                4: 'coat',
-                5: 'sandal',
-                6: 'shirt',
-                7: 'sneaker',
-                8: 'bag',
-                9: 'ankle-boot',
-            }
-        )
+        if not metrics_object is None:
+            metrics_object_data = metrics_object['data']
 
-        for key,value in parsed_performance.items():
-            if 'name' in key:
-                collected_metrics[key] = value
-                continue
+            performance = metrics_object_data['performance']
+            
+            parsed_performance = parse_torchmetrics(
+                metrics = performance,
+                labels = {
+                    0: 'top',
+                    1: 'trouser',
+                    2: 'pullover',
+                    3: 'dress',
+                    4: 'coat',
+                    5: 'sandal',
+                    6: 'shirt',
+                    7: 'sneaker',
+                    8: 'bag',
+                    9: 'ankle-boot',
+                }
+            )
+
+            for key,value in parsed_performance.items():
+                if 'name' in key:
+                    collected_metrics[key] = value
+                    continue
         
         logger.info("Waiting sacct and seff")
         store_timeout = 300
