@@ -1,0 +1,25 @@
+time="2024-08-08T07:26:37.923Z" level=info msg="capturing logs" argo=true
+I0808 07:26:37.963846      28 env.go:30] cannot find launcher configmap: name="kfp-launcher" namespace="kubeflow-user-example-com"
+I0808 07:26:37.963996      28 launcher.go:144] PipelineRoot defaults to "minio://mlpipeline/v2/artifacts".
+I0808 07:26:37.964364      28 cache.go:143] Cannot detect ml-pipeline in the same namespace, default to ml-pipeline.kubeflow:8887 as KFP endpoint.
+I0808 07:26:37.964381      28 cache.go:120] Connecting to cache endpoint ml-pipeline.kubeflow:8887
+I0808 07:26:38.095292      28 launcher.go:193] enable caching
+I0808 07:26:38.217999      28 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: 
+https://pip.pypa.io/warnings/venv
+[KFP Executor 2024-08-08 07:27:47,345 INFO]: Looking for component `evaluate` in --component_module_path `/tmp/tmp.hj6caWg4dL/ephemeral_component.py`
+[KFP Executor 2024-08-08 07:27:47,345 INFO]: Loading KFP component "evaluate" from /tmp/tmp.hj6caWg4dL/ephemeral_component.py (directory "/tmp/tmp.hj6caWg4dL" and module name "ephemeral_component")
+[KFP Executor 2024-08-08 07:27:48,503 INFO]: Training metrics: {'accuracy': 0.8937, 'precision': 0.89269, 'recall': 0.8937, 'top-accuracy': 0.875, 'trouser-accuracy': 0.98, 'pullover-accuracy': 0.861, 'dress-accuracy': 0.893, 'coat-accuracy': 0.851, 'sandal-accuracy': 0.954, 'shirt-accuracy': 0.622, 'bag-accuracy': 0.973, 'ankle-boot-accuracy': 0.956, 'top-precision': 0.80349, 'trouser-precision': 0.98492, 'pullover-precision': 0.83673, 'dress-precision': 0.9002, 'coat-precision': 0.81592, 'sandal-precision': 0.98656, 'bag-precision': 0.95957, 'ankle-boot-precision': 0.96177, 'top-recall': 0.875, 'trouser-recall': 0.98, 'pullover-recall': 0.861, 'dress-recall': 0.893, 'coat-recall': 0.851, 'sandal-recall': 0.954, 'shirt-recall': 0.622, 'sneaker-recall': 0.972, 'bag-recall': 0.973, 'ankle-boot-recall': 0.956, 'total-seconds': 1020.58485, 'sneaker-accuracy': 0.972, 'shirt-precision': 0.7485, 'sneaker-precision': 0.92925}
+[KFP Executor 2024-08-08 07:27:48,503 INFO]: Checked metric accuracy with threshold 0.8
+[KFP Executor 2024-08-08 07:27:48,504 INFO]: Checked metric precision with threshold 0.8
+[KFP Executor 2024-08-08 07:27:48,504 INFO]: Checked metric recall with threshold 0.8
+I0808 07:27:49.108433      28 launcher.go:860] ExecutorOutput: {
+  "parameters": {
+    "Output": {
+      "stringValue": "true"
+    }
+  }
+}
+I0808 07:27:49.117116      28 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+time="2024-08-08T07:27:49.378Z" level=info msg="/tmp/outputs/Output/data -> /var/run/argo/outputs/artifacts/tmp/outputs/Output/data.tgz" argo=true
+time="2024-08-08T07:27:49.379Z" level=info msg="Taring /tmp/outputs/Output/data"
