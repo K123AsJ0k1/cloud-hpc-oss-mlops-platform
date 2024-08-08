@@ -8,7 +8,7 @@ from typing import NamedTuple
         "mlflow~=2.12.2", 
         "boto3~=1.21.0",
         "numpy",
-        "torch==2.3.0"
+        "torch==2.3.0" 
     ],
     pip_index_urls=[
         "https://pypi.org/simple",
@@ -19,7 +19,7 @@ from typing import NamedTuple
         "https://download.pytorch.org/whl/cpu"
     ],
     output_component_file = 'components/train_component.yaml',
-)
+) 
 def train(   
     storage_parameters: dict,
     integration_parameters: dict,

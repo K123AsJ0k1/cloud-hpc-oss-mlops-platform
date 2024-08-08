@@ -14,9 +14,9 @@
 )
 def preprocess( 
     storage_parameters: dict,
-    training_parameters: dict,
+    integration_parameters: dict,
 ) -> bool:
-    import time as t
+    import time as t 
     
     import logging
     import swiftclient as sc
