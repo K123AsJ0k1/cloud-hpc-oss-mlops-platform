@@ -144,12 +144,18 @@
         "total-seconds": 0.05022
     },
     "25": {
+        "name": "cloud-hpc-train",
+        "start-time": 1723145469.8823009,
+        "end-time": 1723146127.6379764,
+        "total-seconds": 657.75568
+    },
+    "26": {
         "name": "cloud-hpc-evaluate",
         "start-time": 1723146232.3034668,
         "end-time": 1723146232.6506078,
         "total-seconds": 0.34714
     },
-    "26": {
+    "27": {
         "name": "cloud-hpc-pipeline",
         "start-time": 1723145115.6360953,
         "end-time": 1723146254.171891,
