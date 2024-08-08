@@ -855,7 +855,7 @@ def remote_model_training(
                     rec = round(train_general_metrics['MulticlassRecall'].item(),3)
                     general_metrics.reset()
                     print(f'Epoch: {epoch + 1}/{epochs}, Batch {i + 1}, Loss: {avg_loss}, Accuracy: {acc}, Precision: {pre}, Recall: {rec}')
-                    running_loss = 0.0
+                    running_loss = 0.0 
             current_epoch += 1
         print('Training complete')
         
@@ -1068,7 +1068,7 @@ if __name__ == "__main__":
     gather_time(
         storage_client = storage_client,
         storage_name = pipeline_storage,
-        time_group = 'ray-job',
+        time_group = 'ray-jobs',
         time_name = 'train-fmnist-cnn',
         start_time = time_start,
         end_time = time_end

@@ -1528,7 +1528,7 @@ def train(
     ray_client = setup_ray(
         logger = logger,
         services = current_services,
-        timeout = 500
+        timeout = ray_job_timeout
     )
     
     if ray_client is None:
@@ -1665,10 +1665,8 @@ def train(
         ) 
 
         if not metrics_object is None:
-            metrics_object_data = metrics_object['data']
+            performance = metrics_object['data']
 
-            performance = metrics_object_data['performance']
-            
             parsed_performance = parse_torchmetrics(
                 metrics = performance,
                 labels = {
@@ -1691,7 +1689,7 @@ def train(
                     continue
         
         logger.info("Waiting sacct and seff")
-        store_timeout = 300
+        store_timeout = 400
         start = t.time()
         stored = False
         while t.time() - start <= store_timeout:
@@ -1717,7 +1715,6 @@ def train(
             if not 'job-status' in job_data:
                 break
 
-            # failed here
             job_status = job_data['job-status']
             if job_status['stored']:
                 stored = True
@@ -1749,7 +1746,7 @@ def train(
                     job_sacct = sacct_data['job-sacct']
                     params, metrics = parse_job_sacct(
                         logger = logger,
-                        sacct = job_sacct['job-sacct']
+                        sacct = job_sacct
                     )
 
                     for key,value in params.items():
