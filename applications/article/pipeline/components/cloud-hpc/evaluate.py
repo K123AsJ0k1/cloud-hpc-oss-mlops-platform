@@ -7,8 +7,8 @@
     output_component_file = 'components/evaluate_component.yaml',
 )
 def evaluate(   
-    allas_parameters: dict,
-    metadata_parameters: dict,
+    storage_parameters: dict,
+    integration_parameters: dict,
     mlflow_parameters: dict,
     metric_parameters: dict,
     run_id: str
@@ -20,229 +20,710 @@ def evaluate(
     
     import swiftclient as sc
     import pickle
-    '''START OF FUNCTIONS'''
 
+    import re
+    import json
+    import requests
 
-    '''ALLAS'''
+    # BOILERPLATE START
 
-
-    def setup_allas(
-        parameters: any
+    def set_formatted_user(
+        user: str   
     ) -> any:
-        allas_client = sc.Connection(
-            preauthurl = parameters['pre_auth_url'],
-            preauthtoken = parameters['pre_auth_token'],
+        return re.sub(r'[^a-z0-9]+', '-', user)
+    def general_object_metadata():
+        general_object_metadata = {
+            'version': 1
+        }
+        return general_object_metadata
+    # Works
+    def is_swift_client(
+        storage_client: any
+    ) -> any:
+        return isinstance(storage_client, sc.Connection)
+    # Works
+    def swift_setup_client(
+        pre_auth_url: str,
+        pre_auth_token: str,
+        user_domain_name: str,
+        project_domain_name: str,
+        project_name: str,
+        auth_version: str
+    ) -> any:
+        swift_client = sc.Connection(
+            preauthurl = pre_auth_url,
+            preauthtoken = pre_auth_token,
             os_options = {
-                'user_domain_name': parameters['user_domain_name'],
-                'project_domain_name': parameters['project_domain_name'],
-                'project_name': parameters['project_name']
+                'user_domain_name': user_domain_name,
+                'project_domain_name': project_domain_name,
+                'project_name': project_name
             },
-            auth_version = parameters['auth_version']
+            auth_version = auth_version
         )
-        return allas_client
-
-    def create_bucket(
-        client: any,
+        return swift_client
+    # Works
+    def swift_create_bucket(
+        swift_client: any,
         bucket_name: str
     ) -> bool:
         try:
-            client.put_container(
+            swift_client.put_container(
                 container = bucket_name
             )
             return True
         except Exception as e:
             return False
-
-    def check_bucket(
-        client: any,
+    # Works
+    def swift_check_bucket(
+        swift_client: any,
         bucket_name:str
+    ) -> any:
+        try:
+            bucket_info = swift_client.get_container(
+                container = bucket_name
+            )
+            bucket_metadata = bucket_info[0]
+            list_of_objects = bucket_info[1]
+            return {'metadata': bucket_metadata, 'objects': list_of_objects}
+        except Exception as e:
+            return {} 
+    # Refactored
+    def swift_delete_bucket(
+        swift_client: any,
+        bucket_name: str
     ) -> bool:
         try:
-            container_info = client.get_container(
+            swift_client.delete_container(
                 container = bucket_name
-            )
-            return container_info
-        except Exception as e:
-            return None 
-        
-    def create_object(
-        client: any,
-        bucket_name: str, 
-        object_path: str, 
-        data: any
-    ) -> bool: 
-        try:
-            client.put_object(
-                container = bucket_name,
-                obj = object_path + '.pkl',
-                contents = pickle.dumps(data),
-                content_type = 'application/pickle'
             )
             return True
         except Exception as e:
             return False
-        
-    def check_object(
-        client: any,
+    # Created and works
+    def swift_list_buckets(
+        swift_client: any
+    ) -> any:
+        try:
+            account_buckets = swift_client.get_account()[1]
+            return account_buckets
+        except Exception as e:
+            return {}
+    # Works
+    def swift_create_object(
+        swift_client: any,
+        bucket_name: str, 
+        object_path: str, 
+        object_data: any,
+        object_metadata: any
+    ) -> bool: 
+        # This should be updated to handle 5 GB objects
+        # It also should handle metadata
+        try:
+            swift_client.put_object(
+                container = bucket_name,
+                obj = object_path,
+                contents = object_data,
+                headers = object_metadata
+            )
+            return True
+        except Exception as e:
+            return False
+    # Works
+    def swift_check_object(
+        swift_client: any,
         bucket_name: str, 
         object_path: str
     ) -> any: 
         try:
-            object_info = client.head_object(
+            object_metadata = swift_client.head_object(
                 container = bucket_name,
-                obj = object_path + '.pkl'
+                obj = object_path
             )       
-            return object_info
+            return object_metadata
         except Exception as e:
             return {} 
-
-    def get_object(
-        client:any,
+    # Refactored and works
+    def swift_get_object(
+        swift_client:any,
         bucket_name: str,
         object_path: str
     ) -> any:
         try:
-            content = client.get_object(
+            response = swift_client.get_object(
                 container = bucket_name,
-                obj = object_path + '.pkl' 
+                obj = object_path 
             )
-            data = pickle.loads(content[1])
-            return data
+            object_info = response[0]
+            object_data = response[1]
+            return {'data': object_data, 'info': object_info}
         except Exception as e:
-            return None     
-        
-    def remove_object(
-        client: any,
+            return {}     
+    # Refactored   
+    def swift_remove_object(
+        swift_client: any,
         bucket_name: str, 
         object_path: str
     ) -> bool: 
         try:
-            client.delete_object(
+            swift_client.delete_object(
                 container = bucket_name, 
-                obj = object_path + '.pkl'
+                obj = object_path
             )
             return True
         except Exception as e:
             return False
-
-    def update_object(
-        client: any,
+    # Works
+    def swift_update_object(
+        swift_client: any,
         bucket_name: str, 
         object_path: str, 
-        data: any,
+        object_data: any,
+        object_metadata: any
     ) -> bool:  
-        remove = remove_object(
-            client, 
-            bucket_name, 
-            object_path
+        remove = swift_remove_object(
+            swift_client = swift_client, 
+            bucket_name = bucket_name, 
+            object_path = object_path
         )
-        if remove:
-            create = create_object(
-                client, 
-                bucket_name, 
-                object_path, 
-                data
-            )
-            if create:
-                return True
-        return False
-
-    def create_or_update_object(
-        client: any,
+        if not remove:
+            return False
+        create = swift_create_object(
+            swift_client = swift_client, 
+            bucket_name = bucket_name, 
+            object_path = object_path, 
+            object_data = object_data,
+            object_metadata = object_metadata
+        )
+        return create
+    # Works
+    def swift_create_or_update_object(
+        swift_client: any,
         bucket_name: str, 
         object_path: str, 
-        data: any
+        object_data: any,
+        object_metadata: any
     ) -> any:
-        bucket_status = check_bucket(
-            client, 
-            bucket_name
+        bucket_info = swift_check_bucket(
+            swift_client = swift_client, 
+            bucket_name = bucket_name
         )
         
-        if not bucket_status:
-            creation_status = create_bucket(
-                client, 
-                bucket_name
+        if len(bucket_info) == 0:
+            creation_status = swift_create_bucket(
+                swift_client = swift_client, 
+                bucket_name = bucket_name
             )
             if not creation_status:
                 return False
         
-        object_status = check_object(
-            client, 
-            bucket_name, 
-            object_path
-        ) 
+        object_info = swift_check_object(
+            swift_client = swift_client, 
+            bucket_name = bucket_name, 
+            object_path = object_path
+        )
         
-        if not object_status:
-            return create_object(
-                client, 
-                bucket_name, 
-                object_path, 
-                data
+        if len(object_info) == 0:
+            return swift_create_object(
+                swift_client = swift_client, 
+                bucket_name = bucket_name, 
+                object_path = object_path, 
+                object_data = object_data,
+                object_metadata = object_metadata
             )
         else:
-            return update_object(
-                client, 
-                bucket_name, 
-                object_path, 
-                data
+            return swift_update_object(
+                swift_client = swift_client, 
+                bucket_name = bucket_name, 
+                object_path = object_path, 
+                object_data = object_data,
+                object_metadata = object_metadata
             )
 
-    
-    '''GATHER'''
+        # Refactored and Works
+    def set_encoded_metadata(
+        used_client: str,
+        object_metadata: any
+    ) -> any:
+        encoded_metadata = {}
+        if used_client == 'swift':
+            key_initial = 'x-object-meta'
+            for key, value in object_metadata.items():
+                encoded_key = key_initial + '-' + key
+                if isinstance(value, list):
+                    encoded_metadata[encoded_key] = 'list=' + ','.join(map(str, value))
+                    continue
+                encoded_metadata[encoded_key] = str(value)
+        return encoded_metadata
+    # Refactored and works
+    def get_general_metadata(
+        used_client: str,
+        object_metadata: any
+    ) -> any:
+        general_metadata = {}
+        if used_client == 'swift':
+            key_initial = 'x-object-meta'
+            for key, value in object_metadata.items():
+                if not key_initial == key[:len(key_initial)]:
+                    general_metadata[key] = value
+        return general_metadata
+    # Refactored and works
+    def get_decoded_metadata(
+        used_client: str,
+        object_metadata: any
+    ) -> any: 
+        decoded_metadata = {}
+        if used_client == 'swift':
+            key_initial = 'x-object-meta'
+            for key, value in object_metadata.items():
+                if key_initial == key[:len(key_initial)]:
+                    decoded_key = key[len(key_initial) + 1:]
+                    if 'list=' in value:
+                        string_integers = value.split('=')[1]
+                        values = string_integers.split(',')
+                        if len(values) == 1 and values[0] == '':
+                            decoded_metadata[decoded_key] = []
+                        else:
+                            try:
+                                decoded_metadata[decoded_key] = list(map(int, values))
+                            except:
+                                decoded_metadata[decoded_key] = list(map(str, values))
+                        continue
+                    if value.isnumeric():
+                        decoded_metadata[decoded_key] = int(value)
+                        continue
+                    decoded_metadata[decoded_key] = value
+        return decoded_metadata
+    # Refactored and works
+    def set_bucket_names(
+        storage_parameters: any
+    ) -> any:
+        storage_names = []
+        bucket_prefix = storage_parameters['bucket-prefix']
+        ice_id = storage_parameters['ice-id']
+        user = storage_parameters['user']
+        storage_names.append(bucket_prefix + '-forwarder-' + ice_id)
+        storage_names.append(bucket_prefix + '-submitter-' + ice_id + '-' + set_formatted_user(user = user))
+        storage_names.append(bucket_prefix + '-pipeline-' + ice_id + '-' + set_formatted_user(user = user))
+        storage_names.append(bucket_prefix + '-experiment-' + ice_id + '-' + set_formatted_user(user = user))
+        return storage_names
+    # created and works
+    def setup_storage(
+        storage_parameters: any
+    ) -> any:
+        storage_client = setup_storage_client(
+            storage_parameters = storage_parameters
+        ) 
+        
+        storage_name = set_bucket_names(
+        storage_parameters = storage_parameters
+        )
+        
+        return storage_client, storage_name
+    # Refactored and works
+    def setup_storage_client(
+        storage_parameters: any
+    ) -> any:
+        storage_client = None
+        if storage_parameters['used-client'] == 'swift':
+            storage_client = swift_setup_client(
+                pre_auth_url = storage_parameters['pre-auth-url'],
+                pre_auth_token = storage_parameters['pre-auth-token'],
+                user_domain_name = storage_parameters['user-domain-name'],
+                project_domain_name = storage_parameters['project-domain-name'],
+                project_name = storage_parameters['project-name'],
+                auth_version = storage_parameters['auth-version']
+            )
+        return storage_client
+    # Refactored and works
+    def check_object_metadata(
+        storage_client: any,
+        bucket_name: str, 
+        object_path: str
+    ) -> any: 
+        object_metadata = {
+            'general-meta': {},
+            'custom-meta': {}
+        }
+        if is_swift_client(storage_client = storage_client):
+            all_metadata = swift_check_object(
+            swift_client = storage_client,
+            bucket_name = bucket_name,
+            object_path = object_path
+            ) 
 
-    def gather_time(
-        logger: any,
-        allas_client: any,
-        allas_bucket: str,
-        kubeflow_user: str,
-        time_folder_path: str,
+            general_metadata = {}
+            custom_metadata = {}
+            if not len(all_metadata) == 0:
+                general_metadata = get_general_metadata(
+                    used_client = 'swift',
+                    object_metadata = all_metadata
+                )
+                custom_metadata = get_decoded_metadata(
+                    used_client = 'swift',
+                    object_metadata = all_metadata
+                )
+
+            object_metadata['general-meta'] = general_metadata
+            object_metadata['custom-meta'] = custom_metadata
+
+        return object_metadata
+    # Refactored and works
+    def get_object_content(
+        storage_client: any,
+        bucket_name: str,
+        object_path: str
+    ) -> any:
+        object_content = {}
+        if is_swift_client(storage_client = storage_client):
+            fetched_object = swift_get_object(
+                swift_client = storage_client,
+                bucket_name = bucket_name,
+                object_path = object_path
+            )
+            object_content['data'] = pickle.loads(fetched_object['data'])
+            object_content['general-meta'] = get_general_metadata(
+                used_client = 'swift',
+                object_metadata = fetched_object['info']
+            )
+            object_content['custom-meta'] = get_decoded_metadata(
+                used_client = 'swift',
+                object_metadata = fetched_object['info']
+            )
+        return object_content
+    # Refactored    
+    def remove_object(
+        storage_client: any,
+        bucket_name: str, 
+        object_path: str
+    ) -> bool: 
+        removed = False
+        if is_swift_client(storage_client = storage_client):
+            removed = swift_remove_object(
+                swift_client = storage_client,
+                bucket_name = bucket_name,
+                object_path = object_path
+            )
+        return removed
+    # Refactored and works
+    def create_or_update_object(
+        storage_client: any,
+        bucket_name: str, 
+        object_path: str, 
+        object_data: any,
+        object_metadata: any
+    ) -> any:
+        success = False
+        if is_swift_client(storage_client = storage_client):
+            formatted_data = pickle.dumps(object_data)
+            formatted_metadata = set_encoded_metadata(
+                used_client = 'swift',
+                object_metadata = object_metadata
+            )
+
+            success = swift_create_or_update_object(
+                swift_client = storage_client,
+                bucket_name = bucket_name,
+                object_path = object_path,
+                object_data = formatted_data,
+                object_metadata = formatted_metadata
+            )
+        return success
+    # Created and works
+    def format_bucket_metadata(
+        used_client: str,
+        bucket_metadata: any
+    ) -> any:
+        formatted_metadata = {}
+        if used_client == 'swift':
+            relevant_values = {
+                'x-container-object-count': 'object-count',
+                'x-container-bytes-used-actual': 'used-bytes',
+                'last-modified': 'date',
+                'content-type': 'type'
+            }
+            formatted_metadata = {}
+            for key,value in bucket_metadata.items():
+                if key in relevant_values:
+                    formatted_key = relevant_values[key]
+                    formatted_metadata[formatted_key] = value
+        return formatted_metadata
+    # Created and works
+    def format_bucket_objects(
+        used_client: str,
+        bucket_objects: any
+    ) -> any:
+        formatted_objects = {}
+        if used_client == 'swift':
+            for bucket_object in bucket_objects:
+                formatted_object_metadata = {
+                    'hash': 'id',
+                    'bytes': 'used-bytes',
+                    'last_modified': 'date'
+                }
+                object_key = None
+                object_metadata = {}
+                for key, value in bucket_object.items():
+                    if key == 'name':
+                        object_key = value
+                    if key in formatted_object_metadata:
+                        formatted_key = formatted_object_metadata[key]
+                        object_metadata[formatted_key] = value
+                formatted_objects[object_key] = object_metadata
+        return formatted_objects
+    # Created and works
+    def format_bucket_info(
+        used_client: str,
+        bucket_info: any
+    ) -> any:
+        bucket_metadata = {}
+        bucket_objects = {}
+        if used_client == 'swift':
+            bucket_metadata = format_bucket_metadata(
+                used_client = used_client,
+                bucket_metadata = bucket_info['metadata']
+            )
+            bucket_objects = format_bucket_objects(
+                used_client = used_client,
+                bucket_objects = bucket_info['objects']
+            )
+        return {'metadata': bucket_metadata, 'objects': bucket_objects} 
+    # Created and works
+    def get_bucket_info(
+        storage_client: any,
+        bucket_name: str
+    ) -> any:
+        bucket_info = {}
+        if is_swift_client(storage_client = storage_client):
+            unformatted_bucket_info = swift_check_bucket(
+                swift_client = storage_client,
+                bucket_name = bucket_name
+            )
+            bucket_info = format_bucket_info(
+                used_client = 'swift',
+                bucket_info = unformatted_bucket_info
+            )
+        return bucket_info
+    # Created and works
+    def format_container_info(
+        used_client: str,
+        container_info: any
+    ) -> any:
+        formatted_container_info = {}
+        if used_client == 'swift':
+            for bucket in container_info:
+                bucket_name = bucket['name']
+                bucket_count = bucket['count']
+                bucket_size = bucket['bytes']
+                formatted_container_info[bucket_name] = {
+                    'amount': bucket_count,
+                    'size': bucket_size
+                }
+        return formatted_container_info
+    # Created and works
+    def get_container_info( 
+        storage_client: any
+    ) -> any:
+        container_info = {}
+        if is_swift_client(storage_client = storage_client):
+            unformatted_container_info = swift_list_buckets(
+                swift_client = storage_client 
+            )
+            container_info = format_container_info(
+                used_client = 'swift',
+                container_info = unformatted_container_info
+            )
+        return container_info
+    
+        # Created and works
+    def set_object_path(
         object_name: str,
-        action_name: str,
-        start_time: int,
-        end_time: int
+        path_replacers: any,
+        path_names: any
     ):
-        time_path = time_folder_path + '/' + object_name
-        #logger.info('Time object path:' + str(time_path))
-        current_data = get_object(
-            client = allas_client,
-            bucket_name = allas_bucket,
-            object_path = time_path
+        object_paths = {
+            'root': 'name',
+            'code': 'CODE/name',
+            'slurm': 'CODE/SLURM/name',
+            'ray': 'CODE/RAY/name',
+            'data': 'DATA/name',
+            'artifacts': 'ARTIFACTS/name',
+            'time': 'TIMES/name'
+        }
+
+        i = 0
+        path_split = object_paths[object_name].split('/')
+        for name in path_split:
+            if name in path_replacers:
+                replacer = path_replacers[name]
+                if 0 < len(replacer):
+                    path_split[i] = replacer
+            i = i + 1
+        
+        if not len(path_names) == 0:
+            path_split.extend(path_names)
+
+        object_path = '/'.join(path_split)
+        #print('Used object path:' + str(object_path))
+        return object_path
+    # created and works
+    def setup_storage(
+        storage_parameters: any
+    ) -> any:
+        storage_client = setup_storage_client(
+            storage_parameters = storage_parameters
+        ) 
+        
+        storage_name = set_bucket_names(
+        storage_parameters = storage_parameters
+        )
+        
+        return storage_client, storage_name
+    # Created and works
+    def check_object(
+        storage_client: any,
+        bucket_name: str,
+        object_name: str,
+        path_replacers: any,
+        path_names: any
+    ) -> bool:
+        object_path = set_object_path(
+            object_name = object_name,
+            path_replacers = path_replacers,
+            path_names = path_names
+        )
+        # Consider making these functions object storage agnostic
+        object_metadata = check_object_metadata(
+            storage_client = storage_client,
+            bucket_name = bucket_name,
+            object_path = object_path
+        )
+        object_metadata['path'] = object_path
+        return object_metadata
+    # Created and works
+    def get_object(
+        storage_client: any,
+        bucket_name: str,
+        object_name: str,
+        path_replacers: any,
+        path_names: any
+    ) -> any:
+        checked_object = check_object(
+            storage_client = storage_client,
+            bucket_name = bucket_name,
+            object_name = object_name,
+            path_replacers = path_replacers,
+            path_names = path_names
         )
 
         object_data = None
-        if current_data is None:
-            object_data = {}
+        if not len(checked_object['general-meta']) == 0:
+            # Consider making these functions object storage agnostic
+            object_data = get_object_content(
+                storage_client = storage_client,
+                bucket_name = bucket_name,
+                object_path = checked_object['path']
+            )
+
+        return object_data
+    # Created and Works
+    def set_object(
+        storage_client: any,
+        bucket_name: str,
+        object_name: str,
+        path_replacers: any,
+        path_names: any,
+        overwrite: bool,
+        object_data: any,
+        object_metadata: any
+    ):
+        checked_object = check_object(
+            storage_client = storage_client,
+            bucket_name = bucket_name,
+            object_name = object_name,
+            path_replacers = path_replacers,
+            path_names = path_names
+        )
+        
+        perform = True
+        if not len(checked_object['general-meta']) == 0 and not overwrite:
+            perform = False
+        
+        if perform:
+            # Consider making these functions object storage agnostic
+            create_or_update_object(
+                storage_client = storage_client,
+                bucket_name = bucket_name,
+                object_path = checked_object['path'],
+                object_data = object_data,
+                object_metadata = object_metadata
+            )
+    # Created and works
+    def check_bucket(
+        storage_client: any,
+        bucket_name: str
+    ) -> any:
+        return get_bucket_info(
+            storage_client = storage_client,
+            bucket_name = bucket_name
+        )
+    # Created and works
+    def check_buckets(
+        storage_client: any
+    ) -> any:
+        return get_container_info( 
+            storage_client = storage_client
+        )
+
+    def gather_time(
+        storage_client: any,
+        storage_name: any,
+        time_group: any,
+        time_name: any,
+        start_time: int,
+        end_time: int
+    ):
+        time_object = get_object(
+            storage_client = storage_client,
+            bucket_name = storage_name,
+            object_name = 'time',
+            path_replacers = {
+                'name': time_group
+            },
+            path_names = []
+        )
+
+        time_data = {}
+        time_metadata = {} 
+        if time_object is None:
+            time_data = {}
+            time_metadata = general_object_metadata()
         else:
-            object_data = current_data
-
-        if not kubeflow_user in object_data:
-            object_data[kubeflow_user] = {}
-
-        user_time_dict = object_data[kubeflow_user]
-
-        current_key_amount = len(user_time_dict)
+            time_data = time_object['data']
+            time_metadata = time_object['custom-meta']
+        
+        current_key_amount = len(time_data)
         current_key_full = False
         current_key = str(current_key_amount)
         if 0 < current_key_amount:
-            time_object = user_time_dict[current_key]
+            time_object = time_data[current_key]
             if 0 < time_object['total-seconds']:
                 current_key_full = True
         
         changed = False
         if 0 < end_time and 0 < current_key_amount and not current_key_full:
-            stored_start_time = user_time_dict[current_key]['start-time']
+            stored_start_time = time_data[current_key]['start-time']
             time_diff = (end_time-stored_start_time)
-            user_time_dict[current_key]['end-time'] = end_time
-            user_time_dict[current_key]['total-seconds'] = round(time_diff,5)
+            time_data[current_key]['end-time'] = end_time
+            time_data[current_key]['total-seconds'] = round(time_diff,5)
             changed = True
         else:
-            next_key_amount = len(user_time_dict) + 1
+            next_key_amount = len(time_data) + 1
             new_key = str(next_key_amount)
         
             if 0 < start_time and 0 == end_time:
-                user_time_dict[new_key] = {
-                    'name': action_name,
-                    'start-time': start_time ,
+                time_data[new_key] = {
+                    'name': time_name,
+                    'start-time': start_time,
                     'end-time': 0,
                     'total-seconds': 0
                 }
@@ -250,8 +731,8 @@ def evaluate(
 
             if 0 < start_time and 0 < end_time:
                 time_diff = (end_time-start_time)
-                user_time_dict[new_key] = {
-                    'name': action_name,
+                time_data[new_key] = {
+                    'name': time_name,
                     'start-time': start_time,
                     'end-time': end_time,
                     'total-seconds': round(time_diff,5)
@@ -259,33 +740,189 @@ def evaluate(
                 changed = True
 
         if changed:
-            object_data[kubeflow_user] = user_time_dict
-            create_or_update_object(
-                client = allas_client,
-                bucket_name = allas_bucket,
-                object_path = time_path, 
-                data = object_data
-            )    
-
+            time_metadata['version'] = time_metadata['version'] + 1
+            set_object(
+                storage_client = storage_client,
+                bucket_name = storage_name,
+                object_name = 'time',
+                path_replacers = {
+                    'name': time_group
+                },
+                path_names = [],
+                overwrite = True,
+                object_data = time_data,
+                object_metadata = time_metadata 
+            )
     
-    '''END OF FUNCTIONS'''
+    def set_route(
+        route_type: str,
+        route_name: str,
+        path_replacers: any,
+        path_names: any
+    ): 
+        # Check job-run and job-cancel
+        routes = {
+            'root': 'TYPE:/name',
+            'logs': 'GET:/general/logs/name',
+            'structure': 'GET:/general/structure',
+            'setup': 'POST:/setup/config',
+            'start': 'POST:/setup/start',
+            'stop': 'POST:/setup/stop',
+            'job-submit': 'POST:/requests/submit/job',
+            'job-run': 'PUT:/requests/run/job/name',
+            'job-cancel': 'PUT:/requests/cancel/job/name',
+            'forwarding-submit': 'POST:/requests/submit/forwarding',
+            'forwarding-cancel': 'PUT:/requests/cancel/type/user/key',
+            'task-request': 'PUT:/tasks/request/signature',
+            'task-result': 'GET:/tasks/result/id',
+            'job-artifact': 'GET:/artifacts/job/type/name',
+            'forwarding-artifact': 'GET:/artifacts/forwarding/type/user/key'
+        }
 
-    time_start = t.time()
+        route = None
+        if route_name in routes:
+            i = 0
+            route = routes[route_name].split('/')
+            for name in route:
+                if name in path_replacers:
+                    replacer = path_replacers[name]
+                    if 0 < len(replacer):
+                        route[i] = replacer
+                i = i + 1
+
+            if not len(path_names) == 0:
+                route.extend(path_names)
+
+            if not len(route_type) == 0:
+                route[0] = route_type + ':'
+            
+            route = '/'.join(route)
+        #print('Used route: ' + str(route))
+        return route
+    # Created and works
+    def get_response(
+        route_type: str,
+        route_url: str,
+        route_input: any
+    ) -> any:
+        route_response = None
+        if route_type == 'POST':
+            route_response = requests.post(
+                url = route_url,
+                json = route_input
+            )
+        if route_type == 'PUT':
+            route_response = requests.put(
+                url = route_url
+            )
+        if route_type == 'GET':
+            route_response = requests.get(
+                url = route_url
+            )
+        return route_response
+    # Created and works
+    def set_full_url(
+        address: str,
+        port: str,
+        used_route: str
+    ) -> str:
+        url_prefix = 'http://' + address + ':' + port
+        route_split = used_route.split(':')
+        url_type = route_split[0]
+        used_path = route_split[1]
+        full_url = url_prefix + used_path
+        return url_type, full_url
+    # Created and works
+    def request_route(
+        address: str,
+        port: str,
+        route_type: str,
+        route_name: str,
+        path_replacers: any,
+        path_names: any,
+        route_input: any,
+        timeout: any
+    ) -> any:
+        used_route = set_route(
+            route_type = route_type,
+            route_name = route_name,
+            path_replacers = path_replacers,
+            path_names = path_names
+        )
+
+        url_type, full_url = set_full_url(
+            address = address,
+            port = port,
+            used_route = used_route
+        )
+
+        route_response = get_response(
+            route_type = url_type,
+            route_url = full_url,
+            route_input = route_input
+        )
+
+        route_status_code = None
+        route_returned_text = {}
+        if not route_response is None:
+            route_status_code = route_response.status_code
+            if route_status_code == 200:
+                route_text = json.loads(route_response.text)
+
+                if 'id' in route_text: 
+                    task_result_route = set_route(
+                        route_type = '',
+                        route_name = 'task-result',
+                        path_replacers = {
+                            'id': route_text['id']
+                        },
+                        path_names = []
+                    )
+
+                    task_url_type, task_full_url = set_full_url(
+                        address = address,
+                        port = port,
+                        used_route = task_result_route
+                    )
+
+                    start = t.time()
+                    while t.time() - start <= timeout:
+                        task_route_response = get_response(
+                            route_type = task_url_type,
+                            route_url = task_full_url,
+                            route_input = {}
+                        )
+                        
+                        task_status_code = route_response.status_code
+                            
+                        if task_status_code == 200:
+                            task_text = json.loads(task_route_response.text)
+                            if task_text['status'] == 'FAILED':
+                                break
+                            
+                            if task_text['status'] == 'SUCCESS':
+                                route_returned_text = task_text['result']
+                                break
+                        else:
+                            break
+                else:
+                    route_returned_text = route_text
+        return route_status_code, route_returned_text
 
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
 
-    allas_client = setup_allas(
-        parameters = allas_parameters
-    )
-    allas_bucket = allas_parameters['allas-bucket'] 
+    component_time_start = t.time()
 
-    logger.info('Allas client setup')
+    storage_client, storage_names = setup_storage( 
+        storage_parameters = storage_parameters
+    )
+
+    logger.info('Storage setup')
+
 
     mlflow_tracking_uri = mlflow_parameters['tracking-uri']
-    kubeflow_user = metadata_parameters['kubeflow-user']
-    time_folder_path = metadata_parameters['time-folder-path']
-
+    
     client = MlflowClient(
         tracking_uri = mlflow_tracking_uri
     )
@@ -304,19 +941,32 @@ def evaluate(
         if training_metric < value:
             logger.error(f"Metric {key} failed with {training_metric}. Evaluation not passed!")
             success = False
-    
-    time_end = t.time()
 
+    forwarder_address = integration_parameters['forwarder-address']
+    forwarder_port = integration_parameters['forwarder-port']
+    
+    forwarder_scheduler_stopped = request_route(
+        address = forwarder_address,
+        port = forwarder_port,
+        route_type = '',
+        route_name = 'stop',
+        path_replacers = {},
+        path_names = [],
+        route_input = {},
+        timeout = 120
+    ) 
+
+    logger.info('Forwarder scheduler stopped: ' + str(forwarder_scheduler_stopped))
+    
+    component_time_end = t.time()
+    
     gather_time(
-        logger = logger,
-        allas_client = allas_client,
-        allas_bucket =  allas_bucket,
-        kubeflow_user = kubeflow_user,
-        time_folder_path = time_folder_path,
-        object_name = 'components',
-        action_name = 'integration-evaluation',
-        start_time = time_start,
-        end_time = time_end
+        storage_client = storage_client,
+        storage_name = storage_names[-2],
+        time_group = 'components',
+        time_name = 'cloud-hpc-evaluate',
+        start_time = component_time_start,
+        end_time = component_time_end
     )
 
     return success

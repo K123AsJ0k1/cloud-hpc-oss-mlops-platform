@@ -875,7 +875,7 @@ def preprocess(
         storage_client = storage_client,
         storage_name = storage_names[-2],
         time_group = 'components',
-        time_name = 'evaluate',
+        time_name = 'cloud-hpc-preprocess',
         start_time = component_time_start,
         end_time = component_time_end
     )

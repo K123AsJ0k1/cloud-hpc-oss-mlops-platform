@@ -1108,7 +1108,6 @@ def train(
             path_names = []
         )
 
-        #ray_job_name = ray_job_path.split('/')[-1]
         ray_job_object_data = ray_job_object['data']
 
         current_directory = os.getcwd()
@@ -1118,7 +1117,6 @@ def train(
             logger.info('Make directory')
             os.makedirs(ray_job_directory)
         
-        #ray_job_file = ray_job_name
         used_ray_job_path = os.path.join(ray_job_directory, ray_job_file)
         
         logger.info('Job writing path:' + str(used_ray_job_path))
@@ -1342,9 +1340,21 @@ def train(
     #slurm_gather_timeout = metadata_parameters['slurm-gather-timeout']
     #time_folder_path = metadata_parameters['time-folder-path']
 
+    configuration = integration_parameters['configuration']
+    scheduler_request = integration_parameters['scheduler-request']
+    forwarder_address = integration_parameters['forwarder-address']
+    forwarder_port = integration_parameters['forwarder-port']
+    forwarding_request = integration_parameters['forwarding-request']
+    user = integration_parameters['user']
+    job_request = integration_parameters['job-request']
+    ray_parameters = integration_parameters['ray-parameters']
+    ray_job_file = integration_parameters['ray-job-file']
+    ray_job_envs = integration_parameters['ray-job-envs']
+    ray_job_timeout = integration_parameters['ray-job-timeout']
+
     forwarder_started = start_forwarder(
-        address = '127.0.0.1',
-        port = '6500',
+        address = forwarder_address,
+        port = forwarder_port,
         configuration = configuration,
         scheduler_request = scheduler_request
     )
@@ -1353,8 +1363,8 @@ def train(
         return output('none', 'none')
 
     status_code, forwarding = request_route(
-        address = '127.0.0.1',
-        port = '6500',
+        address = forwarder_address,
+        port = forwarder_address,
         route_type = '',
         route_name = 'forwarding-submit',
         path_replacers = {},
@@ -1377,13 +1387,13 @@ def train(
     current_services = None
     while t.time() - start <= forwarding_timeout:
         status_code, forwarding_artifact = request_route(
-            address = '127.0.0.1',
-            port = '6500',
+            address = forwarder_address,
+            port = forwarder_port,
             route_type = '',
             route_name = 'forwarding-artifact',
             path_replacers = {
                 'type': 'status-imports',
-                'user': (),
+                'user': user,
                 'key': import_key
             },
             path_names = [],
@@ -1409,8 +1419,8 @@ def train(
         return output('none', 'none')
         
     status_code, job_key = request_route(
-        address = '127.0.0.1',
-        port = '6500',
+        address = forwarder_address,
+        port = forwarder_port,
         route_type = '',
         route_name = 'job-submit',
         path_replacers = {},
@@ -1428,12 +1438,12 @@ def train(
         return output('none', 'none')
     
     status_code, job_start = request_route(
-        address = '127.0.0.1',
-        port = '6500',
+        address = forwarder_started,
+        port = forwarder_port,
         route_type = '',
         route_name = 'job-run',
         path_replacers = {
-            'name': 'user@example.com'
+            'name': user
         },
         path_names = [
             current_job_key
@@ -1452,13 +1462,13 @@ def train(
     start = t.time()
     while t.time() - start <= job_timeout:
         status_code, job_status = request_route(
-            address = '127.0.0.1',
-            port = '6500',
+            address = forwarder_address,
+            port = forwarder_port,
             route_type = '',
             route_name = 'job-artifact',
             path_replacers = {
                 'type': 'status',
-                'name': 'user@example.com'
+                'name': user
             },
             path_names = [
                 current_job_key
@@ -1524,7 +1534,7 @@ def train(
         collected_parameters = {}
         collected_metrics = {}
 
-        for key,value in job_parameters.items():
+        for key,value in ray_parameters.items():
             if 'hp-' in key:
                 formatted_key = key.replace('hp-', '')
                 logger.info(str(key) + '=' + str(value))
@@ -1587,15 +1597,15 @@ def train(
         store_timeout = 600
         start = t.time()
         stored = False
-        while t.time() - start <= store_timeout
+        while t.time() - start <= store_timeout:
             status_code, job_status = request_route(
-                address = '127.0.0.1',
-                port = '6500',
+                address = forwarder_address,
+                port = forwarder_port,
                 route_type = '',
                 route_name = 'job-artifact',
                 path_replacers = {
                     'type': 'status',
-                    'name': 'user@example.com'
+                    'name': user
                 },
                 path_names = [
                     current_job_key
@@ -1610,13 +1620,13 @@ def train(
 
         if stored:
             status_code, job_sacct = request_route(
-                address = '127.0.0.1',
-                port = '6500',
+                address = forwarder_address,
+                port = forwarder_port,
                 route_type = '',
                 route_name = 'job-artifact',
                 path_replacers = {
                     'type': 'sacct',
-                    'name': 'user@example.com'
+                    'name': user
                 },
                 path_names = [
                     current_job_key
@@ -1638,13 +1648,13 @@ def train(
                     collected_metrics[key] = value
 
             status_code, job_seff = request_route(
-                address = '127.0.0.1',
-                port = '6500',
+                address = forwarder_address,
+                port = forwarder_port,
                 route_type = '',
                 route_name = 'job-artifact',
                 path_replacers = {
                     'type': 'seff',
-                    'name': 'user@example.com'
+                    'name': user
                 },
                 path_names = [
                     current_job_key
@@ -1682,7 +1692,7 @@ def train(
             storage_client = storage_client,
             storage_name = storage_names[-2],
             time_group = 'component',
-            time_name = 'train',
+            time_name = 'cloud-hpc-train',
             start_time = component_time_start,
             end_time = component_time_end
         )
