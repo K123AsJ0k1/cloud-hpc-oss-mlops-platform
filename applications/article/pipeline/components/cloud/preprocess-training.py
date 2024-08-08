@@ -1026,7 +1026,7 @@ def preprocess_train(
             ],
             overwrite = True,
             object_data = predictions,
-            object_metadata = get_general_metadata()
+            object_metadata = general_object_metadata()
         )
 
         logger.info('Formatting model')
@@ -1053,7 +1053,7 @@ def preprocess_train(
             ],
             overwrite = True,
             object_data = parameters,
-            object_metadata = get_general_metadata()
+            object_metadata = general_object_metadata()
         )
 
         logger.info('Formatting metrics')
@@ -1118,7 +1118,7 @@ def preprocess_train(
             ],
             overwrite = True,
             object_data = metrics,
-            object_metadata = get_general_metadata()
+            object_metadata = general_object_metadata()
         )
 
         component_time_end = t.time()
