@@ -780,7 +780,7 @@ def evaluate(
 
     gather_time(
         storage_client = storage_client,
-        bucket_name = storage_names[-1],
+        storage_name = storage_names[-1],
         time_group = 'cloud-exp',
         time_name = 'evaluate',
         start_time = component_time_start,

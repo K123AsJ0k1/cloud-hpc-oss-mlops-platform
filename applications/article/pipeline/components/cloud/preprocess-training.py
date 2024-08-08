@@ -833,7 +833,7 @@ def preprocess_train(
 
     def parse_torchmetrics(
         metrics: any,
-        lables: any
+        labels: any
     ):
         collected_metrics = {}
         for key,value in metrics.items():
@@ -855,7 +855,7 @@ def preprocess_train(
                 #logger.info('')
                 i = 0
                 for class_value in value:
-                    formatted_key = key.replace('class', lables[i])
+                    formatted_key = key.replace('class', labels[i])
                     rounded_value = round(class_value,5)
                     #logger.info(str(formatted_key) + '=' + str(rounded_value))
                     collected_metrics[formatted_key] = rounded_value
@@ -864,6 +864,7 @@ def preprocess_train(
             rounded_value = round(value,5)
             #logger.info(str(key) + '=' + str(rounded_value))
             collected_metrics[key] = rounded_value
+        return collected_metrics
 
     def setup_mlflow(
         logger: any,
@@ -1176,9 +1177,9 @@ def preprocess_train(
         component_time_end = t.time()
 
         logger.info("Storing time")
-        gather_time(
+        gather_time( 
             storage_client = storage_client,
-            bucket_name = storage_names[-1],
+            storage_name = storage_names[-1],
             time_group = 'cloud-exp',
             time_name = 'preprocess-train',
             start_time = component_time_start,
