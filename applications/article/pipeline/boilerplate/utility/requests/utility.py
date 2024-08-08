@@ -1,15 +1,12 @@
 # 6-3-1
 
-import requests
-import json
-import time
-# Created and works
 def set_route(
     route_type: str,
     route_name: str,
     path_replacers: any,
     path_names: any
 ): 
+    # Check job-run and job-cancel
     routes = {
         'root': 'TYPE:/name',
         'logs': 'GET:/general/logs/name',
@@ -18,8 +15,8 @@ def set_route(
         'start': 'POST:/setup/start',
         'stop': 'POST:/setup/stop',
         'job-submit': 'POST:/requests/submit/job',
-        'job-run': 'PUT:/requests/run/job/user/key',
-        'job-cancel': 'PUT:/requests/cancel/job/user/key',
+        'job-run': 'PUT:/requests/run/job/name',
+        'job-cancel': 'PUT:/requests/cancel/job/name',
         'forwarding-submit': 'POST:/requests/submit/forwarding',
         'forwarding-cancel': 'PUT:/requests/cancel/type/user/key',
         'task-request': 'PUT:/tasks/request/signature',
@@ -146,7 +143,6 @@ def request_route(
                         
                     if task_status_code == 200:
                         task_text = json.loads(task_route_response.text)
-    
                         if task_text['status'] == 'FAILED':
                             break
                         
@@ -158,4 +154,3 @@ def request_route(
             else:
                 route_returned_text = route_text
     return route_status_code, route_returned_text
-                    
