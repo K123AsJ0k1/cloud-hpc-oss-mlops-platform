@@ -831,6 +831,40 @@ def preprocess_train(
         ])
         return class_metrics
 
+    def parse_torchmetrics(
+        metrics: any,
+        lables: any
+    ):
+        collected_metrics = {}
+        for key,value in metrics.items():
+            if key == 'name':
+                continue
+            if 'class-' in key:
+                image_labels = {
+                    0: 'top',
+                    1: 'trouser',
+                    2: 'pullover',
+                    3: 'dress',
+                    4: 'coat',
+                    5: 'sandal',
+                    6: 'shirt',
+                    7: 'sneaker',
+                    8: 'bag',
+                    9: 'ankle-boot',
+                }
+                #logger.info('')
+                i = 0
+                for class_value in value:
+                    formatted_key = key.replace('class', lables[i])
+                    rounded_value = round(class_value,5)
+                    #logger.info(str(formatted_key) + '=' + str(rounded_value))
+                    collected_metrics[formatted_key] = rounded_value
+                    i += 1
+                continue
+            rounded_value = round(value,5)
+            #logger.info(str(key) + '=' + str(rounded_value))
+            collected_metrics[key] = rounded_value
+
     def setup_mlflow(
         logger: any,
         mlflow_parameters: any
@@ -1075,8 +1109,24 @@ def preprocess_train(
             'class-precision': class_precision,
             'class-recall': class_recall
         }
+
+        parsed_performance = parse_torchmetrics(
+            metrics = performance,
+            labels = {
+                0: 'top',
+                1: 'trouser',
+                2: 'pullover',
+                3: 'dress',
+                4: 'coat',
+                5: 'sandal',
+                6: 'shirt',
+                7: 'sneaker',
+                8: 'bag',
+                9: 'ankle-boot',
+            }
+        )
  
-        for key,value in performance.items():
+        for key,value in parsed_performance.items():
             if 'name' in key:
                 continue
             mlflow.log_metric(key, value)
@@ -1094,8 +1144,10 @@ def preprocess_train(
             'total-seconds': round(time_diff,5)
         }
 
-        for key,value in performance.items():
+        for key,value in time.items():
             if 'name' in key:
+                continue
+            if 'time' in key:
                 continue
             mlflow.log_metric(key, value)
         logger.info("Time logged")
