@@ -1326,19 +1326,7 @@ def train(
 
     output = namedtuple('Output', ['storage_uri', 'run_id'])
 
-    #proxy_target = metadata_parameters['proxy-target']
-    #proxy_url = metadata_parameters['proxy-url']
-    #proxy_parameters = metadata_parameters['proxy-parameters']
-    #kubeflow_user = metadata_parameters['kubeflow-user']
-    #job_submit = metadata_parameters['job-submit']
-    #slurm_wait_timeout = metadata_parameters['slurm-wait-timeout']
-    #slurm_service_wait = metadata_parameters['slurm-service-wait']
-    #ray_client_timeout = metadata_parameters['ray-client-timeout']
-    #ray_job_path = metadata_parameters['ray-job-path']
-    #ray_job_envs = metadata_parameters['ray-job-envs']
-    #ray_job_timeout = metadata_parameters['ray-job-timeout']
-    #slurm_gather_timeout = metadata_parameters['slurm-gather-timeout']
-    #time_folder_path = metadata_parameters['time-folder-path']
+    logger.info("Variable setup")
 
     configuration = integration_parameters['configuration']
     scheduler_request = integration_parameters['scheduler-request']
@@ -1351,6 +1339,10 @@ def train(
     ray_job_file = integration_parameters['ray-job-file']
     ray_job_envs = integration_parameters['ray-job-envs']
     ray_job_timeout = integration_parameters['ray-job-timeout']
+    folder_name = integration_parameters['folder-name']
+    #artifact_folder = integration_parameters['ray-parameters']['job-parameters']['artifact-folder']
+
+    logger.info("Starting forwarder")
 
     forwarder_started = start_forwarder(
         address = forwarder_address,
@@ -1361,6 +1353,10 @@ def train(
 
     if not forwarder_started:
         return output('none', 'none')
+
+    logger.info("Forwarder started")
+
+    logger.info("Submitting forwarding request")
 
     status_code, forwarding = request_route(
         address = forwarder_address,
@@ -1376,12 +1372,18 @@ def train(
     if not status_code == 200:
         return output('none', 'none')
 
+    logger.info("Request success")
+
     forwarding_split = forwarding.split(',')
     import_key = forwarding_split[0]
+
+    logger.info("Import key: " + str(import_key))
 
     if import_key == '0':
         return output('none', 'none')
     
+    logger.info("Waiting forwarding services")
+
     forwarding_timeout = 500
     start = t.time()
     current_services = None
@@ -1406,8 +1408,8 @@ def train(
 
         if not 'forwarding-status' in forwarding_artifact:
             return output('none', 'none')
-        forwarding_status = forwarding_artifact[['forwarding-status']]    
         
+        forwarding_status = forwarding_artifact[['forwarding-status']]    
         if forwarding_status['cancel'] or forwarding_status['deleted']:
             break
 
@@ -1418,6 +1420,10 @@ def train(
     if current_services is None:
         return output('none', 'none')
         
+    logger.info("Services up")
+
+    logger.info("Submitting job request")
+
     status_code, job_key = request_route(
         address = forwarder_address,
         port = forwarder_port,
@@ -1431,11 +1437,15 @@ def train(
 
     current_job_key = job_key['key']
 
+    logger.info("Current job key: " + str(current_job_key))
+
     if not status_code == 200:
         return output('none', 'none')
 
     if current_job_key == '0':
         return output('none', 'none')
+
+    logger.info("Starting job")
     
     status_code, job_start = request_route(
         address = forwarder_started,
@@ -1454,8 +1464,12 @@ def train(
 
     job_start_status = job_start['status']
 
+    logger.info("Job started: " + str(job_start_status))
+
     if not job_start_status == 'success':
         return output('none', 'none')
+
+    logger.info("Waiting job to run")
 
     current_jobid = None
     job_timeout = 600
@@ -1488,6 +1502,8 @@ def train(
         return output('none', 'none')
     
     logger.info('SLURM job id: ' + str(current_jobid))
+
+    logger.info('Setting up Ray')
     
     ray_client = setup_ray(
         logger = logger,
@@ -1499,6 +1515,8 @@ def train(
         return output('none', 'none')
 
     logger.info('Ray client setup')
+
+    logger.info('Setting up MLFlow')
    
     setup_mlflow(
         logger = logger,
@@ -1511,7 +1529,7 @@ def train(
         run_id = run.info.run_id
         logger.info(f"Run ID: {run_id}")
 
-        logger.info('Running ray job')
+        logger.info('Running ray job: ' + str(ray_job_file))
 
         ray_job_success = ray_job_handler(
             logger = logger,
@@ -1530,9 +1548,11 @@ def train(
             return output('none', 'none')
 
         logger.info('Collecting Artifacts')
-
+ 
         collected_parameters = {}
         collected_metrics = {}
+
+        logger.info('Hyperarameters')
 
         for key,value in ray_parameters.items():
             if 'hp-' in key:
@@ -1540,12 +1560,14 @@ def train(
                 logger.info(str(key) + '=' + str(value))
                 collected_parameters[formatted_key] = value
 
+        logger.info('Getting model parameters')
+
         parameters_object = get_object(
             storage_client = storage_client,
             bucket_name = storage_names[-2],
             object_name = 'artifacts',
             path_replacers = {
-                'name': ()
+                'name': folder_name
             },
             path_names = [
                 'parameters'
@@ -1553,29 +1575,33 @@ def train(
         )
         parameters_object_data = parameters_object['data']
 
+        logger.info('Logging model')
+
         trained_model = CNNClassifier()
-        trained_model.load_state_dict(parameters_object_data['parameters']['model'])
+        trained_model.load_state_dict(parameters_object_data['model'])
         trained_model.eval()
         
         model_name = mlflow_parameters['model-name']
         registered_name = mlflow_parameters['registered-name']
         mlflow.pytorch.log_model(
-            trained_model,
+            trained_model, 
             model_name,
             registered_model_name = registered_name
         )
+
+        logger.info('Getting model predictions')
 
         predictions_object = get_object(
             storage_client = storage_client,
             bucket_name = storage_names[-2],
             object_name = 'artifacts',
             path_replacers = {
-                'name': ()
+                'name': folder_name
             },
             path_names = [
                 'predictions'
             ]
-        )
+        ) 
         predictions_object_data = predictions_object['data']
 
         logger.info("Logging predictions")
@@ -1585,15 +1611,44 @@ def train(
             artifact_path = "predicted_qualities/"
         )
         
-        #gathered = gather_slurm_job(
-        #    logger = logger,
-        #    proxy_url = proxy_url,
-        #    kubeflow_user = kubeflow_user,
-        #    timeout = slurm_gather_timeout,
-        #    target = proxy_target,
-        #    slurm_job_key = slurm_job_key
-        #)
+        logger.info("Logging metrics")
+        metrics_object = get_object(
+            storage_client = storage_client,
+            bucket_name = storage_names[-2],
+            object_name = 'artifacts',
+            path_replacers = {
+                'name': folder_name
+            },
+            path_names = [
+                'metrics'
+            ]
+        ) 
+        metrics_object_data = metrics_object['data']
 
+        performance = metrics_object_data['performance']
+        
+        parsed_performance = parse_torchmetrics(
+            metrics = performance,
+            labels = {
+                0: 'top',
+                1: 'trouser',
+                2: 'pullover',
+                3: 'dress',
+                4: 'coat',
+                5: 'sandal',
+                6: 'shirt',
+                7: 'sneaker',
+                8: 'bag',
+                9: 'ankle-boot',
+            }
+        )
+
+        for key,value in parsed_performance.items():
+            if 'name' in key:
+                collected_metrics[key] = value
+                continue
+        
+        logger.info("Waiting sacct and seff")
         store_timeout = 600
         start = t.time()
         stored = False
@@ -1619,6 +1674,7 @@ def train(
                 break
 
         if stored:
+            logger.info("Fetching sacct")
             status_code, job_sacct = request_route(
                 address = forwarder_address,
                 port = forwarder_port,
@@ -1636,6 +1692,7 @@ def train(
             )
 
             if status_code == 200:
+                logger.info("Logging sacct")
                 params, metrics = parse_job_sacct(
                     logger = logger,
                     sacct = job_sacct['job-sacct']
@@ -1647,6 +1704,7 @@ def train(
                 for key,value in metrics.items():
                     collected_metrics[key] = value
 
+            logger.info("Fetching seff")
             status_code, job_seff = request_route(
                 address = forwarder_address,
                 port = forwarder_port,
@@ -1662,8 +1720,9 @@ def train(
                 route_input = {},
                 timeout = 240
             )
-
+            
             if status_code == 200:
+                logger.info("Logging seff")
                 params, metrics = parse_job_seff(
                     logger = logger,
                     sacct = job_seff['job-seff']
@@ -1684,6 +1743,25 @@ def train(
         for key,value in collected_metrics.items():
             mlflow.log_metric(key, value)
         logger.info("Metrics logged")
+        
+        logger.info("Canceling imports")
+
+        forwarding_cancel = request_route(
+            address = forwarder_address,
+            port = forwarder_port,
+            route_type = '',
+            route_name = 'forwarding-cancel',
+            path_replacers = {
+                'type': 'imports',
+                'user': user,
+                'key': import_key
+            },
+            path_names = [],
+            route_input = {},
+            timeout = 240
+        )
+
+        logger.info("Cancellation success:" + str(forwarding_cancel))
         
         component_time_end = t.time()
         

@@ -920,6 +920,7 @@ def evaluate(
 
     logger.info('Storage setup')
 
+    logger.info('Setting up MLflow')
 
     mlflow_tracking_uri = mlflow_parameters['tracking-uri']
     
@@ -941,6 +942,8 @@ def evaluate(
         if training_metric < value:
             logger.error(f"Metric {key} failed with {training_metric}. Evaluation not passed!")
             success = False
+
+    logger.info('Stopping forwarder scheduler')
 
     forwarder_address = integration_parameters['forwarder-address']
     forwarder_port = integration_parameters['forwarder-port']

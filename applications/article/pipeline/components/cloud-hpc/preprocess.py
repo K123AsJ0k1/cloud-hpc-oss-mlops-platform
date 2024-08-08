@@ -767,10 +767,14 @@ def preprocess(
     )
 
     logger.info('Storage setup')
+
+    logger.info('Variable setup')
     
-    folder_name = training_parameters['folder-name']
-    train_batch_size = training_parameters['hp-train-batch-size']
-    test_batch_size = training_parameters['hp-test-batch-size']
+    folder_name = integration_parameters['folder-name']
+    train_batch_size = integration_parameters['ray-parameters']['job-parameters']['hp-train-batch-size']
+    test_batch_size = integration_parameters['ray-parameters']['job-parameters']['hp-test-batch-size']
+
+    logger.info('Checking train loader')
 
     train_loader_metadata = check_object(
         storage_client = storage_client,
@@ -821,6 +825,8 @@ def preprocess(
         )
         logger.info('Train loader stored')
 
+    logger.info('Checking test loader')
+
     test_loader_metadata = check_object(
         storage_client = storage_client,
         bucket_name = storage_names[-2],
@@ -862,12 +868,13 @@ def preprocess(
                 'name': folder_name
             },
             path_names = [ 
-                'train'
+                'test'
             ],
             overwrite = True,
             object_data = test_loader,
             object_metadata = general_object_metadata()
         )
+        logger.info('Test loader stored')
         
     component_time_end = t.time()
     
