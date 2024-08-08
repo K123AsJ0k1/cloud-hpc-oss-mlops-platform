@@ -1326,6 +1326,10 @@ def train(
 
     output = namedtuple('Output', ['storage_uri', 'run_id'])
 
+    pipeline_bucket = storage_names[-2]
+
+    logger.info('Used bucket:' + str(pipeline_bucket))
+    
     logger.info("Variable setup")
 
     configuration = integration_parameters['configuration']
@@ -1355,6 +1359,8 @@ def train(
         return output('none', 'none')
 
     logger.info("Forwarder started")
+
+    # Fails here
 
     logger.info("Submitting forwarding request")
 
@@ -1534,7 +1540,7 @@ def train(
         ray_job_success = ray_job_handler(
             logger = logger,
             storage_client = storage_client,
-            storage_name = storage_names[-2],
+            storage_name = pipeline_bucket,
             ray_client = ray_client,
             ray_parameters = ray_parameters,
             ray_job_file = ray_job_file,
@@ -1564,7 +1570,7 @@ def train(
 
         parameters_object = get_object(
             storage_client = storage_client,
-            bucket_name = storage_names[-2],
+            bucket_name = pipeline_bucket,
             object_name = 'artifacts',
             path_replacers = {
                 'name': folder_name
@@ -1593,7 +1599,7 @@ def train(
 
         predictions_object = get_object(
             storage_client = storage_client,
-            bucket_name = storage_names[-2],
+            bucket_name = pipeline_bucket,
             object_name = 'artifacts',
             path_replacers = {
                 'name': folder_name
@@ -1614,7 +1620,7 @@ def train(
         logger.info("Logging metrics")
         metrics_object = get_object(
             storage_client = storage_client,
-            bucket_name = storage_names[-2],
+            bucket_name = pipeline_bucket,
             object_name = 'artifacts',
             path_replacers = {
                 'name': folder_name
@@ -1768,7 +1774,7 @@ def train(
         logger.info("Storing time")
         gather_time( 
             storage_client = storage_client,
-            storage_name = storage_names[-2],
+            storage_name = pipeline_bucket,
             time_group = 'component',
             time_name = 'cloud-hpc-train',
             start_time = component_time_start,

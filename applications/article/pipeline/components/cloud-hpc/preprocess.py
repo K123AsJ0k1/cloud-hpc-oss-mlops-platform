@@ -770,6 +770,10 @@ def preprocess(
 
     logger.info('Variable setup')
     
+    pipeline_bucket = storage_names[-2]
+
+    logger.info('Utilized bucket: ' + str(pipeline_bucket))
+
     folder_name = integration_parameters['folder-name']
     train_batch_size = integration_parameters['ray-parameters']['job-parameters']['hp-train-batch-size']
     test_batch_size = integration_parameters['ray-parameters']['job-parameters']['hp-test-batch-size']
@@ -778,7 +782,7 @@ def preprocess(
 
     train_loader_metadata = check_object(
         storage_client = storage_client,
-        bucket_name = storage_names[-2],
+        bucket_name = pipeline_bucket,
         object_name = 'data',
         path_replacers = {
             'name': folder_name
@@ -788,7 +792,7 @@ def preprocess(
         ]
     )
 
-    if len(train_loader_metadata) == 0:
+    if len(train_loader_metadata['general-meta']) == 0:
         logger.info('Preprocessing train')
         
         train_transform = T.Compose([
@@ -811,7 +815,7 @@ def preprocess(
 
         set_object(
             storage_client = storage_client,
-            bucket_name = storage_names[-2],
+            bucket_name = pipeline_bucket,
             object_name = 'data',
             path_replacers = {
                 'name': folder_name
@@ -829,7 +833,7 @@ def preprocess(
 
     test_loader_metadata = check_object(
         storage_client = storage_client,
-        bucket_name = storage_names[-2],
+        bucket_name = pipeline_bucket,
         object_name = 'data',
         path_replacers = {
             'name': folder_name
@@ -839,7 +843,7 @@ def preprocess(
         ]
     )
 
-    if len(test_loader_metadata) == 0:
+    if len(test_loader_metadata['general-meta']) == 0:
         logger.info('Preprocessing test')
 
         test_transform = T.Compose([
@@ -862,7 +866,7 @@ def preprocess(
 
         set_object(
             storage_client = storage_client,
-            bucket_name = storage_names[-2],
+            bucket_name = pipeline_bucket,
             object_name = 'data',
             path_replacers = {
                 'name': folder_name
@@ -880,7 +884,7 @@ def preprocess(
     
     gather_time(
         storage_client = storage_client,
-        storage_name = storage_names[-2],
+        storage_name = pipeline_bucket,
         time_group = 'components',
         time_name = 'cloud-hpc-preprocess',
         start_time = component_time_start,

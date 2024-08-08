@@ -920,6 +920,10 @@ def evaluate(
 
     logger.info('Storage setup')
 
+    pipeline_bucket = storage_names[-2]
+
+    logger.info('Used bucket: ' + str(pipeline_bucket))
+
     logger.info('Setting up MLflow')
 
     mlflow_tracking_uri = mlflow_parameters['tracking-uri']
@@ -962,10 +966,10 @@ def evaluate(
     logger.info('Forwarder scheduler stopped: ' + str(forwarder_scheduler_stopped))
     
     component_time_end = t.time()
-    
+
     gather_time(
         storage_client = storage_client,
-        storage_name = storage_names[-2],
+        storage_name = pipeline_bucket,
         time_group = 'components',
         time_name = 'cloud-hpc-evaluate',
         start_time = component_time_start,
