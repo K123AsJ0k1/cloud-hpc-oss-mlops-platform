@@ -1,0 +1,20 @@
+{
+    "1": {
+        "name": "preprocess-train",
+        "start-time": 1723100958.3760169,
+        "end-time": 1723101981.7297194,
+        "total-seconds": 1023.3537
+    },
+    "2": {
+        "name": "evaluate",
+        "start-time": 1723102068.4296463,
+        "end-time": 1723102068.5042248,
+        "total-seconds": 0.07458
+    },
+    "3": {
+        "name": "pipeline",
+        "start-time": 1723100777.195106,
+        "end-time": 1723102086.9456024,
+        "total-seconds": 1309.7505
+    }
+}
