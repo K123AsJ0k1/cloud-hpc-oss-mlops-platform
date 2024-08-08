@@ -1609,7 +1609,7 @@ def train(
                 'parameters'
             ]
         )
-
+        model_available = False
         if not parameters_object is None:
             parameters_object_data = parameters_object['data']
 
@@ -1626,6 +1626,7 @@ def train(
                 model_name,
                 registered_model_name = registered_name
             )
+            model_available = True
 
         logger.info('Getting model predictions')
 
@@ -1778,7 +1779,7 @@ def train(
                     job_seff = seff_data['job-seff']
                     params, metrics = parse_job_seff(
                         logger = logger,
-                        sacct = job_seff
+                        seff = job_seff 
                     )
 
                     for key,value in params.items():
@@ -1814,7 +1815,7 @@ def train(
             timeout = 240
         )
 
-        logger.info("Cancellation success:" + str(cancel_data))
+        logger.info("Cancellation success")
         
         component_time_end = t.time()
         
@@ -1828,8 +1829,8 @@ def train(
             end_time = component_time_end
         )
 
-        #if not model_available:
-        #    return output('none', 'none')
+        if not model_available:
+            return output('none', 'none')
 
         # return str(mlflow.get_artifact_uri())
         return output(mlflow.get_artifact_uri(), run_id)
