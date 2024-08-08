@@ -8,7 +8,7 @@ from typing import NamedTuple
         "mlflow~=2.12.2", 
         "boto3~=1.21.0",
         "numpy",
-        "torch==2.3.0" 
+        "torch==2.4.0+cpu" 
     ],
     pip_index_urls=[
         "https://pypi.org/simple",
@@ -951,7 +951,7 @@ def train(
             port = port,
             used_route = used_route
         )
-
+        
         route_response = get_response(
             route_type = url_type,
             route_url = full_url,
@@ -1010,7 +1010,7 @@ def train(
         port: str,
         scheduler_request: any
     ) -> bool:
-        scheduler_route_code, scheduler_route_text  = request_route(
+        scheduler_route_code, scheduler_route_text = request_route(
             address = address,
             port = port,
             route_type = '',
@@ -1344,12 +1344,13 @@ def train(
     ray_job_envs = integration_parameters['ray-job-envs']
     ray_job_timeout = integration_parameters['ray-job-timeout']
     folder_name = integration_parameters['folder-name']
-    #artifact_folder = integration_parameters['ray-parameters']['job-parameters']['artifact-folder']
+    
+    logger.info(forwarder_address)
 
     logger.info("Starting forwarder")
 
     forwarder_started = start_forwarder(
-        address = forwarder_address,
+        address = forwarder_address, 
         port = forwarder_port,
         configuration = configuration,
         scheduler_request = scheduler_request
@@ -1360,13 +1361,12 @@ def train(
 
     logger.info("Forwarder started")
 
-    # Fails here
-
     logger.info("Submitting forwarding request")
+    logger.info(forwarder_address)
 
     status_code, forwarding = request_route(
         address = forwarder_address,
-        port = forwarder_address,
+        port = forwarder_port,
         route_type = '',
         route_name = 'forwarding-submit',
         path_replacers = {},
@@ -1380,7 +1380,10 @@ def train(
 
     logger.info("Request success")
 
-    forwarding_split = forwarding.split(',')
+    # failed here
+
+    forwarder_keys = forwarding['keys']
+    forwarding_split = forwarder_keys.split(',')
     import_key = forwarding_split[0]
 
     logger.info("Import key: " + str(import_key))
@@ -1394,7 +1397,7 @@ def train(
     start = t.time()
     current_services = None
     while t.time() - start <= forwarding_timeout:
-        status_code, forwarding_artifact = request_route(
+        status_code, forwarding_data = request_route(
             address = forwarder_address,
             port = forwarder_port,
             route_type = '',
@@ -1412,16 +1415,17 @@ def train(
         if not status_code == 200:
             return output('none', 'none')
 
-        if not 'forwarding-status' in forwarding_artifact:
+        if not 'forwarding-status' in forwarding_data:
             return output('none', 'none')
         
-        forwarding_status = forwarding_artifact[['forwarding-status']]    
+        forwarding_status = forwarding_data['forwarding-status']    
         if forwarding_status['cancel'] or forwarding_status['deleted']:
             break
 
         if forwarding_status['created']:
             current_services = forwarding_status['services']
             break
+        t.sleep(5)
     
     if current_services is None:
         return output('none', 'none')
@@ -1454,7 +1458,7 @@ def train(
     logger.info("Starting job")
     
     status_code, job_start = request_route(
-        address = forwarder_started,
+        address = forwarder_address,
         port = forwarder_port,
         route_type = '',
         route_name = 'job-run',
@@ -1481,7 +1485,7 @@ def train(
     job_timeout = 600
     start = t.time()
     while t.time() - start <= job_timeout:
-        status_code, job_status = request_route(
+        status_code, job_data = request_route(
             address = forwarder_address,
             port = forwarder_port,
             route_type = '',
@@ -1497,6 +1501,14 @@ def train(
             timeout = 240
         )
 
+        if not status_code == 200:
+            return output('none', 'none')
+
+        if not 'job-status' in job_data:
+            return output('none', 'none')
+
+        # failed here
+        job_status = job_data['job-status']
         if job_status['cancel'] or job_status['stopped']:
             break
 
@@ -1504,13 +1516,15 @@ def train(
             current_jobid = job_status['id']
             break
 
+        t.sleep(5)
+
     if current_jobid is None:
         return output('none', 'none')
     
     logger.info('SLURM job id: ' + str(current_jobid))
 
     logger.info('Setting up Ray')
-    
+    logger.info(current_services)
     ray_client = setup_ray(
         logger = logger,
         services = current_services,
@@ -1550,6 +1564,22 @@ def train(
 
         logger.info('Ray job ran: ' + str(ray_job_success))
 
+        status_code, cancel_data = request_route(
+            address = forwarder_address,
+            port = forwarder_port,
+            route_type = '',
+            route_name = 'job-cancel',
+            path_replacers = {
+                'name': user,
+            },
+            path_names = [
+                current_job_key
+            ],
+            route_input = {},
+            timeout = 240
+        )
+
+        logger.info('SLURM job cancel: ' + str(cancel_data))
         if not ray_job_success:
             return output('none', 'none')
 
@@ -1655,11 +1685,11 @@ def train(
                 continue
         
         logger.info("Waiting sacct and seff")
-        store_timeout = 600
+        store_timeout = 300
         start = t.time()
         stored = False
         while t.time() - start <= store_timeout:
-            status_code, job_status = request_route(
+            status_code, job_data = request_route(
                 address = forwarder_address,
                 port = forwarder_port,
                 route_type = '',
@@ -1675,13 +1705,23 @@ def train(
                 timeout = 240
             )
 
+            if not status_code == 200:
+                break
+
+            if not 'job-status' in job_data:
+                break
+
+            # failed here
+            job_status = job_data['job-status']
             if job_status['stored']:
                 stored = True
                 break
 
+            t.sleep(5)
+
         if stored:
             logger.info("Fetching sacct")
-            status_code, job_sacct = request_route(
+            status_code, sacct_data = request_route(
                 address = forwarder_address,
                 port = forwarder_port,
                 route_type = '',
@@ -1698,20 +1738,22 @@ def train(
             )
 
             if status_code == 200:
-                logger.info("Logging sacct")
-                params, metrics = parse_job_sacct(
-                    logger = logger,
-                    sacct = job_sacct['job-sacct']
-                )
+                if 'job-sacct' in sacct_data:
+                    logger.info("Logging sacct")
+                    job_sacct = sacct_data['job-sacct']
+                    params, metrics = parse_job_sacct(
+                        logger = logger,
+                        sacct = job_sacct['job-sacct']
+                    )
 
-                for key,value in params.items():
-                    collected_parameters[key] = value
+                    for key,value in params.items():
+                        collected_parameters[key] = value
 
-                for key,value in metrics.items():
-                    collected_metrics[key] = value
+                    for key,value in metrics.items():
+                        collected_metrics[key] = value
 
             logger.info("Fetching seff")
-            status_code, job_seff = request_route(
+            status_code, seff_data = request_route(
                 address = forwarder_address,
                 port = forwarder_port,
                 route_type = '',
@@ -1728,17 +1770,19 @@ def train(
             )
             
             if status_code == 200:
-                logger.info("Logging seff")
-                params, metrics = parse_job_seff(
-                    logger = logger,
-                    sacct = job_seff['job-seff']
-                )
+                if 'job-seff' in seff_data:
+                    logger.info("Logging seff")
+                    job_seff = seff_data['job-seff']
+                    params, metrics = parse_job_seff(
+                        logger = logger,
+                        sacct = job_seff
+                    )
 
-                for key,value in params.items():
-                    collected_parameters[key] = value
+                    for key,value in params.items():
+                        collected_parameters[key] = value
 
-                for key,value in metrics.items():
-                    collected_metrics[key] = value
+                    for key,value in metrics.items():
+                        collected_metrics[key] = value
 
         logger.info("Logging parameters and metrics")
 
@@ -1752,7 +1796,7 @@ def train(
         
         logger.info("Canceling imports")
 
-        forwarding_cancel = request_route(
+        status_code, cancel_data = request_route(
             address = forwarder_address,
             port = forwarder_port,
             route_type = '',
@@ -1767,7 +1811,7 @@ def train(
             timeout = 240
         )
 
-        logger.info("Cancellation success:" + str(forwarding_cancel))
+        logger.info("Cancellation success:" + str(cancel_data))
         
         component_time_end = t.time()
         
