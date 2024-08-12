@@ -1,32 +1,26 @@
 {
     "1": {
         "name": "remote-model-training",
-        "start-time": 1723141450.9219997,
-        "end-time": 1723141504.0603359,
-        "total-seconds": 53.13834
+        "start-time": 1723466317.135657,
+        "end-time": 1723466592.5708098,
+        "total-seconds": 275.43515
     },
     "2": {
-        "name": "remote-model-training",
-        "start-time": 1723143927.1195083,
-        "end-time": 1723143980.3211503,
-        "total-seconds": 53.20164
+        "name": "train-fmnist-cnn",
+        "start-time": 1723466310.5229383,
+        "end-time": 1723466592.6519687,
+        "total-seconds": 282.12903
     },
     "3": {
-        "name": "train-fmnist-cnn",
-        "start-time": 1723143920.6405838,
-        "end-time": 1723143980.3838623,
-        "total-seconds": 59.74328
+        "name": "remote-model-training",
+        "start-time": 1723461983.123387,
+        "end-time": 1723462254.0046601,
+        "total-seconds": 270.88127
     },
     "4": {
-        "name": "remote-model-training",
-        "start-time": 1723145698.6951256,
-        "end-time": 1723145752.5673132,
-        "total-seconds": 53.87219
-    },
-    "5": {
         "name": "train-fmnist-cnn",
-        "start-time": 1723145692.2808237,
-        "end-time": 1723145752.669101,
-        "total-seconds": 60.38828
+        "start-time": 1723461976.2864475,
+        "end-time": 1723462254.0950422,
+        "total-seconds": 277.80859
     }
 }

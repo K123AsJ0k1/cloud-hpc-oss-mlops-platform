@@ -1,164 +1,50 @@
 {
     "1": {
         "name": "cloud-hpc-preprocess",
-        "start-time": 1723123840.3483894,
-        "end-time": 1723123840.4012568,
-        "total-seconds": 0.05287
+        "start-time": 1723465660.8754919,
+        "end-time": 1723465664.2773192,
+        "total-seconds": 3.40183
     },
     "2": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723123729.9454637,
-        "end-time": 1723123905.6344674,
-        "total-seconds": 175.689
+        "name": "cloud-hpc-train",
+        "start-time": 1723465924.258669,
+        "end-time": 1723467090.7353024,
+        "total-seconds": 1166.47663
     },
     "3": {
-        "name": "cloud-hpc-preprocess",
-        "start-time": 1723124956.206951,
-        "end-time": 1723124959.970245,
-        "total-seconds": 3.76329
+        "name": "cloud-hpc-evaluate",
+        "start-time": 1723467191.6093383,
+        "end-time": 1723467191.9307504,
+        "total-seconds": 0.32141
     },
     "4": {
         "name": "cloud-hpc-pipeline",
-        "start-time": 1723124840.9771888,
-        "end-time": 1723125188.4382248,
-        "total-seconds": 347.46104
+        "start-time": 1723465504.8577094,
+        "end-time": 1723467228.0337698,
+        "total-seconds": 1723.17606
     },
     "5": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723125814.2799037,
-        "end-time": 1723126051.2385497,
-        "total-seconds": 236.95865
+        "name": "cloud-hpc-preprocess",
+        "start-time": 1723461113.5597608,
+        "end-time": 1723461113.7043304,
+        "total-seconds": 0.14457
     },
     "6": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723126394.7360067,
-        "end-time": 1723126641.3927376,
-        "total-seconds": 246.65673
+        "name": "cloud-hpc-train",
+        "start-time": 1723461694.5476098,
+        "end-time": 1723462537.2693226,
+        "total-seconds": 842.72171
     },
     "7": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723126698.960488,
-        "end-time": 1723126935.291465,
-        "total-seconds": 236.33098
+        "name": "cloud-hpc-evaluate",
+        "start-time": 1723462655.7182825,
+        "end-time": 1723462670.4994347,
+        "total-seconds": 14.78115
     },
     "8": {
         "name": "cloud-hpc-pipeline",
-        "start-time": 1723127359.8699653,
-        "end-time": 1723127596.3688881,
-        "total-seconds": 236.49892
-    },
-    "9": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723127844.4446933,
-        "end-time": 1723128030.2389243,
-        "total-seconds": 185.79423
-    },
-    "10": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723128112.923402,
-        "end-time": 1723128450.698871,
-        "total-seconds": 337.77547
-    },
-    "11": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723130045.878687,
-        "end-time": 1723130504.8679461,
-        "total-seconds": 458.98926
-    },
-    "12": {
-        "name": "cloud-hpc-preprocess",
-        "start-time": 1723131167.540766,
-        "end-time": 1723131167.6590903,
-        "total-seconds": 0.11832
-    },
-    "13": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723131056.9764848,
-        "end-time": 1723131647.6944442,
-        "total-seconds": 590.71796
-    },
-    "14": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723133714.1146975,
-        "end-time": 1723134345.508824,
-        "total-seconds": 631.39413
-    },
-    "15": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723135156.3037286,
-        "end-time": 1723135544.4144087,
-        "total-seconds": 388.11068
-    },
-    "16": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723135599.8233037,
-        "end-time": 1723136008.5372803,
-        "total-seconds": 408.71398
-    },
-    "17": {
-        "name": "cloud-hpc-preprocess",
-        "start-time": 1723137348.8544326,
-        "end-time": 1723137348.998898,
-        "total-seconds": 0.14447
-    },
-    "18": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723137235.112502,
-        "end-time": 1723137704.8240047,
-        "total-seconds": 469.7115
-    },
-    "19": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723138630.8402953,
-        "end-time": 1723139596.4559338,
-        "total-seconds": 965.61564
-    },
-    "20": {
-        "name": "cloud-hpc-preprocess",
-        "start-time": 1723141074.1318438,
-        "end-time": 1723141074.2243326,
-        "total-seconds": 0.09249
-    },
-    "21": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723140957.4605303,
-        "end-time": 1723141538.0945094,
-        "total-seconds": 580.63398
-    },
-    "22": {
-        "name": "cloud-hpc-preprocess",
-        "start-time": 1723143487.2468536,
-        "end-time": 1723143487.3074381,
-        "total-seconds": 0.06058
-    },
-    "23": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723143367.2104416,
-        "end-time": 1723144342.8325489,
-        "total-seconds": 975.62211
-    },
-    "24": {
-        "name": "cloud-hpc-preprocess",
-        "start-time": 1723145239.5747569,
-        "end-time": 1723145239.6249812,
-        "total-seconds": 0.05022
-    },
-    "25": {
-        "name": "cloud-hpc-train",
-        "start-time": 1723145469.8823009,
-        "end-time": 1723146127.6379764,
-        "total-seconds": 657.75568
-    },
-    "26": {
-        "name": "cloud-hpc-evaluate",
-        "start-time": 1723146232.3034668,
-        "end-time": 1723146232.6506078,
-        "total-seconds": 0.34714
-    },
-    "27": {
-        "name": "cloud-hpc-pipeline",
-        "start-time": 1723145115.6360953,
-        "end-time": 1723146254.171891,
-        "total-seconds": 1138.5358
-    }
+        "start-time": 1723460978.717684,
+        "end-time": 1723462692.401105,
+        "total-seconds": 1713.68342
+    }    
 }
