@@ -1,0 +1,1988 @@
+[2024-08-12 13:30:06,558: WARNING/ForkPoolWorker-7] Creating forwader templates per frontend request
+[2024-08-12 13:30:06,570: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:30:06,575: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:30:06,575: WARNING/ForkPoolWorker-7] Running store templates logs
+[2024-08-12 13:30:06,578: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/status-template
+[2024-08-12 13:30:06,668: WARNING/ForkPoolWorker-7] Used object path: MONITOR/index-template
+[2024-08-12 13:30:06,676: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:30:06,698: WARNING/ForkPoolWorker-7] Starting scheduler per frontend request
+[2024-08-12 13:30:06,738: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:30:06,739: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:30:06,749: WARNING/ForkPoolWorker-7] Attempting to use kubectl to run: ['kubectl', 'apply', '-k', 'scheduler/definition']
+[2024-08-12 13:30:09,103: WARNING/ForkPoolWorker-7] Resulted print: deployment.apps/beat-server created
+[2024-08-12 13:30:09,105: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:30:09,151: WARNING/ForkPoolWorker-7] Creating a forward from frontend request
+[2024-08-12 13:30:09,154: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:30:09,156: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:30:09,204: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/status-template
+[2024-08-12 13:30:09,234: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:30:09,234: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:30:09,235: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:30:09,300: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:30:09,330: WARNING/ForkPoolWorker-7] Fetching job files per frontend request
+[2024-08-12 13:30:09,330: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:30:09,331: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:30:14,426: WARNING/ForkPoolWorker-7] Fetching job files per frontend request
+[2024-08-12 13:30:14,427: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:30:14,427: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:30:44,432: WARNING/ForkPoolWorker-7] Fetching job files per frontend request
+[2024-08-12 13:30:44,434: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:30:44,434: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:31:09,075: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 13:31:09,079: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:31:09,080: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:31:09,080: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 13:31:09,107: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 13:31:09,108: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:31:09,164: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 13:31:09,172: WARNING/ForkPoolWorker-7] Attempting to use kubectl to run: ['kubectl', 'apply', '-k', 'forwards/imports/integration-submitter-s0-c0-u1-user-example-com/1']
+[2024-08-12 13:31:10,172: WARNING/ForkPoolWorker-7] Resulted print: namespace/forwarding-import created endpoints/integration-submitter-s0-c0-u1-user-example-com-1-ray-dashboard created service/integration-submitter-s0-c0-u1-user-example-com-1-ray-dashboard created
+[2024-08-12 13:31:10,173: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:31:10,215: WARNING/ForkPoolWorker-7] Modification status: creation success
+[2024-08-12 13:31:10,216: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:31:14,427: WARNING/ForkPoolWorker-7] Fetching job files per frontend request
+[2024-08-12 13:31:14,427: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:31:14,427: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:31:14,538: WARNING/ForkPoolWorker-7] Creating a job from frontend request
+[2024-08-12 13:31:14,543: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:31:14,544: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:31:14,544: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:31:14,588: WARNING/ForkPoolWorker-7] Used object path: JOBS/status-template
+[2024-08-12 13:31:14,617: WARNING/ForkPoolWorker-7] Used object path: JOBS
+[2024-08-12 13:31:14,618: WARNING/ForkPoolWorker-7] Used object path: JOBS/21
+[2024-08-12 13:31:14,646: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:31:14,671: WARNING/ForkPoolWorker-7] Starting a job from frontend request
+[2024-08-12 13:31:14,675: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:31:14,676: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:31:14,676: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:31:14,676: WARNING/ForkPoolWorker-7] Used object path: JOBS/21
+[2024-08-12 13:31:14,737: WARNING/ForkPoolWorker-7] Used object path: JOBS/21
+[2024-08-12 13:31:14,780: WARNING/ForkPoolWorker-7] store job time for key: 21
+[2024-08-12 13:31:14,791: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TIMES/21
+[2024-08-12 13:31:14,792: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TIMES/time-template
+[2024-08-12 13:31:14,928: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TIMES/21
+[2024-08-12 13:31:14,958: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:31:14,972: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 13:31:14,972: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:31:14,972: WARNING/ForkPoolWorker-7] Used object path: JOBS/21
+[2024-08-12 13:31:20,057: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 13:31:20,057: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:31:20,057: WARNING/ForkPoolWorker-7] Used object path: JOBS/21
+[2024-08-12 13:31:50,057: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 13:31:50,058: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:31:50,058: WARNING/ForkPoolWorker-7] Used object path: JOBS/21
+[2024-08-12 13:32:04,009: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 13:32:04,037: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:32:04,038: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:32:04,038: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 13:32:04,069: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 13:32:04,069: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:32:04,124: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 13:32:04,124: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 13:32:04,125: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:32:20,062: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 13:32:20,062: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:32:20,062: WARNING/ForkPoolWorker-7] Used object path: JOBS/21
+[2024-08-12 13:33:00,008: WARNING/ForkPoolWorker-7] Collecting per scheduler request
+[2024-08-12 13:33:00,033: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:33:00,034: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:33:00,034: WARNING/ForkPoolWorker-7] Running collection strategy
+[2024-08-12 13:33:00,080: WARNING/ForkPoolWorker-8] Collecting saccts per backend request
+[2024-08-12 13:33:00,091: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 13:33:00,092: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 13:33:00,176: WARNING/ForkPoolWorker-8] Checking the sacct of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:33:00,187: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SACCT
+[2024-08-12 13:33:00,187: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SACCT/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:33:00,268: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 13:33:02,094: WARNING/ForkPoolWorker-8] Collecting seff per backend request
+[2024-08-12 13:33:02,099: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 13:33:02,099: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 13:33:02,119: WARNING/ForkPoolWorker-8] Checking the seff of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:33:02,130: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SEFF
+[2024-08-12 13:33:02,130: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SEFF/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:33:02,213: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 13:33:04,008: WARNING/ForkPoolWorker-8] Forwarding per scheduler request
+[2024-08-12 13:33:04,013: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 13:33:04,013: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 13:33:04,014: WARNING/ForkPoolWorker-8] Running deploy forwards
+[2024-08-12 13:33:04,057: WARNING/ForkPoolWorker-8] Used object path: FORWARDS/IMPORTS
+[2024-08-12 13:33:04,057: WARNING/ForkPoolWorker-8] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:33:04,101: WARNING/ForkPoolWorker-1] Collecting job times per backend request
+[2024-08-12 13:33:04,110: WARNING/ForkPoolWorker-1] Redis lock exists: False
+[2024-08-12 13:33:04,111: WARNING/ForkPoolWorker-8] Modifying import forwarding with key: 1
+[2024-08-12 13:33:04,111: WARNING/ForkPoolWorker-8] Modification status: no deployment
+[2024-08-12 13:33:04,112: WARNING/ForkPoolWorker-1] Redis lock aquired: True
+[2024-08-12 13:33:04,112: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 13:33:04,160: WARNING/ForkPoolWorker-1] Checking the job-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:33:04,172: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TIMES
+[2024-08-12 13:33:04,172: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/JOBS/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:33:04,205: WARNING/ForkPoolWorker-1] Unseen job time with key: 21
+[2024-08-12 13:33:04,206: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TIMES/21
+[2024-08-12 13:33:04,221: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/JOBS/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:33:04,299: WARNING/ForkPoolWorker-1] Redis lock released: True
+[2024-08-12 13:33:06,102: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 13:33:06,108: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 13:33:06,109: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 13:33:06,143: WARNING/ForkPoolWorker-8] Checking the pipeline-time of bucket integration-pipeline-s0-c0-u1-user-example-com
+[2024-08-12 13:33:06,151: WARNING/ForkPoolWorker-8] Used object path: TIMES
+[2024-08-12 13:33:06,151: WARNING/ForkPoolWorker-8] Checking the times of group component
+[2024-08-12 13:33:06,151: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/component
+[2024-08-12 13:33:06,219: WARNING/ForkPoolWorker-8] Used object path: TIMES/component
+[2024-08-12 13:33:06,291: WARNING/ForkPoolWorker-8] Checking the times of group components
+[2024-08-12 13:33:06,291: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/components
+[2024-08-12 13:33:06,359: WARNING/ForkPoolWorker-8] Used object path: TIMES/components
+[2024-08-12 13:33:06,381: WARNING/ForkPoolWorker-8] Unseen pipeline time with key: 37
+[2024-08-12 13:33:06,381: WARNING/ForkPoolWorker-8] Unseen pipeline time with key: 38
+[2024-08-12 13:33:06,381: WARNING/ForkPoolWorker-8] Unseen pipeline time with key: 39
+[2024-08-12 13:33:06,381: WARNING/ForkPoolWorker-8] Unseen pipeline time with key: 40
+[2024-08-12 13:33:06,381: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/components
+[2024-08-12 13:33:06,423: WARNING/ForkPoolWorker-8] Checking the times of group ray-job
+[2024-08-12 13:33:06,423: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-job
+[2024-08-12 13:33:06,513: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-job
+[2024-08-12 13:33:06,581: WARNING/ForkPoolWorker-8] Checking the times of group ray-jobs
+[2024-08-12 13:33:06,581: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-jobs
+[2024-08-12 13:33:06,613: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-jobs
+[2024-08-12 13:33:06,683: WARNING/ForkPoolWorker-8] Checking the times of group test
+[2024-08-12 13:33:06,683: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/test
+[2024-08-12 13:33:06,715: WARNING/ForkPoolWorker-8] Used object path: TIMES/test
+[2024-08-12 13:33:06,786: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 13:33:08,103: WARNING/ForkPoolWorker-8] Collecting task times per backend request
+[2024-08-12 13:33:08,108: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 13:33:08,108: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 13:33:08,124: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-forwarder-s0-c0-u1
+[2024-08-12 13:33:08,133: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 13:33:08,133: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 13:33:08,133: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 13:33:08,199: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 13:33:08,224: WARNING/ForkPoolWorker-8] Checking tasks of group: create-forwarding
+[2024-08-12 13:33:08,224: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-forwarding
+[2024-08-12 13:33:08,297: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 13:33:08,329: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 13:33:08,330: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 13:33:08,370: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 13:33:08,446: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-forwarding-status
+[2024-08-12 13:33:08,452: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-forwarding-status
+[2024-08-12 13:33:08,520: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 13:33:08,554: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-files
+[2024-08-12 13:33:08,555: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-files
+[2024-08-12 13:33:08,626: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-files
+[2024-08-12 13:33:08,728: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-sacct
+[2024-08-12 13:33:08,728: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-sacct
+[2024-08-12 13:33:08,803: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-sacct
+[2024-08-12 13:33:08,836: WARNING/ForkPoolWorker-8] Unseen task times with key: 7
+[2024-08-12 13:33:08,836: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-sacct
+[2024-08-12 13:33:08,875: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-seff
+[2024-08-12 13:33:08,875: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-seff
+[2024-08-12 13:33:08,905: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-seff
+[2024-08-12 13:33:08,929: WARNING/ForkPoolWorker-8] Unseen task times with key: 6
+[2024-08-12 13:33:08,929: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-seff
+[2024-08-12 13:33:08,994: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 13:33:08,994: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 13:33:09,024: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 13:33:09,063: WARNING/ForkPoolWorker-8] Unseen task times with key: 30
+[2024-08-12 13:33:09,063: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 13:33:09,102: WARNING/ForkPoolWorker-8] Checking tasks of group: forwarding-manager
+[2024-08-12 13:33:09,102: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 13:33:09,174: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 13:33:09,210: WARNING/ForkPoolWorker-8] Unseen task times with key: 65
+[2024-08-12 13:33:09,211: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 13:33:09,279: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 13:33:09,279: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 13:33:09,349: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 13:33:09,376: WARNING/ForkPoolWorker-8] Checking tasks of group: get-structure
+[2024-08-12 13:33:09,376: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-structure
+[2024-08-12 13:33:09,441: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-structure
+[2024-08-12 13:33:09,520: WARNING/ForkPoolWorker-8] Checking tasks of group: job-time-collector
+[2024-08-12 13:33:09,520: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 13:33:09,589: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 13:33:09,610: WARNING/ForkPoolWorker-8] Unseen task times with key: 61
+[2024-08-12 13:33:09,611: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 13:33:09,647: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 13:33:09,647: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 13:33:10,027: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 13:33:10,078: WARNING/ForkPoolWorker-8] Checking tasks of group: pipeline-time-collector
+[2024-08-12 13:33:10,078: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 13:33:10,146: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 13:33:10,171: WARNING/ForkPoolWorker-8] Unseen task times with key: 61
+[2024-08-12 13:33:10,171: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 13:33:10,208: WARNING/ForkPoolWorker-8] Checking tasks of group: sacct-collector
+[2024-08-12 13:33:10,209: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 13:33:10,277: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 13:33:10,303: WARNING/ForkPoolWorker-8] Unseen task times with key: 62
+[2024-08-12 13:33:10,304: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 13:33:10,371: WARNING/ForkPoolWorker-8] Checking tasks of group: seff-collector
+[2024-08-12 13:33:10,371: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 13:33:10,439: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 13:33:10,462: WARNING/ForkPoolWorker-8] Unseen task times with key: 62
+[2024-08-12 13:33:10,462: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 13:33:10,671: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 13:33:10,672: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 13:33:10,774: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 13:33:10,823: WARNING/ForkPoolWorker-8] Checking tasks of group: start-scheduler
+[2024-08-12 13:33:10,823: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-scheduler
+[2024-08-12 13:33:10,890: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 13:33:10,925: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-forwarding
+[2024-08-12 13:33:10,925: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-forwarding
+[2024-08-12 13:33:10,951: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-forwarding
+[2024-08-12 13:33:10,973: WARNING/ForkPoolWorker-8] Unseen task times with key: 10
+[2024-08-12 13:33:10,974: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-forwarding
+[2024-08-12 13:33:11,024: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 13:33:11,024: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 13:33:11,056: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 13:33:11,085: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-scheduler
+[2024-08-12 13:33:11,085: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-scheduler
+[2024-08-12 13:33:11,164: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 13:33:11,197: WARNING/ForkPoolWorker-8] Checking tasks of group: task-time-collector
+[2024-08-12 13:33:11,197: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 13:33:11,291: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 13:33:11,326: WARNING/ForkPoolWorker-8] Unseen task times with key: 60
+[2024-08-12 13:33:11,327: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 13:33:11,475: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 13:33:11,476: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 13:33:11,565: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 13:33:11,722: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:33:11,733: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 13:33:11,733: WARNING/ForkPoolWorker-8] Checking tasks of group: artifact-handler
+[2024-08-12 13:33:11,733: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 13:33:11,772: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/artifact-handler
+[2024-08-12 13:33:11,790: WARNING/ForkPoolWorker-8] Unseen task times with key: 127
+[2024-08-12 13:33:11,790: WARNING/ForkPoolWorker-8] Unseen task times with key: 128
+[2024-08-12 13:33:11,790: WARNING/ForkPoolWorker-8] Unseen task times with key: 129
+[2024-08-12 13:33:11,790: WARNING/ForkPoolWorker-8] Unseen task times with key: 130
+[2024-08-12 13:33:11,791: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 13:33:11,831: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 13:33:11,831: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 13:33:11,886: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 13:33:11,902: WARNING/ForkPoolWorker-8] Unseen task times with key: 127
+[2024-08-12 13:33:11,903: WARNING/ForkPoolWorker-8] Unseen task times with key: 128
+[2024-08-12 13:33:11,903: WARNING/ForkPoolWorker-8] Unseen task times with key: 129
+[2024-08-12 13:33:11,903: WARNING/ForkPoolWorker-8] Unseen task times with key: 130
+[2024-08-12 13:33:11,903: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 13:33:11,938: WARNING/ForkPoolWorker-8] Checking tasks of group: configuration-manager
+[2024-08-12 13:33:11,938: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 13:33:11,972: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/configuration-manager
+[2024-08-12 13:33:12,001: WARNING/ForkPoolWorker-8] Unseen task times with key: 128
+[2024-08-12 13:33:12,001: WARNING/ForkPoolWorker-8] Unseen task times with key: 129
+[2024-08-12 13:33:12,001: WARNING/ForkPoolWorker-8] Unseen task times with key: 130
+[2024-08-12 13:33:12,001: WARNING/ForkPoolWorker-8] Unseen task times with key: 131
+[2024-08-12 13:33:12,001: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 13:33:12,046: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 13:33:12,046: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 13:33:12,119: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 13:33:12,188: WARNING/ForkPoolWorker-8] Checking tasks of group: enviroment-handler
+[2024-08-12 13:33:12,188: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/enviroment-handler
+[2024-08-12 13:33:12,263: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/enviroment-handler
+[2024-08-12 13:33:12,293: WARNING/ForkPoolWorker-8] Unseen task times with key: 31
+[2024-08-12 13:33:12,293: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/enviroment-handler
+[2024-08-12 13:33:12,341: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 13:33:12,342: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 13:33:12,397: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 13:33:12,427: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 13:33:12,428: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 13:33:12,443: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 13:33:12,482: WARNING/ForkPoolWorker-8] Checking tasks of group: job-handler
+[2024-08-12 13:33:12,483: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 13:33:12,558: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-handler
+[2024-08-12 13:33:12,578: WARNING/ForkPoolWorker-8] Unseen task times with key: 127
+[2024-08-12 13:33:12,578: WARNING/ForkPoolWorker-8] Unseen task times with key: 128
+[2024-08-12 13:33:12,579: WARNING/ForkPoolWorker-8] Unseen task times with key: 129
+[2024-08-12 13:33:12,579: WARNING/ForkPoolWorker-8] Unseen task times with key: 130
+[2024-08-12 13:33:12,579: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 13:33:12,623: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 13:33:12,623: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 13:33:12,676: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 13:33:12,692: WARNING/ForkPoolWorker-8] Checking tasks of group: monitoring-manager
+[2024-08-12 13:33:12,692: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/monitoring-manager
+[2024-08-12 13:33:12,786: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/monitoring-manager
+[2024-08-12 13:33:12,806: WARNING/ForkPoolWorker-8] Checking tasks of group: setup-handler
+[2024-08-12 13:33:12,806: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/setup-handler
+[2024-08-12 13:33:12,879: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/setup-handler
+[2024-08-12 13:33:12,895: WARNING/ForkPoolWorker-8] Unseen task times with key: 16
+[2024-08-12 13:33:12,895: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/setup-handler
+[2024-08-12 13:33:12,937: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 13:33:12,937: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 13:33:13,043: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 13:33:13,067: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 13:33:13,067: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 13:33:13,123: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 13:33:13,153: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 13:33:13,153: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 13:33:13,206: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 13:33:13,231: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 13:33:14,104: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:34:00,005: WARNING/ForkPoolWorker-7] Logging per scheduler request
+[2024-08-12 13:34:00,034: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:34:00,035: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:34:00,035: WARNING/ForkPoolWorker-7] Running collect logs
+[2024-08-12 13:34:00,074: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 13:34:00,125: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 13:34:00,185: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 13:34:00,270: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 13:34:00,474: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 13:34:00,485: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 13:34:00,607: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 13:34:00,639: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 13:34:00,760: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 13:34:00,773: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 13:34:00,817: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 13:34:00,832: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 13:34:00,876: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 13:34:00,895: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 13:34:01,017: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 13:34:01,026: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 13:34:01,068: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 13:34:01,078: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 13:34:01,117: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 13:34:01,127: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 13:34:01,169: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 13:34:01,184: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 13:34:01,465: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 13:34:01,480: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 13:34:01,521: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 13:34:01,533: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 13:34:01,749: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 13:34:01,765: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 13:34:01,847: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 13:34:01,864: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 13:34:01,917: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:34:04,009: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 13:34:04,012: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:34:04,012: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:34:04,012: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 13:34:04,039: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 13:34:04,039: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:34:04,051: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 13:34:04,051: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 13:34:04,052: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:35:04,013: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 13:35:04,041: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:35:04,042: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:35:04,043: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 13:35:04,113: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 13:35:04,113: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:35:04,170: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 13:35:04,171: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 13:35:04,172: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:35:44,013: WARNING/ForkPoolWorker-7] Collecting per scheduler request
+[2024-08-12 13:35:44,066: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:35:44,067: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:35:44,067: WARNING/ForkPoolWorker-7] Running collection strategy
+[2024-08-12 13:35:44,080: WARNING/ForkPoolWorker-8] Collecting saccts per backend request
+[2024-08-12 13:35:44,085: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 13:35:44,086: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 13:35:44,141: WARNING/ForkPoolWorker-8] Checking the sacct of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:35:44,151: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SACCT
+[2024-08-12 13:35:44,151: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SACCT/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:35:44,217: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 13:35:46,082: WARNING/ForkPoolWorker-8] Collecting seff per backend request
+[2024-08-12 13:35:46,087: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 13:35:46,087: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 13:35:46,106: WARNING/ForkPoolWorker-8] Checking the seff of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:35:46,121: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SEFF
+[2024-08-12 13:35:46,122: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SEFF/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:35:46,186: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 13:35:48,092: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 13:35:48,118: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 13:35:48,119: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 13:35:48,139: WARNING/ForkPoolWorker-8] Checking the job-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:35:48,148: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TIMES
+[2024-08-12 13:35:48,148: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/JOBS/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:35:48,158: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 13:35:50,096: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 13:35:50,100: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 13:35:50,100: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 13:35:50,132: WARNING/ForkPoolWorker-8] Checking the pipeline-time of bucket integration-pipeline-s0-c0-u1-user-example-com
+[2024-08-12 13:35:50,140: WARNING/ForkPoolWorker-8] Used object path: TIMES
+[2024-08-12 13:35:50,140: WARNING/ForkPoolWorker-8] Checking the times of group component
+[2024-08-12 13:35:50,140: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/component
+[2024-08-12 13:35:50,200: WARNING/ForkPoolWorker-8] Used object path: TIMES/component
+[2024-08-12 13:35:50,267: WARNING/ForkPoolWorker-8] Checking the times of group components
+[2024-08-12 13:35:50,267: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/components
+[2024-08-12 13:35:50,339: WARNING/ForkPoolWorker-8] Used object path: TIMES/components
+[2024-08-12 13:35:50,370: WARNING/ForkPoolWorker-8] Checking the times of group ray-job
+[2024-08-12 13:35:50,370: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-job
+[2024-08-12 13:35:50,431: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-job
+[2024-08-12 13:35:50,492: WARNING/ForkPoolWorker-8] Checking the times of group ray-jobs
+[2024-08-12 13:35:50,493: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-jobs
+[2024-08-12 13:35:50,565: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-jobs
+[2024-08-12 13:35:50,636: WARNING/ForkPoolWorker-8] Checking the times of group test
+[2024-08-12 13:35:50,637: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/test
+[2024-08-12 13:35:50,692: WARNING/ForkPoolWorker-8] Used object path: TIMES/test
+[2024-08-12 13:35:50,764: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 13:35:52,100: WARNING/ForkPoolWorker-8] Collecting task times per backend request
+[2024-08-12 13:35:52,105: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 13:35:52,105: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 13:35:52,150: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-forwarder-s0-c0-u1
+[2024-08-12 13:35:52,163: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 13:35:52,164: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 13:35:52,164: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 13:35:52,218: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 13:35:52,233: WARNING/ForkPoolWorker-8] Checking tasks of group: create-forwarding
+[2024-08-12 13:35:52,234: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-forwarding
+[2024-08-12 13:35:52,258: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 13:35:52,274: WARNING/ForkPoolWorker-8] Unseen task times with key: 19
+[2024-08-12 13:35:52,274: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-forwarding
+[2024-08-12 13:35:52,315: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 13:35:52,315: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 13:35:52,387: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 13:35:52,411: WARNING/ForkPoolWorker-8] Unseen task times with key: 18
+[2024-08-12 13:35:52,411: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 13:35:52,504: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-forwarding-status
+[2024-08-12 13:35:52,504: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-forwarding-status
+[2024-08-12 13:35:52,572: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 13:35:52,600: WARNING/ForkPoolWorker-8] Unseen task times with key: 19
+[2024-08-12 13:35:52,601: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-forwarding-status
+[2024-08-12 13:35:52,639: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-files
+[2024-08-12 13:35:52,639: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-files
+[2024-08-12 13:35:52,710: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-files
+[2024-08-12 13:35:52,761: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-sacct
+[2024-08-12 13:35:52,762: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-sacct
+[2024-08-12 13:35:52,832: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-sacct
+[2024-08-12 13:35:52,845: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-seff
+[2024-08-12 13:35:52,845: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-seff
+[2024-08-12 13:35:52,900: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-seff
+[2024-08-12 13:35:52,911: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 13:35:52,911: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 13:35:52,976: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 13:35:52,995: WARNING/ForkPoolWorker-8] Unseen task times with key: 31
+[2024-08-12 13:35:52,995: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 13:35:53,039: WARNING/ForkPoolWorker-8] Checking tasks of group: forwarding-manager
+[2024-08-12 13:35:53,039: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 13:35:53,110: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 13:35:53,142: WARNING/ForkPoolWorker-8] Unseen task times with key: 66
+[2024-08-12 13:35:53,143: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 13:35:53,191: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 13:35:53,192: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 13:35:53,263: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 13:35:53,290: WARNING/ForkPoolWorker-8] Checking tasks of group: get-structure
+[2024-08-12 13:35:53,290: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-structure
+[2024-08-12 13:35:53,350: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-structure
+[2024-08-12 13:35:53,405: WARNING/ForkPoolWorker-8] Checking tasks of group: job-time-collector
+[2024-08-12 13:35:53,405: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 13:35:53,476: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 13:35:53,508: WARNING/ForkPoolWorker-8] Unseen task times with key: 62
+[2024-08-12 13:35:53,508: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 13:35:53,755: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 13:35:53,755: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 13:35:53,823: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 13:35:53,840: WARNING/ForkPoolWorker-8] Checking tasks of group: pipeline-time-collector
+[2024-08-12 13:35:53,840: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 13:35:53,922: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 13:35:53,937: WARNING/ForkPoolWorker-8] Unseen task times with key: 62
+[2024-08-12 13:35:53,937: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 13:35:54,323: WARNING/ForkPoolWorker-8] Checking tasks of group: sacct-collector
+[2024-08-12 13:35:54,323: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 13:35:54,389: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 13:35:54,415: WARNING/ForkPoolWorker-8] Unseen task times with key: 63
+[2024-08-12 13:35:54,416: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 13:35:54,456: WARNING/ForkPoolWorker-8] Checking tasks of group: seff-collector
+[2024-08-12 13:35:54,456: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 13:35:54,507: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 13:35:54,521: WARNING/ForkPoolWorker-8] Unseen task times with key: 63
+[2024-08-12 13:35:54,521: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 13:35:54,570: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 13:35:54,570: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 13:35:54,680: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 13:35:54,713: WARNING/ForkPoolWorker-8] Unseen task times with key: 19
+[2024-08-12 13:35:54,713: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 13:35:54,950: WARNING/ForkPoolWorker-8] Checking tasks of group: start-scheduler
+[2024-08-12 13:35:54,950: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-scheduler
+[2024-08-12 13:35:55,015: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 13:35:55,048: WARNING/ForkPoolWorker-8] Unseen task times with key: 23
+[2024-08-12 13:35:55,048: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-scheduler
+[2024-08-12 13:35:55,083: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-forwarding
+[2024-08-12 13:35:55,083: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-forwarding
+[2024-08-12 13:35:55,149: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-forwarding
+[2024-08-12 13:35:55,163: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 13:35:55,163: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 13:35:55,214: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 13:35:55,254: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-scheduler
+[2024-08-12 13:35:55,255: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-scheduler
+[2024-08-12 13:35:55,328: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 13:35:55,365: WARNING/ForkPoolWorker-8] Checking tasks of group: task-time-collector
+[2024-08-12 13:35:55,365: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 13:35:55,429: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 13:35:55,460: WARNING/ForkPoolWorker-8] Unseen task times with key: 61
+[2024-08-12 13:35:55,461: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 13:35:55,499: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 13:35:55,499: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 13:35:55,568: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 13:35:55,581: WARNING/ForkPoolWorker-8] Unseen task times with key: 23
+[2024-08-12 13:35:55,581: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 13:35:55,624: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:35:55,634: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 13:35:55,634: WARNING/ForkPoolWorker-8] Checking tasks of group: artifact-handler
+[2024-08-12 13:35:55,634: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 13:35:55,684: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/artifact-handler
+[2024-08-12 13:35:55,700: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 13:35:55,701: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 13:35:55,753: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 13:35:55,797: WARNING/ForkPoolWorker-8] Checking tasks of group: configuration-manager
+[2024-08-12 13:35:55,798: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 13:35:55,849: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/configuration-manager
+[2024-08-12 13:35:55,863: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 13:35:55,863: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 13:35:55,887: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 13:35:55,940: WARNING/ForkPoolWorker-8] Checking tasks of group: enviroment-handler
+[2024-08-12 13:35:55,940: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/enviroment-handler
+[2024-08-12 13:35:55,966: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/enviroment-handler
+[2024-08-12 13:35:55,978: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 13:35:55,978: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 13:35:56,042: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 13:35:56,054: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 13:35:56,054: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 13:35:56,105: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 13:35:56,131: WARNING/ForkPoolWorker-8] Checking tasks of group: job-handler
+[2024-08-12 13:35:56,132: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 13:35:56,205: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-handler
+[2024-08-12 13:35:56,236: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 13:35:56,237: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 13:35:56,293: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 13:35:56,818: WARNING/ForkPoolWorker-8] Checking tasks of group: monitoring-manager
+[2024-08-12 13:35:56,819: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/monitoring-manager
+[2024-08-12 13:35:56,848: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/monitoring-manager
+[2024-08-12 13:35:56,864: WARNING/ForkPoolWorker-8] Checking tasks of group: setup-handler
+[2024-08-12 13:35:56,864: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/setup-handler
+[2024-08-12 13:35:56,929: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/setup-handler
+[2024-08-12 13:35:56,948: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 13:35:56,948: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 13:35:57,018: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 13:35:57,095: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 13:35:57,095: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 13:35:57,158: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 13:35:57,183: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 13:35:57,183: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 13:35:57,233: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 13:35:57,270: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 13:35:58,102: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:36:04,012: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 13:36:04,018: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:36:04,018: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:36:04,019: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 13:36:04,043: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 13:36:04,044: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:36:04,056: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 13:36:04,056: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 13:36:04,057: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:37:04,014: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 13:37:04,041: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:37:04,041: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:37:04,041: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 13:37:04,092: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 13:37:04,092: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:37:04,102: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 13:37:04,102: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 13:37:04,103: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:37:15,271: WARNING/ForkPoolWorker-7] Stopping scheduler per frontend request
+[2024-08-12 13:37:15,274: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:37:15,274: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:37:15,275: WARNING/ForkPoolWorker-7] Attempting to use kubectl to run: ['kubectl', 'delete', '-k', 'scheduler/definition']
+[2024-08-12 13:37:15,542: WARNING/ForkPoolWorker-7] Resulted print: deployment.apps "beat-server" deleted
+[2024-08-12 13:37:15,544: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:57:36,493: WARNING/ForkPoolWorker-7] Creating forwader templates per frontend request
+[2024-08-12 13:57:36,520: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:57:36,521: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:57:36,521: WARNING/ForkPoolWorker-7] Running store templates logs
+[2024-08-12 13:57:36,522: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/status-template
+[2024-08-12 13:57:36,585: WARNING/ForkPoolWorker-7] Used object path: MONITOR/index-template
+[2024-08-12 13:57:36,596: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:57:36,617: WARNING/ForkPoolWorker-7] Starting scheduler per frontend request
+[2024-08-12 13:57:36,644: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:57:36,644: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:57:36,652: WARNING/ForkPoolWorker-7] Attempting to use kubectl to run: ['kubectl', 'apply', '-k', 'scheduler/definition']
+[2024-08-12 13:58:01,973: WARNING/ForkPoolWorker-7] Resulted print: deployment.apps/beat-server created
+[2024-08-12 13:58:01,976: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:58:02,110: WARNING/ForkPoolWorker-7] Creating a forward from frontend request
+[2024-08-12 13:58:02,114: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:58:02,116: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:58:02,184: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/status-template
+[2024-08-12 13:58:02,215: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:58:02,215: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:58:02,216: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 13:58:02,282: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 13:58:02,307: WARNING/ForkPoolWorker-7] Fetching job files per frontend request
+[2024-08-12 13:58:02,307: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:58:02,307: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 13:58:32,309: WARNING/ForkPoolWorker-7] Fetching job files per frontend request
+[2024-08-12 13:58:32,310: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:58:32,310: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 13:59:02,309: WARNING/ForkPoolWorker-7] Fetching job files per frontend request
+[2024-08-12 13:59:02,309: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:59:02,309: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 13:59:32,312: WARNING/ForkPoolWorker-7] Fetching job files per frontend request
+[2024-08-12 13:59:32,312: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 13:59:32,313: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 13:59:41,070: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 13:59:41,076: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 13:59:41,077: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 13:59:41,077: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 13:59:41,127: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 13:59:41,127: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 13:59:41,154: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 13:59:41,204: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 13:59:41,204: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 13:59:41,204: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 13:59:41,211: WARNING/ForkPoolWorker-7] Attempting to use kubectl to run: ['kubectl', 'apply', '-k', 'forwards/imports/integration-submitter-s0-c0-u1-user-example-com/2']
+[2024-08-12 13:59:41,886: WARNING/ForkPoolWorker-7] Resulted print: namespace/forwarding-import unchanged endpoints/integration-submitter-s0-c0-u1-user-example-com-2-ray-dashboard created service/integration-submitter-s0-c0-u1-user-example-com-2-ray-dashboard created
+[2024-08-12 13:59:41,886: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 13:59:41,934: WARNING/ForkPoolWorker-7] Modification status: creation success
+[2024-08-12 13:59:41,936: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:00:02,313: WARNING/ForkPoolWorker-7] Fetching job files per frontend request
+[2024-08-12 14:00:02,314: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:00:02,314: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:00:02,426: WARNING/ForkPoolWorker-7] Creating a job from frontend request
+[2024-08-12 14:00:02,429: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:00:02,430: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:00:02,430: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:00:02,455: WARNING/ForkPoolWorker-7] Used object path: JOBS/status-template
+[2024-08-12 14:00:02,547: WARNING/ForkPoolWorker-7] Used object path: JOBS
+[2024-08-12 14:00:02,547: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:00:02,577: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:00:02,587: WARNING/ForkPoolWorker-7] Starting a job from frontend request
+[2024-08-12 14:00:02,590: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:00:02,590: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:00:02,590: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:00:02,590: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:00:02,619: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:00:02,666: WARNING/ForkPoolWorker-7] store job time for key: 22
+[2024-08-12 14:00:02,676: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TIMES/22
+[2024-08-12 14:00:02,676: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TIMES/time-template
+[2024-08-12 14:00:02,745: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TIMES/22
+[2024-08-12 14:00:02,780: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:00:02,790: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:00:02,790: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:00:02,790: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:00:32,791: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:00:32,791: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:00:32,792: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:00:41,071: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:00:41,095: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:00:41,095: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:00:41,095: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:00:41,159: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:00:41,159: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:00:41,216: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:00:41,270: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:00:41,270: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:00:41,270: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:00:41,270: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:00:41,271: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:01:00,007: WARNING/ForkPoolWorker-7] Collecting per scheduler request
+[2024-08-12 14:01:00,034: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:01:00,035: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:01:00,035: WARNING/ForkPoolWorker-7] Running collection strategy
+[2024-08-12 14:01:00,049: WARNING/ForkPoolWorker-8] Collecting saccts per backend request
+[2024-08-12 14:01:00,057: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:01:00,058: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:01:00,093: WARNING/ForkPoolWorker-8] Checking the sacct of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:00,104: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SACCT
+[2024-08-12 14:01:00,104: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SACCT/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:00,173: WARNING/ForkPoolWorker-8] Unseen artifact with key: 21
+[2024-08-12 14:01:00,174: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SACCT/21
+[2024-08-12 14:01:00,204: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SACCT/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:00,262: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:01:02,049: WARNING/ForkPoolWorker-8] Collecting seff per backend request
+[2024-08-12 14:01:02,052: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:01:02,053: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:01:02,071: WARNING/ForkPoolWorker-8] Checking the seff of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:02,080: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SEFF
+[2024-08-12 14:01:02,081: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SEFF/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:02,152: WARNING/ForkPoolWorker-8] Unseen artifact with key: 21
+[2024-08-12 14:01:02,152: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SEFF/21
+[2024-08-12 14:01:02,187: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SEFF/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:02,307: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:01:02,792: WARNING/ForkPoolWorker-8] Fetching job status per frontend request
+[2024-08-12 14:01:02,792: WARNING/ForkPoolWorker-8] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:02,792: WARNING/ForkPoolWorker-8] Used object path: JOBS/22
+[2024-08-12 14:01:04,056: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 14:01:04,059: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:01:04,060: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:01:04,088: WARNING/ForkPoolWorker-8] Checking the job-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:04,098: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TIMES
+[2024-08-12 14:01:04,098: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/JOBS/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:04,178: WARNING/ForkPoolWorker-8] Unseen job time with key: 22
+[2024-08-12 14:01:04,178: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TIMES/22
+[2024-08-12 14:01:04,232: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/JOBS/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:04,351: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:01:06,059: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 14:01:06,064: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:01:06,064: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:01:06,084: WARNING/ForkPoolWorker-8] Checking the pipeline-time of bucket integration-pipeline-s0-c0-u1-user-example-com
+[2024-08-12 14:01:06,091: WARNING/ForkPoolWorker-8] Used object path: TIMES
+[2024-08-12 14:01:06,091: WARNING/ForkPoolWorker-8] Checking the times of group component
+[2024-08-12 14:01:06,092: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/component
+[2024-08-12 14:01:06,161: WARNING/ForkPoolWorker-8] Used object path: TIMES/component
+[2024-08-12 14:01:06,230: WARNING/ForkPoolWorker-8] Checking the times of group components
+[2024-08-12 14:01:06,231: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/components
+[2024-08-12 14:01:06,306: WARNING/ForkPoolWorker-8] Used object path: TIMES/components
+[2024-08-12 14:01:06,335: WARNING/ForkPoolWorker-8] Unseen pipeline time with key: 41
+[2024-08-12 14:01:06,335: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/components
+[2024-08-12 14:01:06,373: WARNING/ForkPoolWorker-8] Checking the times of group ray-job
+[2024-08-12 14:01:06,373: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-job
+[2024-08-12 14:01:06,446: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-job
+[2024-08-12 14:01:06,514: WARNING/ForkPoolWorker-8] Checking the times of group ray-jobs
+[2024-08-12 14:01:06,514: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-jobs
+[2024-08-12 14:01:06,585: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-jobs
+[2024-08-12 14:01:06,695: WARNING/ForkPoolWorker-8] Checking the times of group test
+[2024-08-12 14:01:06,695: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/test
+[2024-08-12 14:01:06,763: WARNING/ForkPoolWorker-8] Used object path: TIMES/test
+[2024-08-12 14:01:06,830: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:01:08,062: WARNING/ForkPoolWorker-8] Collecting task times per backend request
+[2024-08-12 14:01:08,065: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:01:08,066: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:01:08,081: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-forwarder-s0-c0-u1
+[2024-08-12 14:01:08,091: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 14:01:08,091: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 14:01:08,092: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:01:08,142: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:01:08,171: WARNING/ForkPoolWorker-8] Checking tasks of group: create-forwarding
+[2024-08-12 14:01:08,171: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-forwarding
+[2024-08-12 14:01:08,239: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 14:01:08,263: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 14:01:08,263: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 14:01:08,315: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:01:08,362: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-forwarding-status
+[2024-08-12 14:01:08,363: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-forwarding-status
+[2024-08-12 14:01:08,430: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 14:01:08,463: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-files
+[2024-08-12 14:01:08,463: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-files
+[2024-08-12 14:01:08,540: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-files
+[2024-08-12 14:01:08,654: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-sacct
+[2024-08-12 14:01:08,654: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-sacct
+[2024-08-12 14:01:08,739: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-sacct
+[2024-08-12 14:01:08,766: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-seff
+[2024-08-12 14:01:08,766: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-seff
+[2024-08-12 14:01:08,819: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-seff
+[2024-08-12 14:01:08,845: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 14:01:08,845: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:01:08,911: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:01:08,923: WARNING/ForkPoolWorker-8] Checking tasks of group: forwarding-manager
+[2024-08-12 14:01:08,923: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 14:01:08,988: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 14:01:09,033: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 14:01:09,033: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 14:01:09,103: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 14:01:09,130: WARNING/ForkPoolWorker-8] Checking tasks of group: get-structure
+[2024-08-12 14:01:09,131: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-structure
+[2024-08-12 14:01:09,208: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-structure
+[2024-08-12 14:01:09,272: WARNING/ForkPoolWorker-8] Checking tasks of group: job-time-collector
+[2024-08-12 14:01:09,272: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 14:01:09,325: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 14:01:09,363: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 14:01:09,363: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:01:09,423: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:01:09,450: WARNING/ForkPoolWorker-8] Checking tasks of group: pipeline-time-collector
+[2024-08-12 14:01:09,450: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 14:01:09,535: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 14:01:09,545: WARNING/ForkPoolWorker-8] Checking tasks of group: sacct-collector
+[2024-08-12 14:01:09,545: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 14:01:09,554: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 14:01:09,585: WARNING/ForkPoolWorker-8] Checking tasks of group: seff-collector
+[2024-08-12 14:01:09,585: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 14:01:09,595: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 14:01:09,605: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 14:01:09,606: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 14:01:09,659: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:01:09,688: WARNING/ForkPoolWorker-8] Checking tasks of group: start-scheduler
+[2024-08-12 14:01:09,688: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-scheduler
+[2024-08-12 14:01:09,750: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 14:01:09,760: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-forwarding
+[2024-08-12 14:01:09,760: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-forwarding
+[2024-08-12 14:01:09,825: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-forwarding
+[2024-08-12 14:01:09,852: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 14:01:09,852: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 14:01:09,939: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:01:09,977: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-scheduler
+[2024-08-12 14:01:09,978: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-scheduler
+[2024-08-12 14:01:10,054: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 14:01:10,082: WARNING/ForkPoolWorker-8] Checking tasks of group: task-time-collector
+[2024-08-12 14:01:10,082: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 14:01:10,146: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 14:01:10,171: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 14:01:10,171: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 14:01:10,236: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:01:10,253: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:10,264: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 14:01:10,265: WARNING/ForkPoolWorker-8] Checking tasks of group: artifact-handler
+[2024-08-12 14:01:10,265: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 14:01:10,281: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/artifact-handler
+[2024-08-12 14:01:10,293: WARNING/ForkPoolWorker-8] Unseen task times with key: 131
+[2024-08-12 14:01:10,294: WARNING/ForkPoolWorker-8] Unseen task times with key: 132
+[2024-08-12 14:01:10,294: WARNING/ForkPoolWorker-8] Unseen task times with key: 133
+[2024-08-12 14:01:10,294: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 14:01:10,340: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 14:01:10,340: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:01:10,449: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:01:10,494: WARNING/ForkPoolWorker-8] Unseen task times with key: 131
+[2024-08-12 14:01:10,494: WARNING/ForkPoolWorker-8] Unseen task times with key: 132
+[2024-08-12 14:01:10,495: WARNING/ForkPoolWorker-8] Unseen task times with key: 133
+[2024-08-12 14:01:10,495: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:01:10,541: WARNING/ForkPoolWorker-8] Checking tasks of group: configuration-manager
+[2024-08-12 14:01:10,541: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 14:01:10,566: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/configuration-manager
+[2024-08-12 14:01:10,578: WARNING/ForkPoolWorker-8] Unseen task times with key: 132
+[2024-08-12 14:01:10,579: WARNING/ForkPoolWorker-8] Unseen task times with key: 133
+[2024-08-12 14:01:10,579: WARNING/ForkPoolWorker-8] Unseen task times with key: 134
+[2024-08-12 14:01:10,579: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 14:01:10,616: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 14:01:10,616: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 14:01:10,668: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:01:10,735: WARNING/ForkPoolWorker-8] Checking tasks of group: enviroment-handler
+[2024-08-12 14:01:10,735: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/enviroment-handler
+[2024-08-12 14:01:10,803: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/enviroment-handler
+[2024-08-12 14:01:10,831: WARNING/ForkPoolWorker-8] Unseen task times with key: 32
+[2024-08-12 14:01:10,832: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/enviroment-handler
+[2024-08-12 14:01:10,868: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 14:01:10,868: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:01:10,923: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:01:10,987: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 14:01:10,987: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 14:01:11,039: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 14:01:11,062: WARNING/ForkPoolWorker-8] Checking tasks of group: job-handler
+[2024-08-12 14:01:11,062: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 14:01:11,123: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-handler
+[2024-08-12 14:01:11,180: WARNING/ForkPoolWorker-8] Unseen task times with key: 131
+[2024-08-12 14:01:11,180: WARNING/ForkPoolWorker-8] Unseen task times with key: 132
+[2024-08-12 14:01:11,180: WARNING/ForkPoolWorker-8] Unseen task times with key: 133
+[2024-08-12 14:01:11,180: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 14:01:11,223: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 14:01:11,223: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:01:11,234: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:01:11,259: WARNING/ForkPoolWorker-8] Checking tasks of group: monitoring-manager
+[2024-08-12 14:01:11,259: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/monitoring-manager
+[2024-08-12 14:01:11,326: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/monitoring-manager
+[2024-08-12 14:01:11,342: WARNING/ForkPoolWorker-8] Checking tasks of group: setup-handler
+[2024-08-12 14:01:11,342: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/setup-handler
+[2024-08-12 14:01:11,411: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/setup-handler
+[2024-08-12 14:01:11,440: WARNING/ForkPoolWorker-8] Unseen task times with key: 17
+[2024-08-12 14:01:11,440: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/setup-handler
+[2024-08-12 14:01:11,479: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 14:01:11,480: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 14:01:11,530: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:01:11,554: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 14:01:11,554: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 14:01:11,607: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:01:11,643: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 14:01:11,644: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 14:01:11,694: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:01:11,711: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:01:12,062: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:01:32,796: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:01:32,797: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:01:32,797: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:01:41,073: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:01:41,102: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:01:41,102: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:01:41,103: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:01:41,161: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:01:41,162: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:01:41,175: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:01:41,186: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:01:41,186: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:01:41,186: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:01:41,186: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:01:41,187: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:02:02,797: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:02:02,797: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:02:02,797: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:02:41,074: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:02:41,104: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:02:41,105: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:02:41,105: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:02:41,159: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:02:41,159: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:02:41,223: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:02:41,236: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:02:41,237: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:02:41,237: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:02:41,237: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:02:41,249: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:03:00,005: WARNING/ForkPoolWorker-7] Logging per scheduler request
+[2024-08-12 14:03:00,033: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:03:00,033: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:03:00,034: WARNING/ForkPoolWorker-7] Running collect logs
+[2024-08-12 14:03:00,067: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:03:00,136: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:03:00,179: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 14:03:00,186: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 14:03:00,236: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 14:03:00,254: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 14:03:00,296: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 14:03:00,326: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 14:03:00,366: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 14:03:00,378: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 14:03:00,435: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:03:00,444: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:03:00,479: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:03:00,489: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:03:00,549: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:03:00,566: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:03:00,609: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:03:00,625: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:03:00,675: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 14:03:00,690: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 14:03:00,731: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 14:03:00,744: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 14:03:00,782: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 14:03:00,793: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 14:03:00,831: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 14:03:00,842: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 14:03:00,888: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 14:03:00,904: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 14:03:00,948: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:03:00,973: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:03:01,017: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 14:03:01,028: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 14:03:01,065: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:03:21,013: WARNING/ForkPoolWorker-7] Collecting per scheduler request
+[2024-08-12 14:03:21,041: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:03:21,042: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:03:21,042: WARNING/ForkPoolWorker-7] Running collection strategy
+[2024-08-12 14:03:21,056: WARNING/ForkPoolWorker-8] Collecting saccts per backend request
+[2024-08-12 14:03:21,064: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:03:21,065: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:03:21,129: WARNING/ForkPoolWorker-8] Checking the sacct of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:03:21,141: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SACCT
+[2024-08-12 14:03:21,141: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SACCT/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:03:21,197: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:03:23,061: WARNING/ForkPoolWorker-8] Collecting seff per backend request
+[2024-08-12 14:03:23,064: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:03:23,065: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:03:23,084: WARNING/ForkPoolWorker-8] Checking the seff of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:03:23,098: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SEFF
+[2024-08-12 14:03:23,098: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SEFF/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:03:23,112: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:03:25,064: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 14:03:25,068: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:03:25,069: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:03:25,088: WARNING/ForkPoolWorker-8] Checking the job-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:03:25,097: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TIMES
+[2024-08-12 14:03:25,098: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/JOBS/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:03:25,189: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:03:27,062: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 14:03:27,065: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:03:27,066: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:03:27,084: WARNING/ForkPoolWorker-8] Checking the pipeline-time of bucket integration-pipeline-s0-c0-u1-user-example-com
+[2024-08-12 14:03:27,090: WARNING/ForkPoolWorker-8] Used object path: TIMES
+[2024-08-12 14:03:27,090: WARNING/ForkPoolWorker-8] Checking the times of group component
+[2024-08-12 14:03:27,090: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/component
+[2024-08-12 14:03:27,100: WARNING/ForkPoolWorker-8] Used object path: TIMES/component
+[2024-08-12 14:03:27,160: WARNING/ForkPoolWorker-8] Checking the times of group components
+[2024-08-12 14:03:27,160: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/components
+[2024-08-12 14:03:27,210: WARNING/ForkPoolWorker-8] Used object path: TIMES/components
+[2024-08-12 14:03:27,225: WARNING/ForkPoolWorker-8] Checking the times of group ray-job
+[2024-08-12 14:03:27,225: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-job
+[2024-08-12 14:03:27,277: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-job
+[2024-08-12 14:03:27,328: WARNING/ForkPoolWorker-8] Checking the times of group ray-jobs
+[2024-08-12 14:03:27,328: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-jobs
+[2024-08-12 14:03:27,379: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-jobs
+[2024-08-12 14:03:27,402: WARNING/ForkPoolWorker-8] Checking the times of group test
+[2024-08-12 14:03:27,402: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/test
+[2024-08-12 14:03:27,452: WARNING/ForkPoolWorker-8] Used object path: TIMES/test
+[2024-08-12 14:03:27,505: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:03:29,067: WARNING/ForkPoolWorker-8] Collecting task times per backend request
+[2024-08-12 14:03:29,073: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:03:29,074: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:03:29,109: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-forwarder-s0-c0-u1
+[2024-08-12 14:03:29,120: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 14:03:29,121: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 14:03:29,121: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:03:29,133: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:03:29,148: WARNING/ForkPoolWorker-8] Checking tasks of group: create-forwarding
+[2024-08-12 14:03:29,148: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-forwarding
+[2024-08-12 14:03:29,200: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 14:03:29,213: WARNING/ForkPoolWorker-8] Unseen task times with key: 20
+[2024-08-12 14:03:29,213: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-forwarding
+[2024-08-12 14:03:29,274: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 14:03:29,274: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 14:03:29,327: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:03:29,339: WARNING/ForkPoolWorker-8] Unseen task times with key: 19
+[2024-08-12 14:03:29,339: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 14:03:29,381: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-forwarding-status
+[2024-08-12 14:03:29,381: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-forwarding-status
+[2024-08-12 14:03:29,448: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 14:03:29,464: WARNING/ForkPoolWorker-8] Unseen task times with key: 20
+[2024-08-12 14:03:29,464: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-forwarding-status
+[2024-08-12 14:03:29,497: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-files
+[2024-08-12 14:03:29,497: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-files
+[2024-08-12 14:03:29,557: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-files
+[2024-08-12 14:03:29,566: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-sacct
+[2024-08-12 14:03:29,566: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-sacct
+[2024-08-12 14:03:29,616: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-sacct
+[2024-08-12 14:03:29,674: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-seff
+[2024-08-12 14:03:29,674: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-seff
+[2024-08-12 14:03:29,695: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-seff
+[2024-08-12 14:03:29,733: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 14:03:29,733: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:03:29,786: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:03:29,798: WARNING/ForkPoolWorker-8] Unseen task times with key: 32
+[2024-08-12 14:03:29,799: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:03:29,831: WARNING/ForkPoolWorker-8] Checking tasks of group: forwarding-manager
+[2024-08-12 14:03:29,832: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 14:03:29,892: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 14:03:29,904: WARNING/ForkPoolWorker-8] Unseen task times with key: 67
+[2024-08-12 14:03:29,904: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 14:03:30,143: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 14:03:30,143: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 14:03:30,194: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 14:03:30,204: WARNING/ForkPoolWorker-8] Checking tasks of group: get-structure
+[2024-08-12 14:03:30,204: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-structure
+[2024-08-12 14:03:30,259: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-structure
+[2024-08-12 14:03:30,311: WARNING/ForkPoolWorker-8] Checking tasks of group: job-time-collector
+[2024-08-12 14:03:30,311: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 14:03:30,364: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 14:03:30,404: WARNING/ForkPoolWorker-8] Unseen task times with key: 63
+[2024-08-12 14:03:30,404: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 14:03:30,442: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 14:03:30,442: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:03:30,494: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:03:30,519: WARNING/ForkPoolWorker-8] Unseen task times with key: 63
+[2024-08-12 14:03:30,519: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:03:30,569: WARNING/ForkPoolWorker-8] Checking tasks of group: pipeline-time-collector
+[2024-08-12 14:03:30,569: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 14:03:30,627: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 14:03:30,655: WARNING/ForkPoolWorker-8] Unseen task times with key: 63
+[2024-08-12 14:03:30,655: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 14:03:30,747: WARNING/ForkPoolWorker-8] Checking tasks of group: sacct-collector
+[2024-08-12 14:03:30,748: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 14:03:30,767: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 14:03:30,780: WARNING/ForkPoolWorker-8] Unseen task times with key: 64
+[2024-08-12 14:03:30,781: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 14:03:30,829: WARNING/ForkPoolWorker-8] Checking tasks of group: seff-collector
+[2024-08-12 14:03:30,829: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 14:03:30,878: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 14:03:30,889: WARNING/ForkPoolWorker-8] Unseen task times with key: 64
+[2024-08-12 14:03:30,889: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 14:03:30,922: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 14:03:30,922: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 14:03:30,983: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:03:31,003: WARNING/ForkPoolWorker-8] Unseen task times with key: 20
+[2024-08-12 14:03:31,003: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 14:03:31,045: WARNING/ForkPoolWorker-8] Checking tasks of group: start-scheduler
+[2024-08-12 14:03:31,046: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-scheduler
+[2024-08-12 14:03:31,096: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 14:03:31,108: WARNING/ForkPoolWorker-8] Unseen task times with key: 24
+[2024-08-12 14:03:31,108: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-scheduler
+[2024-08-12 14:03:31,142: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-forwarding
+[2024-08-12 14:03:31,142: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-forwarding
+[2024-08-12 14:03:31,192: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-forwarding
+[2024-08-12 14:03:31,202: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 14:03:31,202: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 14:03:31,256: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:03:31,282: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-scheduler
+[2024-08-12 14:03:31,282: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-scheduler
+[2024-08-12 14:03:31,347: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 14:03:31,361: WARNING/ForkPoolWorker-8] Unseen task times with key: 15
+[2024-08-12 14:03:31,362: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-scheduler
+[2024-08-12 14:03:31,460: WARNING/ForkPoolWorker-8] Checking tasks of group: task-time-collector
+[2024-08-12 14:03:31,460: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 14:03:31,516: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 14:03:31,532: WARNING/ForkPoolWorker-8] Unseen task times with key: 62
+[2024-08-12 14:03:31,533: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 14:03:31,825: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 14:03:31,825: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 14:03:31,883: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:03:31,900: WARNING/ForkPoolWorker-8] Unseen task times with key: 24
+[2024-08-12 14:03:31,900: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 14:03:32,002: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:03:32,013: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 14:03:32,013: WARNING/ForkPoolWorker-8] Checking tasks of group: artifact-handler
+[2024-08-12 14:03:32,013: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 14:03:32,068: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/artifact-handler
+[2024-08-12 14:03:32,085: WARNING/ForkPoolWorker-8] Unseen task times with key: 134
+[2024-08-12 14:03:32,086: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 14:03:32,133: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 14:03:32,133: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:03:32,207: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:03:32,229: WARNING/ForkPoolWorker-8] Unseen task times with key: 134
+[2024-08-12 14:03:32,229: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:03:32,270: WARNING/ForkPoolWorker-8] Checking tasks of group: configuration-manager
+[2024-08-12 14:03:32,270: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 14:03:32,324: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/configuration-manager
+[2024-08-12 14:03:32,344: WARNING/ForkPoolWorker-8] Unseen task times with key: 135
+[2024-08-12 14:03:32,344: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 14:03:32,383: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 14:03:32,383: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 14:03:32,463: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:03:32,520: WARNING/ForkPoolWorker-8] Checking tasks of group: enviroment-handler
+[2024-08-12 14:03:32,520: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/enviroment-handler
+[2024-08-12 14:03:32,601: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/enviroment-handler
+[2024-08-12 14:03:32,613: WARNING/ForkPoolWorker-8] Unseen task times with key: 33
+[2024-08-12 14:03:32,613: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/enviroment-handler
+[2024-08-12 14:03:32,717: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 14:03:32,717: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:03:32,771: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:03:32,823: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 14:03:32,824: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 14:03:32,883: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 14:03:32,894: WARNING/ForkPoolWorker-8] Checking tasks of group: job-handler
+[2024-08-12 14:03:32,894: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 14:03:32,962: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-handler
+[2024-08-12 14:03:33,021: WARNING/ForkPoolWorker-8] Unseen task times with key: 134
+[2024-08-12 14:03:33,022: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 14:03:33,059: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 14:03:33,059: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:03:33,110: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:03:33,133: WARNING/ForkPoolWorker-8] Unseen task times with key: 64
+[2024-08-12 14:03:33,134: WARNING/ForkPoolWorker-8] Unseen task times with key: 65
+[2024-08-12 14:03:33,134: WARNING/ForkPoolWorker-8] Unseen task times with key: 66
+[2024-08-12 14:03:33,134: WARNING/ForkPoolWorker-8] Unseen task times with key: 67
+[2024-08-12 14:03:33,134: WARNING/ForkPoolWorker-8] Unseen task times with key: 68
+[2024-08-12 14:03:33,134: WARNING/ForkPoolWorker-8] Unseen task times with key: 69
+[2024-08-12 14:03:33,134: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:03:33,171: WARNING/ForkPoolWorker-8] Checking tasks of group: monitoring-manager
+[2024-08-12 14:03:33,171: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/monitoring-manager
+[2024-08-12 14:03:33,225: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/monitoring-manager
+[2024-08-12 14:03:33,264: WARNING/ForkPoolWorker-8] Checking tasks of group: setup-handler
+[2024-08-12 14:03:33,264: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/setup-handler
+[2024-08-12 14:03:33,323: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/setup-handler
+[2024-08-12 14:03:33,350: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 14:03:33,350: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 14:03:33,406: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:03:33,463: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 14:03:33,463: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 14:03:33,524: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:03:33,545: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 14:03:33,545: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 14:03:33,610: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:03:33,646: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:03:35,067: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:03:41,075: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:03:41,102: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:03:41,106: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:03:41,106: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:03:41,135: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:03:41,135: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:03:41,190: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:03:41,250: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:03:41,251: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:03:41,251: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:03:41,251: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:03:41,252: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:04:41,077: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:04:41,103: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:04:41,104: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:04:41,104: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:04:41,159: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:04:41,159: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:04:41,225: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:04:41,276: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:04:41,276: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:04:41,276: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:04:41,276: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:04:41,277: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:05:41,078: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:05:41,108: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:05:41,109: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:05:41,109: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:05:41,166: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:05:41,167: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:05:41,238: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:05:41,299: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:05:41,299: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:05:41,299: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:05:41,299: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:05:41,300: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:06:06,008: WARNING/ForkPoolWorker-7] Collecting per scheduler request
+[2024-08-12 14:06:06,032: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:06:06,032: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:06:06,032: WARNING/ForkPoolWorker-7] Running collection strategy
+[2024-08-12 14:06:06,041: WARNING/ForkPoolWorker-8] Collecting saccts per backend request
+[2024-08-12 14:06:06,046: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:06:06,046: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:06:06,089: WARNING/ForkPoolWorker-8] Checking the sacct of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:06:06,099: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SACCT
+[2024-08-12 14:06:06,099: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SACCT/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:06:06,151: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:06:08,045: WARNING/ForkPoolWorker-8] Collecting seff per backend request
+[2024-08-12 14:06:08,048: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:06:08,049: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:06:08,077: WARNING/ForkPoolWorker-8] Checking the seff of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:06:08,089: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SEFF
+[2024-08-12 14:06:08,089: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SEFF/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:06:08,143: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:06:10,049: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 14:06:10,055: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:06:10,056: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:06:10,079: WARNING/ForkPoolWorker-8] Checking the job-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:06:10,091: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TIMES
+[2024-08-12 14:06:10,091: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/JOBS/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:06:10,102: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:06:12,050: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 14:06:12,075: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:06:12,075: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:06:12,126: WARNING/ForkPoolWorker-8] Checking the pipeline-time of bucket integration-pipeline-s0-c0-u1-user-example-com
+[2024-08-12 14:06:12,134: WARNING/ForkPoolWorker-8] Used object path: TIMES
+[2024-08-12 14:06:12,134: WARNING/ForkPoolWorker-8] Checking the times of group component
+[2024-08-12 14:06:12,134: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/component
+[2024-08-12 14:06:12,204: WARNING/ForkPoolWorker-8] Used object path: TIMES/component
+[2024-08-12 14:06:12,239: WARNING/ForkPoolWorker-8] Checking the times of group components
+[2024-08-12 14:06:12,239: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/components
+[2024-08-12 14:06:12,256: WARNING/ForkPoolWorker-8] Used object path: TIMES/components
+[2024-08-12 14:06:12,283: WARNING/ForkPoolWorker-8] Checking the times of group ray-job
+[2024-08-12 14:06:12,284: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-job
+[2024-08-12 14:06:12,337: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-job
+[2024-08-12 14:06:12,407: WARNING/ForkPoolWorker-8] Checking the times of group ray-jobs
+[2024-08-12 14:06:12,407: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-jobs
+[2024-08-12 14:06:12,795: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-jobs
+[2024-08-12 14:06:12,866: WARNING/ForkPoolWorker-8] Checking the times of group test
+[2024-08-12 14:06:12,866: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/test
+[2024-08-12 14:06:12,937: WARNING/ForkPoolWorker-8] Used object path: TIMES/test
+[2024-08-12 14:06:12,992: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:06:14,055: WARNING/ForkPoolWorker-8] Collecting task times per backend request
+[2024-08-12 14:06:14,059: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:06:14,060: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:06:14,082: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-forwarder-s0-c0-u1
+[2024-08-12 14:06:14,093: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 14:06:14,093: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 14:06:14,093: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:06:14,164: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:06:14,177: WARNING/ForkPoolWorker-8] Checking tasks of group: create-forwarding
+[2024-08-12 14:06:14,177: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-forwarding
+[2024-08-12 14:06:14,228: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 14:06:14,239: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 14:06:14,239: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 14:06:14,307: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:06:14,338: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-forwarding-status
+[2024-08-12 14:06:14,338: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-forwarding-status
+[2024-08-12 14:06:14,390: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 14:06:14,427: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-files
+[2024-08-12 14:06:14,427: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-files
+[2024-08-12 14:06:14,456: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-files
+[2024-08-12 14:06:14,524: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-sacct
+[2024-08-12 14:06:14,524: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-sacct
+[2024-08-12 14:06:14,554: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-sacct
+[2024-08-12 14:06:14,581: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-seff
+[2024-08-12 14:06:14,581: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-seff
+[2024-08-12 14:06:14,634: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-seff
+[2024-08-12 14:06:14,661: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 14:06:14,661: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:06:14,713: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:06:14,726: WARNING/ForkPoolWorker-8] Checking tasks of group: forwarding-manager
+[2024-08-12 14:06:14,726: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 14:06:14,778: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 14:06:14,809: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 14:06:14,809: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 14:06:14,860: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 14:06:14,874: WARNING/ForkPoolWorker-8] Checking tasks of group: get-structure
+[2024-08-12 14:06:14,874: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-structure
+[2024-08-12 14:06:14,939: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-structure
+[2024-08-12 14:06:14,968: WARNING/ForkPoolWorker-8] Checking tasks of group: job-time-collector
+[2024-08-12 14:06:14,968: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 14:06:15,024: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 14:06:15,040: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 14:06:15,041: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:06:15,094: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:06:15,113: WARNING/ForkPoolWorker-8] Checking tasks of group: pipeline-time-collector
+[2024-08-12 14:06:15,114: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 14:06:15,190: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 14:06:15,222: WARNING/ForkPoolWorker-8] Checking tasks of group: sacct-collector
+[2024-08-12 14:06:15,222: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 14:06:15,253: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 14:06:15,279: WARNING/ForkPoolWorker-8] Checking tasks of group: seff-collector
+[2024-08-12 14:06:15,279: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 14:06:15,386: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 14:06:15,397: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 14:06:15,398: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 14:06:15,465: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:06:15,475: WARNING/ForkPoolWorker-8] Checking tasks of group: start-scheduler
+[2024-08-12 14:06:15,491: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-scheduler
+[2024-08-12 14:06:15,560: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 14:06:15,573: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-forwarding
+[2024-08-12 14:06:15,573: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-forwarding
+[2024-08-12 14:06:15,627: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-forwarding
+[2024-08-12 14:06:15,655: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 14:06:15,655: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 14:06:15,711: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:06:15,736: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-scheduler
+[2024-08-12 14:06:15,736: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-scheduler
+[2024-08-12 14:06:15,800: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 14:06:15,832: WARNING/ForkPoolWorker-8] Checking tasks of group: task-time-collector
+[2024-08-12 14:06:15,832: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 14:06:15,899: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 14:06:15,937: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 14:06:15,937: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 14:06:16,004: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:06:16,023: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:06:16,036: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 14:06:16,037: WARNING/ForkPoolWorker-8] Checking tasks of group: artifact-handler
+[2024-08-12 14:06:16,037: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 14:06:16,095: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/artifact-handler
+[2024-08-12 14:06:16,117: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 14:06:16,117: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:06:16,172: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:06:16,190: WARNING/ForkPoolWorker-8] Checking tasks of group: configuration-manager
+[2024-08-12 14:06:16,190: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 14:06:16,252: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/configuration-manager
+[2024-08-12 14:06:16,275: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 14:06:16,275: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 14:06:16,334: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:06:16,409: WARNING/ForkPoolWorker-8] Checking tasks of group: enviroment-handler
+[2024-08-12 14:06:16,410: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/enviroment-handler
+[2024-08-12 14:06:16,472: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/enviroment-handler
+[2024-08-12 14:06:16,500: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 14:06:16,500: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:06:16,556: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:06:16,584: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 14:06:16,584: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 14:06:16,638: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 14:06:16,655: WARNING/ForkPoolWorker-8] Checking tasks of group: job-handler
+[2024-08-12 14:06:16,655: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 14:06:16,724: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-handler
+[2024-08-12 14:06:16,779: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 14:06:16,779: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:06:16,835: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:06:16,859: WARNING/ForkPoolWorker-8] Checking tasks of group: monitoring-manager
+[2024-08-12 14:06:16,859: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/monitoring-manager
+[2024-08-12 14:06:16,935: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/monitoring-manager
+[2024-08-12 14:06:16,956: WARNING/ForkPoolWorker-8] Checking tasks of group: setup-handler
+[2024-08-12 14:06:16,956: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/setup-handler
+[2024-08-12 14:06:17,023: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/setup-handler
+[2024-08-12 14:06:17,052: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 14:06:17,052: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 14:06:17,107: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:06:17,142: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 14:06:17,143: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 14:06:17,217: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:06:17,252: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 14:06:17,253: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 14:06:17,312: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:06:17,327: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:06:18,055: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:06:41,082: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:06:41,109: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:06:41,110: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:06:41,110: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:06:41,152: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:06:41,153: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:06:41,214: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:06:41,268: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:06:41,269: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:06:41,269: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:06:41,269: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:06:41,270: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:06:57,256: WARNING/ForkPoolWorker-7] Stopping a job from frontend request
+[2024-08-12 14:06:57,262: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:06:57,263: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:06:57,263: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:06:57,263: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:06:57,302: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:06:57,341: WARNING/ForkPoolWorker-7] store job time for key: 22
+[2024-08-12 14:06:57,352: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TIMES/22
+[2024-08-12 14:06:57,353: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TIMES/22
+[2024-08-12 14:06:57,412: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TIMES/22
+[2024-08-12 14:06:57,470: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:07:01,034: WARNING/ForkPoolWorker-7] Logging per scheduler request
+[2024-08-12 14:07:01,037: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:07:01,038: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:07:01,038: WARNING/ForkPoolWorker-7] Running collect logs
+[2024-08-12 14:07:01,076: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:07:01,100: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:07:01,136: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 14:07:01,145: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 14:07:01,189: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 14:07:01,198: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 14:07:01,229: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 14:07:01,256: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 14:07:01,291: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 14:07:01,305: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 14:07:01,339: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:07:01,349: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:07:01,386: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:07:01,398: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:07:01,436: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:07:01,455: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:07:01,499: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:07:01,512: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:07:01,549: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 14:07:01,562: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 14:07:01,601: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 14:07:01,614: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 14:07:01,650: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 14:07:01,662: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 14:07:01,704: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 14:07:01,715: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 14:07:01,754: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 14:07:01,765: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 14:07:01,995: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:07:02,019: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:07:02,105: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 14:07:02,125: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 14:07:02,219: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:07:02,228: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:07:02,269: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:07:04,262: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:07:04,262: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:07:04,263: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:07:34,264: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:07:34,265: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:07:34,265: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:07:41,080: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:07:41,105: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:07:41,106: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:07:41,106: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:07:41,147: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:07:41,147: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:07:41,176: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:07:41,227: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:07:41,227: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:07:41,227: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:07:41,227: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:07:41,228: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:08:04,264: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:08:04,265: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:08:04,265: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:08:34,266: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:08:34,267: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:08:34,267: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:08:41,082: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:08:41,108: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:08:41,108: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:08:41,108: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:08:41,157: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:08:41,157: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:08:41,248: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:08:41,303: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:08:41,303: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:08:41,304: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:08:41,304: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:08:41,304: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:08:51,010: WARNING/ForkPoolWorker-7] Collecting per scheduler request
+[2024-08-12 14:08:51,038: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:08:51,038: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:08:51,038: WARNING/ForkPoolWorker-7] Running collection strategy
+[2024-08-12 14:08:51,053: WARNING/ForkPoolWorker-8] Collecting saccts per backend request
+[2024-08-12 14:08:51,057: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:08:51,058: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:08:51,085: WARNING/ForkPoolWorker-8] Checking the sacct of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:08:51,096: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SACCT
+[2024-08-12 14:08:51,096: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SACCT/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:08:51,122: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:08:53,052: WARNING/ForkPoolWorker-8] Collecting seff per backend request
+[2024-08-12 14:08:53,055: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:08:53,055: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:08:53,070: WARNING/ForkPoolWorker-8] Checking the seff of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:08:53,079: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SEFF
+[2024-08-12 14:08:53,079: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SEFF/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:08:53,125: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:08:55,056: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 14:08:55,059: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:08:55,060: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:08:55,075: WARNING/ForkPoolWorker-8] Checking the job-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:08:55,085: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TIMES
+[2024-08-12 14:08:55,085: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/JOBS/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:08:55,147: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:08:57,061: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 14:08:57,065: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:08:57,066: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:08:57,083: WARNING/ForkPoolWorker-8] Checking the pipeline-time of bucket integration-pipeline-s0-c0-u1-user-example-com
+[2024-08-12 14:08:57,089: WARNING/ForkPoolWorker-8] Used object path: TIMES
+[2024-08-12 14:08:57,089: WARNING/ForkPoolWorker-8] Checking the times of group component
+[2024-08-12 14:08:57,089: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/component
+[2024-08-12 14:08:57,153: WARNING/ForkPoolWorker-8] Used object path: TIMES/component
+[2024-08-12 14:08:57,204: WARNING/ForkPoolWorker-8] Checking the times of group components
+[2024-08-12 14:08:57,204: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/components
+[2024-08-12 14:08:57,275: WARNING/ForkPoolWorker-8] Used object path: TIMES/components
+[2024-08-12 14:08:57,302: WARNING/ForkPoolWorker-8] Checking the times of group ray-job
+[2024-08-12 14:08:57,303: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-job
+[2024-08-12 14:08:57,355: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-job
+[2024-08-12 14:08:57,407: WARNING/ForkPoolWorker-8] Checking the times of group ray-jobs
+[2024-08-12 14:08:57,407: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-jobs
+[2024-08-12 14:08:57,459: WARNING/ForkPoolWorker-8] Used object path: TIMES/ray-jobs
+[2024-08-12 14:08:57,526: WARNING/ForkPoolWorker-8] Unseen pipeline time with key: 12
+[2024-08-12 14:08:57,526: WARNING/ForkPoolWorker-8] Unseen pipeline time with key: 13
+[2024-08-12 14:08:57,527: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/ray-jobs
+[2024-08-12 14:08:57,573: WARNING/ForkPoolWorker-8] Checking the times of group test
+[2024-08-12 14:08:57,573: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/PIPELINES/test
+[2024-08-12 14:08:57,639: WARNING/ForkPoolWorker-8] Used object path: TIMES/test
+[2024-08-12 14:08:57,695: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:08:59,065: WARNING/ForkPoolWorker-8] Collecting task times per backend request
+[2024-08-12 14:08:59,068: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:08:59,068: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:08:59,087: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-forwarder-s0-c0-u1
+[2024-08-12 14:08:59,097: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 14:08:59,097: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 14:08:59,097: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:08:59,164: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:08:59,191: WARNING/ForkPoolWorker-8] Checking tasks of group: create-forwarding
+[2024-08-12 14:08:59,191: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-forwarding
+[2024-08-12 14:08:59,269: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 14:08:59,288: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 14:08:59,288: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 14:08:59,343: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:08:59,358: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-forwarding-status
+[2024-08-12 14:08:59,358: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-forwarding-status
+[2024-08-12 14:08:59,381: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 14:08:59,412: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-files
+[2024-08-12 14:08:59,412: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-files
+[2024-08-12 14:08:59,423: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-files
+[2024-08-12 14:08:59,476: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-sacct
+[2024-08-12 14:08:59,476: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-sacct
+[2024-08-12 14:08:59,546: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-sacct
+[2024-08-12 14:08:59,559: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-seff
+[2024-08-12 14:08:59,559: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-seff
+[2024-08-12 14:08:59,649: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-seff
+[2024-08-12 14:08:59,663: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 14:08:59,663: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:08:59,717: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:08:59,730: WARNING/ForkPoolWorker-8] Checking tasks of group: forwarding-manager
+[2024-08-12 14:08:59,731: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 14:08:59,783: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 14:08:59,822: WARNING/ForkPoolWorker-8] Unseen task times with key: 68
+[2024-08-12 14:08:59,823: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 14:08:59,877: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 14:08:59,877: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 14:08:59,928: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 14:08:59,940: WARNING/ForkPoolWorker-8] Checking tasks of group: get-structure
+[2024-08-12 14:08:59,940: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-structure
+[2024-08-12 14:09:00,003: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-structure
+[2024-08-12 14:09:00,072: WARNING/ForkPoolWorker-8] Checking tasks of group: job-time-collector
+[2024-08-12 14:09:00,073: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 14:09:00,094: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 14:09:00,132: WARNING/ForkPoolWorker-8] Unseen task times with key: 64
+[2024-08-12 14:09:00,132: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 14:09:00,174: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 14:09:00,174: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:09:00,185: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:09:00,209: WARNING/ForkPoolWorker-8] Checking tasks of group: pipeline-time-collector
+[2024-08-12 14:09:00,209: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 14:09:00,654: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 14:09:00,665: WARNING/ForkPoolWorker-8] Unseen task times with key: 64
+[2024-08-12 14:09:00,665: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 14:09:00,779: WARNING/ForkPoolWorker-8] Checking tasks of group: sacct-collector
+[2024-08-12 14:09:00,779: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 14:09:00,800: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 14:09:00,814: WARNING/ForkPoolWorker-8] Unseen task times with key: 65
+[2024-08-12 14:09:00,814: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 14:09:01,107: WARNING/ForkPoolWorker-8] Checking tasks of group: seff-collector
+[2024-08-12 14:09:01,108: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 14:09:01,132: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 14:09:01,141: WARNING/ForkPoolWorker-8] Unseen task times with key: 65
+[2024-08-12 14:09:01,141: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 14:09:01,179: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 14:09:01,179: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 14:09:01,189: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:09:01,202: WARNING/ForkPoolWorker-8] Checking tasks of group: start-scheduler
+[2024-08-12 14:09:01,202: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-scheduler
+[2024-08-12 14:09:01,253: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 14:09:01,265: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-forwarding
+[2024-08-12 14:09:01,266: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-forwarding
+[2024-08-12 14:09:01,278: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-forwarding
+[2024-08-12 14:09:01,289: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 14:09:01,289: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 14:09:01,341: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:09:01,354: WARNING/ForkPoolWorker-8] Unseen task times with key: 16
+[2024-08-12 14:09:01,354: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 14:09:01,387: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-scheduler
+[2024-08-12 14:09:01,387: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-scheduler
+[2024-08-12 14:09:01,453: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 14:09:01,472: WARNING/ForkPoolWorker-8] Checking tasks of group: task-time-collector
+[2024-08-12 14:09:01,473: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 14:09:01,597: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 14:09:01,608: WARNING/ForkPoolWorker-8] Unseen task times with key: 63
+[2024-08-12 14:09:01,608: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 14:09:01,644: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 14:09:01,644: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 14:09:01,694: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:09:01,707: WARNING/ForkPoolWorker-8] Checking the task-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:09:01,722: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS
+[2024-08-12 14:09:01,722: WARNING/ForkPoolWorker-8] Checking tasks of group: artifact-handler
+[2024-08-12 14:09:01,722: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 14:09:01,777: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/artifact-handler
+[2024-08-12 14:09:01,790: WARNING/ForkPoolWorker-8] Unseen task times with key: 135
+[2024-08-12 14:09:01,790: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 14:09:01,827: WARNING/ForkPoolWorker-8] Checking tasks of group: collection-manager
+[2024-08-12 14:09:01,827: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:09:01,837: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:09:01,851: WARNING/ForkPoolWorker-8] Unseen task times with key: 135
+[2024-08-12 14:09:01,851: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:09:01,889: WARNING/ForkPoolWorker-8] Checking tasks of group: configuration-manager
+[2024-08-12 14:09:01,890: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 14:09:01,903: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/configuration-manager
+[2024-08-12 14:09:01,944: WARNING/ForkPoolWorker-8] Unseen task times with key: 136
+[2024-08-12 14:09:01,944: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 14:09:01,981: WARNING/ForkPoolWorker-8] Checking tasks of group: create-job
+[2024-08-12 14:09:01,981: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 14:09:02,033: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:09:02,084: WARNING/ForkPoolWorker-8] Checking tasks of group: enviroment-handler
+[2024-08-12 14:09:02,084: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/enviroment-handler
+[2024-08-12 14:09:02,147: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/enviroment-handler
+[2024-08-12 14:09:02,179: WARNING/ForkPoolWorker-8] Checking tasks of group: fetch-job-status
+[2024-08-12 14:09:02,179: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:09:02,232: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:09:02,291: WARNING/ForkPoolWorker-8] Checking tasks of group: get-logs
+[2024-08-12 14:09:02,291: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 14:09:02,345: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 14:09:02,359: WARNING/ForkPoolWorker-8] Checking tasks of group: job-handler
+[2024-08-12 14:09:02,359: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 14:09:02,415: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/job-handler
+[2024-08-12 14:09:02,471: WARNING/ForkPoolWorker-8] Unseen task times with key: 135
+[2024-08-12 14:09:02,471: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 14:09:02,505: WARNING/ForkPoolWorker-8] Checking tasks of group: logging-manager
+[2024-08-12 14:09:02,505: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:09:02,554: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:09:02,579: WARNING/ForkPoolWorker-8] Checking tasks of group: monitoring-manager
+[2024-08-12 14:09:02,580: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/monitoring-manager
+[2024-08-12 14:09:02,631: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/monitoring-manager
+[2024-08-12 14:09:02,649: WARNING/ForkPoolWorker-8] Checking tasks of group: setup-handler
+[2024-08-12 14:09:02,650: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/setup-handler
+[2024-08-12 14:09:02,721: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/setup-handler
+[2024-08-12 14:09:02,749: WARNING/ForkPoolWorker-8] Checking tasks of group: start-job
+[2024-08-12 14:09:02,750: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 14:09:02,803: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:09:02,856: WARNING/ForkPoolWorker-8] Checking tasks of group: stop-job
+[2024-08-12 14:09:02,856: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 14:09:02,905: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:09:02,946: WARNING/ForkPoolWorker-8] Checking tasks of group: template-handler
+[2024-08-12 14:09:02,947: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 14:09:03,002: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:09:03,028: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:09:03,066: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:09:04,265: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:09:04,266: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:09:04,266: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:09:34,267: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:09:34,267: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:09:34,267: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:09:41,082: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:09:41,107: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:09:41,107: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:09:41,107: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:09:41,156: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:09:41,157: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:09:41,197: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:09:41,210: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:09:41,210: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:09:41,210: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:09:41,210: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:09:41,211: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:10:04,268: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:10:04,268: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:10:04,268: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:10:34,270: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:10:34,271: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:10:34,271: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:10:41,083: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:10:41,110: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:10:41,110: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:10:41,110: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:10:41,159: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:10:41,159: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:10:41,213: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:10:41,265: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:10:41,265: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:10:41,265: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:10:41,265: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:10:41,266: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:11:00,009: WARNING/ForkPoolWorker-7] Logging per scheduler request
+[2024-08-12 14:11:00,015: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:11:00,020: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:11:00,020: WARNING/ForkPoolWorker-7] Running collect logs
+[2024-08-12 14:11:00,069: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:11:00,099: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:11:00,150: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 14:11:00,160: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 14:11:00,193: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 14:11:00,203: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 14:11:00,249: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 14:11:00,302: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 14:11:00,345: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 14:11:00,363: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 14:11:00,418: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:11:00,449: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:11:00,503: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:11:00,516: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:11:00,553: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:11:00,583: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:11:00,619: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:11:00,641: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:11:00,678: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 14:11:00,687: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 14:11:00,722: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 14:11:00,741: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 14:11:00,817: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 14:11:00,831: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 14:11:00,884: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 14:11:00,896: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 14:11:00,937: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 14:11:00,964: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 14:11:01,000: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:11:01,020: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:11:01,105: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 14:11:01,118: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 14:11:01,164: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:11:01,175: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:11:01,208: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:11:04,268: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:11:04,268: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:04,268: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:11:34,271: WARNING/ForkPoolWorker-7] Fetching job status per frontend request
+[2024-08-12 14:11:34,272: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:34,272: WARNING/ForkPoolWorker-7] Used object path: JOBS/22
+[2024-08-12 14:11:34,389: WARNING/ForkPoolWorker-7] Fetching job sacct per frontend request
+[2024-08-12 14:11:34,389: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:34,389: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/SACCT/22
+[2024-08-12 14:11:34,463: WARNING/ForkPoolWorker-7] Fetching job seff per frontend request
+[2024-08-12 14:11:34,463: WARNING/ForkPoolWorker-7] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:34,463: WARNING/ForkPoolWorker-7] Used object path: ARTIFACTS/SEFF/22
+[2024-08-12 14:11:36,011: WARNING/ForkPoolWorker-7] Collecting per scheduler request
+[2024-08-12 14:11:36,036: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:11:36,036: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:11:36,036: WARNING/ForkPoolWorker-7] Running collection strategy
+[2024-08-12 14:11:36,049: WARNING/ForkPoolWorker-8] Collecting saccts per backend request
+[2024-08-12 14:11:36,054: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:11:36,055: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:11:36,076: WARNING/ForkPoolWorker-8] Checking the sacct of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:36,085: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SACCT
+[2024-08-12 14:11:36,085: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SACCT/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:36,096: WARNING/ForkPoolWorker-8] Unseen artifact with key: 22
+[2024-08-12 14:11:36,096: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SACCT/22
+[2024-08-12 14:11:36,104: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SACCT/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:36,153: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:11:36,224: WARNING/ForkPoolWorker-8] Stopping a forward from frontend request
+[2024-08-12 14:11:36,226: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:11:36,226: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:11:36,227: WARNING/ForkPoolWorker-8] Used bucket name: integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:36,227: WARNING/ForkPoolWorker-8] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:11:36,246: WARNING/ForkPoolWorker-8] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:11:36,288: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:11:38,050: WARNING/ForkPoolWorker-8] Collecting seff per backend request
+[2024-08-12 14:11:38,073: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:11:38,073: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:11:38,088: WARNING/ForkPoolWorker-8] Checking the seff of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:38,099: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SEFF
+[2024-08-12 14:11:38,100: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SEFF/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:38,109: WARNING/ForkPoolWorker-8] Unseen artifact with key: 22
+[2024-08-12 14:11:38,109: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/SEFF/22
+[2024-08-12 14:11:38,119: WARNING/ForkPoolWorker-8] Used object path: MONITOR/ARTIFACTS/SEFF/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:38,228: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:11:40,057: WARNING/ForkPoolWorker-8] Collecting job times per backend request
+[2024-08-12 14:11:40,061: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:11:40,061: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:11:40,095: WARNING/ForkPoolWorker-8] Checking the job-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:40,107: WARNING/ForkPoolWorker-8] Used object path: ARTIFACTS/TIMES
+[2024-08-12 14:11:40,107: WARNING/ForkPoolWorker-8] Used object path: MONITOR/TIMES/JOBS/integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:40,154: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:11:41,083: WARNING/ForkPoolWorker-8] Forwarding per scheduler request
+[2024-08-12 14:11:41,086: WARNING/ForkPoolWorker-8] Redis lock exists: False
+[2024-08-12 14:11:41,087: WARNING/ForkPoolWorker-8] Redis lock aquired: True
+[2024-08-12 14:11:41,087: WARNING/ForkPoolWorker-8] Running deploy forwards
+[2024-08-12 14:11:41,104: WARNING/ForkPoolWorker-8] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:11:41,104: WARNING/ForkPoolWorker-8] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:11:41,163: WARNING/ForkPoolWorker-8] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:11:41,173: WARNING/ForkPoolWorker-8] Modifying import forwarding with key: 1
+[2024-08-12 14:11:41,173: WARNING/ForkPoolWorker-8] Modification status: no deployment
+[2024-08-12 14:11:41,173: WARNING/ForkPoolWorker-8] Modifying import forwarding with key: 2
+[2024-08-12 14:11:41,180: WARNING/ForkPoolWorker-8] Attempting to use kubectl to run: ['kubectl', 'delete', '-k', 'forwards/imports/integration-submitter-s0-c0-u1-user-example-com/2']
+[2024-08-12 14:11:42,066: WARNING/ForkPoolWorker-1] Collecting job times per backend request
+[2024-08-12 14:11:42,075: WARNING/ForkPoolWorker-1] Redis lock exists: False
+[2024-08-12 14:11:42,076: WARNING/ForkPoolWorker-1] Redis lock aquired: True
+[2024-08-12 14:11:42,101: WARNING/ForkPoolWorker-1] Checking the pipeline-time of bucket integration-pipeline-s0-c0-u1-user-example-com
+[2024-08-12 14:11:42,120: WARNING/ForkPoolWorker-1] Used object path: TIMES
+[2024-08-12 14:11:42,120: WARNING/ForkPoolWorker-1] Checking the times of group component
+[2024-08-12 14:11:42,120: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/PIPELINES/component
+[2024-08-12 14:11:42,179: WARNING/ForkPoolWorker-1] Used object path: TIMES/component
+[2024-08-12 14:11:42,232: WARNING/ForkPoolWorker-1] Checking the times of group components
+[2024-08-12 14:11:42,232: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/PIPELINES/components
+[2024-08-12 14:11:42,290: WARNING/ForkPoolWorker-1] Used object path: TIMES/components
+[2024-08-12 14:11:42,311: WARNING/ForkPoolWorker-1] Unseen pipeline time with key: 42
+[2024-08-12 14:11:42,311: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/PIPELINES/components
+[2024-08-12 14:11:42,429: WARNING/ForkPoolWorker-1] Checking the times of group ray-job
+[2024-08-12 14:11:42,429: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/PIPELINES/ray-job
+[2024-08-12 14:11:42,439: WARNING/ForkPoolWorker-1] Used object path: TIMES/ray-job
+[2024-08-12 14:11:42,491: WARNING/ForkPoolWorker-1] Checking the times of group ray-jobs
+[2024-08-12 14:11:42,491: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/PIPELINES/ray-jobs
+[2024-08-12 14:11:42,554: WARNING/ForkPoolWorker-1] Used object path: TIMES/ray-jobs
+[2024-08-12 14:11:42,612: WARNING/ForkPoolWorker-1] Checking the times of group test
+[2024-08-12 14:11:42,612: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/PIPELINES/test
+[2024-08-12 14:11:42,661: WARNING/ForkPoolWorker-1] Used object path: TIMES/test
+[2024-08-12 14:11:42,713: WARNING/ForkPoolWorker-1] Redis lock released: True
+[2024-08-12 14:11:44,064: WARNING/ForkPoolWorker-1] Collecting task times per backend request
+[2024-08-12 14:11:44,067: WARNING/ForkPoolWorker-1] Redis lock exists: False
+[2024-08-12 14:11:44,068: WARNING/ForkPoolWorker-1] Redis lock aquired: True
+[2024-08-12 14:11:44,086: WARNING/ForkPoolWorker-1] Checking the task-time of bucket integration-forwarder-s0-c0-u1
+[2024-08-12 14:11:44,096: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS
+[2024-08-12 14:11:44,096: WARNING/ForkPoolWorker-1] Checking tasks of group: collection-manager
+[2024-08-12 14:11:44,096: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:11:44,147: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:11:44,176: WARNING/ForkPoolWorker-1] Checking tasks of group: create-forwarding
+[2024-08-12 14:11:44,176: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/create-forwarding
+[2024-08-12 14:11:44,227: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/create-forwarding
+[2024-08-12 14:11:44,239: WARNING/ForkPoolWorker-1] Checking tasks of group: create-job
+[2024-08-12 14:11:44,239: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 14:11:44,299: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:11:44,312: WARNING/ForkPoolWorker-1] Checking tasks of group: fetch-forwarding-status
+[2024-08-12 14:11:44,312: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/fetch-forwarding-status
+[2024-08-12 14:11:44,365: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/fetch-forwarding-status
+[2024-08-12 14:11:44,378: WARNING/ForkPoolWorker-1] Checking tasks of group: fetch-job-files
+[2024-08-12 14:11:44,378: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/fetch-job-files
+[2024-08-12 14:11:44,430: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/fetch-job-files
+[2024-08-12 14:11:44,447: WARNING/ForkPoolWorker-1] Checking tasks of group: fetch-job-sacct
+[2024-08-12 14:11:44,447: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/fetch-job-sacct
+[2024-08-12 14:11:44,497: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/fetch-job-sacct
+[2024-08-12 14:11:44,508: WARNING/ForkPoolWorker-1] Checking tasks of group: fetch-job-seff
+[2024-08-12 14:11:44,509: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/fetch-job-seff
+[2024-08-12 14:11:44,577: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/fetch-job-seff
+[2024-08-12 14:11:44,602: WARNING/ForkPoolWorker-1] Checking tasks of group: fetch-job-status
+[2024-08-12 14:11:44,602: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:11:44,655: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:11:44,669: WARNING/ForkPoolWorker-1] Unseen task times with key: 33
+[2024-08-12 14:11:44,669: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:11:44,716: WARNING/ForkPoolWorker-1] Checking tasks of group: forwarding-manager
+[2024-08-12 14:11:44,716: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 14:11:44,772: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/forwarding-manager
+[2024-08-12 14:11:44,792: WARNING/ForkPoolWorker-1] Unseen task times with key: 69
+[2024-08-12 14:11:44,792: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/forwarding-manager
+[2024-08-12 14:11:44,835: WARNING/ForkPoolWorker-1] Checking tasks of group: get-logs
+[2024-08-12 14:11:44,835: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 14:11:44,903: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 14:11:44,925: WARNING/ForkPoolWorker-1] Checking tasks of group: get-structure
+[2024-08-12 14:11:44,925: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/get-structure
+[2024-08-12 14:11:44,996: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/get-structure
+[2024-08-12 14:11:45,087: WARNING/ForkPoolWorker-1] Checking tasks of group: job-time-collector
+[2024-08-12 14:11:45,087: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 14:11:45,143: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/job-time-collector
+[2024-08-12 14:11:45,171: WARNING/ForkPoolWorker-1] Unseen task times with key: 65
+[2024-08-12 14:11:45,171: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/job-time-collector
+[2024-08-12 14:11:45,212: WARNING/ForkPoolWorker-1] Checking tasks of group: logging-manager
+[2024-08-12 14:11:45,212: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:11:45,278: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:11:45,297: WARNING/ForkPoolWorker-1] Checking tasks of group: pipeline-time-collector
+[2024-08-12 14:11:45,297: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 14:11:45,367: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/pipeline-time-collector
+[2024-08-12 14:11:45,379: WARNING/ForkPoolWorker-1] Unseen task times with key: 65
+[2024-08-12 14:11:45,379: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/pipeline-time-collector
+[2024-08-12 14:11:45,509: WARNING/ForkPoolWorker-1] Checking tasks of group: sacct-collector
+[2024-08-12 14:11:45,509: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 14:11:45,519: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/sacct-collector
+[2024-08-12 14:11:45,529: WARNING/ForkPoolWorker-1] Unseen task times with key: 66
+[2024-08-12 14:11:45,529: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/sacct-collector
+[2024-08-12 14:11:45,591: WARNING/ForkPoolWorker-1] Checking tasks of group: seff-collector
+[2024-08-12 14:11:45,591: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 14:11:45,635: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/seff-collector
+[2024-08-12 14:11:45,649: WARNING/ForkPoolWorker-1] Unseen task times with key: 66
+[2024-08-12 14:11:45,649: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/seff-collector
+[2024-08-12 14:11:45,761: WARNING/ForkPoolWorker-1] Checking tasks of group: start-job
+[2024-08-12 14:11:45,762: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 14:11:45,813: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:11:45,825: WARNING/ForkPoolWorker-1] Checking tasks of group: start-scheduler
+[2024-08-12 14:11:45,825: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/start-scheduler
+[2024-08-12 14:11:45,879: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/start-scheduler
+[2024-08-12 14:11:45,894: WARNING/ForkPoolWorker-1] Checking tasks of group: stop-forwarding
+[2024-08-12 14:11:45,894: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/stop-forwarding
+[2024-08-12 14:11:45,950: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/stop-forwarding
+[2024-08-12 14:11:45,972: WARNING/ForkPoolWorker-1] Checking tasks of group: stop-job
+[2024-08-12 14:11:45,972: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 14:11:46,027: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:11:46,040: WARNING/ForkPoolWorker-1] Checking tasks of group: stop-scheduler
+[2024-08-12 14:11:46,040: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/stop-scheduler
+[2024-08-12 14:11:46,109: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/stop-scheduler
+[2024-08-12 14:11:46,127: WARNING/ForkPoolWorker-1] Checking tasks of group: task-time-collector
+[2024-08-12 14:11:46,128: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 14:11:46,209: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/task-time-collector
+[2024-08-12 14:11:46,218: WARNING/ForkPoolWorker-1] Unseen task times with key: 64
+[2024-08-12 14:11:46,218: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/task-time-collector
+[2024-08-12 14:11:46,255: WARNING/ForkPoolWorker-1] Checking tasks of group: template-handler
+[2024-08-12 14:11:46,255: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 14:11:46,308: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:11:46,319: WARNING/ForkPoolWorker-1] Checking the task-time of bucket integration-submitter-s0-c0-u1-user-example-com
+[2024-08-12 14:11:46,329: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS
+[2024-08-12 14:11:46,329: WARNING/ForkPoolWorker-1] Checking tasks of group: artifact-handler
+[2024-08-12 14:11:46,329: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 14:11:46,383: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/artifact-handler
+[2024-08-12 14:11:46,396: WARNING/ForkPoolWorker-1] Unseen task times with key: 136
+[2024-08-12 14:11:46,396: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/artifact-handler
+[2024-08-12 14:11:46,431: WARNING/ForkPoolWorker-1] Checking tasks of group: collection-manager
+[2024-08-12 14:11:46,431: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:11:46,481: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/collection-manager
+[2024-08-12 14:11:46,496: WARNING/ForkPoolWorker-1] Unseen task times with key: 136
+[2024-08-12 14:11:46,496: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/collection-manager
+[2024-08-12 14:11:46,531: WARNING/ForkPoolWorker-1] Checking tasks of group: configuration-manager
+[2024-08-12 14:11:46,531: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 14:11:46,617: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/configuration-manager
+[2024-08-12 14:11:46,629: WARNING/ForkPoolWorker-1] Unseen task times with key: 137
+[2024-08-12 14:11:46,630: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/configuration-manager
+[2024-08-12 14:11:46,681: WARNING/ForkPoolWorker-1] Checking tasks of group: create-job
+[2024-08-12 14:11:46,681: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/create-job
+[2024-08-12 14:11:46,697: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/create-job
+[2024-08-12 14:11:46,760: WARNING/ForkPoolWorker-1] Checking tasks of group: enviroment-handler
+[2024-08-12 14:11:46,761: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/enviroment-handler
+[2024-08-12 14:11:46,786: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/enviroment-handler
+[2024-08-12 14:11:46,815: WARNING/ForkPoolWorker-1] Checking tasks of group: fetch-job-status
+[2024-08-12 14:11:46,815: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/fetch-job-status
+[2024-08-12 14:11:46,868: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/fetch-job-status
+[2024-08-12 14:11:46,882: WARNING/ForkPoolWorker-1] Checking tasks of group: get-logs
+[2024-08-12 14:11:46,882: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/get-logs
+[2024-08-12 14:11:46,892: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/get-logs
+[2024-08-12 14:11:46,917: WARNING/ForkPoolWorker-1] Checking tasks of group: job-handler
+[2024-08-12 14:11:46,917: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 14:11:46,929: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/job-handler
+[2024-08-12 14:11:46,998: WARNING/ForkPoolWorker-1] Unseen task times with key: 136
+[2024-08-12 14:11:46,998: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/job-handler
+[2024-08-12 14:11:47,046: WARNING/ForkPoolWorker-1] Checking tasks of group: logging-manager
+[2024-08-12 14:11:47,046: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/logging-manager
+[2024-08-12 14:11:47,098: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/logging-manager
+[2024-08-12 14:11:47,127: WARNING/ForkPoolWorker-1] Checking tasks of group: monitoring-manager
+[2024-08-12 14:11:47,127: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/monitoring-manager
+[2024-08-12 14:11:47,161: WARNING/ForkPoolWorker-8] Resulted print: namespace "forwarding-import" deleted endpoints "integration-submitter-s0-c0-u1-user-example-com-2-ray-dashboard" deleted service "integration-submitter-s0-c0-u1-user-example-com-2-ray-dashboard" deleted
+[2024-08-12 14:11:47,161: WARNING/ForkPoolWorker-8] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:11:47,179: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/monitoring-manager
+[2024-08-12 14:11:47,224: WARNING/ForkPoolWorker-8] Modification status: deletion success
+[2024-08-12 14:11:47,226: WARNING/ForkPoolWorker-1] Checking tasks of group: setup-handler
+[2024-08-12 14:11:47,226: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/setup-handler
+[2024-08-12 14:11:47,269: WARNING/ForkPoolWorker-8] Redis lock released: True
+[2024-08-12 14:11:47,371: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/setup-handler
+[2024-08-12 14:11:47,386: WARNING/ForkPoolWorker-1] Checking tasks of group: start-job
+[2024-08-12 14:11:47,386: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/start-job
+[2024-08-12 14:11:47,437: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/start-job
+[2024-08-12 14:11:47,488: WARNING/ForkPoolWorker-1] Checking tasks of group: stop-job
+[2024-08-12 14:11:47,488: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/stop-job
+[2024-08-12 14:11:47,538: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/stop-job
+[2024-08-12 14:11:47,549: WARNING/ForkPoolWorker-1] Checking tasks of group: template-handler
+[2024-08-12 14:11:47,549: WARNING/ForkPoolWorker-1] Used object path: MONITOR/TIMES/TASKS/template-handler
+[2024-08-12 14:11:47,604: WARNING/ForkPoolWorker-1] Used object path: ARTIFACTS/TASKS/template-handler
+[2024-08-12 14:11:47,628: WARNING/ForkPoolWorker-1] Redis lock released: True
+[2024-08-12 14:11:48,064: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:12:41,089: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:12:41,115: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:12:41,116: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:12:41,116: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:12:41,177: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:12:41,177: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:12:41,204: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:12:41,261: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:12:41,261: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:12:41,262: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:12:41,262: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:12:41,263: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:13:41,087: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:13:41,111: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:13:41,112: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:13:41,112: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:13:41,161: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:13:41,161: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:13:41,260: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:13:41,270: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:13:41,270: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:13:41,270: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:13:41,271: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:13:41,271: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:13:53,381: WARNING/ForkPoolWorker-7] Stopping scheduler per frontend request
+[2024-08-12 14:13:53,385: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:13:53,385: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:13:53,385: WARNING/ForkPoolWorker-7] Attempting to use kubectl to run: ['kubectl', 'delete', '-k', 'scheduler/definition']
+[2024-08-12 14:13:53,758: WARNING/ForkPoolWorker-7] Resulted print: deployment.apps "beat-server" deleted
+[2024-08-12 14:13:53,760: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:14:41,089: WARNING/ForkPoolWorker-7] Forwarding per scheduler request
+[2024-08-12 14:14:41,119: WARNING/ForkPoolWorker-7] Redis lock exists: False
+[2024-08-12 14:14:41,120: WARNING/ForkPoolWorker-7] Redis lock aquired: True
+[2024-08-12 14:14:41,121: WARNING/ForkPoolWorker-7] Running deploy forwards
+[2024-08-12 14:14:41,178: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS
+[2024-08-12 14:14:41,178: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/1
+[2024-08-12 14:14:41,259: WARNING/ForkPoolWorker-7] Used object path: FORWARDS/IMPORTS/integration-submitter-s0-c0-u1-user-example-com/2
+[2024-08-12 14:14:41,316: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 1
+[2024-08-12 14:14:41,316: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:14:41,316: WARNING/ForkPoolWorker-7] Modifying import forwarding with key: 2
+[2024-08-12 14:14:41,316: WARNING/ForkPoolWorker-7] Modification status: no deployment
+[2024-08-12 14:14:41,317: WARNING/ForkPoolWorker-7] Redis lock released: True
+[2024-08-12 14:21:58,944: WARNING/ForkPoolWorker-7] Getting logs per frontend request
