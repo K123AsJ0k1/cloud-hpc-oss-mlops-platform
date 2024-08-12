@@ -32,7 +32,8 @@ The reason for the 1 and 2 separation in Cloud-HPC integration is due to its unc
    - Pushgateway
 6. Prometheus image in prometheus-deployment.yaml was changed to newest
 7. Grafana image in grafana-deployment.yaml was changed to newest
-8. Porter was added into monitoring namespace
+8. Forwarder deployment was added
+9. The deployment envs were modified to have the forwarder deployment
 
 ### CPouta OSS
 
