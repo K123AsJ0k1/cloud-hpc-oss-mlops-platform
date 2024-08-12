@@ -1,14 +1,14 @@
 {
     "1": {
         "name": "remote-model-training",
-        "start-time": 1723461983.123387,
-        "end-time": 1723462254.0046601,
-        "total-seconds": 270.88127
+        "start-time": 1723471341.6166644,
+        "end-time": 1723471614.5373893,
+        "total-seconds": 272.92072
     },
     "2": {
         "name": "train-fmnist-cnn",
-        "start-time": 1723461976.2864475,
-        "end-time": 1723462254.0950422,
-        "total-seconds": 277.80859
+        "start-time": 1723471335.0193815,
+        "end-time": 1723471614.6182308,
+        "total-seconds": 279.59885
     }
 }
