@@ -119,22 +119,22 @@ The VM is now ready to setup OSS, so git clone this repository and install any d
 ```
 # Kubeflow central dashboard
 ssh -L 8080:localhost:8080 cpouta
-kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
+kubectl port-forward svc/istio-ingressgateway 8080:80 -n istio-system
 http://localhost:8080
 
 # Kubeflow MinIO
 ssh -L 9000:localhost:9000 cpouta
-kubectl port-forward -n kubeflow svc/minio-service 9000:9000
+kubectl port-forward svc/minio-service 9000:9000 -n kubeflow
 http://localhost:9000 (user is minio and password minio123)
 
 # MLflow
 ssh -L 5000:localhost:5000 cpouta
-kubectl -n mlflow port-forward svc/mlflow 5000:5000
+kubectl port-forward svc/mlflow 5000:5000 -n mlflow 
 http://localhost:5000
 
 # MLflow MinIO
 ssh -L 9001:localhost:9001 cpouta
-kubectl -n mlflow port-forward svc/mlflow-minio-service 9001:9001
+kubectl port-forward svc/mlflow-minio-service 9001:9001 -n mlflow
 http://localhost:9001 (user and password is minioadmin)
 
 # Prometheus
@@ -144,7 +144,7 @@ http://localhost:8090
 
 # Grafana
 ssh -L 5050:localhost:5050 cpouta
-kubectl port-forward svc/grafana 5050:3000 --namespace monitoring
+kubectl port-forward svc/grafana 5050:3000 -n monitoring
 http://localhost:5050 (user and password is admin)
 
 # Forwarder frontend
@@ -160,7 +160,7 @@ kubectl port-forward svc/flower-service 6501:6501 -n forwarder
 # Forwarder Backend
 
 ssh -L 6502:localhost:6502 cpouta
-kubectl port-forward svc/grafana 6502:6502 --namespace forwarding
+kubectl port-forward svc/celery-service 6502:6502 -n forwarder
 
 # Ray Dashboard
 
@@ -257,4 +257,4 @@ docker compose -f stack.yaml up # Start
 CTRL + C # Shutdown
 docker compose -f stack.yaml down # Shutdown
 ```
-1. If now errors are created, proceed to the local, cloud and cloud-hpc notebooks
+8. If now errors are created, proceed to the local, cloud and cloud-hpc notebooks
