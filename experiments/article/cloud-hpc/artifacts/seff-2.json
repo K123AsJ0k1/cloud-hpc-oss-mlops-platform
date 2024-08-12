@@ -1,15 +1,15 @@
 {
-    "Job ID": "3659195",
+    "Job ID": "3659573",
     "Cluster": "mahti",
     "User/Group": "()/pepr_()",
     "State": "CANCELLED (exit code 0)",
     "Nodes": "2",
     "Cores per node": "256",
-    "CPU Utilized": "00:05:13",
-    "CPU Efficiency": "0.15% of 2-08:19:12 core-walltime",
-    "Job Wall-clock time": "00:06:36",
-    "Memory Utilized": "2.16 GB",
-    "Memory Efficiency": "10.80% of 20.00 GB",
+    "CPU Utilized": "00:05:10",
+    "CPU Efficiency": "0.15% of 2-09:44:32 core-walltime",
+    "Job Wall-clock time": "00:06:46",
+    "Memory Utilized": "2.21 GB",
+    "Memory Efficiency": "11.05% of 20.00 GB",
     "Billed project": "project_()",
-    "Non-Interactive BUs": "22.00"
+    "Non-Interactive BUs": "22.56"
 }
