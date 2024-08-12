@@ -1,0 +1,26 @@
+{
+    "1": {
+        "name": "cloud-hpc-preprocess",
+        "start-time": 1723461113.5597608,
+        "end-time": 1723461113.7043304,
+        "total-seconds": 0.14457
+    },
+    "2": {
+        "name": "cloud-hpc-train",
+        "start-time": 1723461694.5476098,
+        "end-time": 1723462537.2693226,
+        "total-seconds": 842.72171
+    },
+    "3": {
+        "name": "cloud-hpc-evaluate",
+        "start-time": 1723462655.7182825,
+        "end-time": 1723462670.4994347,
+        "total-seconds": 14.78115
+    },
+    "4": {
+        "name": "cloud-hpc-pipeline",
+        "start-time": 1723460978.717684,
+        "end-time": 1723462692.401105,
+        "total-seconds": 1713.68342
+    }    
+}
