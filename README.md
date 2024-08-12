@@ -1,11 +1,29 @@
-# OSS MLOps Platform
+# Cloud-HPC integreated OSS MLOps Platform
 
-Welcome to the OSS MLOps Platform, a comprehensive suite designed to streamline your machine learning operations from experimentation to deployment.
+Welcome to the OSS MLOps Platform, a comprehensive suite designed to streamline your machine learning operations from experimentation to deployment. 
 
 ![logos.png](resources/img/logos.png)
 
+This fork provides documentation, applications and notebooks on how to enable the OSS platform run in a cloud virtual machine to utilize the Ray computing framework run in a supercomputer. 
+
+The utilized and intended use enviroment is the CSC infrastructure ecosystem with the tested platforms being [CPouta](https://docs.csc.fi/cloud/pouta/) cloud platform, [Allas](https://docs.csc.fi/data/Allas/) object storage platform and [Mahti](https://docs.csc.fi/computing/) supercomputer platform.
+
+A more indepth explanation for the implemented thesis code and the initial ideas of the article code are found in a master's thesis ['On Integrating Cloud and High Performance Computing Enviroments in Machine Learning Operations'](https://helda.helsinki.fi/items/8b6cc75b-43a9-43e8-bd26-c8f1914cee34).
+
 ## Overview of Project Structure
 
+- **Applications**
+  - [`Forwarder`](applications/article/forwarder): Self-implemented component that enables cloud-local interactions
+  - [`Submitter`](applications/article/submitter): Self-implemented component that enables local-hpc interactions
+  - [`Protype Forwarder`](applications/thesis/porter): A initial implementation of forwarder
+  - [`Prototype Submitter`](applications/thesis/porter): A initial implementation of submitter
+  
+- **Testing**
+  - [`Experiments`](experiments): Collection of notebooks for comparing Fashion MNIST scenarios
+  - [`Article experiments`](experiments/article): Scenarios used in a related article
+  - [`Thesis experiments`](experiments/thesis): Scenarios used in a related master's thesis
+  - [`Experiment Notes`](experiments/article/README.md)
+  
 - **Setup Scripts**
   - [`setup.sh`](setup.sh): The primary script to install and configure the platform on your local machine.
   - [`setup.md`](setup.md): Detailed documentation for platform setup and testing procedures.
