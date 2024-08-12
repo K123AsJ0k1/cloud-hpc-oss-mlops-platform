@@ -15,6 +15,12 @@ The used row results in the article are found in
 
 - Notebook_Size_Comparison.ipynb
 
+The used billing unit results for cloud and cloud-hpc consists of flavor, floating ip and batch job consumption. These are found here
+
+- [CPouta flavors](https://docs.csc.fi/cloud/pouta/vm-flavors-and-billing/): Used flavor is standard.xxlarge
+- [Floating IP](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/): Used by all VMs
+- [Batch jobs](https://docs.csc.fi/computing/performance/): Check seff-1.json
+
 ## Setup of Cloud-HPC Integreated OSS Platform
 
 ### OSS Modifications
