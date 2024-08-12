@@ -22,7 +22,7 @@ A more indepth explanation for the implemented thesis code and the initial ideas
   - [`Experiments`](experiments): Collection of notebooks for comparing Fashion MNIST scenarios
   - [`Article experiments`](experiments/article): Scenarios used in a related article
   - [`Thesis experiments`](experiments/thesis): Scenarios used in a related master's thesis
-  - [`Experiment Notes`](experiments/article/README.md)
+  - [`Experiment Notes`](experiments/article/README.md): Information regarding article results and Cloud-HPC setup
   
 - **Setup Scripts**
   - [`setup.sh`](setup.sh): The primary script to install and configure the platform on your local machine.
