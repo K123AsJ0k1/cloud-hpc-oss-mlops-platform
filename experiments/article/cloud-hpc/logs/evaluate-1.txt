@@ -1,30 +1,30 @@
-time="2024-08-12T11:36:13.738Z" level=info msg="capturing logs" argo=true
-I0812 11:36:13.785797      28 env.go:30] cannot find launcher configmap: name="kfp-launcher" namespace="kubeflow-user-example-com"
-I0812 11:36:13.785978      28 launcher.go:144] PipelineRoot defaults to "minio://mlpipeline/v2/artifacts".
-I0812 11:36:13.786789      28 cache.go:143] Cannot detect ml-pipeline in the same namespace, default to ml-pipeline.kubeflow:8887 as KFP endpoint.
-I0812 11:36:13.786814      28 cache.go:120] Connecting to cache endpoint ml-pipeline.kubeflow:8887
-I0812 11:36:13.990336      28 launcher.go:193] enable caching
-I0812 11:36:14.150393      28 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+time="2024-08-12T14:54:18.976Z" level=info msg="capturing logs" argo=true
+I0812 14:54:19.024817      26 env.go:30] cannot find launcher configmap: name="kfp-launcher" namespace="kubeflow-user-example-com"
+I0812 14:54:19.024973      26 launcher.go:144] PipelineRoot defaults to "minio://mlpipeline/v2/artifacts".
+I0812 14:54:19.025440      26 cache.go:143] Cannot detect ml-pipeline in the same namespace, default to ml-pipeline.kubeflow:8887 as KFP endpoint.
+I0812 14:54:19.025462      26 cache.go:120] Connecting to cache endpoint ml-pipeline.kubeflow:8887
+I0812 14:54:19.150626      26 launcher.go:193] enable caching
+I0812 14:54:19.386794      26 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: 
 https://pip.pypa.io/warnings/venv
-[KFP Executor 2024-08-12 11:37:34,692 INFO]: Looking for component `evaluate` in --component_module_path `/tmp/tmp.VHsLDZ22NP/ephemeral_component.py`
-[KFP Executor 2024-08-12 11:37:34,692 INFO]: Loading KFP component "evaluate" from /tmp/tmp.VHsLDZ22NP/ephemeral_component.py (directory "/tmp/tmp.VHsLDZ22NP" and module name "ephemeral_component")
-[KFP Executor 2024-08-12 11:37:35,718 INFO]: Storage setup
-[KFP Executor 2024-08-12 11:37:35,718 INFO]: Used bucket: integration-pipeline-s0-c0-u1-user-example-com
-[KFP Executor 2024-08-12 11:37:35,718 INFO]: Setting up MLflow
-[KFP Executor 2024-08-12 11:37:35,781 INFO]: Training metrics: {'1-total-cpu-seconds': 312.973, '1-total-submit-start-seconds': -30.0, '1-total-start-end-seconds': 426.0, '2-ave-cpu-seconds': 1.0, '2-elapsed-seconds': 397.0, 'cpu-utilized-seconds': 313.0, 'cpu-efficiency-percentage': 0.15, 'cpu-efficiency-seconds': 749952.0, 'job-wall-clock-time-seconds': 396.0, 'memory-efficiency-percentage': 10.8, 'billing-units': 22.0, '1-elapsed-seconds': 396.0, '1-cpu-time-seconds': 202752.0, '3-cpu-time-seconds': 202752.0, '3-total-cpu-seconds': 0.002, '3-total-submit-start-seconds': 0.0, '3-total-start-end-seconds': 396.0, '4-ave-cpu-seconds': 0.0, '4-elapsed-seconds': 1.0, '4-cpu-time-seconds': 2.0, '4-total-cpu-seconds': 0.043, '4-total-submit-start-seconds': 0.0, '4-total-start-end-seconds': 1.0, '5-ave-cpu-seconds': 293.0, '5-elapsed-seconds': 390.0, '5-cpu-time-seconds': 780.0, '5-total-cpu-seconds': 293.044, '5-total-submit-start-seconds': 0.0, '5-total-start-end-seconds': 390.0, '6-ave-cpu-seconds': 18.0, '6-elapsed-seconds': 385.0, '6-cpu-time-seconds': 770.0, '6-total-cpu-seconds': 18.045, '6-total-submit-start-seconds': 0.0, '2-cpu-time-seconds': 101632.0, '2-total-cpu-seconds': 1.839, '2-total-submit-start-seconds': 0.0, '2-total-start-end-seconds': 397.0, '3-ave-cpu-seconds': 0.0, '3-elapsed-seconds': 396.0, '6-total-start-end-seconds': 385.0}
-[KFP Executor 2024-08-12 11:37:35,781 INFO]: Checked metric accuracy with threshold 0.8
-[KFP Executor 2024-08-12 11:37:35,781 INFO]: Checked metric precision with threshold 0.8
-[KFP Executor 2024-08-12 11:37:35,781 INFO]: Checked metric recall with threshold 0.8
-[KFP Executor 2024-08-12 11:37:35,781 INFO]: Stopping forwarder scheduler
-[KFP Executor 2024-08-12 11:37:50,499 INFO]: Forwarder scheduler stopped: (200, True)
-I0812 11:37:51.053242      28 launcher.go:860] ExecutorOutput: {
+[KFP Executor 2024-08-12 14:55:30,585 INFO]: Looking for component `evaluate` in --component_module_path `/tmp/tmp.VOjPPOYLjW/ephemeral_component.py`
+[KFP Executor 2024-08-12 14:55:30,585 INFO]: Loading KFP component "evaluate" from /tmp/tmp.VOjPPOYLjW/ephemeral_component.py (directory "/tmp/tmp.VOjPPOYLjW" and module name "ephemeral_component")
+[KFP Executor 2024-08-12 14:55:31,624 INFO]: Storage setup
+[KFP Executor 2024-08-12 14:55:31,624 INFO]: Used bucket: integration-pipeline-s0-c0-u1-user-example-com
+[KFP Executor 2024-08-12 14:55:31,624 INFO]: Setting up MLflow
+[KFP Executor 2024-08-12 14:55:31,687 INFO]: Training metrics: {'accuracy': 0.8941, 'precision': 0.89379, 'recall': 0.8941, 'top-accuracy': 0.874, 'trouser-accuracy': 0.983, 'pullover-accuracy': 0.858, 'dress-accuracy': 0.863, 'coat-accuracy': 0.815, 'sandal-accuracy': 0.959, 'shirt-accuracy': 0.692, 'sneaker-accuracy': 0.97, 'bag-accuracy': 0.97, 'ankle-boot-accuracy': 0.957, 'top-precision': 0.83397, 'trouser-precision': 0.9553, 'pullover-precision': 0.82979, 'dress-precision': 0.90747, 'coat-precision': 0.83934, 'sandal-precision': 0.98764, 'shirt-precision': 0.72008, 'sneaker-precision': 0.93449, 'bag-precision': 0.9671, 'ankle-boot-precision': 0.96278, 'top-recall': 0.874, 'trouser-recall': 0.983, 'pullover-recall': 0.858, 'dress-recall': 0.863, 'coat-recall': 0.815, 'sandal-recall': 0.959, 'shirt-recall': 0.692, 'sneaker-recall': 0.97, 'bag-recall': 0.97, 'ankle-boot-recall': 0.957, '1-elapsed-seconds': 417.0, '1-cpu-time-seconds': 213504.0, '1-total-cpu-seconds': 310.966, '1-total-submit-start-seconds': -11.0, '1-total-start-end-seconds': 428.0, '2-ave-cpu-seconds': 1.0, '2-elapsed-seconds': 418.0, '2-cpu-time-seconds': 107008.0, '2-total-cpu-seconds': 1.835, '2-total-submit-start-seconds': 0.0, '2-total-start-end-seconds': 418.0, '3-ave-cpu-seconds': 0.0, '3-elapsed-seconds': 417.0, '3-cpu-time-seconds': 213504.0, '3-total-cpu-seconds': 0.002, '3-total-submit-start-seconds': 0.0, '3-total-start-end-seconds': 417.0, '4-ave-cpu-seconds': 0.0, '4-elapsed-seconds': 0.0, '4-cpu-time-seconds': 0.0, '4-total-cpu-seconds': 0.043, '4-total-submit-start-seconds': 0.0, '4-total-start-end-seconds': 0.0, '5-ave-cpu-seconds': 294.0, '5-elapsed-seconds': 412.0, '5-cpu-time-seconds': 824.0, '5-total-cpu-seconds': 294.044, '5-total-submit-start-seconds': 0.0, '5-total-start-end-seconds': 412.0, '6-ave-cpu-seconds': 15.0, '6-elapsed-seconds': 407.0, '6-cpu-time-seconds': 814.0, '6-total-cpu-seconds': 15.041, '6-total-submit-start-seconds': 0.0, '6-total-start-end-seconds': 407.0, 'cpu-utilized-seconds': 311.0, 'cpu-efficiency-percentage': 0.15, 'cpu-efficiency-seconds': 760704.0, 'job-wall-clock-time-seconds': 417.0, 'memory-efficiency-percentage': 11.04, 'billing-units': 23.17}
+[KFP Executor 2024-08-12 14:55:31,687 INFO]: Checked metric accuracy with threshold 0.8
+[KFP Executor 2024-08-12 14:55:31,687 INFO]: Checked metric precision with threshold 0.8
+[KFP Executor 2024-08-12 14:55:31,687 INFO]: Checked metric recall with threshold 0.8
+[KFP Executor 2024-08-12 14:55:31,687 INFO]: Stopping forwarder scheduler
+[KFP Executor 2024-08-12 14:55:32,095 INFO]: Forwarder scheduler stopped: (200, True)
+I0812 14:55:32.554715      26 launcher.go:860] ExecutorOutput: {
   "parameters": {
     "Output": {
       "stringValue": "true"
     }
   }
 }
-I0812 11:37:51.120324      28 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
-time="2024-08-12T11:37:51.412Z" level=info msg="/tmp/outputs/Output/data -> /var/run/argo/outputs/artifacts/tmp/outputs/Output/data.tgz" argo=true
-time="2024-08-12T11:37:51.415Z" level=info msg="Taring /tmp/outputs/Output/data"
+I0812 14:55:32.946721      26 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+time="2024-08-12T14:55:34.391Z" level=info msg="/tmp/outputs/Output/data -> /var/run/argo/outputs/artifacts/tmp/outputs/Output/data.tgz" argo=true
+time="2024-08-12T14:55:34.391Z" level=info msg="Taring /tmp/outputs/Output/data"

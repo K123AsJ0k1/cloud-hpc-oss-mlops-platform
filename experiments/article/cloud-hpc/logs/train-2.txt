@@ -1,118 +1,118 @@
-time="2024-08-12T11:13:12.613Z" level=info msg="capturing logs" argo=true
-I0812 11:13:12.652705      28 env.go:30] cannot find launcher configmap: name="kfp-launcher" namespace="kubeflow-user-example-com"
-I0812 11:13:12.652799      28 launcher.go:144] PipelineRoot defaults to "minio://mlpipeline/v2/artifacts".
-I0812 11:13:12.653060      28 cache.go:143] Cannot detect ml-pipeline in the same namespace, default to ml-pipeline.kubeflow:8887 as KFP endpoint.
-I0812 11:13:12.653072      28 cache.go:120] Connecting to cache endpoint ml-pipeline.kubeflow:8887
-I0812 11:13:12.749085      28 launcher.go:193] enable caching
-I0812 11:13:12.910842      28 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+time="2024-08-12T13:53:04.374Z" level=info msg="capturing logs" argo=true
+I0812 13:53:04.581668      24 env.go:30] cannot find launcher configmap: name="kfp-launcher" namespace="kubeflow-user-example-com"
+I0812 13:53:04.581854      24 launcher.go:144] PipelineRoot defaults to "minio://mlpipeline/v2/artifacts".
+I0812 13:53:04.582782      24 cache.go:143] Cannot detect ml-pipeline in the same namespace, default to ml-pipeline.kubeflow:8887 as KFP endpoint.
+I0812 13:53:04.582817      24 cache.go:120] Connecting to cache endpoint ml-pipeline.kubeflow:8887
+I0812 13:53:04.754332      24 launcher.go:193] enable caching
+I0812 13:53:05.053007      24 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: 
 https://pip.pypa.io/warnings/venv
-[KFP Executor 2024-08-12 11:21:31,062 INFO]: Looking for component `train` in --component_module_path `/tmp/tmp.vqZFzspFUp/ephemeral_component.py`
-[KFP Executor 2024-08-12 11:21:31,062 INFO]: Loading KFP component "train" from /tmp/tmp.vqZFzspFUp/ephemeral_component.py (directory "/tmp/tmp.vqZFzspFUp" and module name "ephemeral_component")
-[KFP Executor 2024-08-12 11:21:34,547 INFO]: Storage setup
-[KFP Executor 2024-08-12 11:21:34,548 INFO]: Used bucket:integration-pipeline-s0-c0-u1-user-example-com
-[KFP Executor 2024-08-12 11:21:34,548 INFO]: Variable setup
-[KFP Executor 2024-08-12 11:21:34,548 INFO]: fastapi-service.forwarder.svc.cluster.local
-[KFP Executor 2024-08-12 11:21:34,548 INFO]: Starting forwarder
-[KFP Executor 2024-08-12 11:21:35,441 INFO]: Forwarder started
-[KFP Executor 2024-08-12 11:21:35,441 INFO]: Submitting forwarding request
-[KFP Executor 2024-08-12 11:21:35,441 INFO]: fastapi-service.forwarder.svc.cluster.local
-[KFP Executor 2024-08-12 11:21:35,649 INFO]: Request success
-[KFP Executor 2024-08-12 11:21:35,649 INFO]: Import key: 8
-[KFP Executor 2024-08-12 11:21:35,649 INFO]: Waiting forwarding services
-[KFP Executor 2024-08-12 11:24:05,700 INFO]: Services up
-[KFP Executor 2024-08-12 11:24:05,700 INFO]: Submitting job request
-[KFP Executor 2024-08-12 11:24:05,840 INFO]: Current job key: 19
-[KFP Executor 2024-08-12 11:24:05,840 INFO]: Starting job
-[KFP Executor 2024-08-12 11:24:06,096 INFO]: Job started: success
-[KFP Executor 2024-08-12 11:24:06,096 INFO]: Waiting job to run
-[KFP Executor 2024-08-12 11:26:06,160 INFO]: SLURM job id: 3659195
-[KFP Executor 2024-08-12 11:26:06,161 INFO]: Setting up Ray
-[KFP Executor 2024-08-12 11:26:06,161 INFO]: {'ray-dashboard': 'integration-submitter-s0-c0-u1-user-example-com-8-ray-dashboard.forwarding-import.svc.cluster.local:8280'}
-[KFP Executor 2024-08-12 11:26:06,161 INFO]: Setting up ray client
-[KFP Executor 2024-08-12 11:26:06,161 INFO]: Testing ray client url: 
-http://integration-submitter-s0-c0-u1-user-example-com-8-ray-dashboard.forwarding-import.svc.cluster.local:8280
-[KFP Executor 2024-08-12 11:26:06,219 INFO]: Ray client exists: True
-[KFP Executor 2024-08-12 11:26:06,317 INFO]: Ray setup
-[KFP Executor 2024-08-12 11:26:06,317 INFO]: Ray client setup
-[KFP Executor 2024-08-12 11:26:06,317 INFO]: Setting up MLFlow
-[KFP Executor 2024-08-12 11:26:06,318 INFO]: Using MLflow tracking URI: 
+[KFP Executor 2024-08-12 13:57:33,185 INFO]: Looking for component `train` in --component_module_path `/tmp/tmp.lMO4LMaS3X/ephemeral_component.py`
+[KFP Executor 2024-08-12 13:57:33,185 INFO]: Loading KFP component "train" from /tmp/tmp.lMO4LMaS3X/ephemeral_component.py (directory "/tmp/tmp.lMO4LMaS3X" and module name "ephemeral_component")
+[KFP Executor 2024-08-12 13:57:36,438 INFO]: Storage setup
+[KFP Executor 2024-08-12 13:57:36,438 INFO]: Used bucket:integration-pipeline-s0-c0-u1-user-example-com
+[KFP Executor 2024-08-12 13:57:36,439 INFO]: Variable setup
+[KFP Executor 2024-08-12 13:57:36,439 INFO]: fastapi-service.forwarder.svc.cluster.local
+[KFP Executor 2024-08-12 13:57:36,439 INFO]: Starting forwarder
+[KFP Executor 2024-08-12 13:58:02,095 INFO]: Forwarder started
+[KFP Executor 2024-08-12 13:58:02,095 INFO]: Submitting forwarding request
+[KFP Executor 2024-08-12 13:58:02,095 INFO]: fastapi-service.forwarder.svc.cluster.local
+[KFP Executor 2024-08-12 13:58:02,295 INFO]: Request success
+[KFP Executor 2024-08-12 13:58:02,296 INFO]: Import key: 2
+[KFP Executor 2024-08-12 13:58:02,296 INFO]: Waiting forwarding services
+[KFP Executor 2024-08-12 14:00:02,414 INFO]: Services up
+[KFP Executor 2024-08-12 14:00:02,415 INFO]: Submitting job request
+[KFP Executor 2024-08-12 14:00:02,580 INFO]: Current job key: 22
+[KFP Executor 2024-08-12 14:00:02,580 INFO]: Starting job
+[KFP Executor 2024-08-12 14:00:02,783 INFO]: Job started: success
+[KFP Executor 2024-08-12 14:00:02,783 INFO]: Waiting job to run
+[KFP Executor 2024-08-12 14:02:02,826 INFO]: SLURM job id: 3659573
+[KFP Executor 2024-08-12 14:02:02,826 INFO]: Setting up Ray
+[KFP Executor 2024-08-12 14:02:02,827 INFO]: {'ray-dashboard': 'integration-submitter-s0-c0-u1-user-example-com-2-ray-dashboard.forwarding-import.svc.cluster.local:8280'}
+[KFP Executor 2024-08-12 14:02:02,827 INFO]: Setting up ray client
+[KFP Executor 2024-08-12 14:02:02,827 INFO]: Testing ray client url: 
+http://integration-submitter-s0-c0-u1-user-example-com-2-ray-dashboard.forwarding-import.svc.cluster.local:8280
+[KFP Executor 2024-08-12 14:02:02,858 INFO]: Ray client exists: True
+[KFP Executor 2024-08-12 14:02:02,964 INFO]: Ray setup
+[KFP Executor 2024-08-12 14:02:02,965 INFO]: Ray client setup
+[KFP Executor 2024-08-12 14:02:02,965 INFO]: Setting up MLFlow
+[KFP Executor 2024-08-12 14:02:02,965 INFO]: Using MLflow tracking URI: 
 http://mlflow.mlflow.svc.cluster.local:5000
-[KFP Executor 2024-08-12 11:26:06,318 INFO]: Using MLflow experiment: cloud-hpc-fmnist-pipeline
-[KFP Executor 2024-08-12 11:26:06,380 INFO]: MLflow setup
-[KFP Executor 2024-08-12 11:26:06,489 INFO]: Run ID: e710877ce1544e4892cb4a5304758a54
-[KFP Executor 2024-08-12 11:26:06,489 INFO]: Running ray job: train-fmnist-cnn.py
-[KFP Executor 2024-08-12 11:26:06,489 INFO]: Setting up ray job
-[KFP Executor 2024-08-12 11:26:06,539 INFO]: Make directory
-[KFP Executor 2024-08-12 11:26:06,539 INFO]: Job writing path:/jobs/train-fmnist-cnn.py
-[KFP Executor 2024-08-12 11:26:06,539 INFO]: Submitting a ray job
-[KFP Executor 2024-08-12 11:26:06,540 INFO]: Submitting ray job train-fmnist-cnn.py using directory /jobs
-2024-08-12 11:26:06,549	INFO dashboard_sdk.py:338 -- Uploading package gcs://_ray_pkg_3c32b175ae9b855f.zip.
-2024-08-12 11:26:06,550	INFO packaging.py:530 -- Creating a file package for local directory '/jobs'.
-[KFP Executor 2024-08-12 11:26:07,137 INFO]: Ray batch job id: raysubmit_zas6pMynYWhyJwRS
-[KFP Executor 2024-08-12 11:26:07,137 INFO]: Waiting ray job raysubmit_zas6pMynYWhyJwRS
-[KFP Executor 2024-08-12 11:26:07,189 INFO]: status: PENDING
-[KFP Executor 2024-08-12 11:26:12,208 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:26:17,219 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:26:22,234 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:26:27,257 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:26:32,274 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:26:37,308 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:26:42,349 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:26:47,364 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:26:52,383 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:26:57,398 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:02,416 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:07,429 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:12,466 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:17,507 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:22,524 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:27,539 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:32,555 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:37,569 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:42,589 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:47,625 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:52,637 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:27:57,690 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:02,711 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:07,727 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:12,742 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:17,779 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:22,795 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:27,830 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:32,843 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:37,856 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:42,872 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:47,887 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:52,905 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:28:57,941 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:02,982 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:07,996 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:13,007 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:18,020 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:23,036 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:28,087 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:33,121 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:38,161 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:43,177 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:48,191 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:53,209 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:29:58,223 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:03,261 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:08,295 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:13,317 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:18,333 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:23,349 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:28,366 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:33,379 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:38,412 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:43,425 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:48,441 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:53,478 INFO]: status: RUNNING
-[KFP Executor 2024-08-12 11:30:58,494 INFO]: status: SUCCEEDED
-[KFP Executor 2024-08-12 11:30:58,573 INFO]: Ray batch job ended:
-[KFP Executor 2024-08-12 11:30:58,573 INFO]: RAY batch job succeeded
-[KFP Executor 2024-08-12 11:30:58,573 INFO]: Starting ray job
+[KFP Executor 2024-08-12 14:02:02,965 INFO]: Using MLflow experiment: cloud-hpc-fmnist-pipeline
+[KFP Executor 2024-08-12 14:02:03,063 INFO]: MLflow setup
+[KFP Executor 2024-08-12 14:02:04,912 INFO]: Run ID: ba05a3a001314c05b1a5e58400c392e9
+[KFP Executor 2024-08-12 14:02:04,912 INFO]: Running ray job: train-fmnist-cnn.py
+[KFP Executor 2024-08-12 14:02:04,912 INFO]: Setting up ray job
+[KFP Executor 2024-08-12 14:02:04,968 INFO]: Make directory
+[KFP Executor 2024-08-12 14:02:04,968 INFO]: Job writing path:/jobs/train-fmnist-cnn.py
+[KFP Executor 2024-08-12 14:02:04,968 INFO]: Submitting a ray job
+[KFP Executor 2024-08-12 14:02:04,969 INFO]: Submitting ray job train-fmnist-cnn.py using directory /jobs
+2024-08-12 14:02:04,979	INFO dashboard_sdk.py:338 -- Uploading package gcs://_ray_pkg_3c32b175ae9b855f.zip.
+2024-08-12 14:02:04,979	INFO packaging.py:530 -- Creating a file package for local directory '/jobs'.
+[KFP Executor 2024-08-12 14:02:05,749 INFO]: Ray batch job id: raysubmit_SLs8vrHxBZrSTSTS
+[KFP Executor 2024-08-12 14:02:05,750 INFO]: Waiting ray job raysubmit_SLs8vrHxBZrSTSTS
+[KFP Executor 2024-08-12 14:02:05,811 INFO]: status: PENDING
+[KFP Executor 2024-08-12 14:02:10,832 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:02:15,863 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:02:20,877 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:02:25,893 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:02:30,911 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:02:35,951 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:02:40,991 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:02:46,010 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:02:51,027 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:02:56,040 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:01,055 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:06,092 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:11,113 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:16,155 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:21,173 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:26,195 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:31,212 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:36,232 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:41,277 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:46,297 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:51,341 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:03:56,360 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:01,380 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:06,395 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:11,414 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:16,450 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:21,488 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:26,501 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:31,521 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:36,538 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:41,556 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:46,573 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:51,608 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:04:56,644 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:01,662 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:06,677 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:11,694 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:16,712 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:21,728 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:26,761 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:31,777 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:36,812 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:41,825 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:46,840 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:51,861 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:05:56,891 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:01,910 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:06,940 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:11,956 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:16,971 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:21,988 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:27,005 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:32,021 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:37,064 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:42,084 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:47,096 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:52,128 INFO]: status: RUNNING
+[KFP Executor 2024-08-12 14:06:57,141 INFO]: status: SUCCEEDED
+[KFP Executor 2024-08-12 14:06:57,191 INFO]: Ray batch job ended:
+[KFP Executor 2024-08-12 14:06:57,191 INFO]: RAY batch job succeeded
+[KFP Executor 2024-08-12 14:06:57,191 INFO]: Starting ray job
 Ray version is:2.9.3
 Swiftclient version is:4.4.0
 Torch version is:2.2.1+cu121
@@ -124,179 +124,179 @@ Getting training data
 Getting testing data
 Data loaded
 Starting training
-2024-08-12 14:26:17,878	INFO worker.py:1405 -- Using address 10.141.0.208:8265 set in the environment variable RAY_ADDRESS
-2024-08-12 14:26:17,879	INFO worker.py:1540 -- Connecting to existing Ray cluster at address: 10.141.0.208:8265...
-2024-08-12 14:26:17,885	INFO worker.py:1715 -- Connected to Ray cluster. View the dashboard at [1m[32m10.141.0.208:8280 [39m[22m
-[36m(remote_model_training pid=624775)[0m Defining model
-[36m(remote_model_training pid=624775)[0m Defining metrics
-[36m(remote_model_training pid=624775)[0m Starting model training
-[36m(remote_model_training pid=624775)[0m Epoch: 1/5, Batch 2000, Loss: 1.3016709297355264, Accuracy: 0.529, Precision: 0.542, Recall: 0.529
-[36m(remote_model_training pid=624775)[0m Epoch: 1/5, Batch 4000, Loss: 0.6658983824425377, Accuracy: 0.743, Precision: 0.735, Recall: 0.743
-[36m(remote_model_training pid=624775)[0m Epoch: 1/5, Batch 6000, Loss: 0.5727700670788763, Accuracy: 0.782, Precision: 0.777, Recall: 0.782
-[36m(remote_model_training pid=624775)[0m Epoch: 1/5, Batch 8000, Loss: 0.5351556372115156, Accuracy: 0.803, Precision: 0.799, Recall: 0.803
-[36m(remote_model_training pid=624775)[0m Epoch: 1/5, Batch 10000, Loss: 0.4820523722063808, Accuracy: 0.821, Precision: 0.818, Recall: 0.821
-[36m(remote_model_training pid=624775)[0m Epoch: 1/5, Batch 12000, Loss: 0.45552664385581737, Accuracy: 0.835, Precision: 0.832, Recall: 0.835
-[36m(remote_model_training pid=624775)[0m Epoch: 1/5, Batch 14000, Loss: 0.4387703293109516, Accuracy: 0.837, Precision: 0.835, Recall: 0.837
-[36m(remote_model_training pid=624775)[0m Epoch: 2/5, Batch 2000, Loss: 0.39194721302403923, Accuracy: 0.851, Precision: 0.849, Recall: 0.851
-[36m(remote_model_training pid=624775)[0m Epoch: 2/5, Batch 4000, Loss: 0.3822603679462045, Accuracy: 0.856, Precision: 0.855, Recall: 0.856
-[36m(remote_model_training pid=624775)[0m Epoch: 2/5, Batch 6000, Loss: 0.3790124210501672, Accuracy: 0.861, Precision: 0.859, Recall: 0.861
-[36m(remote_model_training pid=624775)[0m Epoch: 2/5, Batch 8000, Loss: 0.3850767593832752, Accuracy: 0.855, Precision: 0.853, Recall: 0.855
-[36m(remote_model_training pid=624775)[0m Epoch: 2/5, Batch 10000, Loss: 0.3701579027169064, Accuracy: 0.858, Precision: 0.856, Recall: 0.858
-[36m(remote_model_training pid=624775)[0m Epoch: 2/5, Batch 12000, Loss: 0.35312810919450205, Accuracy: 0.872, Precision: 0.871, Recall: 0.872
-[36m(remote_model_training pid=624775)[0m Epoch: 2/5, Batch 14000, Loss: 0.3625823986408213, Accuracy: 0.873, Precision: 0.871, Recall: 0.873
-[36m(remote_model_training pid=624775)[0m Epoch: 3/5, Batch 2000, Loss: 0.3391377350816856, Accuracy: 0.874, Precision: 0.873, Recall: 0.874
-[36m(remote_model_training pid=624775)[0m Epoch: 3/5, Batch 4000, Loss: 0.3213955202256584, Accuracy: 0.881, Precision: 0.88, Recall: 0.881
-[36m(remote_model_training pid=624775)[0m Epoch: 3/5, Batch 6000, Loss: 0.3205319172732961, Accuracy: 0.878, Precision: 0.877, Recall: 0.878
-[36m(remote_model_training pid=624775)[0m Epoch: 3/5, Batch 8000, Loss: 0.31807111005458866, Accuracy: 0.883, Precision: 0.882, Recall: 0.883
-[36m(remote_model_training pid=624775)[0m Epoch: 3/5, Batch 10000, Loss: 0.31516827138108783, Accuracy: 0.88, Precision: 0.88, Recall: 0.88
-[36m(remote_model_training pid=624775)[0m Epoch: 3/5, Batch 12000, Loss: 0.32377068188430347, Accuracy: 0.881, Precision: 0.88, Recall: 0.881
-[36m(remote_model_training pid=624775)[0m Epoch: 3/5, Batch 14000, Loss: 0.3208247618153691, Accuracy: 0.882, Precision: 0.882, Recall: 0.882
-[36m(remote_model_training pid=624775)[0m Epoch: 4/5, Batch 2000, Loss: 0.29917868881883625, Accuracy: 0.887, Precision: 0.886, Recall: 0.887
-[36m(remote_model_training pid=624775)[0m Epoch: 4/5, Batch 4000, Loss: 0.2860273350457137, Accuracy: 0.893, Precision: 0.893, Recall: 0.893
-[36m(remote_model_training pid=624775)[0m Epoch: 4/5, Batch 6000, Loss: 0.3014857338342699, Accuracy: 0.888, Precision: 0.887, Recall: 0.888
-[36m(remote_model_training pid=624775)[0m Epoch: 4/5, Batch 8000, Loss: 0.2962969425291376, Accuracy: 0.892, Precision: 0.891, Recall: 0.892
-[36m(remote_model_training pid=624775)[0m Epoch: 4/5, Batch 10000, Loss: 0.29402730937942034, Accuracy: 0.89, Precision: 0.889, Recall: 0.89
-[36m(remote_model_training pid=624775)[0m Epoch: 4/5, Batch 12000, Loss: 0.2894557934146051, Accuracy: 0.894, Precision: 0.893, Recall: 0.894
-[36m(remote_model_training pid=624775)[0m Epoch: 4/5, Batch 14000, Loss: 0.2937415790656378, Accuracy: 0.888, Precision: 0.888, Recall: 0.888
-[36m(remote_model_training pid=624775)[0m Epoch: 5/5, Batch 2000, Loss: 0.2890490457349879, Accuracy: 0.89, Precision: 0.89, Recall: 0.89
-[36m(remote_model_training pid=624775)[0m Epoch: 5/5, Batch 4000, Loss: 0.28177316459951546, Accuracy: 0.901, Precision: 0.9, Recall: 0.901
-[36m(remote_model_training pid=624775)[0m Epoch: 5/5, Batch 6000, Loss: 0.28826718324373724, Accuracy: 0.89, Precision: 0.889, Recall: 0.89
-[36m(remote_model_training pid=624775)[0m Epoch: 5/5, Batch 8000, Loss: 0.2658009933435569, Accuracy: 0.902, Precision: 0.901, Recall: 0.902
-[36m(remote_model_training pid=624775)[0m Epoch: 5/5, Batch 10000, Loss: 0.274691575821018, Accuracy: 0.897, Precision: 0.896, Recall: 0.897
-[36m(remote_model_training pid=624775)[0m Epoch: 5/5, Batch 12000, Loss: 0.283278157606801, Accuracy: 0.894, Precision: 0.894, Recall: 0.894
-[36m(remote_model_training pid=624775)[0m Epoch: 5/5, Batch 14000, Loss: 0.273258394773663, Accuracy: 0.894, Precision: 0.894, Recall: 0.894
-[36m(remote_model_training pid=624775)[0m Training complete
-[36m(remote_model_training pid=624775)[0m Starting model testing
-[36m(remote_model_training pid=624775)[0m Testing complete
-[36m(remote_model_training pid=624775)[0m Storing created artifacts
-[36m(remote_model_training pid=624775)[0m Storing predictions
-[36m(remote_model_training pid=624775)[0m Formatting model parameters
-[36m(remote_model_training pid=624775)[0m Storing parameters
-[36m(remote_model_training pid=624775)[0m Formatting model metrics
-[36m(remote_model_training pid=624775)[0m Storing metrics
+2024-08-12 17:02:16,671	INFO worker.py:1405 -- Using address 10.141.1.166:8265 set in the environment variable RAY_ADDRESS
+2024-08-12 17:02:16,671	INFO worker.py:1540 -- Connecting to existing Ray cluster at address: 10.141.1.166:8265...
+2024-08-12 17:02:16,677	INFO worker.py:1715 -- Connected to Ray cluster. View the dashboard at [1m[32m10.141.1.166:8280 [39m[22m
+[36m(remote_model_training pid=290397)[0m Defining model
+[36m(remote_model_training pid=290397)[0m Defining metrics
+[36m(remote_model_training pid=290397)[0m Starting model training
+[36m(remote_model_training pid=290397)[0m Epoch: 1/5, Batch 2000, Loss: 1.2440326809119433, Accuracy: 0.54, Precision: 0.564, Recall: 0.54
+[36m(remote_model_training pid=290397)[0m Epoch: 1/5, Batch 4000, Loss: 0.6654785906232428, Accuracy: 0.748, Precision: 0.737, Recall: 0.748
+[36m(remote_model_training pid=290397)[0m Epoch: 1/5, Batch 6000, Loss: 0.5751267545007868, Accuracy: 0.778, Precision: 0.771, Recall: 0.778
+[36m(remote_model_training pid=290397)[0m Epoch: 1/5, Batch 8000, Loss: 0.5357396117789321, Accuracy: 0.801, Precision: 0.795, Recall: 0.801
+[36m(remote_model_training pid=290397)[0m Epoch: 1/5, Batch 10000, Loss: 0.48463983553447176, Accuracy: 0.824, Precision: 0.82, Recall: 0.824
+[36m(remote_model_training pid=290397)[0m Epoch: 1/5, Batch 12000, Loss: 0.4540659370478679, Accuracy: 0.841, Precision: 0.838, Recall: 0.841
+[36m(remote_model_training pid=290397)[0m Epoch: 1/5, Batch 14000, Loss: 0.43152785150602724, Accuracy: 0.844, Precision: 0.842, Recall: 0.844
+[36m(remote_model_training pid=290397)[0m Epoch: 2/5, Batch 2000, Loss: 0.3865954313056427, Accuracy: 0.853, Precision: 0.851, Recall: 0.853
+[36m(remote_model_training pid=290397)[0m Epoch: 2/5, Batch 4000, Loss: 0.37120182828338877, Accuracy: 0.86, Precision: 0.859, Recall: 0.86
+[36m(remote_model_training pid=290397)[0m Epoch: 2/5, Batch 6000, Loss: 0.3764049277462764, Accuracy: 0.864, Precision: 0.863, Recall: 0.864
+[36m(remote_model_training pid=290397)[0m Epoch: 2/5, Batch 8000, Loss: 0.38459115512615244, Accuracy: 0.861, Precision: 0.859, Recall: 0.861
+[36m(remote_model_training pid=290397)[0m Epoch: 2/5, Batch 10000, Loss: 0.36572748483771284, Accuracy: 0.866, Precision: 0.865, Recall: 0.866
+[36m(remote_model_training pid=290397)[0m Epoch: 2/5, Batch 12000, Loss: 0.35057488243454643, Accuracy: 0.87, Precision: 0.869, Recall: 0.87
+[36m(remote_model_training pid=290397)[0m Epoch: 2/5, Batch 14000, Loss: 0.3573012123618246, Accuracy: 0.874, Precision: 0.872, Recall: 0.874
+[36m(remote_model_training pid=290397)[0m Epoch: 3/5, Batch 2000, Loss: 0.3304081989289625, Accuracy: 0.877, Precision: 0.876, Recall: 0.877
+[36m(remote_model_training pid=290397)[0m Epoch: 3/5, Batch 4000, Loss: 0.3143778347787247, Accuracy: 0.884, Precision: 0.883, Recall: 0.884
+[36m(remote_model_training pid=290397)[0m Epoch: 3/5, Batch 6000, Loss: 0.3215114468535612, Accuracy: 0.878, Precision: 0.877, Recall: 0.878
+[36m(remote_model_training pid=290397)[0m Epoch: 3/5, Batch 8000, Loss: 0.31463182108446924, Accuracy: 0.885, Precision: 0.884, Recall: 0.885
+[36m(remote_model_training pid=290397)[0m Epoch: 3/5, Batch 10000, Loss: 0.3137330796727774, Accuracy: 0.884, Precision: 0.883, Recall: 0.884
+[36m(remote_model_training pid=290397)[0m Epoch: 3/5, Batch 12000, Loss: 0.3181580641815526, Accuracy: 0.882, Precision: 0.881, Recall: 0.882
+[36m(remote_model_training pid=290397)[0m Epoch: 3/5, Batch 14000, Loss: 0.32167140883707906, Accuracy: 0.882, Precision: 0.882, Recall: 0.882
+[36m(remote_model_training pid=290397)[0m Epoch: 4/5, Batch 2000, Loss: 0.29703429327384945, Accuracy: 0.889, Precision: 0.888, Recall: 0.889
+[36m(remote_model_training pid=290397)[0m Epoch: 4/5, Batch 4000, Loss: 0.2932580728773173, Accuracy: 0.888, Precision: 0.887, Recall: 0.888
+[36m(remote_model_training pid=290397)[0m Epoch: 4/5, Batch 6000, Loss: 0.30067192100383544, Accuracy: 0.887, Precision: 0.886, Recall: 0.887
+[36m(remote_model_training pid=290397)[0m Epoch: 4/5, Batch 8000, Loss: 0.29197570550125057, Accuracy: 0.893, Precision: 0.892, Recall: 0.893
+[36m(remote_model_training pid=290397)[0m Epoch: 4/5, Batch 10000, Loss: 0.29146526020391866, Accuracy: 0.891, Precision: 0.891, Recall: 0.891
+[36m(remote_model_training pid=290397)[0m Epoch: 4/5, Batch 12000, Loss: 0.2837420063355248, Accuracy: 0.894, Precision: 0.893, Recall: 0.894
+[36m(remote_model_training pid=290397)[0m Epoch: 4/5, Batch 14000, Loss: 0.2846546668435967, Accuracy: 0.89, Precision: 0.89, Recall: 0.89
+[36m(remote_model_training pid=290397)[0m Epoch: 5/5, Batch 2000, Loss: 0.2849427960004318, Accuracy: 0.893, Precision: 0.892, Recall: 0.893
+[36m(remote_model_training pid=290397)[0m Epoch: 5/5, Batch 4000, Loss: 0.28055191690791614, Accuracy: 0.899, Precision: 0.899, Recall: 0.899
+[36m(remote_model_training pid=290397)[0m Epoch: 5/5, Batch 6000, Loss: 0.2800221333904483, Accuracy: 0.894, Precision: 0.893, Recall: 0.894
+[36m(remote_model_training pid=290397)[0m Epoch: 5/5, Batch 8000, Loss: 0.263514525211398, Accuracy: 0.902, Precision: 0.901, Recall: 0.902
+[36m(remote_model_training pid=290397)[0m Epoch: 5/5, Batch 10000, Loss: 0.26787586766594906, Accuracy: 0.901, Precision: 0.9, Recall: 0.901
+[36m(remote_model_training pid=290397)[0m Epoch: 5/5, Batch 12000, Loss: 0.2803527851097351, Accuracy: 0.893, Precision: 0.893, Recall: 0.893
+[36m(remote_model_training pid=290397)[0m Epoch: 5/5, Batch 14000, Loss: 0.279934957817155, Accuracy: 0.896, Precision: 0.896, Recall: 0.896
+[36m(remote_model_training pid=290397)[0m Training complete
+[36m(remote_model_training pid=290397)[0m Starting model testing
+[36m(remote_model_training pid=290397)[0m Testing complete
+[36m(remote_model_training pid=290397)[0m Storing created artifacts
+[36m(remote_model_training pid=290397)[0m Storing predictions
+[36m(remote_model_training pid=290397)[0m Formatting model parameters
+[36m(remote_model_training pid=290397)[0m Storing parameters
+[36m(remote_model_training pid=290397)[0m Formatting model metrics
+[36m(remote_model_training pid=290397)[0m Storing metrics
 Training success:True
 Ray job Complete
-[KFP Executor 2024-08-12 11:30:58,573 INFO]: Ray job ran: True
-[KFP Executor 2024-08-12 11:30:58,824 INFO]: SLURM job cancel: {'status': 'success'}
-[KFP Executor 2024-08-12 11:30:58,824 INFO]: Collecting Artifacts
-[KFP Executor 2024-08-12 11:30:58,824 INFO]: Hyperarameters
-[KFP Executor 2024-08-12 11:30:58,824 INFO]: Getting model parameters
+[KFP Executor 2024-08-12 14:06:57,191 INFO]: Ray job ran: True
+[KFP Executor 2024-08-12 14:06:57,479 INFO]: SLURM job cancel: {'status': 'success'}
+[KFP Executor 2024-08-12 14:06:57,479 INFO]: Collecting Artifacts
+[KFP Executor 2024-08-12 14:06:57,479 INFO]: Hyperarameters
+[KFP Executor 2024-08-12 14:06:57,480 INFO]: Getting model parameters
 /usr/local/lib/python3.10/site-packages/torch/storage.py:414: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See 
 https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models
  for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
   return torch.load(io.BytesIO(b))
-[KFP Executor 2024-08-12 11:30:58,975 INFO]: Logging model
-2024/08/12 11:30:59 WARNING mlflow.utils.requirements_utils: Found torch version (2.4.0+cpu) contains a local version label (+cpu). MLflow logged a pip requirement for this package as 'torch==2.4.0' without the local version label to make it installable from PyPI. To specify pip requirements containing local version labels, please use `conda_env` or `pip_requirements`.
-2024/08/12 11:31:04 WARNING mlflow.utils.requirements_utils: Found torch version (2.4.0+cpu) contains a local version label (+cpu). MLflow logged a pip requirement for this package as 'torch==2.4.0' without the local version label to make it installable from PyPI. To specify pip requirements containing local version labels, please use `conda_env` or `pip_requirements`.
-[KFP Executor 2024-08-12 11:31:04,559 INFO]: Found credentials in environment variables.
+[KFP Executor 2024-08-12 14:06:57,573 INFO]: Logging model
+2024/08/12 14:06:57 WARNING mlflow.utils.requirements_utils: Found torch version (2.4.0+cpu) contains a local version label (+cpu). MLflow logged a pip requirement for this package as 'torch==2.4.0' without the local version label to make it installable from PyPI. To specify pip requirements containing local version labels, please use `conda_env` or `pip_requirements`.
+2024/08/12 14:07:03 WARNING mlflow.utils.requirements_utils: Found torch version (2.4.0+cpu) contains a local version label (+cpu). MLflow logged a pip requirement for this package as 'torch==2.4.0' without the local version label to make it installable from PyPI. To specify pip requirements containing local version labels, please use `conda_env` or `pip_requirements`.
+[KFP Executor 2024-08-12 14:07:03,509 INFO]: Found credentials in environment variables.
 Registered model 'CLOUD-HPC-FMNIST-CNN' already exists. Creating a new version of this model...
-2024/08/12 11:31:05 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: CLOUD-HPC-FMNIST-CNN, version 5
-Created version '5' of model 'CLOUD-HPC-FMNIST-CNN'.
-[KFP Executor 2024-08-12 11:31:05,117 INFO]: Getting model predictions
-[KFP Executor 2024-08-12 11:31:05,132 INFO]: Logging predictions
-[KFP Executor 2024-08-12 11:31:05,154 INFO]: Logging metrics
-[KFP Executor 2024-08-12 11:31:05,168 INFO]: Waiting sacct and seff
-[KFP Executor 2024-08-12 11:35:35,258 INFO]: Fetching sacct
-[KFP Executor 2024-08-12 11:35:35,352 INFO]: Logging sacct
-[KFP Executor 2024-08-12 11:35:35,352 INFO]: 
-[KFP Executor 2024-08-12 11:35:35,352 INFO]: Sacct:
-[KFP Executor 2024-08-12 11:35:35,352 INFO]: Row 1
-[KFP Executor 2024-08-12 11:35:35,352 INFO]: job-name=ray-clust+
-[KFP Executor 2024-08-12 11:35:35,352 INFO]: state=CANCELLED+
-[KFP Executor 2024-08-12 11:35:35,352 INFO]: elapsed-seconds=396.0
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: cpu-time-seconds=202752.0
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: total-cpu-seconds=312.973
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: submit-date=2024-08-12-14:25:13
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: total-submit-start-seconds=-30
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: total-start-end-seconds=426
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: 
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: Row 2
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: job-name=batch
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: state=CANCELLED
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: ave-cpu-seconds=1.0
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: elapsed-seconds=397.0
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: cpu-time-seconds=101632.0
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: total-cpu-seconds=1.839
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: submit-date=2024-08-12-14:25:13
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: total-submit-start-seconds=0
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: total-start-end-seconds=397
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: 
-[KFP Executor 2024-08-12 11:35:35,353 INFO]: Row 3
-[KFP Executor 2024-08-12 11:35:35,354 INFO]: job-name=extern
-[KFP Executor 2024-08-12 11:35:35,354 INFO]: state=COMPLETED
-[KFP Executor 2024-08-12 11:35:35,354 INFO]: ave-cpu-seconds=0.0
-[KFP Executor 2024-08-12 11:35:35,354 INFO]: elapsed-seconds=396.0
-[KFP Executor 2024-08-12 11:35:35,354 INFO]: cpu-time-seconds=202752.0
-[KFP Executor 2024-08-12 11:35:35,354 INFO]: total-cpu-seconds=0.002
-[KFP Executor 2024-08-12 11:35:35,354 INFO]: submit-date=2024-08-12-14:25:13
-[KFP Executor 2024-08-12 11:35:35,354 INFO]: total-submit-start-seconds=0
-[KFP Executor 2024-08-12 11:35:35,354 INFO]: total-start-end-seconds=396
-[KFP Executor 2024-08-12 11:35:35,354 INFO]: 
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: Row 4
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: job-name=hostname
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: state=COMPLETED
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: ave-cpu-seconds=0.0
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: elapsed-seconds=1.0
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: cpu-time-seconds=2.0
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: total-cpu-seconds=0.043
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: submit-date=2024-08-12-14:25:22
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: total-submit-start-seconds=0
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: total-start-end-seconds=1
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: 
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: Row 5
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: job-name=singulari+
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: state=CANCELLED
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: ave-cpu-seconds=293.0
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: elapsed-seconds=390.0
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: cpu-time-seconds=780.0
-[KFP Executor 2024-08-12 11:35:35,355 INFO]: total-cpu-seconds=293.044
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: submit-date=2024-08-12-14:25:23
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: total-submit-start-seconds=0
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: total-start-end-seconds=390
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: 
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: Row 6
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: job-name=singulari+
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: state=CANCELLED
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: ave-cpu-seconds=18.0
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: elapsed-seconds=385.0
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: cpu-time-seconds=770.0
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: total-cpu-seconds=18.045
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: submit-date=2024-08-12-14:25:28
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: total-submit-start-seconds=0
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: total-start-end-seconds=385
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: 
-[KFP Executor 2024-08-12 11:35:35,356 INFO]: Fetching seff
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: Logging seff
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: 
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: Seff:
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: cluster=mahti
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: status=CANCELLED
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: billed-project=project_
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: cpu-utilized-seconds=313.0
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: cpu-efficiency-percentage=0.15
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: cpu-efficiency-seconds=749952.0
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: job-wall-clock-time-seconds=396.0
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: memory-efficiency-percentage=10.80
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: billing-units=22.00
-[KFP Executor 2024-08-12 11:35:35,390 INFO]: Logging parameters and metrics
-[KFP Executor 2024-08-12 11:35:35,886 INFO]: Parameters logged
-[KFP Executor 2024-08-12 11:35:37,132 INFO]: Metrics logged
-[KFP Executor 2024-08-12 11:35:37,132 INFO]: Canceling imports
-[KFP Executor 2024-08-12 11:35:37,269 INFO]: Cancellation success
-[KFP Executor 2024-08-12 11:35:37,269 INFO]: Storing time
-I0812 11:35:38.717817      28 launcher.go:860] ExecutorOutput: {
+2024/08/12 14:07:04 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: CLOUD-HPC-FMNIST-CNN, version 7
+Created version '7' of model 'CLOUD-HPC-FMNIST-CNN'.
+[KFP Executor 2024-08-12 14:07:04,128 INFO]: Getting model predictions
+[KFP Executor 2024-08-12 14:07:04,139 INFO]: Logging predictions
+[KFP Executor 2024-08-12 14:07:04,157 INFO]: Logging metrics
+[KFP Executor 2024-08-12 14:07:04,233 INFO]: Waiting sacct and seff
+[KFP Executor 2024-08-12 14:11:34,379 INFO]: Fetching sacct
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: Logging sacct
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: 
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: Sacct:
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: Row 1
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: job-name=ray-clust+
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: state=CANCELLED+
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: elapsed-seconds=406.0
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: cpu-time-seconds=207872.0
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: total-cpu-seconds=309.983
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: submit-date=2024-08-12-17:01:08
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: total-submit-start-seconds=-18
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: total-start-end-seconds=424
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: 
+[KFP Executor 2024-08-12 14:11:34,449 INFO]: Row 2
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: job-name=batch
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: state=CANCELLED
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: ave-cpu-seconds=1.0
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: elapsed-seconds=407.0
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: cpu-time-seconds=104192.0
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: total-cpu-seconds=1.852
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: submit-date=2024-08-12-17:01:08
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: total-submit-start-seconds=0
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: total-start-end-seconds=407
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: 
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: Row 3
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: job-name=extern
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: state=COMPLETED
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: ave-cpu-seconds=0.0
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: elapsed-seconds=406.0
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: cpu-time-seconds=207872.0
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: total-cpu-seconds=0.002
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: submit-date=2024-08-12-17:01:08
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: total-submit-start-seconds=0
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: total-start-end-seconds=406
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: 
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: Row 4
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: job-name=hostname
+[KFP Executor 2024-08-12 14:11:34,450 INFO]: state=COMPLETED
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: ave-cpu-seconds=0.0
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: elapsed-seconds=0.0
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: cpu-time-seconds=0.0
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: total-cpu-seconds=0.042
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: submit-date=2024-08-12-17:01:16
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: total-submit-start-seconds=0
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: total-start-end-seconds=0
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: 
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: Row 5
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: job-name=singulari+
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: state=CANCELLED
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: ave-cpu-seconds=295.0
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: elapsed-seconds=401.0
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: cpu-time-seconds=802.0
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: total-cpu-seconds=294.043
+[KFP Executor 2024-08-12 14:11:34,451 INFO]: submit-date=2024-08-12-17:01:16
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: total-submit-start-seconds=0
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: total-start-end-seconds=401
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: 
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: Row 6
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: job-name=singulari+
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: state=CANCELLED
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: ave-cpu-seconds=15.0
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: elapsed-seconds=395.0
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: cpu-time-seconds=790.0
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: total-cpu-seconds=14.043
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: submit-date=2024-08-12-17:01:22
+[KFP Executor 2024-08-12 14:11:34,452 INFO]: total-submit-start-seconds=0
+[KFP Executor 2024-08-12 14:11:34,453 INFO]: total-start-end-seconds=395
+[KFP Executor 2024-08-12 14:11:34,453 INFO]: 
+[KFP Executor 2024-08-12 14:11:34,453 INFO]: Fetching seff
+[KFP Executor 2024-08-12 14:11:34,527 INFO]: Logging seff
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: 
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: Seff:
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: cluster=mahti
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: status=CANCELLED
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: billed-project=project_()
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: cpu-utilized-seconds=310.0
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: cpu-efficiency-percentage=0.15
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: cpu-efficiency-seconds=755072.0
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: job-wall-clock-time-seconds=406.0
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: memory-efficiency-percentage=11.05
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: billing-units=22.56
+[KFP Executor 2024-08-12 14:11:34,528 INFO]: Logging parameters and metrics
+[KFP Executor 2024-08-12 14:11:34,923 INFO]: Parameters logged
+[KFP Executor 2024-08-12 14:11:36,205 INFO]: Metrics logged
+[KFP Executor 2024-08-12 14:11:36,205 INFO]: Canceling imports
+[KFP Executor 2024-08-12 14:11:36,293 INFO]: Cancellation success
+[KFP Executor 2024-08-12 14:11:36,293 INFO]: Storing time
+I0812 14:11:37.779901      24 launcher.go:860] ExecutorOutput: {
   "parameters": {
     "storage_uri": {
-      "stringValue": "s3://mlflow/2/e710877ce1544e4892cb4a5304758a54/artifacts"
+      "stringValue": "s3://mlflow/2/ba05a3a001314c05b1a5e58400c392e9/artifacts"
     },
     "run_id": {
-      "stringValue": "e710877ce1544e4892cb4a5304758a54"
+      "stringValue": "ba05a3a001314c05b1a5e58400c392e9"
     }
   }
 }
-I0812 11:35:38.742145      28 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
-time="2024-08-12T11:35:38.993Z" level=info msg="/tmp/outputs/run_id/data -> /var/run/argo/outputs/parameters//tmp/outputs/run_id/data" argo=true
-time="2024-08-12T11:35:38.994Z" level=info msg="/tmp/outputs/run_id/data -> /var/run/argo/outputs/artifacts/tmp/outputs/run_id/data.tgz" argo=true
-time="2024-08-12T11:35:38.994Z" level=info msg="Taring /tmp/outputs/run_id/data"
-time="2024-08-12T11:35:38.996Z" level=info msg="/tmp/outputs/storage_uri/data -> /var/run/argo/outputs/artifacts/tmp/outputs/storage_uri/data.tgz" argo=true
-time="2024-08-12T11:35:38.997Z" level=info msg="Taring /tmp/outputs/storage_uri/data"
+I0812 14:11:37.792181      24 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+time="2024-08-12T14:11:37.878Z" level=info msg="/tmp/outputs/run_id/data -> /var/run/argo/outputs/parameters//tmp/outputs/run_id/data" argo=true
+time="2024-08-12T14:11:37.878Z" level=info msg="/tmp/outputs/run_id/data -> /var/run/argo/outputs/artifacts/tmp/outputs/run_id/data.tgz" argo=true
+time="2024-08-12T14:11:37.879Z" level=info msg="Taring /tmp/outputs/run_id/data"
+time="2024-08-12T14:11:37.880Z" level=info msg="/tmp/outputs/storage_uri/data -> /var/run/argo/outputs/artifacts/tmp/outputs/storage_uri/data.tgz" argo=true
+time="2024-08-12T14:11:37.880Z" level=info msg="Taring /tmp/outputs/storage_uri/data"

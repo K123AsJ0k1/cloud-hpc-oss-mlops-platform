@@ -1,28 +1,28 @@
-time="2024-08-12T11:09:52.421Z" level=info msg="capturing logs" argo=true
-I0812 11:09:52.470277      28 env.go:30] cannot find launcher configmap: name="kfp-launcher" namespace="kubeflow-user-example-com"
-I0812 11:09:52.470371      28 launcher.go:144] PipelineRoot defaults to "minio://mlpipeline/v2/artifacts".
-I0812 11:09:52.470753      28 cache.go:143] Cannot detect ml-pipeline in the same namespace, default to ml-pipeline.kubeflow:8887 as KFP endpoint.
-I0812 11:09:52.470765      28 cache.go:120] Connecting to cache endpoint ml-pipeline.kubeflow:8887
-I0812 11:09:52.685902      28 launcher.go:193] enable caching
-I0812 11:09:53.282092      28 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+time="2024-08-12T13:50:39.269Z" level=info msg="capturing logs" argo=true
+I0812 13:50:39.333810      27 env.go:30] cannot find launcher configmap: name="kfp-launcher" namespace="kubeflow-user-example-com"
+I0812 13:50:39.333915      27 launcher.go:144] PipelineRoot defaults to "minio://mlpipeline/v2/artifacts".
+I0812 13:50:39.334352      27 cache.go:143] Cannot detect ml-pipeline in the same namespace, default to ml-pipeline.kubeflow:8887 as KFP endpoint.
+I0812 13:50:39.334368      27 cache.go:120] Connecting to cache endpoint ml-pipeline.kubeflow:8887
+I0812 13:50:39.751074      27 launcher.go:193] enable caching
+I0812 13:50:39.911477      27 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: 
 https://pip.pypa.io/warnings/venv
-[KFP Executor 2024-08-12 11:11:50,562 INFO]: Looking for component `preprocess` in --component_module_path `/tmp/tmp.Lgw1Pp7bd5/ephemeral_component.py`
-[KFP Executor 2024-08-12 11:11:50,562 INFO]: Loading KFP component "preprocess" from /tmp/tmp.Lgw1Pp7bd5/ephemeral_component.py (directory "/tmp/tmp.Lgw1Pp7bd5" and module name "ephemeral_component")
-[KFP Executor 2024-08-12 11:11:53,560 INFO]: Storage setup
-[KFP Executor 2024-08-12 11:11:53,560 INFO]: Variable setup
-[KFP Executor 2024-08-12 11:11:53,560 INFO]: Utilized bucket: integration-pipeline-s0-c0-u1-user-example-com
-[KFP Executor 2024-08-12 11:11:53,560 INFO]: Checking train loader
-[KFP Executor 2024-08-12 11:11:53,655 INFO]: Checking test loader
-[KFP Executor 2024-08-12 11:11:54,027 INFO]: Preprocess complete
-I0812 11:11:54.715806      28 launcher.go:860] ExecutorOutput: {
+[KFP Executor 2024-08-12 13:52:29,928 INFO]: Looking for component `preprocess` in --component_module_path `/tmp/tmp.DvUGrRFYwn/ephemeral_component.py`
+[KFP Executor 2024-08-12 13:52:29,928 INFO]: Loading KFP component "preprocess" from /tmp/tmp.DvUGrRFYwn/ephemeral_component.py (directory "/tmp/tmp.DvUGrRFYwn" and module name "ephemeral_component")
+[KFP Executor 2024-08-12 13:52:33,088 INFO]: Storage setup
+[KFP Executor 2024-08-12 13:52:33,088 INFO]: Variable setup
+[KFP Executor 2024-08-12 13:52:33,088 INFO]: Utilized bucket: integration-pipeline-s0-c0-u1-user-example-com
+[KFP Executor 2024-08-12 13:52:33,088 INFO]: Checking train loader
+[KFP Executor 2024-08-12 13:52:33,140 INFO]: Checking test loader
+[KFP Executor 2024-08-12 13:52:33,364 INFO]: Preprocess complete
+I0812 13:52:34.115355      27 launcher.go:860] ExecutorOutput: {
   "parameters": {
     "Output": {
       "stringValue": "true"
     }
   }
 }
-I0812 11:11:54.736429      28 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
-time="2024-08-12T11:11:54.812Z" level=info msg="/tmp/outputs/Output/data -> /var/run/argo/outputs/parameters//tmp/outputs/Output/data" argo=true
-time="2024-08-12T11:11:54.812Z" level=info msg="/tmp/outputs/Output/data -> /var/run/argo/outputs/artifacts/tmp/outputs/Output/data.tgz" argo=true
-time="2024-08-12T11:11:54.813Z" level=info msg="Taring /tmp/outputs/Output/data"
+I0812 13:52:34.130433      27 object_store.go:305] Cannot detect minio-service in the same namespace, default to minio-service.kubeflow:9000 as MinIO endpoint.
+time="2024-08-12T13:52:34.205Z" level=info msg="/tmp/outputs/Output/data -> /var/run/argo/outputs/parameters//tmp/outputs/Output/data" argo=true
+time="2024-08-12T13:52:34.206Z" level=info msg="/tmp/outputs/Output/data -> /var/run/argo/outputs/artifacts/tmp/outputs/Output/data.tgz" argo=true
+time="2024-08-12T13:52:34.207Z" level=info msg="Taring /tmp/outputs/Output/data"
