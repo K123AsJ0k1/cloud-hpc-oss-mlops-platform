@@ -46,27 +46,12 @@ def utilize_artifacts(
         type = type
     )
 
-    #prometheus_registry = get_prometheus_registry() 
     gauge_structure = {}
     prometheus_gauge = None
     if type == 'sacct':
-        '''
-        gauge_structure = get_sacct_gauge_structure()
-        prometheus_gauge = set_prometheus_gauge(
-            prometheus_registry = prometheus_registry,
-            gauge_structure = gauge_structure
-        )
-        '''
         gauge_structure = get_sacct_gauge_structure()
         prometheus_gauge = sacct_gauge
     if type == 'seff':
-        '''
-        gauge_structure = get_seff_gauge_structure()
-        prometheus_gauge = set_prometheus_gauge(
-            prometheus_registry = prometheus_registry,
-            gauge_structure = gauge_structure
-        )
-        '''
         gauge_structure = get_seff_gauge_structure()
         prometheus_gauge = seff_gauge
     if 0 < len(submitters_artifacts):
@@ -104,37 +89,15 @@ def utilize_time(
         type = type
     )
     
-    #prometheus_registry = get_prometheus_registry() 
     gauge_structure = {}
     prometheus_gauge = None
     if type == 'job-time':
-        '''
-        gauge_structure = get_job_time_gauge_structure()
-        prometheus_gauge = set_prometheus_gauge(
-            prometheus_registry = prometheus_registry,
-            gauge_structure = gauge_structure
-        )
-        '''
         gauge_structure = get_job_time_gauge_structure()
         prometheus_gauge = job_time_gauge
     if type == 'pipeline-time':
-        '''
-        gauge_structure = get_pipeline_time_gauge_structure()
-        prometheus_gauge = set_prometheus_gauge(
-            prometheus_registry = prometheus_registry,
-            gauge_structure = gauge_structure
-        )
-        '''
         gauge_structure = get_pipeline_time_gauge_structure()
         prometheus_gauge = pipeline_time_gauge
     if type == 'task-time':
-        '''
-        gauge_structure = get_task_time_gauge_structure()
-        prometheus_gauge = set_prometheus_gauge(
-            prometheus_registry = prometheus_registry,
-            gauge_structure = gauge_structure
-        )
-        '''
         gauge_structure = get_task_time_gauge_structure()
         prometheus_gauge = task_time_gauge
     if 0 < len(time_artifacts):

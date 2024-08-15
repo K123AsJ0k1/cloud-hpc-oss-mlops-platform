@@ -45,9 +45,11 @@ def gather_bucket_job_times(
         if path_prefix in object_path:
             artifact_path_split = object_path.split('/')
             artifact_key = artifact_path_split[-1]
-            if artifact_key in key_list or artifact_key == 'time-template':
+            # Results on zeros, unless total-store-seconds is checked
+            time_info = artifact_object['data'] 
+            if artifact_key in key_list or artifact_key == 'time-template' or 0 == time_info['total-store-seconds']:
                 continue
-        
+
             print('Unseen job time with key: ' + str(artifact_key))
 
             artifact_object = get_object(
@@ -59,8 +61,8 @@ def gather_bucket_job_times(
                 },
                 path_names = []
             )
-            artifact_data = artifact_object['data'] 
-            unseen_job_times[artifact_key] = artifact_data
+             
+            unseen_job_times[artifact_key] = time_info
             key_list.append(artifact_key)
     
     update_index(
@@ -137,7 +139,7 @@ def gather_bucket_pipeline_times(
 
             time_data = time_object['data']
             key_list = index_data['keys'] 
-            old_list_length = len(key_list)
+            old_list_length = len(key_list) 
 
             for time_key, time_info in time_data.items():
                 if time_key in key_list or 0 == time_info['total-seconds']:
@@ -261,7 +263,6 @@ def gather_times(
     storage_name: str,
     type: str
 ):
-    #print('Gather times')
     container_buckets = check_buckets(
         storage_client = storage_client
     )
@@ -279,9 +280,9 @@ def gather_times(
                 bucket_name_split = bucket_name.split('-')
                 if 0 < bucket_info['amount']:
                     if type == 'job-time' and bucket_name_split[1] == 'submitter':
-                        print('Checking the ' + str(type) + ' of bucket ' + str(bucket_name))
+                        print('Checking the ' + str(type) + ' of bucket ' + str(bucket_name)) 
                         gathered_unseen_times = gather_bucket_job_times(
-                            storage_client = storage_client,
+                            storage_client = storage_client, 
                             storage_name = storage_name,
                             target_bucket = bucket_name
                         )

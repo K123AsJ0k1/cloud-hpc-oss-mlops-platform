@@ -80,7 +80,7 @@ def scrape_job_time(
     data: any
 ):
     for key, value in data.items():
-        if 'total' in key:
+        if 'total' in key: 
             metric_name = metric_names[key]
             prometheus_gauge.labels(
                 collector = collector,
