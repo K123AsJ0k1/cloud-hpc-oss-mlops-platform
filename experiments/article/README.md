@@ -225,7 +225,7 @@ In order to integrate CPouta OSS and Mahti Ray, you need to use a locally run su
     "CLOUD_ADDRESS": "none",
     "CLOUD_USER": "none",
     "CLOUD_KEY": "none",
-    "CLOUD_PASSWORD": "none",
+    "CLOUD_PASSWORD": "empty", # password or empty
     "STORAGE_ENVIROMENT": "allas",
     "STORAGE_USER": "token", # Allas is always token based
     "STORAGE_PASSWORD": "token", # Allas is always token based
@@ -233,10 +233,10 @@ In order to integrate CPouta OSS and Mahti Ray, you need to use a locally run su
     "HPC_ADDRESS": "mahti.csc.fi",
     "HPC_USER": "", # CSC user
     "HPC_KEY": "/run/secrets/local-mahti",
-    "HPC_PASSWORD": "", # password or empty
+    "HPC_PASSWORD": "empty", # password or empty
     "INTEGRATION_ENVIROMENT": "cpouta-mahti",
     "INTEGRATION_KEY": "/run/secrets/cpouta-mahti",
-    "INTEGRATION_PASSWORD": "" # password or empty
+    "INTEGRATION_PASSWORD": "empty" # password or empty
 }
 
 ```
@@ -249,21 +249,21 @@ Hostname mahti.csc.fi
 User ()
 IdentityFile ~/.ssh/local-mahti.pem
 ```
-1. Test that SSH works:
+4. Test that SSH works:
    
 ```
 ssh mahti
 exit/logout # CTRL + C if hangs
 ```
-6. Get the absolute paths of the compose-secrets.json and keys with 'pwd' and write them into the compose-secrets.json alongside the passphrases of CPouta and Mahti SSH keys
-7. Go to the production deployemnt folder of submitter in applications and make the submitter run locally with:
+5. Get the absolute paths of the compose-secrets.json and keys with 'pwd' and write them into the compose-secrets.json alongside the passphrases of CPouta and Mahti SSH keys
+6. Go to the production deployemnt folder of submitter in applications and make the submitter run locally with:
 
 ```
 docker compose -f stack.yaml up # Start
 CTRL + C # Shutdown
 docker compose -f stack.yaml down # Shutdown
 ```
-8. If now errors are created, proceed to the local, cloud and cloud-hpc notebooks
+7. If now errors are created, proceed to the local, cloud and cloud-hpc notebooks
 
 ## Troubleshooting
 
