@@ -82,12 +82,12 @@ def utilize_time(
     storage_client: any, 
     storage_name: str,
     type: str
-):
+): 
     time_artifacts = gather_times(
         storage_client = storage_client,
         storage_name = storage_name,
         type = type
-    )
+    ) 
     
     gauge_structure = {}
     prometheus_gauge = None

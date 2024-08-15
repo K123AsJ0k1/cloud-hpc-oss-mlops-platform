@@ -43,27 +43,34 @@ def gather_bucket_job_times(
     old_list_length = len(key_list)
     for object_path in bucket_objects:
         if path_prefix in object_path:
-            artifact_path_split = object_path.split('/')
-            artifact_key = artifact_path_split[-1]
-            # Results on zeros, unless total-store-seconds is checked
-            time_info = artifact_object['data'] 
-            if artifact_key in key_list or artifact_key == 'time-template' or 0 == time_info['total-store-seconds']:
+            time_path_split = object_path.split('/')
+            time_key = time_path_split[-1]
+        
+            if time_key == 'time-template':
                 continue
 
-            print('Unseen job time with key: ' + str(artifact_key))
+            if time_key in key_list:
+                continue
 
-            artifact_object = get_object(
+            time_object = get_object(
                 storage_client = storage_client,
                 bucket_name = target_bucket,
                 object_name = 'job-time',
                 path_replacers = {
-                    'name': artifact_key
+                    'name': time_key
                 },
                 path_names = []
             )
+
+            time_info = time_object['data'] 
+            # Results on zeros, unless total-store-seconds is checked 
+            if 0 == time_info['total-store-seconds']:
+                continue
+
+            print('Unseen job time with key: ' + str(time_key))
              
-            unseen_job_times[artifact_key] = time_info
-            key_list.append(artifact_key)
+            unseen_job_times[time_key] = time_info
+            key_list.append(time_key)
     
     update_index(
         storage_client = storage_client,

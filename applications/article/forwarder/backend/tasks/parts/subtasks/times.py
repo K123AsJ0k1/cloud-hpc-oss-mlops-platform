@@ -51,7 +51,7 @@ def job_time_collector(
                         storage_client = storage_clients[0],
                         storage_name = storage_names[0],
                         type = 'job-time'
-                    )
+                    ) 
 
                     status = True
                 except Exception as e:
