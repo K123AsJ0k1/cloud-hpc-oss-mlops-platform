@@ -99,7 +99,7 @@ def define_import_deployment(
     
     template_folder = get_import_template_folder(
         type = import_type
-    )
+    ) 
 
     namespace_data = None
     namespace_path = template_folder + '/namespace.yaml'
@@ -124,10 +124,10 @@ def define_import_deployment(
     services = {}
     file_names = []
 
-    namespace = ''
+    namespace = 'forwarder-imports'
     namespace_yaml_path =  kustomize_folder + '/namespace.yaml' 
     if not os.path.exists(namespace_yaml_path):
-        namespace = namespace_data['metadata']['name']
+        namespace = namespace_data['metadata']['name'] 
         with open(namespace_yaml_path, 'w') as f:
             yaml.dump(namespace_data, f, sort_keys = False)
         file_names.append('namespace.yaml')
@@ -138,7 +138,10 @@ def define_import_deployment(
         port = connection['port']
 
         # Service-endpoints need to have the same name
-        user_separation_prefix = import_identity + '-' + import_key
+        # Kustomize has a 253 name limit 
+
+        username = '-'.join(import_identity.split('-')[5:])
+        user_separation_prefix = username + '-' + import_key 
         service_endpoints_name = user_separation_prefix + '-' + name 
         
         endpoints_yaml_path = kustomize_folder + '/' + name + '-endpoints.yaml'
@@ -169,5 +172,5 @@ def define_import_deployment(
         with open(kustomization_yaml_path, 'w') as f:
             yaml.dump(kustomization_data, f, sort_keys = False)
 
-    return [kustomize_folder, services]
+    return [kustomize_folder, services] 
 

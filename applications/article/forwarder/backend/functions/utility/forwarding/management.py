@@ -2,7 +2,7 @@ from functions.utility.forwarding.imports import define_import_deployment,  get_
 from functions.platforms.kustomize import kustomize_create_deployment, kustomize_delete_deployment
 from functions.utility.storage.objects import set_object
 # Created and works
-def modify_forwarding(
+def modify_forwarding( 
     storage_client: any,
     storage_name: str,
     forwarding_identity: str,
