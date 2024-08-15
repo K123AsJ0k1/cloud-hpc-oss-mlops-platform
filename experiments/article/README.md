@@ -264,3 +264,34 @@ CTRL + C # Shutdown
 docker compose -f stack.yaml down # Shutdown
 ```
 8. If now errors are created, proceed to the local, cloud and cloud-hpc notebooks
+
+## Troubleshooting
+
+**Error: response from daemon: driver failed programming external connectivity on endpoint kind-ep-control-plane**
+
+This error is related to a existing docker [issue](https://github.com/moby/moby/issues/25981), where docker-proxy binds to ports when no containers run or exist. There isn't permanent solution, but the temporary solution is the following:
+
+```
+netstat -tuln # Check active ports
+sudo systemctl stop docker
+sudo rm -rf /var/lib/docker/network/files
+sudo systemctl start docker
+netstat -tuln # Check that the port is gone
+```
+
+Sometimes this doesn't work, but fortunelly in those cases we can do the following:
+
+```
+sudo lsof -i :port
+sudo kill (shown PID)
+```
+
+**Error: could not kill running container when trying to delete kind registry**
+
+Sometimes when you try to remove kind registry, you receive permission denied error. There isn't a permanent solution, but we can temporarily fix it with the following command:
+
+```
+docker ps 
+sudo ps awx | grep containerd-shim | grep <<container_id>> | awk '{print $1}'
+sudo kill -9 <<process_id>>
+```
