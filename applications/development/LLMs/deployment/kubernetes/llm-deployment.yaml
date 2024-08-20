@@ -8,7 +8,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: llm-server
+      app: llm-server 
   template:
     metadata:
       labels:
@@ -17,6 +17,9 @@ spec:
       containers:
         - name: llm-server
           image: ghcr.io/open-webui/open-webui:ollama
+          resources:
+            limits:
+              nvidia.com/gpu: 1 # requesting 1 GPU
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
