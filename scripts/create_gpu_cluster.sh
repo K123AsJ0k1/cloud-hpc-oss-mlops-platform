@@ -19,9 +19,6 @@ networking:
   apiServerAddress: ${HOST_IP}
 nodes:
 - role: control-plane
-  extraMounts:
-    - hostPath: /dev/null
-      containerPath: /var/run/nvidia-container-devices/all
   kubeadmConfigPatches:
   - |
     kind: InitConfiguration
@@ -35,6 +32,9 @@ nodes:
   - containerPort: 443
     hostPort: 443
     protocol: TCP
+  extraMounts:
+    - hostPath: /dev/null
+      containerPath: /var/run/nvidia-container-devices/all
 containerdConfigPatches:
 - |-
   [plugins."io.containerd.grpc.v1.cri".registry.mirrors."${HOST_IP}:5001"]
@@ -51,9 +51,6 @@ networking:
   apiServerAddress: ${HOST_IP}
 nodes:
 - role: control-plane
-  extraMounts:
-    - hostPath: /dev/null
-      containerPath: /var/run/nvidia-container-devices/all
   kubeadmConfigPatches:
   - |
     kind: InitConfiguration
@@ -67,6 +64,9 @@ nodes:
   - containerPort: 443
     hostPort: 443
     protocol: TCP
+  extraMounts:
+    - hostPath: /dev/null
+      containerPath: /var/run/nvidia-container-devices/all
 EOF
 
 fi
