@@ -78,6 +78,6 @@ docker exec -t ${CONTAINER_ID} bash -c "echo 'fs.inotify.max_user_watches=104857
 docker exec -t ${CONTAINER_ID} bash -c "echo 'fs.inotify.max_user_instances=512' >> /etc/sysctl.conf"
 docker exec -i ${CONTAINER_ID} bash -c "sysctl -p /etc/sysctl.conf"
 
-docker exec -ti ${CONTAINER_ID} ln -s /sbin/ldconfig /sbin/ldconfig.real
+#docker exec -ti ${CONTAINER_ID} ln -s /sbin/ldconfig /sbin/ldconfig.real
 
 exit 0
