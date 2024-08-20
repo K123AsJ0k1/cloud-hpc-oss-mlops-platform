@@ -19,15 +19,15 @@ networking:
   apiServerAddress: ${HOST_IP}
 nodes:
 - role: control-plane
+  extraMounts:
+    - hostPath: /dev/null
+      containerPath: /var/run/nvidia-container-devices/all
   kubeadmConfigPatches:
   - |
     kind: InitConfiguration
     nodeRegistration:
       kubeletExtraArgs:
         node-labels: "ingress-ready=true"
-  extraMounts:
-    - hostPath: /dev/null
-      containerPath: /var/run/nvidia-container-devices/all
   extraPortMappings:
   - containerPort: 80
     hostPort: 80
@@ -51,15 +51,15 @@ networking:
   apiServerAddress: ${HOST_IP}
 nodes:
 - role: control-plane
+  extraMounts:
+    - hostPath: /dev/null
+      containerPath: /var/run/nvidia-container-devices/all
   kubeadmConfigPatches:
   - |
     kind: InitConfiguration
     nodeRegistration:
       kubeletExtraArgs:
         node-labels: "ingress-ready=true"
-  extraMounts:
-    - hostPath: /dev/null
-      containerPath: /var/run/nvidia-container-devices/all
   extraPortMappings:
   - containerPort: 80
     hostPort: 80

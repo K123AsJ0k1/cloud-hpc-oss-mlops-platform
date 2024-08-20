@@ -220,7 +220,7 @@ if [ "$INSTALL_RAY" = true ]; then
   echo "Installing Ray"
   /bin/bash "$SCRIPT_DIR/scripts/install_helm.sh"
   /bin/bash "$SCRIPT_DIR/scripts/install_ray.sh" 
-  /bin/bash "$SCRIPT_DIR/scripts/install_nvidia_operator.sh" 
+  #/bin/bash "$SCRIPT_DIR/scripts/install_nvidia_operator.sh" 
 fi
 
 echo
