@@ -126,7 +126,7 @@ nvcc --version
 sudo apt-get --purge remove '*cublas*' 'cuda*' 'nsight*' 
 sudo apt-get autoremove
 ```
-3. Follow the installation from https://forums.developer.nvidia.com/t/installing-cuda-on-ubuntu-22-04-rxt4080-laptop/292899
+3. [Install a suitable CUDA version](https://forums.developer.nvidia.com/t/installing-cuda-on-ubuntu-22-04-rxt4080-laptop/292899)
 4. Confirm installation with
 ```
 nvcc --version
@@ -142,7 +142,7 @@ nvidia-smi
 nvcc --version
 dpkg -l | grep nvidia-container-toolkit
 ```
-2. Remove NVIDIA driver packages
+2. [Remove NVIDIA driver packages](https://www.jimangel.io/posts/nvidia-rtx-gpu-kubernetes-setup/)
 ```
 sudo apt remove --purge '^nvidia-.*'
 sudo apt remove --purge '^libnvidia-.*'
