@@ -12,12 +12,14 @@ spec:
   template:
     metadata:
       labels:
-        app: llm-server
+        app: llm-server 
     spec:
       containers:
         - name: llm-server
           image: ghcr.io/open-webui/open-webui:ollama
           resources:
+            requests:
+              nvidia.com/gpu: 1
             limits:
               nvidia.com/gpu: 1
           imagePullPolicy: Always
