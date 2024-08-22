@@ -27,7 +27,7 @@ spec:
           - name: WEBUI_AUTH
             value: 'False'
           - name: OLLAMA_BASE_URL
-            value: 'https://ollama-service.llm.svc.cluster.local:7101'
+            value: 'http://ollama-service.llm.svc.cluster.local:7101'
       volumes:
         - name: webui-volume
           persistentVolumeClaim:
