@@ -112,6 +112,13 @@ Copy output data from the CUDA device to the host memory
 Test PASSED
 Done
 ```
+17. Check the used versions:
+```
+nvidia-smi
+nvcc --version
+dpkg -l | grep nvidia-container-toolkit
+```
+1.  For debugging its recommeded to list working versions. For GPU Ollama in OSS, the working versions were 535.183.01 for drivers, V12.2.91 for CUDA and 1.16.1-1 for container toolkit.
 
 ### CUDA Change
 
