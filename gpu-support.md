@@ -118,7 +118,11 @@ nvidia-smi
 nvcc --version
 dpkg -l | grep nvidia-container-toolkit
 ```
-1.  For debugging its recommeded to list working versions. For GPU Ollama in OSS, the working versions were 535.183.01 for drivers, V12.2.91 for CUDA and 1.16.1-1 for container toolkit.
+18.  For debugging its recommeded to list working versions. 
+  - GPU OSS Ollama 
+    - Driver = 535.183.01
+    - CUDA = V12.2.91 
+    - Container toolkit = 1.16.1-1
 
 ### CUDA Change
 
