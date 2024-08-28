@@ -1,0 +1,101 @@
+version: '3.8'
+
+networks:
+  app_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
+services:
+  redis:
+    image: redis:7.4.0
+    restart: no
+    ports:
+      - '127.0.0.1:6800:6379'
+    networks:
+      app_network:
+        ipv4_address: 172.28.0.10
+  mongodb:
+    image: mongo:7.0.14
+    container_name: mongodb
+    hostname: mongodb
+    restart: no
+    ports:
+      - '127.0.0.1:27017:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongo123
+      - MONGO_INITDB_ROOT_PASSWORD=mongo456
+    networks:
+      app_network:
+        ipv4_address: 172.28.0.11
+    volumes:
+      - mongodb-data:/data/db/
+      - mongodb-log:/var/log/mongodb/
+  express:
+    image: mongo-express:1.0.2
+    depends_on:
+      - mongodb
+    restart: no
+    ports:
+      - '127.0.0.1:8081:8081'
+    environment:
+      - ME_CONFIG_MONGODB_AUTH_USERNAME=mongo123
+      - ME_CONFIG_MONGODB_AUTH_PASSWORD=mongo456
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=mongo123
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=mongo456
+      - ME_CONFIG_BASICAUTH_USERNAME=express123
+      - ME_CONFIG_BASICAUTH_PASSWORD=express456
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+    networks:
+      app_network:
+        ipv4_address: 172.28.0.12
+  qdrant:
+    image: qdrant/qdrant:v1.11.1
+    restart: no
+    ports:
+      - '127.0.0.1:6333:6333'
+    networks:
+      app_network:
+        ipv4_address: 172.28.0.13
+  ray-head:
+    image: rayproject/ray:2.35.0
+    restart: no
+    ports:
+      - '127.0.0.1:6379:6379'
+      - '127.0.0.1:8265:8265'
+      - '127.0.0.1:8200:8200'
+    shm_size: '5gb'
+    command: bash -c "ray start --head --port=6379 --dashboard-host=0.0.0.0 --dashboard-port=8265 --metrics-export-port=8200 --block"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: '2g'
+    networks:
+      app_network:
+        ipv4_address: 172.28.0.14
+  ray-worker:
+    image: rayproject/ray:2.35.0
+    depends_on:
+      - ray-head
+    shm_size: '5gb'
+    command: bash -c "ray start --address=ray-head:6379 --block"
+    deploy:
+      mode: replicated
+      replicas: '1'
+      resources:
+        limits:
+         cpus: '1'
+         memory: '2g'
+    networks:
+      - app_network
+
+volumes:
+  mongodb-data:
+    driver: local
+    name: mongo-data
+  mongodb-log:
+    driver: local
+    name: mongo-log
