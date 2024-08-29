@@ -68,7 +68,7 @@ def mongo_get_collection(
     try:
         database = mongo_get_database(
             mongo_client = mongo_client,
-            database = database_name
+            database_name = database_name
         )
         collection = database[collection_name]
         return collection
