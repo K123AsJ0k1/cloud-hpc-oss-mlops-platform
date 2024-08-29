@@ -1,5 +1,4 @@
 from qdrant_client import QdrantClient as qc
-from qdrant_client.models import PointStruct
 
 def qdrant_is_client(
     storage_client: any
@@ -25,12 +24,12 @@ def qdrant_setup_client(
 def qdrant_create_collection(
     qdrant_client: any, 
     collection_name: str,
-    vector_configuration: any
+    configuration: any
 ) -> any:
     try:
         result = qdrant_client.create_collection(
             collection_name = collection_name,
-            vectors_config = vector_configuration
+            vectors_config = configuration
         )
         return result
     except Exception as e:
