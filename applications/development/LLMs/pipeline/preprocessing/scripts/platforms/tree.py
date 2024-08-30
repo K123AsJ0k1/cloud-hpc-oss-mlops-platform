@@ -216,20 +216,9 @@ def tree_create_python_code_and_function_documents(
         initial_documents.append(document)
 
     formatted_documents = []
-    #seen_names = []
     for document in initial_documents:
-        #print(document['name'])
-        #print(seen_names)
-        #if document['name'] in seen_functions:
-            #print('test')
-           #continue
-        
-        #print(repr(document['name']))
         formatted_document = tree_format_code_document(
             code_document = document
         )
-
-        #if not document['name'] == 'global':
-        #seen_names.append(document['name'])
         formatted_documents.append(formatted_document)
     return formatted_documents

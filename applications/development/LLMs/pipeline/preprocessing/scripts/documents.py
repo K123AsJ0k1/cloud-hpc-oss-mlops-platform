@@ -90,9 +90,8 @@ def extract_jupyter_notebook_markdown_and_code(
     return notebook_documents
     
 def parse_markdown_into_text(
-    markdown_document: any
+    markdown_text: any
 ) -> any:
-    markdown_text = ''.join(markdown_document)
     html = markdown.markdown(markdown_text)
     soup = BeautifulSoup(html, features='html.parser')
     text = soup.get_text()
@@ -109,18 +108,36 @@ def create_notebook_documents(
     markdown_document = ''
     markdown_ids = []
     for block in notebook_documents['markdown']:
+        joined_text = ''.join(block['data'])
         markdown_text = parse_markdown_into_text(
-            markdown_document = block['data']
+            markdown_text = joined_text
         )
         markdown_document += markdown_text + '\n\n'
         markdown_ids.append(block['id'])
-    
+    # There can be duplicate functions
+    # These needs to be removed by preprocessing
     code_documents = []
+    seen_function_names = []
     code_ids = []
     for block in notebook_documents['code']:
-        block_code_documents = tree_created_python_function_documents(
-            code_document = str(block['data'])
+        joined_code = ''.join(block['data'])
+        block_code_documents = tree_create_python_code_and_function_documents(
+            code_document = joined_code
         )
+
+        code_doc_index = 0
+        for code_doc in block_code_documents:
+            row_split = code_doc.split('\n')
+            for row in row_split:
+                if 'function' in row and 'code' in row:
+                    function_name = row.split(' ')[1]
+                    if not function_name in seen_function_names:
+                        seen_function_names.append(function_name)
+                    else:
+                        del block_code_documents[code_doc_index]
+            code_doc_index += 1
+        
+        #if 0 < len(block_code_documents):
         code_documents.extend(block_code_documents)
         code_ids.append(block['id'])
     
