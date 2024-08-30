@@ -9,13 +9,16 @@ def qdrant_is_client(
         return False
 
 def qdrant_setup_client(
+    api_key: str,
     address: str, 
     port: str
 ) -> any:
     try:
         qdrant_client = qc(
             host = address,
-            port = int(port)
+            port = int(port),
+            api_key = api_key,
+            https = False
         ) 
         return qdrant_client
     except Exception as e:
