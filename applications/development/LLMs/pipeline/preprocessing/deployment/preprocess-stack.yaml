@@ -10,6 +10,8 @@ networks:
 services:
   redis:
     image: redis:7.4.0
+    container_name: redis
+    hostname: redis
     restart: no
     ports:
       - '127.0.0.1:6800:6379'
@@ -34,6 +36,8 @@ services:
       - mongodb-log:/var/log/mongodb/
   express:
     image: mongo-express:1.0.2
+    container_name: express
+    hostname: express
     depends_on:
       - mongodb
     restart: no
@@ -53,14 +57,32 @@ services:
         ipv4_address: 172.28.0.12
   qdrant:
     image: qdrant/qdrant:v1.11.1
+    container_name: qdrant
+    hostname: qdrant
     restart: no
     ports:
       - '127.0.0.1:6333:6333'
     networks:
       app_network:
         ipv4_address: 172.28.0.13
+    volumes:
+      - qdrant-storage:/qdrant/storage:z
+  meili:
+    image: getmeili/meilisearch:v1.10.0
+    container_name: meili
+    hostname: meili
+    restart: no
+    ports:
+      - '127.0.0.1:7700:7700'
+    networks:
+      app_network:
+        ipv4_address: 172.28.0.14
+    volumes:
+      - meili-storage:/meili_data
   ray-head:
     image: rayproject/ray:2.35.0
+    container_name: ray-head
+    hostname: ray-head
     restart: no
     ports:
       - '127.0.0.1:6379:6379'
@@ -72,12 +94,14 @@ services:
       resources:
         limits:
           cpus: '1'
-          memory: '2g'
+          memory: '4g'
     networks:
       app_network:
-        ipv4_address: 172.28.0.14
+        ipv4_address: 172.28.0.15
   ray-worker:
     image: rayproject/ray:2.35.0
+    container_name: ray-worker
+    hostname: ray-worker
     depends_on:
       - ray-head
     shm_size: '5gb'
@@ -88,7 +112,7 @@ services:
       resources:
         limits:
          cpus: '1'
-         memory: '2g'
+         memory: '4g'
     networks:
       - app_network
 
@@ -99,3 +123,9 @@ volumes:
   mongodb-log:
     driver: local
     name: mongo-log
+  qdrant-storage:
+    driver: local
+    name: qdrant-storage
+  meili-storage:
+    driver: local
+    name: meili-storage
