@@ -3,7 +3,10 @@ from pymongo import MongoClient as mc
 def mongo_is_client(
     storage_client: any
 ) -> any:
-    return isinstance(storage_client, mc.Connection)
+    try:
+        return isinstance(storage_client, mc.Connection)
+    except Exception as e:
+        return False
 
 def mongo_setup_client(
     username: str,
@@ -11,15 +14,18 @@ def mongo_setup_client(
     address: str,
     port: str
 ) -> any:
-    connection_prefix = 'mongodb://(username):(password)@(address):(port)/'
-    connection_address = connection_prefix.replace('(username)', username)
-    connection_address = connection_address.replace('(password)', password)
-    connection_address = connection_address.replace('(address)', address)
-    connection_address = connection_address.replace('(port)', port)
-    mongo_client = mc(
-        host = connection_address
-    )
-    return mongo_client
+    try:
+        connection_prefix = 'mongodb://(username):(password)@(address):(port)/'
+        connection_address = connection_prefix.replace('(username)', username)
+        connection_address = connection_address.replace('(password)', password)
+        connection_address = connection_address.replace('(address)', address)
+        connection_address = connection_address.replace('(port)', port)
+        mongo_client = mc(
+            host = connection_address
+        )
+        return mongo_client
+    except Exception as e:
+        return None
 
 def mongo_get_database(
     mongo_client: any,
