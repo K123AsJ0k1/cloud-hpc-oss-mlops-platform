@@ -1,9 +1,11 @@
 from bs4 import BeautifulSoup
+import markdown
 import nbformat
 import requests
 import requests
 import time
 import json
+import re
 
 def get_document(
     document_url: str,
@@ -59,3 +61,72 @@ def scrape_documents(
         if index < len(url_list):
             time.sleep(timeout)
     return documents
+
+def extract_jupyter_notebook_markdown_and_code(
+    notebook_document: any
+): 
+    notebook_documents = {
+        'markdown': [],
+        'code': []
+    }
+
+    notebook = nbformat.from_dict(notebook_document)
+
+    index = 0
+    for cell in notebook.cells:
+        if cell.cell_type == 'markdown':
+            notebook_documents['markdown'].append({
+                'id': index,
+                'data': cell.source
+            })
+            index += 1
+        if cell.cell_type == 'code':
+            notebook_documents['code'].append({
+                'id': index,
+                'data': cell.source
+            })
+            index += 1
+    
+    return notebook_documents
+    
+def parse_markdown_into_text(
+    markdown_document: any
+) -> any:
+    markdown_text = ''.join(markdown_document)
+    html = markdown.markdown(markdown_text)
+    soup = BeautifulSoup(html, features='html.parser')
+    text = soup.get_text()
+    text = text.rstrip('\n')
+    return text
+
+def create_notebook_documents(
+    notebook_document: any
+):
+    notebook_documents = extract_jupyter_notebook_markdown_and_code(
+        notebook_document = notebook_document
+    )
+
+    markdown_document = ''
+    markdown_ids = []
+    for block in notebook_documents['markdown']:
+        markdown_text = parse_markdown_into_text(
+            markdown_document = block['data']
+        )
+        markdown_document += markdown_text + '\n\n'
+        markdown_ids.append(block['id'])
+    
+    code_documents = []
+    code_ids = []
+    for block in notebook_documents['code']:
+        block_code_documents = tree_created_python_function_documents(
+            code_document = str(block['data'])
+        )
+        code_documents.extend(block_code_documents)
+        code_ids.append(block['id'])
+    
+    formatted_documents = {
+        'markdown': markdown_document,
+        'code': code_documents
+    }
+    
+    return formatted_documents
