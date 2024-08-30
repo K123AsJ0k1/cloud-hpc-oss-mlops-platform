@@ -114,8 +114,7 @@ def create_notebook_documents(
         )
         markdown_document += markdown_text + '\n\n'
         markdown_ids.append(block['id'])
-    # There can be duplicate functions
-    # These needs to be removed by preprocessing
+    
     code_documents = []
     seen_function_names = []
     code_ids = []
@@ -137,9 +136,9 @@ def create_notebook_documents(
                         del block_code_documents[code_doc_index]
             code_doc_index += 1
         
-        #if 0 < len(block_code_documents):
-        code_documents.extend(block_code_documents)
-        code_ids.append(block['id'])
+        if 0 < len(block_code_documents):
+            code_documents.extend(block_code_documents)
+            code_ids.append(block['id'])
     
     formatted_documents = {
         'markdown': markdown_document,
