@@ -5,6 +5,7 @@
 The used time results in the article are found in
 
 - local/artifacts/local_metrics.json
+- cloud/artifacts/cloud-metrics.json
 - cloud/times/pipeline_data.json
 - cloud-hpc/times/components-1.json
 - cloud-hpc/times/training-1.json
