@@ -97,6 +97,59 @@ We now need to install and configure Docker, so please use the following officia
 - [Docker engine setup](https://docs.docker.com/engine/install/ubuntu/)
 - [Remove sudo docker](https://docs.docker.com/engine/install/linux-postinstall/)
 
+We can provide more storage for Docker with the following actions:
+
+1. [Create and mount atleast 500GB volume into a VM](https://docs.csc.fi/cloud/pouta/persistent-volumes/)
+2. Check current root directory:
+```
+docker info
+```
+3. Create a folder in volume
+```
+cd /media/volume
+mkdir docker
+```
+4. Get its path
+```
+cd docker
+pwd
+```
+5. Check the docker daemon.json
+```
+cat /etc/docker/daemon.json
+```
+6. Shutdown docker
+```
+sudo systemctl stop docker
+sudo systemctl stop docker.socket
+sudo systemctl stop containerd
+```
+7. Edit to have data-root: '/media/volume/docker':
+```
+sudo nano /etc/docker/daemon.json
+```
+8. Confirm path:
+```
+cat /etc/docker/daemon.json
+```
+9.  Move docker data: 
+```
+sudo rsync -axPS /var/lib/docker/ /media/volume/docker
+```
+10. Restart docker
+```
+sudo systemctl start docker
+```
+11. Check docker info
+```
+docker info
+```
+12. Try running a container
+13. If no failures happen, check file system utilization with
+```
+df -h
+```
+
 The VM is now ready to setup OSS, so git clone this repository and install any deployment with monitoring. When OSS is running, you can use the following tools:
 
 ```
