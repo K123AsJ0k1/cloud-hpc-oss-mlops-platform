@@ -285,7 +285,7 @@ ssh -L 127.0.0.1:8280:192.168.1.13:8280 cpouta
 
 ### Notebook Credentials
 
-To use Allas in notebooks, you need to create a .env in your PC's SSH folder with the following:
+To use Allas in notebooks, you need to create a .env in your PC .ssh folder with the following:
 
 ```
 CSC_USERNAME = "(your_csc_username)"  
@@ -304,7 +304,7 @@ To use Submitter that connects CPouta OSS and Mahti Ray, we need to setup SSH cr
 
 Do the following actions:
 
-1. Go to .ssh folder and create compose-secrets.json with the following template:
+1. Go to PC .ssh folder and create compose-secrets.json with the following template:
    
 ```
 {
@@ -327,7 +327,7 @@ Do the following actions:
 }
 ```
 
-2. Use CPouta to create cpouta-mahti.pem files and save it into PC .ssh folder. Its recommeded that the key doesn't get passphrase.
+2. Use CPouta to create cpouta-mahti.pem file and save it into PC .ssh folder. Its recommeded that the key doesn't get passphrase.
 
 3. Use your PC to create local-mahti.pem file and save it to PC .ssh folder.
 
