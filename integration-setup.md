@@ -391,3 +391,170 @@ docker ps
 sudo ps awx | grep containerd-shim | grep <<container_id>> | awk '{print $1}'
 sudo kill -9 <<process_id>>
 ```
+
+**Error: kubectl get pods -A doesn't reach APIs**
+
+This happens, when a mounted CPouta has been unmounted due to shelving the VM, which results in the docker not being able to use the containers stored in the volume and kubectl unable to connect to the kind container, giving the following error:
+
+```
+E1010 12:29:13.059050    1322 memcache.go:265] couldn't get current server API group list: Get "https://127.0.0.1:35825/api?timeout=32s": dial tcp 127.0.0.1:35825: connect: connection refused
+The connection to the server 127.0.0.1:35825 was refused - did you specify the right host or port?
+```
+
+This is also seen in docker info in:
+
+```
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+```
+
+This is also seen in df -h in:
+
+```
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs            12G  1.1M   12G   1% /run
+/dev/vda1        78G   18G   60G  23% /
+tmpfs            58G     0   58G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/vda15      105M  6.1M   99M   6% /boot/efi
+tmpfs            12G  8.0K   12G   1% /run/user/1000
+```
+
+The solution is to mount the volume back. Do the following:
+
+```
+sudo parted -l
+```
+
+This should give the following example:
+
+```
+Model: Virtio Block Device (virtblk)
+Disk /dev/vdb: 537GB
+Sector size (logical/physical): 512B/512B
+Partition Table: loop
+Disk Flags: 
+
+Number  Start  End    Size   File system  Flags
+ 1      0.00B  537GB  537GB  xfs
+```
+
+Assuming that your volume has the same name and you have followed the previous instructions, we can fix this with:
+
+```
+sudo mount /dev/vdb /media/volume
+sudo systemctl stop docker
+sudo systemctl stop docker.socket
+sudo systemctl stop containerd
+sudo systemctl start docker
+docker info
+```
+
+The file system should show the following:
+
+```
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs            12G  1.1M   12G   1% /run
+/dev/vda1        78G   18G   60G  23% /
+tmpfs            58G     0   58G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/vda15      105M  6.1M   99M   6% /boot/efi
+tmpfs            12G  8.0K   12G   1% /run/user/1000
+/dev/vdb        500G   26G  475G   6% /media/volume
+```
+
+Docker should now show the following:
+
+```
+Server:
+ Containers: 2
+  Running: 2
+  Paused: 0
+  Stopped: 0
+```
+
+It will take a moment for the containers to spin up again, but after that you should be able to use
+
+```
+kubectl get pods -A
+```
+
+to get:
+
+```
+NAMESPACE                   NAME                                                              READY   STATUS      RESTARTS      AGE
+auth                        dex-b554fc4dc-kdpk7                                               1/1     Running     0             45d
+cert-manager                cert-manager-796fb4dd87-dz592                                     1/1     Running     0             45d
+cert-manager                cert-manager-cainjector-59c444b899-96wlz                          1/1     Running     0             45d
+cert-manager                cert-manager-webhook-79b8b97bc-fhfjm                              1/1     Running     0             45d
+default                     kuberay-operator-9986f78b7-9xbkm                                  1/1     Running     0             45d
+default                     raycluster-kuberay-head-5lxph                                     1/1     Running     0             45d
+default                     raycluster-kuberay-worker-workergroup-5cqmg                       1/1     Running     0             45d
+forwarder                   celery-server-7d45765b5d-bjpkg                                    1/1     Running     0             45d
+forwarder                   fastapi-server-67fdcc875-bvdkt                                    1/1     Running     0             45d
+forwarder                   flower-server-5cdfcc848-gdxcg                                     1/1     Running     0             45d
+forwarder                   redis-server-55f9f96ddd-nvwvs                                     1/1     Running     0             45d
+gpu-operator                gpu-feature-discovery-bdhnq                                       1/1     Running     0             45d
+gpu-operator                gpu-operator-1724667890-node-feature-discovery-gc-fbdf8b7df94bq   1/1     Running     0             45d
+gpu-operator                gpu-operator-1724667890-node-feature-discovery-master-5d5fcc22s   1/1     Running     0             45d
+gpu-operator                gpu-operator-1724667890-node-feature-discovery-worker-h74pj       1/1     Running     0             45d
+gpu-operator                gpu-operator-589ccf7db6-hqf2p                                     1/1     Running     0             45d
+gpu-operator                nvidia-container-toolkit-daemonset-fbdpc                          1/1     Running     0             45d
+gpu-operator                nvidia-cuda-validator-8n6jt                                       0/1     Completed   0             45d
+gpu-operator                nvidia-dcgm-exporter-9rxnc                                        1/1     Running     0             45d
+gpu-operator                nvidia-device-plugin-daemonset-49684                              1/1     Running     0             45d
+gpu-operator                nvidia-operator-validator-c8glv                                   1/1     Running     0             45d
+istio-system                cluster-local-gateway-687c8948c6-qmfb8                            1/1     Running     0             45d
+istio-system                istio-ingressgateway-66d47846bf-dbnst                             1/1     Running     0             45d
+istio-system                istiod-648484cc47-6q642                                           1/1     Running     0             45d
+istio-system                oidc-authservice-0                                                1/1     Running     0             45d
+knative-eventing            eventing-controller-578d54cd44-pr2mp                              1/1     Running     0             45d
+knative-eventing            eventing-webhook-b56b949d4-zpt5b                                  1/1     Running     0             45d
+knative-serving             activator-59f69b9576-clfk8                                        2/2     Running     0             45d
+knative-serving             autoscaler-79f56fb496-rkjzx                                       2/2     Running     0             45d
+knative-serving             controller-5889d4cbcd-qjmlm                                       2/2     Running     0             45d
+knative-serving             domain-mapping-748d586947-zljkk                                   2/2     Running     0             45d
+knative-serving             domainmapping-webhook-545f959ccf-zqgnj                            2/2     Running     0             45d
+knative-serving             net-istio-controller-8685dc8d99-ftgtb                             2/2     Running     0             45d
+knative-serving             net-istio-webhook-5d5ffc574f-qw7wk                                2/2     Running     0             45d
+knative-serving             webhook-587b9fb654-mxq9l                                          2/2     Running     0             45d
+kube-system                 coredns-6d4b75cb6d-c5w9j                                          1/1     Running     0             45d
+kube-system                 coredns-6d4b75cb6d-xk5d5                                          1/1     Running     0             45d
+kube-system                 etcd-mlops-platform-control-plane                                 1/1     Running     0             45d
+kube-system                 kindnet-twmv6                                                     1/1     Running     0             45d
+kube-system                 kube-apiserver-mlops-platform-control-plane                       1/1     Running     0             45d
+kube-system                 kube-controller-manager-mlops-platform-control-plane              1/1     Running     1 (46s ago)   45d
+kube-system                 kube-proxy-vxk9l                                                  1/1     Running     0             45d
+kube-system                 kube-scheduler-mlops-platform-control-plane                       1/1     Running     0             45d
+kubeflow-user-example-com   ml-pipeline-ui-artifact-5b4465bcb7-btjqk                          2/2     Running     0             45d
+kubeflow-user-example-com   ml-pipeline-visualizationserver-5568776585-xmsb9                  2/2     Running     0             45d
+kubeflow                    admission-webhook-deployment-57b6857cc5-phgms                     1/1     Running     0             45d
+kubeflow                    cache-server-86584db5d8-lp6g7                                     2/2     Running     0             45d
+kubeflow                    centraldashboard-77466bcf94-t7pk7                                 2/2     Running     0             45d
+kubeflow                    kserve-controller-manager-6488c5ffb8-bcwps                        2/2     Running     0             45d
+kubeflow                    kserve-models-web-app-f9c576856-xjnqg                             2/2     Running     0             45d
+kubeflow                    kubeflow-pipelines-profile-controller-5dd5468d9b-wjgs4            1/1     Running     0             45d
+kubeflow                    metacontroller-0                                                  1/1     Running     0             45d
+kubeflow                    metadata-envoy-deployment-76c587bd47-t4qwh                        1/1     Running     0             45d
+kubeflow                    metadata-grpc-deployment-5c8599b99c-5wtjm                         2/2     Running     6 (45d ago)   45d
+kubeflow                    metadata-writer-6c576c94b8-xkvlt                                  2/2     Running     3 (45d ago)   45d
+kubeflow                    minio-6d6d45469f-tqqch                                            2/2     Running     0             45d
+kubeflow                    ml-pipeline-77d4d9974b-bm7ng                                      2/2     Running     2 (45d ago)   45d
+kubeflow                    ml-pipeline-persistenceagent-75bccd8b64-tgptk                     2/2     Running     0             45d
+kubeflow                    ml-pipeline-scheduledworkflow-6dfcd5dd89-9z55g                    2/2     Running     0             45d
+kubeflow                    ml-pipeline-ui-5ddb5b76d8-cxdqd                                   2/2     Running     0             45d
+kubeflow                    ml-pipeline-viewer-crd-86cbc45d9b-7swcm                           2/2     Running     1 (45d ago)   45d
+kubeflow                    ml-pipeline-visualizationserver-5577c64b45-cm4pg                  2/2     Running     0             45d
+kubeflow                    mysql-6878bbff69-gk9bg                                            2/2     Running     0             45d
+kubeflow                    profiles-deployment-86bcdbb57f-2v44l                              3/3     Running     2 (45d ago)   45d
+kubeflow                    workflow-controller-78c979dc75-2wqtj                              2/2     Running     2 (45d ago)   45d
+local-path-storage          local-path-provisioner-9cd9bd544-hghjb                            1/1     Running     0             45d
+mlflow                      mlflow-5957f7d8d5-xwxsw                                           1/1     Running     0             45d
+mlflow                      mlflow-minio-6fc44b6f8b-f2jln                                     1/1     Running     0             45d
+mlflow                      postgres-869457dfd8-zc868                                         1/1     Running     0             45d
+monitoring                  grafana-59489dc89-d6mxh                                           1/1     Running     0             45d
+monitoring                  prometheus-deployment-6c54c9d685-rlhhh                            1/1     Running     0             45d
+```
