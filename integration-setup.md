@@ -56,7 +56,7 @@ Headless services:
 - [External services in kubernetes](https://stackoverflow.com/questions/57764237/kubernetes-ingress-to-external-service?noredirect=1&lq=1)
 - [Headless services in kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
 
-## Setup
+## Cloud Setup
 
 ### VM Creation
 
@@ -231,6 +231,17 @@ When the setup is complete, use the following to confirm that all pods are runni
 kubectl get pods -A
 ```
 
+## Local Setup
+
+### Getting Code
+
+Download the repository with:
+
+```
+git clone https://github.com/K123AsJ0k1/cloud-hpc-oss-mlops-platform.git
+cd cloud-hpc-oss-mlops-platform
+```
+
 ### Notebook Credentials
 
 To use Allas in notebooks, you need to create a .env in your PC .ssh folder with the following:
@@ -244,15 +255,14 @@ CSC_PROJECT_NAME = "project_(your_csc_project)"
 
 ### Submitter Credentials
 
-To use Submitter that connects CPouta OSS and Mahti Ray, we need to setup SSH credentials. Please use the following offical documentation:
+To use Submitter that connects CPouta OSS and Mahti Ray, we need to setup SSH credentials. Please read through the following offical documentation:
 
 - [CPouta SSH keys](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/#setting-up-ssh-keys)
 - [Mahti SSH key](https://docs.csc.fi/computing/connecting/ssh-keys/)
 
-
 Do the following actions:
 
-1. Go to PC .ssh folder and create compose-secrets.json with the following template:
+1. Go to PC .ssh folder and create compose-secrets.json containing the following with brackets filled:
    
 ```
 {
@@ -279,7 +289,7 @@ Do the following actions:
 
 3. Use your PC to create local-mahti.pem file and save it to PC .ssh folder.
 
-4. Setup up the following .ssh/config:
+4. Add the following to .ssh/config:
 
 ```
 Host mahti
@@ -288,28 +298,56 @@ User ()
 IdentityFile ~/.ssh/local-mahti.pem
 ```
 
-5. Test that SSH works:
+5. Activate the Mahti key using MyCSC
+
+6. Test that SSH works:
    
 ```
 ssh mahti
 exit/logout # CTRL + C if hangs
 ```
 
-6. Get the absolute paths of the compose-secrets.json and keys with 'pwd' and write them into the compose-secrets.json alongside the passphrases of Mahti SSH key
-
-7. Go to the production deployment folder of submitter in applications and make the submitter run locally with:
+7. Get the absolute paths of the compose-secrets.json and keys with
 
 ```
+pwd
+```
+
+8. Go to Submitter deployment folder and use the PWD paths to fill the secrets paths of stack.yaml with
+
+```
+cd cloud-hpc-oss-mlops-platform/applications/article/submitter/deployment/production
+nano stack.yaml
+```
+
+## Utilization
+
+### Local
+
+To test the Submitter use the following:
+
+```
+cd cloud-hpc-oss-mlops-platform/applications/article/submitter/deployment/production
 docker compose -f stack.yaml up # Start
+```
+
+The submitter frontend and monitoring are available at
+
+```
+http://localhost:6600
+http://localhost:6601
+```
+
+You can shutdown Submitter with:
+
+```
 CTRL + C # Shutdown
 docker compose -f stack.yaml down # Shutdown
 ```
 
-8. If now errors are created, proceed to cloud-hpc notebooks
+### Cloud
 
-### OSS Utilization
-
-When OSS is ready, create SSH local forwards and port forward OSS tools with following:
+To test OSS tools use the following:
 
 ```
 # Kubeflow central dashboard
@@ -345,10 +383,12 @@ http://localhost:5050 (user and password is admin)
 # Forwarder frontend
 ssh -L 6500:localhost:6500 cpouta
 kubectl port-forward svc/fastapi-service 6500:6500 -n forwarder
+http://localhost:6500
 
 # Forwarder Monitor
 ssh -L 6501:localhost:6501 cpouta
 kubectl port-forward svc/flower-service 6501:6501 -n forwarder
+http://localhost:6501
 
 # Forwarder Backend
 ssh -L 6502:localhost:6502 cpouta
@@ -357,6 +397,7 @@ kubectl port-forward svc/celery-service 6502:6502 -n forwarder
 # Ray Dashboard (during SLURM runs)
 
 ssh -L 127.0.0.1:8280:192.168.1.13:8280 cpouta
+http://localhost:8280
 ```
 
 ## Troubleshooting
