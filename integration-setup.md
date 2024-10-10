@@ -1,6 +1,6 @@
-# Setup Integreated OSS Platform
+# Integrated OSS Platform
 
-### OSS Modifications
+## Modifications
 
 1. In kubeflow/in-cluster-setup/kubeflow/kustomization.yaml the following components are removed
    - Katib, 
@@ -22,9 +22,7 @@
 8. Forwarder deployment was added
 9. The deployment envs were modified to have the forwarder deployment
 
-### CPouta OSS
-
-#### Basics
+## Requirements
 
 In order to use CSC services, you need to create an CSC account, so please check the following official documentation:
 
@@ -33,8 +31,6 @@ In order to use CSC services, you need to create an CSC account, so please check
 - [Cloud computing concepts](https://docs.csc.fi/cloud/)
 - [Pouta security guidelines](https://docs.csc.fi/cloud/pouta/security/)
 - [Pouta accounting](https://docs.csc.fi/cloud/pouta/accounting/)
-
-#### Context
 
 If you want to understand the technical details, check these links:
 
@@ -60,15 +56,16 @@ Headless services:
 - [External services in kubernetes](https://stackoverflow.com/questions/57764237/kubernetes-ingress-to-external-service?noredirect=1&lq=1)
 - [Headless services in kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
 
-#### OSS Setup
+## Setup
 
-When you have managed to get a CSC user with a project with a access to [CPouta](https://pouta.csc.fi), you are now able to create virtual machine instances for running OSS. Please check the following offical documentation:
+### VM Creation
 
-- [VM Creation](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/)
-- [VM Flavors](https://docs.csc.fi/cloud/pouta/vm-flavors-and-billing/#standard-flavors)
-- [VM connection](https://docs.csc.fi/cloud/pouta/connecting-to-vm/)
+When you have managed to get a CSC user with a project with a access to [CPouta](https://pouta.csc.fi), you are now able to create virtual machines. Please check the following offical documentation:
 
-Use the documentation to setup a VM instance with the following details:
+- [Create CPouta VM](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/)
+- [CPouta Flavors](https://docs.csc.fi/cloud/pouta/vm-flavors-and-billing/#standard-flavors)
+
+Create a VM with the following details:
 
 - Instance name: OSS-Platform (Can be changed)
 - Flavor: Standard.xxlarge
@@ -76,7 +73,13 @@ Use the documentation to setup a VM instance with the following details:
 - Instance Boot Source: Boot from image
 - Image Name: Ubuntu-22.04
 
-and a local SSH config with the following:
+### VM Connection
+
+Please check the following offical documentation:
+
+- [CPouta connection](https://docs.csc.fi/cloud/pouta/connecting-to-vm/)
+
+Create a local SSH config with the following:
 
 ```
 Host cpouta
@@ -85,72 +88,152 @@ User ()
 IdentityFile ~/.ssh/local-cpouta.pem
 ```
 
-When you have connected to the VM instance, run the following commands
+Use the following command to connect to the VM:
+
+```
+ssh cpouta
+```
+
+### VM Update
+
+To update the VM, run the following commands
 
 ```
 sudo apt update
 sudo apt upgrade # press enter, when you get a list
 ```
 
-We now need to install and configure Docker, so please use the following official documentation:
+### VM Docker
+
+To install and configure Docker into the VM, use the following official documentation:
 
 - [Docker engine setup](https://docs.docker.com/engine/install/ubuntu/)
 - [Remove sudo docker](https://docs.docker.com/engine/install/linux-postinstall/)
 
-We can provide more storage for Docker with the following actions:
+### VM Storage
 
-1. [Create and mount atleast 500GB volume into a VM](https://docs.csc.fi/cloud/pouta/persistent-volumes/)
-2. Check current root directory:
+To provide more storage for VM Docker, create a volume and mount it into the VM using the following documentation
+
+- [CPouta persistent volumes](https://docs.csc.fi/cloud/pouta/persistent-volumes/)
+
+Then do the following actions:
+
+1. Check current root directory:
+   
 ```
 docker info
 ```
-3. Create a folder in volume
+
+2. Create a folder in volume
+   
 ```
 cd /media/volume
 mkdir docker
 ```
-4. Get its path
+
+3. Get its path
+   
 ```
 cd docker
 pwd
 ```
-5. Check the docker daemon.json
+
+4. Check the docker daemon.json
 ```
 cat /etc/docker/daemon.json
 ```
-6. Shutdown docker
+
+5. Shutdown docker
+   
 ```
 sudo systemctl stop docker
 sudo systemctl stop docker.socket
 sudo systemctl stop containerd
 ```
-7. Edit to have data-root: '/media/volume/docker':
+
+6. Edit to have data-root: '/media/volume/docker':
+   
 ```
 sudo nano /etc/docker/daemon.json
 ```
-8. Confirm path:
+
+7. Confirm path:
+
 ```
 cat /etc/docker/daemon.json
 ```
-9.  Move docker data: 
+
+8.  Move docker data:
+   
 ```
 sudo rsync -axPS /var/lib/docker/ /media/volume/docker
 ```
-10. Restart docker
+
+9. Restart docker
+    
 ```
 sudo systemctl start docker
 ```
-11. Check docker info
+
+10. Check docker info
+
 ```
 docker info
 ```
+
 12. Try running a container
 13. If no failures happen, check file system utilization with
+    
 ```
 df -h
 ```
 
-The VM is now ready to setup OSS, so git clone this repository and install any deployment with monitoring. When OSS is running, you can use the following tools:
+### VM Networking
+
+The VM security groups and SSH need to be configured in order to use Mahti Ray in CPouta. Create the following security group rules:
+
+- Mahti-nat-1.csc.fi
+   - SSH
+   - 86.50.165.201
+- Mahti-nat-2.csc.fi
+   - SSH
+   - 86.50.165.202
+  
+For the VM SSH config, do the following:
+
+```
+cat /etc/ssh/sshd_config
+sudo nano /etc/ssh/sshd_config 
+CTRL + X 
+Enter 
+sudo service ssh restart 
+```
+
+You can debug SSH connections with:
+
+```
+grep sshd /var/log/auth.log # CPouta
+```
+
+### VM OSS
+
+To run the Cloud-HPC OSS platform in the VM, do the following:
+
+```
+git clone https://github.com/K123AsJ0k1/cloud-hpc-oss-mlops-platform.git
+cd cloud-hpc-oss-mlops-platform
+setup.sh (pick any deployment with monitoring)
+```
+
+When the setup is complete, use the following to confirm that all pods are running:
+
+```
+kubectl get pods -A
+```
+
+### OSS Utilization
+
+When OSS is ready, create SSH local forwards and port forward OSS tools with following:
 
 ```
 # Kubeflow central dashboard
@@ -184,118 +267,101 @@ kubectl port-forward svc/grafana 5050:3000 -n monitoring
 http://localhost:5050 (user and password is admin)
 
 # Forwarder frontend
-
 ssh -L 6500:localhost:6500 cpouta
 kubectl port-forward svc/fastapi-service 6500:6500 -n forwarder
 
 # Forwarder Monitor
-
 ssh -L 6501:localhost:6501 cpouta
 kubectl port-forward svc/flower-service 6501:6501 -n forwarder
 
 # Forwarder Backend
-
 ssh -L 6502:localhost:6502 cpouta
 kubectl port-forward svc/celery-service 6502:6502 -n forwarder
 
-# Ray Dashboard
+# Ray Dashboard (during SLURM runs)
 
 ssh -L 127.0.0.1:8280:192.168.1.13:8280 cpouta
 ```
 
-### Ray Setup
+### Notebook Credentials
 
-When you have access to Allas and Mahti, in order to use Mahti Ray in CPouta, we need to configure security groups and SSH. Set the VM security group to have the following:
-
-- Mahti-nat-1.csc.fi
-   - SSH
-   - 86.50.165.201
-- Mahti-nat-2.csc.fi
-   - SSH
-   - 86.50.165.202
-  
-For the VM SSH configuration, change GatewayPorts to be clientspecified with:
+To use Allas in notebooks, you need to create a .env in your PC's SSH folder with the following:
 
 ```
-cat /etc/ssh/sshd_config
-sudo nano /etc/ssh/sshd_config 
-CTRL + X 
-Enter 
-sudo service ssh restart 
-```
-
-You can debug SSH connections with:
-
-```
-grep sshd /var/log/auth.log # CPouta
-```
-
-
-### Notebook Setup
-
-In order to get the Allas token used in storage interactions, you need to create a .env in SSH folder with the following:
-
-```
-CSC_USERNAME = ""
-CSC_PASSWORD = ""
+CSC_USERNAME = "(your_csc_username)"  
+CSC_PASSWORD = "(your_csc_password)"
 CSC_USER_DOMAIN_NAME = "Default"
-CSC_PROJECT_NAME = "project_()"
+CSC_PROJECT_NAME = "project_(your_csc_project)"
 ```
 
-### Submitter Setup
+### Submitter Credentials
+
+To use Submitter that connects CPouta OSS and Mahti Ray, we need to setup SSH credentials. Please use the following offical documentation:
+
+- [CPouta SSH keys](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/#setting-up-ssh-keys)
+- [Mahti SSH key](https://docs.csc.fi/computing/connecting/ssh-keys/)
 
 
-In order to integrate CPouta OSS and Mahti Ray, you need to use a locally run submitter to handle SSH based SLURM interactions. In order to make the submitter run with compose, do the following:
+Do the following actions:
 
-
-1. Go to .ssh folder and use the following template to create compose-secrets.json:
+1. Go to .ssh folder and create compose-secrets.json with the following template:
+   
 ```
 {
-    "CLOUD_ENVIROMENT": "none",
-    "CLOUD_ADDRESS": "none",
-    "CLOUD_USER": "none",
-    "CLOUD_KEY": "none",
-    "CLOUD_PASSWORD": "empty", # password or empty
+    "CLOUD_ENVIROMENT": "none", # Leave as is
+    "CLOUD_ADDRESS": "none",  # Leave as is
+    "CLOUD_USER": "none",  # Leave as is
+    "CLOUD_KEY": "none",  # Leave as is
+    "CLOUD_PASSWORD": "empty",  # Leave as is
     "STORAGE_ENVIROMENT": "allas",
     "STORAGE_USER": "token", # Allas is always token based
     "STORAGE_PASSWORD": "token", # Allas is always token based
     "HPC_ENVIROMENT": "mahti",
     "HPC_ADDRESS": "mahti.csc.fi",
-    "HPC_USER": "", # CSC user
+    "HPC_USER": "(your_csc_user)", 
     "HPC_KEY": "/run/secrets/local-mahti",
-    "HPC_PASSWORD": "empty", # password or empty
+    "HPC_PASSWORD": "(your_ssh_password)", 
     "INTEGRATION_ENVIROMENT": "cpouta-mahti",
     "INTEGRATION_KEY": "/run/secrets/cpouta-mahti",
     "INTEGRATION_PASSWORD": "empty" # password or empty
 }
-
 ```
-1. Use SSH key section of this [guide](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/#setting-up-ssh-keys) to create cpouta-mahti.pem files and save it into .ssh. Its recommeded that bridge key doesn't get passphrase.
-2. Use SSH key section of this [guide](https://docs.csc.fi/computing/connecting/) to create local-mahti.pem file and save it to .ssh
-3. Setup up the following .ssh/config:
+
+2. Use CPouta to create cpouta-mahti.pem files and save it into PC .ssh folder. Its recommeded that the key doesn't get passphrase.
+
+3. Use your PC to create local-mahti.pem file and save it to PC .ssh folder.
+
+4. Setup up the following .ssh/config:
+
 ```
 Host mahti
 Hostname mahti.csc.fi
 User ()
 IdentityFile ~/.ssh/local-mahti.pem
 ```
-4. Test that SSH works:
+
+5. Test that SSH works:
    
 ```
 ssh mahti
 exit/logout # CTRL + C if hangs
 ```
-5. Get the absolute paths of the compose-secrets.json and keys with 'pwd' and write them into the compose-secrets.json alongside the passphrases of CPouta and Mahti SSH keys
-6. Go to the production deployemnt folder of submitter in applications and make the submitter run locally with:
+
+6. Get the absolute paths of the compose-secrets.json and keys with 'pwd' and write them into the compose-secrets.json alongside the passphrases of Mahti SSH key
+
+7. Go to the production deployment folder of submitter in applications and make the submitter run locally with:
 
 ```
 docker compose -f stack.yaml up # Start
 CTRL + C # Shutdown
 docker compose -f stack.yaml down # Shutdown
 ```
-7. If now errors are created, proceed to the local, cloud and cloud-hpc notebooks
+
+8. If now errors are created, proceed to cloud-hpc notebooks
+
 
 ## Troubleshooting
+
 
 **Error: response from daemon: driver failed programming external connectivity on endpoint kind-ep-control-plane**
 
