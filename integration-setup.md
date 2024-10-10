@@ -62,13 +62,13 @@ Headless services:
 
 #### OSS Setup
 
-When you have managed to get a CSC user with a project with a access to CPouta, you are now able to create virtual machine instances for running OSS. Please check the following offical documentation:
+When you have managed to get a CSC user with a project with a access to [CPouta](https://pouta.csc.fi), you are now able to create virtual machine instances for running OSS. Please check the following offical documentation:
 
 - [VM Creation](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/)
 - [VM Flavors](https://docs.csc.fi/cloud/pouta/vm-flavors-and-billing/#standard-flavors)
 - [VM connection](https://docs.csc.fi/cloud/pouta/connecting-to-vm/)
 
-Use the documentation to setup a VM instance in [CPouta](https://pouta.csc.fi) with the following details:
+Use the documentation to setup a VM instance with the following details:
 
 - Instance name: OSS-Platform (Can be changed)
 - Flavor: Standard.xxlarge
@@ -76,7 +76,7 @@ Use the documentation to setup a VM instance in [CPouta](https://pouta.csc.fi) w
 - Instance Boot Source: Boot from image
 - Image Name: Ubuntu-22.04
 
-Continue to follow the [VM Creation](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/) guide until you have setup SSH config, where its recommeded to set the hostname to be cpouta: 
+and a local SSH config with the following:
 
 ```
 Host cpouta
