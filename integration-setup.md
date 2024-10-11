@@ -352,7 +352,7 @@ To test OSS tools use the following:
 # Kubeflow central dashboard
 ssh -L 8080:localhost:8080 cpouta
 kubectl port-forward svc/istio-ingressgateway 8080:80 -n istio-system
-http://localhost:8080
+http://localhost:8080 (address is user@example.com and password 12341234)
 
 # Kubeflow MinIO
 ssh -L 9000:localhost:9000 cpouta
