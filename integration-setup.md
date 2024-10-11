@@ -239,7 +239,6 @@ Download the repository with:
 
 ```
 git clone https://github.com/K123AsJ0k1/cloud-hpc-oss-mlops-platform.git
-cd cloud-hpc-oss-mlops-platform
 ```
 
 ### Notebook Credentials
