@@ -319,7 +319,7 @@ cd cloud-hpc-oss-mlops-platform/applications/article/submitter/deployment/produc
 nano stack.yaml
 ```
 
-## Utilization
+## Tools
 
 ### Local
 
@@ -392,6 +392,13 @@ http://localhost:6501 (username is flower123 and password is flower456)
 # Ray Dashboard (during SLURM runs)
 ssh -L 127.0.0.1:8280:(VM_private_ip):8280 cpouta
 http://localhost:8280
+```
+
+All of these can be closed with:
+
+```
+CTRL + C
+exit/logout # CTRL + C if hangs
 ```
 
 ## Troubleshooting
