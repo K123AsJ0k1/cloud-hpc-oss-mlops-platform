@@ -323,7 +323,7 @@ nano stack.yaml
 
 ### Local
 
-To test the Submitter use the following:
+To access the Submitter use the following:
 
 ```
 cd cloud-hpc-oss-mlops-platform/applications/article/submitter/deployment/production
@@ -346,7 +346,7 @@ docker compose -f stack.yaml down # Shutdown
 
 ### Cloud
 
-To test OSS tools use the following:
+To access OSS tools use the following:
 
 ```
 # Kubeflow central dashboard
