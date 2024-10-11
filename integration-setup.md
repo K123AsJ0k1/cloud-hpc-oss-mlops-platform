@@ -390,11 +390,6 @@ ssh -L 6501:localhost:6501 cpouta
 kubectl port-forward svc/flower-service 6501:6501 -n forwarder
 http://localhost:6501
 
-# Forwarder Backend (No UI, so only HTTP requests)
-ssh -L 6502:localhost:6502 cpouta
-kubectl port-forward svc/celery-service 6502:6502 -n forwarder
-http://localhost:6502
-
 # Ray Dashboard (during SLURM runs)
 ssh -L 127.0.0.1:8280:(VM_private_ip):8280 cpouta
 http://localhost:8280
