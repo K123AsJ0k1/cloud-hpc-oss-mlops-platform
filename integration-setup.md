@@ -333,8 +333,8 @@ docker compose -f stack.yaml up # Start
 The submitter frontend and monitoring are available at
 
 ```
-http://localhost:6600
-http://localhost:6601
+http://localhost:6600/docs
+http://localhost:6601 (username is flower123 and password is flower456)
 ```
 
 You can shutdown Submitter with:
