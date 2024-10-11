@@ -382,12 +382,12 @@ http://localhost:5050 (user and password is admin)
 # Forwarder frontend
 ssh -L 6500:localhost:6500 cpouta
 kubectl port-forward svc/fastapi-service 6500:6500 -n forwarder
-http://localhost:6500
+http://localhost:6500/docs
 
 # Forwarder Monitor
 ssh -L 6501:localhost:6501 cpouta
 kubectl port-forward svc/flower-service 6501:6501 -n forwarder
-http://localhost:6501
+http://localhost:6501 (username is flower123 and password is flower456)
 
 # Ray Dashboard (during SLURM runs)
 ssh -L 127.0.0.1:8280:(VM_private_ip):8280 cpouta
