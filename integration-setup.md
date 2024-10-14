@@ -199,7 +199,7 @@ The VM security groups and SSH need to be configured in order to use Mahti Ray i
    - SSH
    - 86.50.165.202
   
-For the VM SSH config, do the following:
+In the VM SSH config you need to set GatewayPorts to clientspecified by doing the following:
 
 ```
 cat /etc/ssh/sshd_config
