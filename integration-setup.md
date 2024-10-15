@@ -209,10 +209,29 @@ Enter
 sudo service ssh restart 
 ```
 
-You can debug SSH connections with:
+Finally, in order to enable Mahti SSH to connect, confirm that VM ssh authorized_keys contains respective Mahti SSH public key:
 
 ```
-grep sshd /var/log/auth.log # CPouta
+cd .ssh
+ls
+cat authorized_keys
+```
+
+If the public key of the Mahti key isn't there, copy it and add it with:
+
+```
+nano authorized_keys
+CTRL + SHIFT + V
+CTRL + X
+Enter
+```
+
+If you are having proplems with SSH, you can debug SSH connections with:
+
+```
+ss -tuln
+grep sshd /var/log/auth.log
+ps aux | grep ssh
 ```
 
 ### VM OSS
