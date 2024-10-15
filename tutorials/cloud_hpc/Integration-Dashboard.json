@@ -313,6 +313,18 @@
           "options": {}
         },
         {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "jobid"
+              }
+            ]
+          }
+        },
+        {
           "id": "limit",
           "options": {
             "limitField": 5
@@ -324,10 +336,6 @@
             "regex": "([A-Za-z ]*).*",
             "renamePattern": "$1"
           }
-        },
-        {
-          "id": "organize",
-          "options": {}
         }
       ],
       "type": "barchart"
@@ -1396,13 +1404,13 @@
     "list": []
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "Europe/Helsinki",
   "title": "Integration Dashboard",
   "uid": "fdmzvjxt50ni8f",
-  "version": 11,
+  "version": 2,
   "weekStart": ""
 }
