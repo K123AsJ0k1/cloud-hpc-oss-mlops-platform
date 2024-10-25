@@ -8,8 +8,6 @@ This fork provides documentation, applications and notebooks on how to enable th
 
 The utilized and intended use enviroment is the CSC infrastructure ecosystem with the tested platforms being [CPouta](https://docs.csc.fi/cloud/pouta/) cloud platform, [Allas](https://docs.csc.fi/data/Allas/) object storage platform and [Mahti](https://docs.csc.fi/computing/) supercomputer platform.
 
-A more indepth explanation for the implemented thesis code and the initial ideas of the article code are found in a master's thesis ['On Integrating Cloud and High Performance Computing Enviroments in Machine Learning Operations'](https://helda.helsinki.fi/items/8b6cc75b-43a9-43e8-bd26-c8f1914cee34).
-
 ## Overview of Project Structure
 
 - **Applications**
