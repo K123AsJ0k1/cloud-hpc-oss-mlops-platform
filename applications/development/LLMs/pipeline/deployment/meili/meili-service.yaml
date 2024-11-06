@@ -6,5 +6,5 @@ spec:
   selector: 
     app: meili-server
   ports:
-    - port: 7100
+    - port: 7202
       targetPort: 7100

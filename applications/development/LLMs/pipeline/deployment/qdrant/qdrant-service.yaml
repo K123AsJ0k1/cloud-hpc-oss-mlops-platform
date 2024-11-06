@@ -6,5 +6,5 @@ spec:
   selector: 
     app: qdrant-server
   ports:
-    - port: 6333
+    - port: 7201
       targetPort: 6333
