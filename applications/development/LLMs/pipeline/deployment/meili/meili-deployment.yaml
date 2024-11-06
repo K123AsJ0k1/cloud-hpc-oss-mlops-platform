@@ -19,7 +19,7 @@ spec:
           image: getmeili/meilisearch:v1.10.0
           imagePullPolicy: Always
           ports:
-            - containerPort: 27017
+            - containerPort: 7700
           volumeMounts:
             - name: meili-storage
               mountPath: /meili_data
