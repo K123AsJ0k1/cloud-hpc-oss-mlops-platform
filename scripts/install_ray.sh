@@ -12,4 +12,4 @@ helm install kuberay-operator kuberay/kuberay-operator --version 1.0.0
 kubectl wait --for=condition=available --timeout=1200s deployment/kuberay-operator
 
 # Install KubeRay cluster
-helm install raycluster kuberay/ray-cluster --version 1.0.0 --set image.tag=2.7.0
+helm install raycluster kuberay/ray-cluster --version 1.0.0 --set image.tag=2.38.0-py312
