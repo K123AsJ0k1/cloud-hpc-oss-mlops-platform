@@ -6,11 +6,11 @@ image:
 head:
   resources:
     limits:
-      cpu: "1"
-      memory: "10G"
+      cpu: "2"
+      memory: "20G"
     requests:
-      cpu: "1"
-      memory: "10G"
+      cpu: "2"
+      memory: "20G"
   volumes:
     - name: log-volume
       emptyDir: {}
