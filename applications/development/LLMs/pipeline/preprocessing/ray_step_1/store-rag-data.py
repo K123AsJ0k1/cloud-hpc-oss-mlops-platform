@@ -4,7 +4,8 @@ import json
 
 from functions.minio_os import minio_setup_client
 from functions.fetch import fetch_repository_paths
-from functions.store_documents import store_github_repository_documents
+from functions.store_documents import store_repository_documents
+from functions.utility import divide_list
 
 from importlib.metadata import version
 
@@ -13,6 +14,8 @@ def store_data(
     data_parameters: any
 ):
     try:
+        worker_number = process_parameters['worker-number']
+
         print('Creating minio client')
         object_client = minio_setup_client(
             endpoint = storage_parameters['minio-endpoint'],
@@ -42,19 +45,28 @@ def store_data(
             replace = replace
         )
 
-        
+        print('Dividing paths')
 
-        #print('Storing repository documents')
+        path_batches = divide_list(
+            target_list = repository_paths,
+            number = worker_number
+        )
 
-        #store_github_repository_documents(
-        #    mongo_client = document_client,
-        #    github_token = github_token,
-        #    repository_owner = repository_owner, 
-        #    repository_name = repository_name, 
-        #    repository_paths = repository_paths
-        #)
+        print('Referencing paths')
+        path_batch_refs = []
+        for batch in path_batches:
+            path_batch_refs.append(ray.put(batch))
 
-        #print('Documents stored')
+        print('Storing repository documents')
+        task_1_refs = []
+        for path_batch_ref in path_batch_refs:
+            task_1_refs.append(store_repository_documents.remote(
+                storage_parameters = storage_parameters,
+                data_parameters = data_parameters,
+                repository_paths = path_batch_ref
+            ))
+        task_1_outputs = ray.get(task_1_refs)
+        print('Documents stored')
         
         return True
     except Exception as e:
@@ -88,11 +100,6 @@ if __name__ == "__main__":
         data_parameters = data_parameters
     )
     
-    #fetch_store_status = ray.get(fetch_and_store_data.remote(
-    #    storage_parameters = storage_parameters,
-    #    data_parameters = data_parameters
-    #))
-
-    #print('Fetch and store success:' + str(fetch_store_status))
+    print('Store data success:' + str(store_data_status))
 
     print('Ray job Complete')

@@ -5,7 +5,7 @@ from functions.mongo_db import mongo_setup_client
 from functions.pygithub import pygithub_get_path_contents
 from functions.mongo_db import mongo_check_collection, mongo_create_document
 from functions.create_documents import create_markdown_documents, create_python_documents, create_notebook_documents, create_yaml_documents
-from functions.utility import divide_list
+from functions.utility import divide_list, get_storage_prefix
 
 def store_repository_path_documents(
     mongo_client: any,
@@ -66,19 +66,13 @@ def store_repository_path_documents(
         return True
     return False
 
-def get_github_storage_prefix(
-    repository_owner: str,
-    repository_name: str
-) -> str:
-    return repository_owner + '|' + repository_name + '|'
-
 def get_path_database_and_collection(
     repository_owner: str,
     repository_name: str,
     path: str
 ) -> str:
     path_split = path.split('/')
-    database_name = get_github_storage_prefix(repository_owner, repository_name) + path_split[-1].split('.')[-1]
+    database_name = get_storage_prefix(repository_owner, repository_name) + path_split[-1].split('.')[-1]
     collection_name = ''
     for word in path_split[:-1]:
         collection_name += word[:2] + '|'
@@ -89,11 +83,11 @@ def get_path_database_and_collection(
     num_cpus = 1,
     memory = 5 * 1024 * 1024 * 1024
 )
-def store_github_repository_documents(
+def store_repository_documents(
     storage_parameters: any,
     data_parameters: any,
     repository_paths: any
-) -> any:
+) -> bool:
     document_client = mongo_setup_client(
         username = storage_parameters['mongo-username'],
         password = storage_parameters['mongo-password'],
@@ -110,7 +104,7 @@ def store_github_repository_documents(
         target_list = repository_paths,
         number = batch_number
     )
-
+    stored = False
     for path_batch in divided_paths:
         new_paths = []
         for path in path_batch:
@@ -158,3 +152,4 @@ def store_github_repository_documents(
             )
 
             contents_index += 1
+    return stored
