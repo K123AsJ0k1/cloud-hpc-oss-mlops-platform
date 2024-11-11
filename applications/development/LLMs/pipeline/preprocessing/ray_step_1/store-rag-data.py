@@ -1,0 +1,98 @@
+import sys
+import ray
+import json
+
+from functions.minio_os import minio_setup_client
+from functions.fetch import fetch_repository_paths
+from functions.store_documents import store_github_repository_documents
+
+from importlib.metadata import version
+
+def store_data(
+    storage_parameters: any,
+    data_parameters: any
+):
+    try:
+        print('Creating minio client')
+        object_client = minio_setup_client(
+            endpoint = storage_parameters['minio-endpoint'],
+            username = storage_parameters['minio-username'],
+            password = storage_parameters['minio-password']
+        )
+        print('Minio client created')
+        
+        github_token = data_parameters['github-token']
+        repository_owner = data_parameters['repository-owner']
+        repository_name = data_parameters['repository-name']
+        object_bucket = data_parameters['object-bucket']
+        repo_paths_object = data_parameters['repo-paths-object']
+        relevant_files = data_parameters['relevant-files']
+        replace = data_parameters['replace']
+
+        print('Getting repository paths')
+        
+        repository_paths = fetch_repository_paths(
+            object_client = object_client,
+            github_token = github_token,
+            repository_owner = repository_owner,
+            repository_name = repository_name,
+            object_bucket = object_bucket,
+            repo_paths_object = repo_paths_object,
+            relevant_files = relevant_files,
+            replace = replace
+        )
+
+        
+
+        #print('Storing repository documents')
+
+        #store_github_repository_documents(
+        #    mongo_client = document_client,
+        #    github_token = github_token,
+        #    repository_owner = repository_owner, 
+        #    repository_name = repository_name, 
+        #    repository_paths = repository_paths
+        #)
+
+        #print('Documents stored')
+        
+        return True
+    except Exception as e:
+        print('Fetch and store error')
+        print(e)
+        return False
+
+if __name__ == "__main__":
+    print('Starting ray job')
+    print('Python version is:' + str(sys.version))
+    print('Ray version is:' + version('Ray'))
+    print('PyGithub version is:' + version('PyGithub'))
+    print('PyMongo version is:' + version('PyMongo'))
+    print('Markdown version is:' + version('Markdown'))
+    print('Tree-sitter version is:' + version('tree-sitter'))
+    print('Tree-sitter-python version is:' + version('tree-sitter-python'))
+    print('BeautifulSoup version is:' + version('beautifulsoup4'))
+    print('NBformat version is:' + version('nbformat'))
+    
+    input = json.loads(sys.argv[1])
+
+    process_parameters = input['process-parameters']
+    storage_parameters = input['storage-parameters']
+    data_parameters = input['data-parameters']
+
+    print('Running store data')
+
+    store_data_status = store_data(
+        process_parameters = process_parameters,
+        storage_parameters = storage_parameters,
+        data_parameters = data_parameters
+    )
+    
+    #fetch_store_status = ray.get(fetch_and_store_data.remote(
+    #    storage_parameters = storage_parameters,
+    #    data_parameters = data_parameters
+    #))
+
+    #print('Fetch and store success:' + str(fetch_store_status))
+
+    print('Ray job Complete')
