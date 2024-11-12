@@ -1,4 +1,5 @@
 
+
 import sys
 import ray
 import json
@@ -6,15 +7,14 @@ import json
 from functions.mongo_db import mongo_setup_client
 from functions.minio_os import minio_setup_client
 
-from functions.get_documents import get_stored_documents
+from functions.documents import get_divided_collections
 
 from functions.embeddings import store_embeddings
 from functions.keywords import store_keywords
-from functions.utility import divide_list, get_checked_documents, get_github_storage_prefix, store_checked_documents
+from functions.utility import get_checked, store_checked
 
 from importlib.metadata import version
 
-  
 def preprocess_data(
     process_parameters: any,
     storage_parameters: any,
@@ -22,6 +22,7 @@ def preprocess_data(
 ):
     try:
         worker_number = process_parameters['worker-number']
+        configuration = data_parameters['configuration']
         
         print('Creating mongo client')
         mongo_client = mongo_setup_client(
@@ -38,102 +39,96 @@ def preprocess_data(
             username = storage_parameters['minio-username'],
             password = storage_parameters['minio-password']
         )
-        print('Minio client created')
-
-        repository_owner = data_parameters['repository-owner']
-        repository_name = data_parameters['repository-name']
-        configuration = data_parameters['configuration']
+        print('Minio client created') 
 
         print('Getting stored documents')
-        
-        stored_documents = get_stored_documents(
-            document_client = mongo_client,
-            database_prefix = get_github_storage_prefix(
-                repository_owner = repository_owner,
-                repository_name = repository_name
-            )
-        )
-
         print('Dividing documents for ' + str(worker_number) + ' workers')
 
-        divided_documents = divide_list(
-            target_list = stored_documents,
+        collection_batches = get_divided_collections(
+            document_client = mongo_client,
+            configuration = configuration,
             number = worker_number
         )
-
+        
         print('Referencing documents')
 
-        doc_refs = []
-        for docs in divided_documents:
-            doc_refs.append(ray.put(docs))
+        collection_batch_refs = []
+        for collection_batch in collection_batches:
+            collection_batch_refs.append(ray.put(collection_batch))
 
-        print('Getting vector ids')
+        print('Getting data')
 
-        vector_ids = get_checked_documents(
+        vector_identities = get_checked(
             object_client = minio_client,
-            configuration = configuration,
-            prefix = configuration['vector-prefix']
+            storage_parameters = storage_parameters,
+            prefix = storage_parameters['vector-identity-prefix']
         )
 
-        print('Referencing vector ids')
-
-        vector_ids_ref = ray.put(vector_ids)
-
-        print('Running store embeddings')
-        task_refs = []
-        for doc_ref in doc_refs:
-            task_refs.append(store_embeddings.remote(
-                storage_parameters = storage_parameters,
-                configuration = configuration,
-                storage_documents = doc_ref,
-                given_identities = vector_ids_ref
-            ))
-        task_outputs = ray.get(task_refs)
-        print('Outputs received')
-
-        updated_vector_ids = sum(task_outputs,[])
-
-        print('Storing vector ids')
-        store_checked_documents(
+        search_identities = get_checked(
             object_client = minio_client,
-            configuration = configuration,
-            prefix = configuration['vector-prefix'],
-            checked_documents = updated_vector_ids
+            storage_parameters = storage_parameters,
+            prefix = storage_parameters['search-identity-prefix']
         )
 
-        print('Getting search ids')
+        print('Referencing data')
+
+        vector_identity_ref = ray.put(vector_identities)
+        search_identity_ref = ray.put(search_identities)
         
-        search_ids = get_checked_documents(
-            object_client = minio_client,
-            configuration = configuration,
-            prefix = configuration['search-prefix']
-        )
-
-        print('Referencing search ids')
-
-        search_ids_ref = ray.put(search_ids)
-
-        print('Running store keywords')
-        task_refs = []
-        for doc_ref in doc_refs:
-            task_refs.append(store_keywords.remote(
+        print('Starting tasks')
+        
+        task_1_refs = []
+        for collection_batch_ref in collection_batch_refs:
+            task_1_refs.append(store_embeddings.remote(
                 storage_parameters = storage_parameters,
                 configuration = configuration,
-                storage_documents = doc_ref,
-                given_identities = search_ids_ref
+                collection_tuples = collection_batch_ref,
+                given_identities = vector_identity_ref
             ))
-        task_outputs = ray.get(task_refs)
-        print('Outputs received')
+        
+        updated_vector_identities = []
+        batch_index = 0
+        task_2_refs = []
+        print('Waiting store embeddings')
+        while len(task_1_refs):
+            done_task_1_refs, task_1_refs = ray.wait(task_1_refs)
+            for output_ref in done_task_1_refs:
+                collection_batch_ref = collection_batch_refs[batch_index]
+                task_2_refs.append(store_keywords.remote(
+                    storage_parameters = storage_parameters,
+                    configuration = configuration,
+                    collection_tuples = collection_batch_ref,
+                    given_identities = search_identity_ref
+                ))
+                batch_index += 1
+                updated_vector_identities.extend(ray.get(output_ref))
+        print('Store embeddings waited')
 
-        updated_search_ids = sum(task_outputs,[])
-
-        print('Storing search ids')
-        store_checked_documents(
+        updated_search_identities = []
+        print('Waiting store keywords')
+        while len(task_2_refs):
+            done_task_2_refs, task_2_refs = ray.wait(task_2_refs)
+            for output_ref in done_task_2_refs:
+                updated_search_identities.extend(ray.get(output_ref))
+        print('Store keywords waited')
+                
+        print('Storing vector identities')
+        store_checked(
             object_client = minio_client,
-            configuration = configuration,
-            prefix = configuration['search-prefix'],
-            checked_documents = updated_search_ids
+            storage_parameters = storage_parameters,
+            prefix = storage_parameters['vector-identity-prefix'],
+            checked_documents = updated_vector_identities
         )
+
+        print('Storing search identities')
+        store_checked(
+            object_client = minio_client,
+            storage_parameters = storage_parameters,
+            prefix = storage_parameters['search-identity-prefix'],
+            checked_documents = updated_search_identities
+        )
+
+        print('All stored')
         
         return True
     except Exception as e:

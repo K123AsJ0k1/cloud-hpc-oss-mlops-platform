@@ -169,6 +169,22 @@ def mongo_get_document(
     except Exception as e:
         print(e)
         return None 
+    
+def mongo_collection_number(
+    mongo_client: any, 
+    database_name: str, 
+    collection_name: str 
+) -> any:
+    try:
+        collection = mongo_get_collection(
+            mongo_client = mongo_client, 
+            database_name = database_name, 
+            collection_name = collection_name
+        )
+        amount_of_documents = collection.count_documents({})
+        return amount_of_documents
+    except Exception as e:
+        return None
 
 def mongo_list_documents(
     mongo_client: any, 

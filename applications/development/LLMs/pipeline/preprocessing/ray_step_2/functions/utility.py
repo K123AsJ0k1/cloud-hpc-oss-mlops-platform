@@ -1,3 +1,4 @@
+
 from math import ceil
 
 from functions.minio_os import minio_check_object, minio_get_object_data_and_metadata, minio_create_or_update_object
@@ -18,13 +19,13 @@ def get_github_storage_prefix(
 ) -> str:
     return repository_owner + '|' + repository_name + '|'
 
-def get_checked_documents(
+def get_checked(
     object_client: any,
-    configuration: any,
+    storage_parameters: any,
     prefix: str
 ):
-    used_object_bucket = configuration['object-bucket']
-    used_object_path = configuration['object-path'] + '-' + prefix
+    used_object_bucket = storage_parameters['object-bucket']
+    used_object_path = storage_parameters['object-path'] + '-' + prefix
     
     object_exists = minio_check_object(
         minio_client = object_client,
@@ -32,29 +33,28 @@ def get_checked_documents(
         object_path = used_object_path
     )
 
-    ids = []
+    data = []
     if object_exists:
-        ids = minio_get_object_data_and_metadata(
+        data = minio_get_object_data_and_metadata(
             minio_client = object_client,
             bucket_name = used_object_bucket, 
             object_path = used_object_path
         )['data']
-        
-    return ids
+    return data
 
-def store_checked_documents(
+def store_checked(
     object_client: any,
-    configuration: any,
+    storage_parameters: any,
     prefix: str,
-    checked_documents: any
+    checked: any
 ):
-    used_object_bucket = configuration['object-bucket']
-    used_object_path = configuration['object-path'] + '-' + prefix
+    used_object_bucket = storage_parameters['object-bucket']
+    used_object_path = storage_parameters['object-path'] + '-' + prefix
     
     minio_create_or_update_object(
         minio_client = object_client,
         bucket_name = used_object_bucket, 
         object_path = used_object_path,
-        data = checked_documents, 
+        data = checked, 
         metadata = {}
     )

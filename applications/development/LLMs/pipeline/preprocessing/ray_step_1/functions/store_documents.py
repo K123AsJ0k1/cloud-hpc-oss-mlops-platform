@@ -1,13 +1,14 @@
 
+
 import ray
 
 from functions.mongo_db import mongo_setup_client
 from functions.pygithub import pygithub_get_path_contents
 from functions.mongo_db import mongo_check_collection, mongo_create_document
 from functions.create_documents import create_markdown_documents, create_python_documents, create_notebook_documents, create_yaml_documents
-from functions.utility import divide_list, get_storage_prefix
+from functions.utility import divide_list, get_path_database_and_collection
 
-def store_repository_path_documents(
+def store_path_documents(
     mongo_client: any,
     database_name: str,
     collection_name: str,
@@ -66,19 +67,6 @@ def store_repository_path_documents(
         return True
     return False
 
-def get_path_database_and_collection(
-    repository_owner: str,
-    repository_name: str,
-    path: str
-) -> str:
-    path_split = path.split('/')
-    database_name = get_storage_prefix(repository_owner, repository_name) + path_split[-1].split('.')[-1]
-    collection_name = ''
-    for word in path_split[:-1]:
-        collection_name += word[:2] + '|'
-    collection_name += path_split[-1].split('.')[0]
-    return database_name, collection_name
-
 @ray.remote(
     num_cpus = 1,
     memory = 5 * 1024 * 1024 * 1024
@@ -88,6 +76,7 @@ def store_repository_documents(
     data_parameters: any,
     repository_paths: any
 ) -> bool:
+    print('Storing ' + str(len(repository_paths)) + ' repository documents')
     document_client = mongo_setup_client(
         username = storage_parameters['mongo-username'],
         password = storage_parameters['mongo-password'],
@@ -106,6 +95,7 @@ def store_repository_documents(
     )
     stored = False
     for path_batch in divided_paths:
+        print('Batch size: ' + str(len(path_batch)))
         new_paths = []
         for path in path_batch:
             database_name, collection_name = get_path_database_and_collection(
@@ -122,34 +112,36 @@ def store_repository_documents(
 
             if not collection_exists:
                 new_paths.append(path)
+        
+        print('New paths: ' + str(len(new_paths)))
+        if 0 < len(new_paths):
+            contents = []
+            try:
+                contents = pygithub_get_path_contents(
+                    token = github_token,
+                    owner = repository_owner, 
+                    name = repository_name, 
+                    paths = new_paths
+                )
+            except Exception as e:
+                print('PyGithub error')
+                print(e)
 
-        contents = []
-        try:
-            contents = pygithub_get_path_contents(
-                token = github_token,
-                owner = repository_owner, 
-                name = repository_name, 
-                paths = new_paths
-            )
-        except Exception as e:
-            print('PyGithub error')
-            print(e)
+            contents_index = 0
+            for path in new_paths:
+                database_name, collection_name = get_path_database_and_collection(
+                    repository_owner = repository_owner,
+                    repository_name = repository_name,
+                    path = path
+                )
 
-        contents_index = 0
-        for path in new_paths:
-            database_name, collection_name = get_path_database_and_collection(
-                repository_owner = repository_owner,
-                repository_name = repository_name,
-                path = path
-            )
+                stored = store_path_documents(
+                    mongo_client = document_client,
+                    database_name = database_name,
+                    collection_name = collection_name,
+                    repository_path = path,
+                    path_content = contents[contents_index]
+                )
 
-            stored = store_repository_path_documents(
-                mongo_client = document_client,
-                database_name = database_name,
-                collection_name = collection_name,
-                repository_path = path,
-                path_content = contents[contents_index]
-            )
-
-            contents_index += 1
+                contents_index += 1
     return stored

@@ -1,3 +1,4 @@
+
 import sys
 import ray
 import json
@@ -13,7 +14,7 @@ def store_data(
     storage_parameters: any,
     data_parameters: any
 ):
-    try:
+    try: 
         worker_number = process_parameters['worker-number']
 
         print('Creating minio client')
@@ -34,7 +35,7 @@ def store_data(
 
         print('Getting repository paths')
         
-        repository_paths = fetch_repository_paths(
+        repository_paths = fetch_repository_paths( 
             object_client = object_client,
             github_token = github_token,
             repository_owner = repository_owner,
@@ -45,7 +46,8 @@ def store_data(
             replace = replace
         )
 
-        print('Dividing paths')
+        print('Amount of paths: ' + str(len(repository_paths)))
+        print('Dividing paths between ' + str(worker_number) + ' workers')
 
         path_batches = divide_list(
             target_list = repository_paths,
@@ -54,8 +56,8 @@ def store_data(
 
         print('Referencing paths')
         path_batch_refs = []
-        for batch in path_batches:
-            path_batch_refs.append(ray.put(batch))
+        for path_batch in path_batches:
+            path_batch_refs.append(ray.put(path_batch))
 
         print('Storing repository documents')
         task_1_refs = []
@@ -63,9 +65,16 @@ def store_data(
             task_1_refs.append(store_repository_documents.remote(
                 storage_parameters = storage_parameters,
                 data_parameters = data_parameters,
-                repository_paths = path_batch_ref
+                repository_paths = path_batch_ref 
             ))
-        task_1_outputs = ray.get(task_1_refs)
+        
+        remaining_task_1 = task_1_refs
+        task_1_outputs = []
+        while len(remaining_task_1):
+            done, remaining_task_1 = ray.wait(remaining_task_1, num_returns = 1)
+            output = ray.get(done[0])
+            task_1_outputs.append(output)
+        
         print('Documents stored')
         
         return True
