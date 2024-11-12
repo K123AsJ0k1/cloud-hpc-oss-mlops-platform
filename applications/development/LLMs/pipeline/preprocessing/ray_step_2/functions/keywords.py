@@ -61,7 +61,7 @@ def create_document_keywords(
 ) 
 def store_keywords(
     storage_parameters: any,
-    configuration: any,
+    data_parameters: any,
     collection_tuples: any,
     given_identities: any
 ):
@@ -83,8 +83,8 @@ def store_keywords(
     
     collection_prefix = storage_parameters['search-collection-prefix']
     document_identities = given_identities
-    document_index = 0
-    collection_amount = 0
+    document_index = len(document_identities)
+    collection_index = 0
     for collection_tuple in collection_tuples:
         document_database = collection_tuple[0]
         document_collection = collection_tuple[1]
@@ -93,27 +93,22 @@ def store_keywords(
             document_client = document_client,
             database = document_database,
             collection = document_collection
-        )
+        ) 
 
-        if collection_amount % configuration['search-collection-print'] == 0:
-            print(str(collection_amount) + '/' + str(collection_tuples))
-        collection_amount += 1
+        if collection_index % data_parameters['search-collection-print'] == 0:
+            print(str(collection_index) + '/' + str(all_collections))
+        collection_index += 1
     
-        document_amount = 0
         for document in collection_documents:
             search_collection = document_database.replace('|','-') + '-' + collection_prefix
             document_identity = document_database + '-' + document_collection + '-' + str(document['_id'])
 
-            if document_amount % configuration['search-document-print'] == 0:
-                print(str(document_amount) + '/' + str(collection_documents))
-
-            document_amount += 1
             if document_identity in document_identities:
                 continue
         
             document_keywords = create_document_keywords(
-                document_database = document_database,
-                document_collection = document_collection,
+                database = document_database,
+                collection = document_collection,
                 document = document,
                 document_index = document_index
             )

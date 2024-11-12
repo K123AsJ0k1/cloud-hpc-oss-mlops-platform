@@ -18,7 +18,7 @@ def round_robin_division(
 
 def get_divided_collections(
     document_client: any,
-    configuration: any,
+    data_parameters: any,
     number: int
 ) -> any:
     database_list = mongo_list_databases(
@@ -28,8 +28,8 @@ def get_divided_collections(
     storage_structure = {}    
     
     database_prefix = get_github_storage_prefix(
-        repository_owner = configuration['repository-owner'],
-        repository_name = configuration['repository-name']
+        repository_owner = data_parameters['repository-owner'],
+        repository_name = data_parameters['repository-name']
     )
     for database_name in database_list:
         if database_prefix in database_name:
@@ -39,7 +39,7 @@ def get_divided_collections(
             )
             storage_structure[database_name] = collection_list
     
-    type_priority = configuration['document-type-priority']
+    type_priority = data_parameters['document-type-priority']
     collection_tuples = []
     for database_name, collections in storage_structure.items():
         for collection_name in collections:

@@ -22,7 +22,6 @@ def preprocess_data(
 ):
     try:
         worker_number = process_parameters['worker-number']
-        configuration = data_parameters['configuration']
         
         print('Creating mongo client')
         mongo_client = mongo_setup_client(
@@ -43,10 +42,10 @@ def preprocess_data(
 
         print('Getting stored documents')
         print('Dividing documents for ' + str(worker_number) + ' workers')
-
+ 
         collection_batches = get_divided_collections(
             document_client = mongo_client,
-            configuration = configuration,
+            data_parameters = data_parameters,
             number = worker_number
         )
         
@@ -81,7 +80,7 @@ def preprocess_data(
         for collection_batch_ref in collection_batch_refs:
             task_1_refs.append(store_embeddings.remote(
                 storage_parameters = storage_parameters,
-                configuration = configuration,
+                data_parameters = data_parameters,
                 collection_tuples = collection_batch_ref,
                 given_identities = vector_identity_ref
             ))
@@ -96,7 +95,7 @@ def preprocess_data(
                 collection_batch_ref = collection_batch_refs[batch_index]
                 task_2_refs.append(store_keywords.remote(
                     storage_parameters = storage_parameters,
-                    configuration = configuration,
+                    data_parameters = data_parameters,
                     collection_tuples = collection_batch_ref,
                     given_identities = search_identity_ref
                 ))
