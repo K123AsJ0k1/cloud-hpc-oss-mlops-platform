@@ -22,7 +22,7 @@ spec:
             - containerPort: 6333
           volumeMounts:
             - name: qdrant-storage
-              mountPath: /qdrant/storage:z
+              mountPath: /qdrant/storage
           env:
           - name: QDRANT__SERVICE__API_KEY
             value: 'qdrant_key'
