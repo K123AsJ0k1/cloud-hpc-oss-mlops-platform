@@ -6,11 +6,11 @@ image:
 head:
   resources:
     limits:
-      cpu: "2"
-      memory: "20G"
+      cpu: "3"
+      memory: "30G"
     requests:
-      cpu: "2"
-      memory: "20G"
+      cpu: "3"
+      memory: "30G"
   volumes:
     - name: log-volume
       emptyDir: {}
@@ -25,11 +25,11 @@ worker:
   maxReplicas: 2
   resources:
     limits:
-      cpu: "2"
-      memory: "20G"
+      cpu: "3"
+      memory: "30G"
     requests:
-      cpu: "2"
-      memory: "20G"
+      cpu: "3"
+      memory: "30G"
   volumes:
     - name: log-volume
       emptyDir: {}
