@@ -72,9 +72,9 @@ def store_keywords(
         port = storage_parameters['mongo-port']
     )
 
-    all_collections = len(collection_tuples)
+    collection_amount = len(collection_tuples)
     
-    print('Storing keywords of ' + str(all_collections) + ' collections')
+    print('Storing keywords of ' + str(collection_amount) + ' collections')
 
     search_client = meili_setup_client(
         api_key = storage_parameters['meili-key'],
@@ -84,7 +84,7 @@ def store_keywords(
     collection_prefix = storage_parameters['search-collection-prefix']
     document_identities = given_identities
     document_index = len(document_identities)
-    collection_index = 0
+    collection_number = 1
     for collection_tuple in collection_tuples:
         document_database = collection_tuple[0]
         document_collection = collection_tuple[1]
@@ -95,9 +95,9 @@ def store_keywords(
             collection = document_collection
         ) 
 
-        if collection_index % data_parameters['search-collection-print'] == 0:
-            print(str(collection_index) + '/' + str(all_collections))
-        collection_index += 1
+        if collection_number % data_parameters['search-collection-print'] == 0:
+            print(str(collection_number) + '/' + str(collection_amount))
+        collection_number += 1
     
         for document in collection_documents:
             search_collection = document_database.replace('|','-') + '-' + collection_prefix

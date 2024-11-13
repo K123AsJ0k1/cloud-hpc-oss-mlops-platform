@@ -67,7 +67,7 @@ def remove_duplicate_vectors(
     collections = qdrant_list_collections(
         qdrant_client = vector_client
     )
-
+    # This might be parallizable
     for collection in collections:
         print('Cleaning collection ' + str(collection))
         collection_number = qdrant_collection_number(

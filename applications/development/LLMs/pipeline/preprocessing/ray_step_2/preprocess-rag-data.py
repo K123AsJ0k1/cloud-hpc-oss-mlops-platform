@@ -125,7 +125,7 @@ def preprocess_data(
             object_client = minio_client,
             storage_parameters = storage_parameters,
             prefix = storage_parameters['vector-identity-prefix'],
-            checked_documents = updated_vector_identities
+            checked = updated_vector_identities
         )
 
         print('Storing search identities')
@@ -133,7 +133,7 @@ def preprocess_data(
             object_client = minio_client,
             storage_parameters = storage_parameters,
             prefix = storage_parameters['search-identity-prefix'],
-            checked_documents = updated_search_identities
+            checked = updated_search_identities
         )
 
         print('All stored')

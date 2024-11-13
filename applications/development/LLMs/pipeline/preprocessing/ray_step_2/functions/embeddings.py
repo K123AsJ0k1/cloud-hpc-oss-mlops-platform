@@ -116,11 +116,11 @@ def generate_document_embeddings(
 
 def create_document_embeddings(
     vector_client: any,
-    document_database,
-    document_collection,
-    document: any,
     data_parameters: any,
-    vector_collection: str
+    vector_collection: str,
+    database,
+    collection,
+    document: any
 ) -> bool:
     document_id = str(document['_id'])
     document_type = document['type']
@@ -132,7 +132,7 @@ def create_document_embeddings(
             data_parameters = data_parameters
         )
     except Exception as e:
-        print(document_database,document_collection,document_id)
+        print(database,collection,document_id)
         print(e)
 
     if 0 == len(document_packet):
@@ -163,8 +163,8 @@ def create_document_embeddings(
             print(e)
 
     return generate_document_embeddings(
-        database = document_database,
-        collection = document_collection,
+        database = database,
+        collection = collection,
         type = document_type,
         id = document_id,
         chunks = document_chunks,
@@ -188,8 +188,8 @@ def store_embeddings(
         port = storage_parameters['mongo-port']
     )
 
-    all_collections = len(collection_tuples)
-    print('Storing embeddings of ' + str(all_collections) + ' collections')
+    collection_amount = len(collection_tuples)
+    print('Storing embeddings of ' + str(collection_amount) + ' collections')
     vector_client = qdrant_setup_client(
         api_key = storage_parameters['qdrant-key'],
         address = storage_parameters['qdrant-address'], 
@@ -198,7 +198,7 @@ def store_embeddings(
     
     collection_prefix = storage_parameters['vector-collection-prefix']
     document_identities = given_identities
-    collection_index = 0
+    collection_number = 1
     for collection_tuple in collection_tuples:
         document_database = collection_tuple[0]
         document_collection = collection_tuple[1]
@@ -209,9 +209,9 @@ def store_embeddings(
             collection = document_collection
         )
 
-        if collection_index % data_parameters['vector-collection-print'] == 0:
-            print(str(collection_index) + '/' + str(all_collections))
-        collection_index += 1
+        if collection_number % data_parameters['vector-collection-print'] == 0:
+            print(str(collection_number) + '/' + str(collection_amount))
+        collection_number += 1
 
         for document in collection_documents:
             vector_collection = document_database.replace('|','-') + '-' + collection_prefix
@@ -222,14 +222,15 @@ def store_embeddings(
                 
             document_embeddings = create_document_embeddings(
                 vector_client = vector_client,
-                document_database = document_database,
-                document_collection = document_collection,
-                document = document,
                 data_parameters = data_parameters,
-                vector_collection = vector_collection
+                vector_collection = vector_collection,
+                database = document_database,
+                collection = document_collection,
+                document = document
             )
 
             if 0 < len(document_embeddings):
+                # Maybe upsert points in batches to remove timeouts
                 points_stored = qdrant_upsert_points( 
                     qdrant_client = vector_client, 
                     collection_name = vector_collection,
