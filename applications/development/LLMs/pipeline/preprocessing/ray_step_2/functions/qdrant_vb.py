@@ -1,4 +1,3 @@
-
 from qdrant_client import QdrantClient as qc
 
 def qdrant_is_client(
@@ -52,6 +51,22 @@ def qdrant_get_collection(
     except Exception as e:
         return None
 
+def qdrant_collection_number(
+    qdrant_client: any, 
+    collection_name: str,
+    count_filter: any
+) -> any:
+    try:
+        result = qdrant_client.count(
+            collection_name = collection_name,
+            count_filter = count_filter,
+            exact =  True
+        )
+        return result.count
+    except Exception as e:
+        print(e)
+        return None
+
 def qdrant_list_collections(
     qdrant_client: any
 ) -> any:
@@ -93,13 +108,16 @@ def qdrant_search_data(
     qdrant_client: qc,  
     collection_name: str,
     scroll_filter: any,
-    limit: str
+    limit: int,
+    offset: any
 ) -> any:
     try:
         hits = qdrant_client.scroll(
             collection_name = collection_name,
             scroll_filter = scroll_filter,
-            limit = limit
+            limit = limit,
+            with_payload = True,
+            offset = offset
         )
         return hits
     except Exception as e:
@@ -122,15 +140,15 @@ def qdrant_search_vectors(
     except Exception as e:
         return []
 
-def qdrant_remove_vectors(
+def qdrant_remove_points(
     qdrant_client: qc,  
     collection_name: str, 
-    vectors: str
+    points_selector: any
 ) -> bool:
     try:
-        results = qdrant_client.delete_vectors(
+        results = qdrant_client.delete(
             collection_name = collection_name,
-            vectors = vectors
+            points_selector = points_selector
         )
         return results
     except Exception as e:

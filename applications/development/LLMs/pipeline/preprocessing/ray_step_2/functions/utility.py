@@ -1,6 +1,8 @@
 
 from math import ceil
 
+from qdrant_client.models import PointIdsList
+from functions.qdrant_vb import qdrant_list_collections, qdrant_collection_number, qdrant_search_data, qdrant_remove_points
 from functions.minio_os import minio_check_object, minio_get_object_data_and_metadata, minio_create_or_update_object
 
 def divide_list(
@@ -58,3 +60,63 @@ def store_checked(
         data = checked, 
         metadata = {}
     )
+
+def remove_duplicate_vectors(
+    vector_client: any
+):
+    collections = qdrant_list_collections(
+        qdrant_client = vector_client
+    )
+
+    for collection in collections:
+        print('Cleaning collection ' + str(collection))
+        collection_number = qdrant_collection_number(
+            qdrant_client = vector_client, 
+            collection_name = collection,
+            count_filter = {}
+        )
+
+        print('Collection vectors: ' + str(collection_number))
+
+        batch_size = 200
+        scroll_offset = None
+
+        unique_point_ids = set()
+        unique_chunk_hashes = set()
+        duplicate_vectors = []
+        while True:
+            vectors = qdrant_search_data(
+                qdrant_client = vector_client,  
+                collection_name = collection,
+                scroll_filter = {},
+                limit = batch_size,
+                offset = scroll_offset
+            )
+            
+            for vector in vectors[0]:
+                chunk_hash = vector.payload['chunk_hash']
+                vector_id = vector.id
+                # Scroll can cause double count
+                # so id check is needed
+                if not vector_id in unique_point_ids:
+                    unique_point_ids.add(vector_id)
+                    if not chunk_hash in unique_chunk_hashes:
+                        unique_chunk_hashes.add(chunk_hash)
+                    else:
+                        duplicate_vectors.append(vector_id)
+
+            if len(vectors[0]) < batch_size:
+                break
+
+            scroll_offset = vectors[0][-1].id
+
+        print('Found unique vectors: ' + str(len(unique_chunk_hashes)))
+        print('Found duplicate vectors: ' + str(len(duplicate_vectors)))
+        if 0 < len(duplicate_vectors):
+            status = qdrant_remove_points(
+                qdrant_client = vector_client,  
+                collection_name = collection, 
+                points_selector = PointIdsList(
+                    points = duplicate_vectors
+                )
+            ) 

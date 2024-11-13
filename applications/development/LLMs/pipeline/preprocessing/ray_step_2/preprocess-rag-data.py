@@ -4,6 +4,7 @@ import sys
 import ray
 import json
 
+from functions.qdrant_vb import qdrant_setup_client
 from functions.mongo_db import mongo_setup_client
 from functions.minio_os import minio_setup_client
 
@@ -11,7 +12,7 @@ from functions.documents import get_divided_collections
 
 from functions.embeddings import store_embeddings
 from functions.keywords import store_keywords
-from functions.utility import get_checked, store_checked
+from functions.utility import get_checked, store_checked, remove_duplicate_vectors
 
 from importlib.metadata import version
 
@@ -39,6 +40,14 @@ def preprocess_data(
             password = storage_parameters['minio-password']
         )
         print('Minio client created') 
+
+        print('Creating qdrant client')
+        vector_client = qdrant_setup_client(
+            api_key = storage_parameters['qdrant-key'],
+            address = storage_parameters['qdrant-address'], 
+            port = storage_parameters['qdrant-port']
+        )
+        print('Qdrant client created')
 
         print('Getting stored documents')
         print('Dividing documents for ' + str(worker_number) + ' workers')
@@ -110,7 +119,7 @@ def preprocess_data(
             for output_ref in done_task_2_refs:
                 updated_search_identities.extend(ray.get(output_ref))
         print('Store keywords waited')
-                
+        
         print('Storing vector identities')
         store_checked(
             object_client = minio_client,
@@ -128,7 +137,11 @@ def preprocess_data(
         )
 
         print('All stored')
-        
+
+        remove_duplicate_vectors(
+            vector_client = vector_client
+        )
+
         return True
     except Exception as e:
         print('Preprocess error')

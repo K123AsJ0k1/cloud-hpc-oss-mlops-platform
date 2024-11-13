@@ -16,7 +16,7 @@ from functions.documents import get_sorted_documents
 from functions.mongo_db import mongo_setup_client
 
 from functions.langchain import langchain_create_code_chunks, langchain_create_text_chunks, langchain_create_chunk_embeddings
-from functions.qdrant_vb import qdrant_setup_client, qdrant_search_data, qdrant_list_collections, qdrant_create_collection, qdrant_upsert_points
+from functions.qdrant_vb import qdrant_setup_client, qdrant_list_collections, qdrant_create_collection, qdrant_upsert_points
 
 def create_packet(
     document: any,
@@ -198,7 +198,6 @@ def store_embeddings(
     
     collection_prefix = storage_parameters['vector-collection-prefix']
     document_identities = given_identities
-    #all_collection_amount = len(collection_tuples)
     collection_index = 0
     for collection_tuple in collection_tuples:
         document_database = collection_tuple[0]
