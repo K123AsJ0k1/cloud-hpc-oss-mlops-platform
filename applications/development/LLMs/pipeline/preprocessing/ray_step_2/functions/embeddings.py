@@ -18,7 +18,7 @@ from functions.mongo_db import mongo_setup_client
 from functions.langchain import langchain_create_code_chunks, langchain_create_text_chunks, langchain_create_chunk_embeddings
 from functions.qdrant_vb import qdrant_setup_client, qdrant_list_collections, qdrant_create_collection, qdrant_upsert_points
 
-def create_packet(
+def create_packet( 
     document: any,
     data_parameters: any,
 ) -> any:
@@ -45,7 +45,7 @@ def create_packet(
     for chunk in document_chunks:
         if chunk.strip() and 2 < len(chunk):
             filtered_chunks.append(chunk)
-        
+    # Consider running this in a GPU
     vector_embedding = langchain_create_chunk_embeddings(
         model_name = used_configuration['model-name'],
         chunks = filtered_chunks

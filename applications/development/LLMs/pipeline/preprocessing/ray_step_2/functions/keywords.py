@@ -30,6 +30,7 @@ def create_document_keywords(
 
     document_keywords = []
     try:
+        # Consider running this in a GPU
         document_keywords = spacy_find_keywords(
             text = document_data
         )
