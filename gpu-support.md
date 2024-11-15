@@ -124,6 +124,59 @@ dpkg -l | grep nvidia-container-toolkit
     - CUDA = V12.2.91 
     - Container toolkit = 1.16.1-1
 
+### Sharing GPUs 
+
+By default NVIDIA GPU Operator does not allow sharing a GPU between pods due to 1-to-1 resource requests. This can be fixed by using ![nvshare](https://github.com/grgalex/nvshare?tab=readme-ov-file#deploy_k8s). Since the kind cluster already has the necessery configuration, we can do the following
+
+1. Add nvshare by running:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/nvshare-system.yaml && \
+kubectl apply -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/nvshare-system-quotas.yaml && \
+kubectl apply -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/device-plugin.yaml && \
+kubectl apply -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/scheduler.yaml
+```
+
+2. Check that pods are running
+
+```
+kubectl get pods -n nvshare-system
+
+nvshare-device-plugin-mrt7t   2/2     Running   0          32m
+nvshare-scheduler-6zqb7       1/1     Running   0          32m
+```
+
+3. Run test (Minimum of 10GB VRAM for these):
+
+```
+kubectl apply -f https://raw.githubusercontent.com/grgalex/nvshare/main/tests/kubernetes/manifests/nvshare-tf-pod-1.yaml && \
+kubectl apply -f https://raw.githubusercontent.com/grgalex/nvshare/main/tests/kubernetes/manifests/nvshare-tf-pod-2.yaml
+```
+
+4. Check pods logs for progress
+
+```
+kubectl logs nvshare-tf-matmul-1 -f
+kubectl logs nvshare-tf-matmul-2 -f
+```
+
+5. The tests should end with:
+
+```
+PASS
+--- 217.63522791862488 seconds ---
+PASS
+--- 228.7243537902832 seconds  ---
+```
+
+Now, you can assign a 1 GPU between 10 pods with:
+
+```
+resources:
+  limits:
+    nvshare.com/gpu: 1
+```
+
 ### CUDA Change
 
 If you use case is having wierd problems, it might be caused by old CUDA, which can be updated with the following:
