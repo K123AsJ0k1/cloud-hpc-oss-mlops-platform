@@ -6,7 +6,7 @@ import yaml
 import markdown
 from bs4 import BeautifulSoup
 
-from functions.formatting_documents import extract_yaml_values, extract_jupyter_notebook_markdown_and_code, parse_jupyter_notebook_markdown_into_text
+from preprocessing.ray_step_1.functions.formatting import extract_yaml_values, extract_jupyter_notebook_markdown_and_code, parse_jupyter_notebook_markdown_into_text
 from functions.tree_sitter import tree_create_python_code_and_function_documents
 
 def create_markdown_documents(

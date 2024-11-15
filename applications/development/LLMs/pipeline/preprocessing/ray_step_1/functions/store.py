@@ -5,7 +5,7 @@ import ray
 from functions.mongo_db import mongo_setup_client
 from functions.pygithub import pygithub_get_path_contents
 from functions.mongo_db import mongo_check_collection, mongo_create_document
-from functions.create_documents import create_markdown_documents, create_python_documents, create_notebook_documents, create_yaml_documents
+from preprocessing.ray_step_1.functions.create import create_markdown_documents, create_python_documents, create_notebook_documents, create_yaml_documents
 from functions.utility import divide_list, get_path_database_and_collection
 
 def store_path_documents(
