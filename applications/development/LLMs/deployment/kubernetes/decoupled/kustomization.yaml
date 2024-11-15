@@ -2,6 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: llm-inf
 resources:
-- llm-namespace.yaml
+- llm-inf-namespace.yaml
 - backend/
 - frontend/
