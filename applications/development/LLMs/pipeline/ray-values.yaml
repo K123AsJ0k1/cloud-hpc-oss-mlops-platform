@@ -8,9 +8,11 @@ head:
     limits:
       cpu: "3"
       memory: "30G"
+      nvidia.com/gpu: "1"
     requests:
       cpu: "3"
       memory: "30G"
+      nvidia.com/gpu: "1"
   volumes:
     - name: log-volume
       emptyDir: {}
@@ -27,9 +29,11 @@ worker:
     limits:
       cpu: "3"
       memory: "30G"
+      nvidia.com/gpu: "1"
     requests:
       cpu: "3"
       memory: "30G"
+      nvidia.com/gpu: "1"
   volumes:
     - name: log-volume
       emptyDir: {}
