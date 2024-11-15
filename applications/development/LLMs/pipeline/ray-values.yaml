@@ -12,7 +12,6 @@ head:
     requests:
       cpu: "3"
       memory: "30G"
-      nvidia.com/gpu: "1"
   volumes:
     - name: log-volume
       emptyDir: {}
@@ -33,7 +32,6 @@ worker:
     requests:
       cpu: "3"
       memory: "30G"
-      nvidia.com/gpu: "1"
   volumes:
     - name: log-volume
       emptyDir: {}
