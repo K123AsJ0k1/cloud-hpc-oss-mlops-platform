@@ -4,13 +4,13 @@ import ray
 import json
 
 from functions.minio_os import minio_setup_client
-from preprocessing.ray_step_1.functions.paths import fetch_repository_paths
-from preprocessing.ray_step_1.functions.store import store_repository_documents
-from functions.utility import divide_list
+from functions.paths import get_divided_paths
+from functions.store import store_path_documents
 
-from importlib.metadata import version
+from importlib.metadata import version 
 
 def store_data(
+    process_parameters: any,
     storage_parameters: any, 
     data_parameters: any
 ):
@@ -23,54 +23,42 @@ def store_data(
             username = storage_parameters['minio-username'],
             password = storage_parameters['minio-password']
         )
-        print('Minio client created')
+        print('Minio client created')  
 
+        print('Getting repository paths')
         
-        #github_token = data_parameters['github-token']
-        #repository_owner = data_parameters['repository-owner']
-        #repository_name = data_parameters['repository-name']
-        #object_bucket = data_parameters['object-bucket']
-        #repo_paths_object = data_parameters['repo-paths-object']
-        #relevant_files = data_parameters['relevant-files']
-        #replace = data_parameters['replace']
+        print('Dividing paths for ' + str(worker_number) + ' workers')
+ 
+        path_batches = get_divided_paths( 
+            object_client = object_client,
+            storage_parameters = storage_parameters,
+            data_parameters = data_parameters,
+            number = worker_number
+        )
 
-        #print('Getting repository paths')
+        print('Referencing paths')
+
+        path_batch_refs = []
+        for path_batch in path_batches:
+            path_batch_refs.append(ray.put(path_batch))
+
+        print('Storing path documents')
+        task_1_refs = []
+        for path_batch_ref in path_batch_refs:
+            task_1_refs.append(store_path_documents.remote(
+                storage_parameters = storage_parameters,
+                data_parameters = data_parameters,
+                path_tuples = path_batch_ref 
+            ))
         
-        #repository_paths = fetch_repository_paths( 
-        #    object_client = object_client,
-        #    data_parameters = data_parameters
-        #)
-
-        #print('Amount of paths: ' + str(len(repository_paths)))
-        #print('Dividing paths between ' + str(worker_number) + ' workers')
-
-        #path_batches = divide_list(
-        #    target_list = repository_paths,
-        #    number = worker_number
-        #)
-
-        #print('Referencing paths')
-        #path_batch_refs = []
-        #for path_batch in path_batches:
-        #    path_batch_refs.append(ray.put(path_batch))
-
-        #print('Storing repository documents')
-        #task_1_refs = []
-        #for path_batch_ref in path_batch_refs:
-        #    task_1_refs.append(store_repository_documents.remote(
-        #        storage_parameters = storage_parameters,
-        #        data_parameters = data_parameters,
-        #        repository_paths = path_batch_ref 
-        #    ))
+        remaining_task_1 = task_1_refs
+        task_1_outputs = []
+        while len(remaining_task_1):
+            done_task_1_refs, remaining_task_1 = ray.wait(remaining_task_1)
+            for output_ref in done_task_1_refs:   
+                task_1_outputs.append(ray.get(output_ref))
         
-        #remaining_task_1 = task_1_refs
-        #task_1_outputs = []
-        #while len(remaining_task_1):
-        #    done, remaining_task_1 = ray.wait(remaining_task_1, num_returns = 1)
-        #    output = ray.get(done[0])
-        #    task_1_outputs.append(output)
-        
-        #print('Documents stored')
+        print('Path documents stored: ' + str(task_1_outputs))
         
         return True
     except Exception as e:

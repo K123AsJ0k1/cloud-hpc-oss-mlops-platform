@@ -13,7 +13,7 @@ def divide_list(
   )
 
 def get_storage_prefix(
-    repository_owner: str,
+    repository_owner: str, 
     repository_name: str
 ) -> str:
     return repository_owner + '|' + repository_name + '|'

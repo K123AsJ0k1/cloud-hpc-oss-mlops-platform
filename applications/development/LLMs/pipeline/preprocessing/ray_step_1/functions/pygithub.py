@@ -36,5 +36,6 @@ def pygithub_get_repo_contents(
       except Exception as e:
         print('Get content error with path ' + str(path))
         print(e)
+        contents.append(None)
     g.close()
     return contents

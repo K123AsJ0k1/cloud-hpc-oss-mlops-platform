@@ -3,56 +3,56 @@
 import ray
 
 from functions.mongo_db import mongo_setup_client
-from functions.pygithub import pygithub_get_path_contents
+from functions.pygithub import pygithub_get_repo_contents
 from functions.mongo_db import mongo_check_collection, mongo_create_document
-from preprocessing.ray_step_1.functions.create import create_markdown_documents, create_python_documents, create_notebook_documents, create_yaml_documents
+from functions.create import create_markdown_documents, create_python_documents, create_notebook_documents, create_yaml_documents
 from functions.utility import divide_list, get_path_database_and_collection
 
-def store_path_documents(
+def store_documents(
     mongo_client: any,
-    database_name: str,
-    collection_name: str,
-    repository_path: str,
-    path_content: any
+    database: str,
+    collection: str, 
+    path: str,
+    content: any
 ):
-    path_split = repository_path.split('/')
+    path_split = path.split('/')
     path_type = path_split[-1].split('.')[-1]
     
     path_documents = {}
     if path_type == 'md':
         try:
             path_documents = create_markdown_documents(
-                markdown_text = path_content
+                markdown_text = content
             )
         except Exception as e:
-            print('Create markdown document error with path: ' + str(repository_path))
+            print('Create markdown document error with path: ' + str(path))
             print(e)
 
     if path_type == 'yaml':
         try:
             path_documents = create_yaml_documents(
-                yaml_text = path_content
+                yaml_text = content
             )
         except Exception as e: 
-            print('Create yaml document error with path: ' + str(repository_path))
+            print('Create yaml document error with path: ' + str(path))
             print(e)
 
     if path_type == 'py':
         try:
             path_documents = create_python_documents(
-                python_text = path_content
+                python_text = content
             )
         except Exception as e:
-            print('Create python document error with path: ' + str(repository_path))
+            print('Create python document error with path: ' + str(path))
             print(e)
 
     if path_type == 'ipynb':
         try:
             path_documents = create_notebook_documents(
-                notebook_text = path_content
+                notebook_text = content
             )
         except Exception as e:
-            print('Create notebook document error with path: ' + str(repository_path))
+            print('Create notebook document error with path: ' + str(path))
             print(e)
     
     if 0 < len(path_documents):
@@ -60,8 +60,8 @@ def store_path_documents(
             for document in docs:
                 result = mongo_create_document(
                     mongo_client = mongo_client,
-                    database_name = database_name,
-                    collection_name = collection_name,
+                    database_name = database,
+                    collection_name = collection,
                     document = document
                 )
         return True
@@ -71,12 +71,13 @@ def store_path_documents(
     num_cpus = 1,
     memory = 5 * 1024 * 1024 * 1024
 )
-def store_repository_documents(
+def store_path_documents(
     storage_parameters: any,
     data_parameters: any,
-    repository_paths: any
+    path_tuples: any
 ) -> bool:
-    print('Storing ' + str(len(repository_paths)) + ' repository documents')
+    amount_of_paths = len(path_tuples)
+    print('Storing documents of ' + str(amount_of_paths) + ' paths')
     document_client = mongo_setup_client(
         username = storage_parameters['mongo-username'],
         password = storage_parameters['mongo-password'],
@@ -87,18 +88,23 @@ def store_repository_documents(
     github_token = data_parameters['github-token']
     repository_owner = data_parameters['repository-owner']
     repository_name = data_parameters['repository-name']
-    batch_number = data_parameters['batch-number']
+    batch_size = data_parameters['batch-size'] 
 
-    divided_paths = divide_list(
-        target_list = repository_paths,
-        number = batch_number
-    )
-    stored = False
-    for path_batch in divided_paths:
-        print('Batch size: ' + str(len(path_batch)))
+    path_batches = divide_list(
+        target_list = path_tuples,
+        number = batch_size
+    ) 
+
+    stored_amount = 0
+    batch_index = 0
+    amount_of_batches = len(path_batches)
+    for path_batch in path_batches:
+        print('Batches processed: ' + str(batch_index) + '/' + str(amount_of_batches))
         new_paths = []
-        for path in path_batch:
-            database_name, collection_name = get_path_database_and_collection(
+        for path_tuple in path_batch:
+            path = path_tuple[0]
+
+            database, collection = get_path_database_and_collection(
                 repository_owner = repository_owner,
                 repository_name = repository_name,
                 path = path
@@ -106,8 +112,8 @@ def store_repository_documents(
             
             collection_exists = mongo_check_collection(
                 mongo_client = document_client, 
-                database_name = database_name, 
-                collection_name = collection_name
+                database_name = database, 
+                collection_name = collection
             )
 
             if not collection_exists:
@@ -117,7 +123,7 @@ def store_repository_documents(
         if 0 < len(new_paths):
             contents = []
             try:
-                contents = pygithub_get_path_contents(
+                contents = pygithub_get_repo_contents( 
                     token = github_token,
                     owner = repository_owner, 
                     name = repository_name, 
@@ -127,21 +133,29 @@ def store_repository_documents(
                 print('PyGithub error')
                 print(e)
 
-            contents_index = 0
-            for path in new_paths:
-                database_name, collection_name = get_path_database_and_collection(
-                    repository_owner = repository_owner,
-                    repository_name = repository_name,
-                    path = path
-                )
+            if 0 < len(contents):
+                contents_index = 0
+                for path in new_paths:
+                    content = contents[contents_index]
 
-                stored = store_path_documents(
-                    mongo_client = document_client,
-                    database_name = database_name,
-                    collection_name = collection_name,
-                    repository_path = path,
-                    path_content = contents[contents_index]
-                )
+                    if not content is None:
+                        database, collection = get_path_database_and_collection(
+                            repository_owner = repository_owner,
+                            repository_name = repository_name,
+                            path = path
+                        )
 
-                contents_index += 1
-    return stored
+                        stored = store_documents(
+                            mongo_client = document_client,
+                            database = database,
+                            collection = collection,
+                            path = path,
+                            content = content
+                        )
+
+                        if stored:
+                            stored_amount += 1
+
+                    contents_index += 1
+        batch_index += 1
+    return stored_amount
