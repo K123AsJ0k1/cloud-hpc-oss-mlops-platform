@@ -10,6 +10,8 @@ def pygithub_get_repo_paths(
     repo = g.get_repo(f"{owner}/{name}")
     contents = repo.get_contents("")
     paths = []
+    # This takes a long time
+    # Consider data pararrelism
     while len(contents) > 0:
       file_content = contents.pop(0)
       if file_content.type == 'dir':

@@ -28,7 +28,10 @@ def store_data(
         print('Getting repository paths')
         
         print('Dividing paths for ' + str(worker_number) + ' workers')
- 
+        # This takes longer than the actual processing
+        # No more than 100 concurrent requests are allowed
+        # https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api
+        # https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api
         path_batches = get_divided_paths( 
             object_client = object_client,
             storage_parameters = storage_parameters,

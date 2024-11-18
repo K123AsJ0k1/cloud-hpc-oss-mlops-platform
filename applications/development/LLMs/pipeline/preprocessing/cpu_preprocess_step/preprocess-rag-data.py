@@ -25,7 +25,7 @@ def preprocess_data(
         worker_number = process_parameters['worker-number']
         
         print('Creating mongo client')
-        mongo_client = mongo_setup_client(
+        document_client = mongo_setup_client(
             username = storage_parameters['mongo-username'],
             password = storage_parameters['mongo-password'],
             address = storage_parameters['mongo-address'],
@@ -34,7 +34,7 @@ def preprocess_data(
         print('Mongo client created')
 
         print('Creating minio client')
-        minio_client = minio_setup_client(
+        object_client = minio_setup_client(
             endpoint = storage_parameters['minio-endpoint'],
             username = storage_parameters['minio-username'],
             password = storage_parameters['minio-password']
@@ -53,7 +53,7 @@ def preprocess_data(
         print('Dividing documents for ' + str(worker_number) + ' workers')
  
         collection_batches = get_divided_collections(
-            document_client = mongo_client,
+            document_client = document_client,
             data_parameters = data_parameters,
             number = worker_number
         )
@@ -67,13 +67,13 @@ def preprocess_data(
         print('Getting data')
 
         vector_identities = get_checked(
-            object_client = minio_client,
+            object_client = object_client,
             storage_parameters = storage_parameters,
             prefix = storage_parameters['vector-identity-prefix']
         )
 
         search_identities = get_checked(
-            object_client = minio_client,
+            object_client = object_client,
             storage_parameters = storage_parameters,
             prefix = storage_parameters['search-identity-prefix']
         )
@@ -122,7 +122,7 @@ def preprocess_data(
         
         print('Storing vector identities')
         store_checked(
-            object_client = minio_client,
+            object_client = object_client,
             storage_parameters = storage_parameters,
             prefix = storage_parameters['vector-identity-prefix'],
             checked = updated_vector_identities 
@@ -130,7 +130,7 @@ def preprocess_data(
 
         print('Storing search identities')
         store_checked(
-            object_client = minio_client,
+            object_client = object_client,
             storage_parameters = storage_parameters,
             prefix = storage_parameters['search-identity-prefix'],
             checked = updated_search_identities
@@ -146,7 +146,7 @@ def preprocess_data(
     except Exception as e:
         print('Preprocess error')
         print(e)
-        return False
+        return False 
 
 if __name__ == "__main__":
     print('Starting ray job')

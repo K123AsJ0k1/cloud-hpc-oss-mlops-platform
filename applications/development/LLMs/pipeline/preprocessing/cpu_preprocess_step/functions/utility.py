@@ -13,7 +13,7 @@ def divide_list(
   return list(
     map(lambda x: target_list[x * size:x * size + size],
     list(range(number)))
-  )
+  ) 
 
 def get_github_storage_prefix(
     repository_owner: str,
