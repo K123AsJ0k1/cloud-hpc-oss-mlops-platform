@@ -8,7 +8,6 @@ head:
     limits:
       cpu: "3"
       memory: "30G"
-      nvshare.com/gpu: "1"
     requests:
       cpu: "3"
       memory: "30G"
@@ -28,7 +27,6 @@ worker:
     limits:
       cpu: "3"
       memory: "30G"
-      nvshare.com/gpu: "1"
     requests:
       cpu: "3"
       memory: "30G"
