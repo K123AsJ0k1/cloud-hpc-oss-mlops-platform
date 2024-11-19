@@ -177,6 +177,39 @@ resources:
     nvshare.com/gpu: 1
 ```
 
+If nvshare is having problems, such as
+
+```
+[NVSHARE][INFO]: nvshare-scheduler started in normal mode
+[NVSHARE][INFO]: Error deleting existing socket `/var/run/nvshare/scheduler.sock'
+[NVSHARE][FATAL]: Condition failed: nvshare_bind_and_listen(&lsock, nvscheduler_socket_path) == 0
+```
+
+It is most likely due to VM update. The general fix is
+
+```
+sudo reboot
+```
+
+If this doesn't work, remove all deployments that use nvshare (recommeded) and delete nvshare
+
+```
+kubectl delete -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/scheduler.yaml
+kubectl delete -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/device-plugin.yaml && \
+kubectl delete -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/nvshare-system-quotas.yaml && \
+kubectl delete -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/nvshare-system.yaml
+```
+
+and install it
+
+```
+kubectl apply -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/nvshare-system.yaml && \
+kubectl apply -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/nvshare-system-quotas.yaml && \
+kubectl apply -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/device-plugin.yaml && \
+kubectl apply -f https://raw.githubusercontent.com/grgalex/nvshare/main/kubernetes/manifests/scheduler.yaml
+```
+
+
 ### CUDA Change
 
 If you use case is having wierd problems, it might be caused by old CUDA, which can be updated with the following:
