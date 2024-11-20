@@ -41,31 +41,40 @@ class Generator:
         batched_chunks = ray.get(batched_chunks_ref)
         batched_embeddings = []
         for tuple in batched_chunks:
-            list_index = tuple[0]
-            chunks = tuple[-1]
-            embeddings = self.embedding_model.embed_documents(
-                texts = chunks
-            )
-            batched_embeddings.append((list_index, embeddings))
+            try: 
+                list_index = tuple[0]
+                chunks = tuple[-1]
+                embeddings = self.embedding_model.embed_documents(
+                    texts = chunks
+                )
+                batched_embeddings.append((list_index, embeddings))
+            except Exception as e:
+                print(e)
         batched_embeddings_ref = ray.put(batched_embeddings)
         return batched_embeddings_ref
     
     def batch_search_keywords(
         self,
-        batched_text_ref: str
+        batched_text_ref: any
     ):  
         batched_text = ray.get(batched_text_ref)
-        keyword_batches = []
-        for text in batched_text:
-            lowered = text.lower()
-            formatted = self.language_model(lowered)
-            keywords = [
-                token.lemma_ for token in formatted
-                if not token.is_stop               
-                and not token.is_punct              
-                and not token.is_space              
-                and len(token) > 1                  
-            ]
-            keywords = list(set(keywords))
-            keyword_batches.append(keywords)
-        return keyword_batches 
+        batched_keywords = []
+        for tuple in batched_text:
+            try: 
+                list_index = tuple[0]
+                text = tuple[-1]
+                lowered = text.lower()
+                formatted = self.language_model(lowered)
+                keywords = [
+                    token.lemma_ for token in formatted
+                    if not token.is_stop               
+                    and not token.is_punct              
+                    and not token.is_space              
+                    and len(token) > 1                  
+                ]
+                keywords = list(set(keywords))
+                batched_keywords.append((list_index, keywords))
+            except Exception as e:
+                print(e)
+        batched_keywords_ref = ray.put(batched_keywords)
+        return batched_keywords_ref

@@ -2,36 +2,19 @@
 
 import ray
 
-from functions.utility import generate_uuid
+from functions.utility import batch_list, generate_uuid
 from functions.documents import get_sorted_documents
 from functions.mongo_db import mongo_setup_client
-from functions.meili_sb import meili_setup_client,meili_add_documents, meili_set_filterable
+from functions.meili_sb import meili_setup_client, meili_add_documents, meili_set_filterable
 
-def create_document_keywords( 
-    actor_ref: any,
+def create_payload(  
     database: str,
     collection: str,
-    document: any,
-    index: int
+    id: any,
+    index: int,
+    type: str,
+    keywords: any
 ) -> any:
-    id = str(document['_id'])
-    type = document['type']
-    data = document['data']
-
-    keywords = []
-    try:
-        # Reduce actor reguests
-        # by making this do batches 
-        # make this also use wait 
-        keywords = ray.get(actor_ref.find_keywords.remote(
-            text = data
-        ))
-    except Exception as e:
-        print(e)
-
-    if 0 == len(keywords):
-        return {}
-    
     keyword_uuid = generate_uuid(
         id = id,
         index = index
@@ -59,16 +42,15 @@ def store_keywords(
     collection_tuples: any,
     given_identities: any
 ):
+    collection_amount = len(collection_tuples)
+    print('Storing keywords of ' + str(collection_amount) + ' collections')
+    
     document_client = mongo_setup_client(
         username = storage_parameters['mongo-username'],
         password = storage_parameters['mongo-password'],
         address = storage_parameters['mongo-address'],
         port = storage_parameters['mongo-port']
     )
-
-    collection_amount = len(collection_tuples)
-    
-    print('Storing keywords of ' + str(collection_amount) + ' collections')
 
     search_client = meili_setup_client(
         api_key = storage_parameters['meili-key'],
@@ -77,7 +59,7 @@ def store_keywords(
     
     collection_prefix = storage_parameters['search-collection-prefix']
     document_identities = given_identities
-    document_index = len(document_identities)
+    keyword_index = len(document_identities)
     collection_number = 1
     for collection_tuple in collection_tuples:
         document_database = collection_tuple[0]
@@ -93,34 +75,68 @@ def store_keywords(
             print(str(collection_number) + '/' + str(collection_amount))
         collection_number += 1
     
-        for document in collection_documents:
-            search_collection = document_database.replace('|','-') + '-' + collection_prefix
-            document_identity = document_database + '-' + document_collection + '-' + str(document['_id'])
+        document_batches = batch_list(
+            target = collection_documents,
+            size = data_parameters['keyword-batch-size'] 
+        )
 
-            if document_identity in document_identities:
-                continue
+        search_collection = document_database.replace('|','-') + '-' + collection_prefix
+
+        keyword_task_refs = []
+        list_index = 0        
+        for document_batch in document_batches:
+            document_batch_text = []
+            for document in document_batch:
+                id = str(document['_id'])
+                document_identity = document_database + '-' + document_collection + '-' + id
+                if not document_identity in document_identities:
+                    document_text = document['data']
+                    document_identities.append(document_identity)
+                    document_batch_text.append((list_index, document_text))
+                    list_index += 1
+                    
+            if 0 < len(document_batch_text):
+                batched_text_ref = ray.put(document_batch_text)
+                keyword_task_refs.append(actor_ref.batch_search_keywords.remote(
+                    batched_text_ref = batched_text_ref
+                ))
         
-            document_keywords = create_document_keywords(
-                actor_ref = actor_ref,
-                database = document_database,
-                collection = document_collection,
-                document = document,
-                index = document_index
-            )
+        list_keywords = []
+        while len(keyword_task_refs):
+            done_task_refs, keyword_task_refs = ray.wait(keyword_task_refs)
+            for output_ref in done_task_refs: 
+                batched_keywords_ref = ray.get(output_ref)
+                batched_keywords = ray.get(batched_keywords_ref)
+                list_keywords.extend(batched_keywords)
         
+        payloads = []
+        for tuple in list_keywords:
+            used_index = tuple[0]
+            document_keywords = tuple[-1]
+            
             if 0 < len(document_keywords):
-                stored = meili_add_documents(
-                    meili_client = search_client,
-                    index_name = search_collection,
-                    documents = document_keywords
+                document = collection_documents[used_index]
+                payload = create_payload(
+                    database = document_database,
+                    collection = document_collection,
+                    id = str(document['_id']),
+                    index = keyword_index,
+                    type = document['type'],
+                    keywords = document_keywords
                 )
+                payloads.append(payload)
+                keyword_index += 1
+        
+        stored = meili_add_documents(
+            meili_client = search_client,
+            index_name = search_collection,
+            documents = payloads
+        )  
 
-                meili_set_filterable(
-                    meili_client = search_client, 
-                    index_name = search_collection, 
-                    attributes = ['keywords']
-                )
-                
-                document_identities.append(document_identity)
-            document_index += 1
+        meili_set_filterable(
+            meili_client = search_client, 
+            index_name = search_collection, 
+            attributes = ['keywords']
+        )
+ 
     return document_identities

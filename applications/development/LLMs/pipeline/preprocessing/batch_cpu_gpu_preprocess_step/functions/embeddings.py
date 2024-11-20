@@ -171,7 +171,7 @@ def store_embeddings(
             embedding_size = data_parameters['embedding-length'] 
         )
         
-        print('Collection ' + str(vector_collection) + ' created: ' + str(created))
+        #print('Collection ' + str(vector_collection) + ' created: ' + str(created))
     
         embedding_task_refs = []
         list_chunks = []
@@ -201,9 +201,9 @@ def store_embeddings(
                     
             if 0 < len(document_batch_chunks):
                 # Might need a release mechanism
-                chunk_batches_ref = ray.put(document_batch_chunks)
+                batched_chunks_ref = ray.put(document_batch_chunks)
                 embedding_task_refs.append(actor_ref.batch_create_embeddings.remote(
-                    batched_chunks_ref = chunk_batches_ref
+                    batched_chunks_ref = batched_chunks_ref
                 ))
                 
         list_embeddings = []
