@@ -88,143 +88,30 @@ def create_point(
     database: str,
     collection: str,
     id: any,
-    index: any,
-    chunk: any,
     embedding: any,
-    existing_hashes: any,
+    index: any,
+    type: str,
+    chunk: any,
+    chunk_hash: any
 ):
     embedding_uuid = generate_uuid(
         id = id,
         index = index
     )
 
-    chunk_hash = generate_hash(
-        chunk = chunk
+    point = PointStruct(
+        id = embedding_uuid, 
+        vector = embedding,
+        payload = {
+            'database': database,
+            'collection': collection,
+            'document': id,
+            'type': type,
+            'chunk': chunk,
+            'chunk_hash': chunk_hash
+        }
     )
-
-    point = None
-    if not chunk_hash in existing_hashes:
-        point = PointStruct(
-            id = embedding_uuid, 
-            vector = embedding,
-            payload = {
-                'database': database,
-                'collection': collection,
-                'document': id,
-                'type': type,
-                'chunk': chunk,
-                'chunk_hash': chunk_hash
-            }
-        )
     return point
-
-#def create_embeddings(
-#    actor_
-#)
-
-#def create_document_embeddings(
-#    actor_ref: any,
-#    vector_client: any,
-#    data_parameters: any,
-#    vector_collection: str,
-#    database: str,
-#    collection: str,
-#    document: any,
-#    index: int
-#) -> bool:
-#    id = str(document['_id'])
-#    type = document['type']
-#    data = document['data']
-
-    #chunks = []
-    #embeddings = []
-    #try:
-    #    created_chunks = []
-    #    if type == 'python':
-    #        used_configuration = data_parameters[type]
-    #        created_chunks = langchain_create_code_chunks(
-    #            language = Language.PYTHON,
-    #            chunk_size = used_configuration['chunk-size'],
-    #            chunk_overlap = used_configuration['chunk-overlap'],
-    #            code = data
-    #        )
-    #    if type == 'text' or type == 'yaml' or type == 'markdown':
-    #        used_configuration = data_parameters[type]
-    #        created_chunks = langchain_create_text_chunks(
-    #            chunk_size = used_configuration['chunk-size'],
-    #            chunk_overlap = used_configuration['chunk-overlap'],
-    #            text = data
-    #        )
-            
-    #    for chunk in created_chunks:
-    #        if chunk.strip() and 2 < len(chunk):
-    #            chunks.append(chunk)
-        
-        # Aim to reduce actor requests
-        # by making this do batch requests 
-        # make this also use wait
-    #    embeddings = ray.get(actor_ref.create_embeddings.remote(
-    #        chunks = chunks
-    #    ))
-    #except Exception as e:
-    #    print(database,collection,id)
-    #    print(e)
-
-    #if 0 == len(chunks) or 0 == len(embeddings):
-    #    return [None, None]
-    
-    #vector_collections = qdrant_list_collections(
-    #    qdrant_client = vector_client
-    #)
-    
-    #if not vector_collection in vector_collections:
-    #    try:
-    #        collection_configuration = VectorParams(
-    #            size = len(embeddings[0]), 
-    #            distance = Distance.COSINE
-    #        )
-    #        collection_created = qdrant_create_collection(
-    #            qdrant_client = vector_client,
-    #            collection_name = vector_collection,
-    #            configuration = collection_configuration
-    #        )
-    #    except Exception as e:
-    #        print(e)
-
-    #embedding_index = index
-    #chunk_index = 0
-    #added_hashes = []
-    #vector_points = []
-    #for chunk in chunks:
-        #embedding_uuid = generate_uuid(
-        #    id = id,
-        #    index = embedding_index
-        #)
-
-        #chunk_hash = generate_hash(
-        #    chunk = chunk
-        #)
-        
-        #if not chunk_hash in added_hashes:
-            #given_vector = embeddings[chunk_index]
-
-            #chunk_point = PointStruct(
-            #    id = embedding_uuid, 
-            #    vector = given_vector,
-            #    payload = {
-            #        'database': database,
-            #        'collection': collection,
-            #        'document': id,
-            #        'type': type,
-            #        'chunk': chunk,
-            #        'chunk_hash': chunk_hash
-            #    }
-            #)
-    #        added_hashes.append(chunk_hash)
-    #        vector_points.append(chunk_point)
-    #    chunk_index += 1
-    #    embedding_index += 1
-    #return [embedding_index, vector_points]
 
 @ray.remote(
     num_cpus = 1,
@@ -235,9 +122,9 @@ def store_embeddings(
     storage_parameters: any,
     data_parameters: any,
     collection_tuples: any,
-    given_identities: any
+    given_identities: any 
 ):
-    collection_amount = len(collection_tuples)
+    collection_amount = len(collection_tuples) 
     print('Storing embeddings of ' + str(collection_amount) + ' collections')
     
     document_client = mongo_setup_client(
@@ -261,7 +148,7 @@ def store_embeddings(
         document_database = collection_tuple[0]
         document_collection = collection_tuple[1] 
         
-        collection_documents = get_sorted_documents(
+        collection_documents = get_sorted_documents( 
             document_client = document_client,
             database = document_database,
             collection = document_collection
@@ -281,26 +168,24 @@ def store_embeddings(
         created = check_collection(
             vector_client = vector_client,
             vector_collection = vector_collection,
-            embedding_size = data_parameters['embedding-length']
+            embedding_size = data_parameters['embedding-length'] 
         )
         
         print('Collection ' + str(vector_collection) + ' created: ' + str(created))
     
-        #chunk_batches_refs = []
-        #embedding_task_tuples = []
-        
         embedding_task_refs = []
-        document_tuples = []
-        document_index = 0
+        list_chunks = []
+        list_index = 0
         for document_batch in document_batches:    
-            chunk_batches = []
+            document_batch_chunks = [] 
             for document in document_batch:
-                document_identity = document_database + '-' + document_collection + '-' + str(document['_id'])
+                id = str(document['_id'])
+                document_identity = document_database + '-' + document_collection + '-' + id
                 if not document_identity in document_identities:
-                    id = str(document['_id'])
                     type = document['type']
                     data = document['data']
-                    chunk = create_chunks(
+
+                    document_chunks = create_chunks(
                         data_parameters = data_parameters,
                         database = document_database,
                         collection = document_collection,
@@ -308,49 +193,67 @@ def store_embeddings(
                         type = type,
                         data = data
                     )
-                    document_tuples.append((
-                        id, type
-                    ))
-                    chunk_batches.append((, chunk))
-                    document_index += 1
+
                     document_identities.append(document_identity)
-            
-            if 0 < len(chunk_batches):
-                chunk_batches_ref = ray.put(chunk_batches)
-                embedding_task_refs.append(actor_ref.batch_create_embeddings(
-                    chunk_batches_ref = chunk_batches_ref
+                    list_chunks.appned(document_chunks)
+                    document_batch_chunks.append((list_index, document_chunks))
+                    list_index += 1
+                    
+            if 0 < len(document_batch_chunks):
+                # Might need a release mechanism
+                chunk_batches_ref = ray.put(document_batch_chunks)
+                embedding_task_refs.append(actor_ref.batch_create_embeddings.remote(
+                    batched_chunks_ref = chunk_batches_ref
                 ))
-                #document_index += 1
-                #chunk_batches_refs.append(chunk_batches_ref)
-        
-        embeddings = []
+                
+        list_embeddings = []
         while len(embedding_task_refs):
             done_task_refs, embedding_task_refs = ray.wait(embedding_task_refs)
-            for output_ref in done_task_refs:
-                embedding_batch = ray.get(output_ref)
-                embeddings.extend(embedding_batch)
+            for output_ref in done_task_refs: 
+                batched_embeddings_ref = ray.get(output_ref)
+                batched_embeddings = ray.get(batched_embeddings_ref)
+                list_embeddings.extend(batched_embeddings)
 
-        #for embedding in embeddings:
-        #    point = create_point(
-        #        database = document_database,
-        #        collection = document_collection,
-        #        id = ,
-        #        index = ,
-        #        chunk = ,
-        #        embedding = embedding,
-        #        existing_hashes = 
-        #    )
+        for tuple in list_embeddings:
+            used_index = tuple[0]
+            document_embeddings = tuple[-1]
+            used_chunks = list_chunks[used_index]
+            points = []
+            added_hashes = []
+            chunk_index = 0
+            for chunk in used_chunks:
+                chunk_hash = generate_hash(
+                    chunk = chunk
+                )
+                if not chunk_hash in added_hashes:
+                    embedding = document_embeddings[chunk_index]
+                    document = collection_documents[used_index]
+                    
+                    point = create_point(
+                        database = document_database,
+                        collection = document_collection,
+                        id = str(document['_id']),
+                        embedding = embedding,
+                        index = embedding_index,
+                        type = document['type'],
+                        chunk = chunk,
+                        chunk_hash = chunk_hash
+                    )
 
+                    points.append(point)
+                    embedding_index += 1
 
-                
-        #    if not output[0] is None:
-        #        if 0 < len(output[-1]):
-        #            # Maybe upsert points in batches to remove timeouts
-        #            points_stored = qdrant_upsert_points( 
-        #                qdrant_client = vector_client, 
-        #                collection_name = vector_collection,
-        #                points = output[-1]
-        #            )
-        #            embedding_index = output[0]
-        #            document_identities.append(document_identity)
+            if 0 < len(points):
+                batched_points = batch_list(
+                    target = points,
+                    size = data_parameters['points-batch-size']
+                )
+
+                for batch_points in batched_points:
+                    points_stored = qdrant_upsert_points( 
+                        qdrant_client = vector_client, 
+                        collection_name = vector_collection,
+                        points = batch_points
+                    )
+
     return document_identities

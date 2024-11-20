@@ -36,24 +36,27 @@ class Generator:
 
     def batch_create_embeddings(
         self,
-        chunk_batches_ref: any
+        batched_chunks_ref: any
     ) -> any:
-        chunk_batches = ray.get(chunk_batches_ref)
-        embedding_batches = []
-        for chunk in chunk_batches:
-            embedding = self.embedding_model.embed_documents(
-                texts = chunk
+        batched_chunks = ray.get(batched_chunks_ref)
+        batched_embeddings = []
+        for tuple in batched_chunks:
+            list_index = tuple[0]
+            chunks = tuple[-1]
+            embeddings = self.embedding_model.embed_documents(
+                texts = chunks
             )
-            embedding_batches.append(embedding)
-        return embedding_batches
+            batched_embeddings.append((list_index, embeddings))
+        batched_embeddings_ref = ray.put(batched_embeddings)
+        return batched_embeddings_ref
     
     def batch_search_keywords(
         self,
-        text_batches_ref: str
+        batched_text_ref: str
     ):  
-        text_batches = ray.get(text_batches_ref)
+        batched_text = ray.get(batched_text_ref)
         keyword_batches = []
-        for text in text_batches:
+        for text in batched_text:
             lowered = text.lower()
             formatted = self.language_model(lowered)
             keywords = [
@@ -65,4 +68,4 @@ class Generator:
             ]
             keywords = list(set(keywords))
             keyword_batches.append(keywords)
-        return keyword_batches
+        return keyword_batches 
