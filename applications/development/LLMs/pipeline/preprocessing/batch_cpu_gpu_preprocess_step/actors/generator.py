@@ -36,9 +36,9 @@ class Generator:
 
     def batch_create_embeddings(
         self,
-        batched_chunks_ref: any
+        batched_chunks: any
     ) -> any:
-        batched_chunks = ray.get(batched_chunks_ref)
+        #batched_chunks = ray.get(batched_chunks_ref)
         batched_embeddings = []
         for tuple in batched_chunks:
             try: 
@@ -55,9 +55,9 @@ class Generator:
     
     def batch_search_keywords(
         self,
-        batched_text_ref: any
+        batched_text: any
     ):  
-        batched_text = ray.get(batched_text_ref)
+        #batched_text = ray.get(batched_text_ref)
         batched_keywords = []
         for tuple in batched_text:
             try: 

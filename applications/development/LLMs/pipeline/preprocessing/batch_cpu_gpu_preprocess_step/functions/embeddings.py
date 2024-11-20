@@ -195,7 +195,7 @@ def store_embeddings(
                     )
 
                     document_identities.append(document_identity)
-                    list_chunks.appned(document_chunks)
+                    list_chunks.append(document_chunks)
                     document_batch_chunks.append((list_index, document_chunks))
                     list_index += 1
                     
@@ -203,7 +203,7 @@ def store_embeddings(
                 # Might need a release mechanism
                 batched_chunks_ref = ray.put(document_batch_chunks)
                 embedding_task_refs.append(actor_ref.batch_create_embeddings.remote(
-                    batched_chunks_ref = batched_chunks_ref
+                    batched_chunks = batched_chunks_ref
                 ))
                 
         list_embeddings = []

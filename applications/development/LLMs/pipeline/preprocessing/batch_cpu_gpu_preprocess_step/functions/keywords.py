@@ -98,7 +98,7 @@ def store_keywords(
             if 0 < len(document_batch_text):
                 batched_text_ref = ray.put(document_batch_text)
                 keyword_task_refs.append(actor_ref.batch_search_keywords.remote(
-                    batched_text_ref = batched_text_ref
+                    batched_text = batched_text_ref
                 ))
         
         list_keywords = []
@@ -125,7 +125,7 @@ def store_keywords(
                     keywords = document_keywords
                 )
                 payloads.append(payload)
-                keyword_index += 1
+                keyword_index += 1 
         
         stored = meili_add_documents(
             meili_client = search_client,
