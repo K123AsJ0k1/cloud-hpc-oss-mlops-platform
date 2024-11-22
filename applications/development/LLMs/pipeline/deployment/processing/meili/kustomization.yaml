@@ -1,4 +1,0 @@
-resources:
-- meili-deployment.yaml
-- meili-service.yaml
-- meili-pvc.yaml

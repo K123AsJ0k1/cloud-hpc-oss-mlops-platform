@@ -1,4 +1,0 @@
-resources:
-- webui-deployment.yaml
-- webui-service.yaml
-- webui-pvc.yaml
