@@ -4,7 +4,7 @@ Welcome to the OSS MLOps Platform, a comprehensive suite designed to streamline 
 
 ![logos.png](resources/img/logos.png)
 
-This fork provides documentation, applications and notebooks on how to enable the OSS platform run in a cloud virtual machine to utilize the Ray computing framework run in a supercomputer. 
+This fork provides documentation, applications, notebooks and demonstrations that show how to make OSS platform run in a cloud virtual machine to use supercomputer resources with Ray. 
 
 The utilized and intended use enviroment is the CSC infrastructure ecosystem with the tested platforms being [CPouta](https://docs.csc.fi/cloud/pouta/) cloud platform, [Allas](https://docs.csc.fi/data/Allas/) object storage platform and [Mahti](https://docs.csc.fi/computing/) supercomputer platform.
 
@@ -13,14 +13,16 @@ The utilized and intended use enviroment is the CSC infrastructure ecosystem wit
 - **Applications**
   - [`Forwarder`](applications/article/forwarder): Self-implemented component that enables cloud-local interactions
   - [`Submitter`](applications/article/submitter): Self-implemented component that enables local-hpc interactions
-  - [`Protype Forwarder`](applications/thesis/porter): A initial implementation of forwarder
+  - [`Protoype Forwarder`](applications/thesis/porter): A initial implementation of forwarder
   - [`Prototype Submitter`](applications/thesis/porter): A initial implementation of submitter
   
 - **Testing**
-  - [`Experiments`](experiments): Collection of notebooks for comparing Fashion MNIST scenarios
+  - [`Experiments`](experiments): Collection of Fashion MNIST scenario notebooks 
   - [`Article experiments`](experiments/article): Scenarios used in a related article
   - [`Thesis experiments`](experiments/thesis): Scenarios used in a related master's thesis
-  - [`Experiment Notes`](experiments/article/README.md): Information regarding article results and Cloud-HPC setup
+  - [`Experiment Notes`](experiments/article/README.md): Information regarding article results
+
+- **Development**
   
 - **Setup Scripts**
   - [`setup.sh`](setup.sh): The primary script to install and configure the platform on your local machine.

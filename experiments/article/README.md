@@ -1,16 +1,16 @@
 # Information Regarding Experiments
 
-## Note on Results
+## Results
 
 The used time results in the article are found in
 
-- local/artifacts/local_metrics.json
-- cloud/artifacts/cloud-metrics.json
-- cloud/times/pipeline_data.json
-- cloud-hpc/times/components-1.json
-- cloud-hpc/times/training-1.json
+- local/artifacts/local_metrics.json (Training time of local-model-training)
+- cloud/artifacts/cloud-metrics.json (Training time of cloud-model-training)
+- cloud/times/pipeline_data.json (Pipeline time of pipeline)
+- cloud-hpc/times/training-1.json (Training time of remote-model-training)
+- cloud-hpc/times/components-1.json (Pipeline time of cloud-hpc-pipeline)
 
-The reason for the 1 and 2 separation in Cloud-HPC integration is due to its unconfigured and configured states. The difference between them that in unconfigured the integration needs to setup Mahti enviroment such as venvs before submitting the Mahti Ray job. The article uses results of 1 in the table, but in general these results are only slightly different.
+Note that local does not use MLOps, which is why it does not have a pipeline time. The reason for the 1 and 2 separation in Cloud-HPC integration is due to its unconfigured and configured states. The difference between them that in unconfigured the integration needs to setup Mahti enviroment such as venvs before submitting the Mahti Ray job. The article uses results of 1 in the table, but in general these results are only slightly different.
 
 The used row results in the article are found in 
 
