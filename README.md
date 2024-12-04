@@ -4,7 +4,7 @@ Welcome to the OSS MLOps Platform, a comprehensive suite designed to streamline 
 
 ![logos.png](resources/img/logos.png)
 
-This fork provides documentation, applications, notebooks and demonstrations that show how to make OSS platform run in a cloud virtual machine to use supercomputer resources with Ray. 
+This fork provides documentation, applications, notebooks and demonstrations that show how to make OSS platform running in a cloud virtual machine to use supercomputer resources with Ray. 
 
 The utilized and intended use enviroment is the CSC infrastructure ecosystem with the tested platforms being [CPouta](https://docs.csc.fi/cloud/pouta/) cloud platform, [Allas](https://docs.csc.fi/data/Allas/) object storage platform and [Mahti](https://docs.csc.fi/computing/) supercomputer platform.
 
