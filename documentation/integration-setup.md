@@ -1,4 +1,4 @@
-# Integrated OSS Platform
+# How to Setup Cloud-HPC Integrated OSS Platform
 
 ## Modifications
 
