@@ -20,9 +20,6 @@ The utilized and intended use enviroment is the CSC infrastructure ecosystem wit
   - [`Experiments`](experiments): Collection of Fashion MNIST scenario notebooks 
   - [`Article experiments`](experiments/article): Scenarios used in a related article
   - [`Thesis experiments`](experiments/thesis): Scenarios used in a related master's thesis
-  - [`Experiment Notes`](experiments/article/README.md): Information regarding article results
-
-- **Development**
   
 - **Setup Scripts**
   - [`setup.sh`](setup.sh): The primary script to install and configure the platform on your local machine.
