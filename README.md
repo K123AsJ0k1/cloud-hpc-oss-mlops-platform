@@ -11,24 +11,29 @@ The utilized and intended use enviroment is the CSC infrastructure ecosystem wit
 ## Overview of Project Structure
 
 - **Applications**
-  - [`Forwarder`](applications/article/forwarder): Self-implemented component that enables cloud-local interactions
-  - [`Submitter`](applications/article/submitter): Self-implemented component that enables local-hpc interactions
-  - [`Protoype Forwarder`](applications/thesis/porter): A initial implementation of forwarder
-  - [`Prototype Submitter`](applications/thesis/porter): A initial implementation of submitter
+  - [`Forwarder`](applications/article/forwarder): Self-implemented component that enables cloud-local interactions.
+  - [`Submitter`](applications/article/submitter): Self-implemented component that enables local-hpc interactions.
+  - [`Protoype Forwarder`](applications/thesis/porter): A initial implementation of forwarder.
+  - [`Prototype Submitter`](applications/thesis/porter): A initial implementation of submitter.
   
 - **Testing**
-  - [`Experiments`](experiments): Collection of Fashion MNIST scenario notebooks 
-  - [`Article experiments`](experiments/article): Scenarios used in a related article
-  - [`Thesis experiments`](experiments/thesis): Scenarios used in a related master's thesis
+  - [`Experiments`](experiments): Collection of Fashion MNIST scenario notebooks.
+  - [`Article experiments`](experiments/article): Scenarios used in a related article.
+  - [`Thesis experiments`](experiments/thesis): Scenarios used in a related master's thesis.
   
 - **Setup Scripts**
   - [`setup.sh`](setup.sh): The primary script to install and configure the platform on your local machine.
+  - [`gpu-setup.sh`](gpu-setup.sh): A modified script that makes the platform suitable for GPUs
   - [`setup.md`](setup.md): Detailed documentation for platform setup and testing procedures.
 
 - **Deployment Resources**
   - [`deployment/`](deployment): Contains Kubernetes deployment manifests and configurations for Infrastructure as Code (IaC) practices.
 
 - **Tutorials and Guides**
+  - [`documentation/`](documentation): A collection of documentation for modifying the platform for CPouta
+    - [`integration-setup`](Integration Setup): A guide that enables cloud-HPC integrated platform in CSC
+    - [`docker-storage`](Docker Storage): A guide to help you increase Docker memory in CPouta
+    - [`gpu-support`](GPU Support): A guide that enables the platform to use GPUs
   - [`tutorials/`](tutorials): A collection of resources to help you understand and utilize the platform effectively.
     - [`local_deployment/`](tutorials/local_deployment): A comprehensive guide for local deployment, including configuration and testing instructions.
     - [`gcp_quickstart/`](tutorials/gcp_quickstart): A guide for a quickstart deployment of the platform to GCP.
