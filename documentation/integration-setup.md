@@ -1,6 +1,6 @@
 # How to Setup Cloud-HPC Integrated OSS Platform
 
-## Modifications
+We will go thorugh the necessery configuration on how to make the OSS MLOps platofrm run in CSC CPouta and utilize Ray clusters run in CSC Mahti. We assume that you start from scratch. Here are the done modifications: 
 
 1. In kubeflow/in-cluster-setup/kubeflow/kustomization.yaml the following components are removed
    - Katib, 
@@ -21,8 +21,6 @@
 7. Grafana image in grafana-deployment.yaml was changed to newest
 8. Forwarder deployment was added
 9. The deployment envs were modified to have the forwarder deployment
-
-## Requirements
 
 In order to use CSC services, you need to create an CSC account, so please check the following official documentation:
 
