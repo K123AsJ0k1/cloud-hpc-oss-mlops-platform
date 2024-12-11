@@ -9,17 +9,6 @@ This fork provides documentation, applications, notebooks and demonstrations tha
 The utilized and intended use enviroment is the CSC infrastructure ecosystem with the tested platforms being [CPouta](https://docs.csc.fi/cloud/pouta/) cloud platform, [Allas](https://docs.csc.fi/data/Allas/) object storage platform and [Mahti](https://docs.csc.fi/computing/) supercomputer platform.
 
 ## Overview of Project Structure
-
-- **Applications**
-  - [`Forwarder`](applications/article/forwarder): Self-implemented component that enables cloud-local interactions.
-  - [`Submitter`](applications/article/submitter): Self-implemented component that enables local-hpc interactions.
-  - [`Protoype Forwarder`](applications/thesis/porter): A initial implementation of forwarder.
-  - [`Prototype Submitter`](applications/thesis/porter): A initial implementation of submitter.
-  
-- **Testing**
-  - [`Experiments`](experiments): Collection of Fashion MNIST scenario notebooks.
-  - [`Article experiments`](experiments/article): Scenarios used in a related article.
-  - [`Thesis experiments`](experiments/thesis): Scenarios used in a related master's thesis.
   
 - **Setup Scripts**
   - [`setup.sh`](setup.sh): The primary script to install and configure the platform on your local machine.
@@ -43,6 +32,17 @@ The utilized and intended use enviroment is the CSC infrastructure ecosystem wit
 
 - **Testing Suite**
   - [`tests/`](tests): A suite of tests designed to ensure the platform's integrity post-deployment.
+
+- **Applications**
+  - [`Forwarder`](applications/article/forwarder): Self-implemented component that enables cloud-local interactions.
+  - [`Submitter`](applications/article/submitter): Self-implemented component that enables local-hpc interactions.
+  - [`Protoype Forwarder`](applications/thesis/porter): A initial implementation of forwarder.
+  - [`Prototype Submitter`](applications/thesis/porter): A initial implementation of submitter.
+  
+- **Experimentation**
+  - [`Experiments`](experiments): Collection of Fashion MNIST scenario notebooks.
+  - [`Article experiments`](experiments/article): Scenarios used in a related article.
+  - [`Thesis experiments`](experiments/thesis): Scenarios used in a related master's thesis.
 
 
 ## Special Instructions for Mac Users
