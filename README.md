@@ -31,9 +31,9 @@ The utilized and intended use enviroment is the CSC infrastructure ecosystem wit
 
 - **Tutorials and Guides**
   - [`documentation/`](documentation): A collection of documentation for modifying the platform for CPouta
-    - [`integration-setup`](Integration Setup): A guide that enables cloud-HPC integrated platform in CSC
-    - [`docker-storage`](Docker Storage): A guide to help you increase Docker memory in CPouta
-    - [`gpu-support`](GPU Support): A guide that enables the platform to use GPUs
+    - [`integration-setup.md`](Integration Setup): A guide that enables cloud-HPC integrated platform in CSC
+    - [`docker-storage.md`](Docker Storage): A guide to help you increase Docker memory in CPouta
+    - [`gpu-support.md`](GPU Support): A guide that enables the platform to use GPUs
   - [`tutorials/`](tutorials): A collection of resources to help you understand and utilize the platform effectively.
     - [`local_deployment/`](tutorials/local_deployment): A comprehensive guide for local deployment, including configuration and testing instructions.
     - [`gcp_quickstart/`](tutorials/gcp_quickstart): A guide for a quickstart deployment of the platform to GCP.
