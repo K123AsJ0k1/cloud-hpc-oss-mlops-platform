@@ -14,10 +14,10 @@ Note that local does not use MLOps, which is why it does not have a pipeline tim
 
 The used row results in the article are found in 
 
-- Notebook_Size_Comparison.ipynb
+- Notebook_Size_Comparison.ipynb (order is local, cloud and cloud-hpc)
 
 The used billing unit results for cloud and cloud-hpc consists of flavor, floating ip and batch job consumption. These are found here
 
-- [CPouta flavors](https://docs.csc.fi/cloud/pouta/vm-flavors-and-billing/): Used flavor is standard.xxlarge
-- [Floating IP](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/): Used by all VMs
+- [CPouta flavors](https://docs.csc.fi/cloud/pouta/vm-flavors-and-billing/): Used flavor is standard.xxlarge with a cost of 8 BU/h
+- [Floating IP](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/): Used by all VMs with a cost of 0.2 BU/h
 - [Batch jobs](https://docs.csc.fi/computing/performance/): Check cloud-hpc/artifacts/seff-1.json
